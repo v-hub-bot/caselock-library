@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bowling Green, Ohio — Data Center Fight Guide | CaseLock Intelligence</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #e6edf3; line-height: 1.7; }
+  .hero { background: linear-gradient(135deg, #0A0F1E 0%, #1a1f3a 100%); padding: 48px 24px; text-align: center; border-bottom: 3px solid #ea580c; }
+  .hero-eyebrow { font-size: 11px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: #ea580c; margin-bottom: 12px; }
+  .hero h1 { font-size: 32px; font-weight: 900; color: white; margin-bottom: 10px; line-height: 1.2; }
+  .hero-sub { font-size: 15px; color: #9ca3af; max-width: 700px; margin: 0 auto 20px; }
+  .urgent-bar { background: #ea580c; color: white; text-align: center; padding: 12px 24px; font-size: 13px; font-weight: 700; letter-spacing: 1px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+  .section { padding: 32px 0; border-bottom: 1px solid #21262d; }
+  .section-label { font-size: 10px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: #ea580c; margin-bottom: 10px; }
+  .section h2 { font-size: 22px; font-weight: 900; color: white; margin-bottom: 14px; }
+  .card { background: #161b22; border-radius: 12px; padding: 20px 24px; margin-bottom: 14px; border-left: 4px solid #ea580c; }
+  .card.green { border-left-color: #16a34a; }
+  .card.yellow { border-left-color: #F59E0B; }
+  .card.blue { border-left-color: #3B82F6; }
+  .card.purple { border-left-color: #7c3aed; }
+  .card.red { border-left-color: #dc2626; }
+  .card-title { font-size: 12px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #9ca3af; margin-bottom: 8px; }
+  .card p { font-size: 13.5px; color: #c9d1d9; line-height: 1.85; }
+  .card ul { font-size: 13.5px; color: #c9d1d9; line-height: 2; padding-left: 18px; margin-top: 6px; }
+  .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 16px 0; }
+  .stat { background: #161b22; border-radius: 10px; padding: 16px; text-align: center; border: 1px solid #30363d; }
+  .stat-num { font-size: 26px; font-weight: 900; color: #ea580c; }
+  .stat-label { font-size: 11px; color: #8b949e; margin-top: 4px; line-height: 1.4; }
+  .action-box { background: #0d2818; border: 2px solid #16a34a; border-radius: 12px; padding: 20px 24px; margin: 16px 0; }
+  .action-box .action-title { font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #16a34a; margin-bottom: 10px; }
+  .action-box p { font-size: 13.5px; color: #d1fae5; line-height: 1.85; }
+  .action-box ul { font-size: 13.5px; color: #d1fae5; line-height: 2.1; padding-left: 18px; margin-top: 6px; }
+  .quote-box { background: #1c2026; border-left: 4px solid #F59E0B; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 14px 0; font-style: italic; font-size: 14px; color: #c9d1d9; line-height: 1.8; }
+  .quote-attr { font-size: 11px; color: #8b949e; margin-top: 6px; font-style: normal; font-weight: 700; }
+  .law-box { background: #0f1923; border: 1px solid #30363d; border-radius: 10px; padding: 16px 20px; margin: 10px 0; }
+  .law-title { font-size: 12px; font-weight: 800; color: #3B82F6; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+  .law-box p { font-size: 13px; color: #c9d1d9; line-height: 1.8; }
+  .win-box { background: #0d2818; border: 2px solid #16a34a; border-radius: 12px; padding: 18px 22px; margin: 12px 0; }
+  .win-label { font-size: 10px; font-weight: 800; color: #16a34a; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+  .deadline-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 14px 0; }
+  .deadline-table th { background: #ea580c; color: white; padding: 10px 14px; text-align: left; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+  .deadline-table td { padding: 10px 14px; border-bottom: 1px solid #21262d; color: #c9d1d9; vertical-align: top; }
+  .deadline-table tr:nth-child(even) td { background: #161b22; }
+  .tag { display: inline-block; background: #21262d; color: #c9d1d9; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin: 2px; letter-spacing: 0.5px; }
+  .tag.red { background: #450a0a; color: #fca5a5; }
+  .tag.green { background: #052e16; color: #86efac; }
+  .tag.blue { background: #0c1d3d; color: #93c5fd; }
+  .footer { background: #161b22; text-align: center; padding: 32px; margin-top: 40px; color: #8b949e; font-size: 12px; }
+  @media(max-width:600px) { .stat-grid { grid-template-columns: 1fr 1fr; } .hero h1 { font-size: 24px; } }
+</style>
+</head>
+<body>
+
+<div class="urgent-bar">🚨 ACTIVE CONSTRUCTION — WOOD COUNTY, OHIO — FIGHT WINDOW IS NOW</div>
+
+<div class="hero">
+  <div class="hero-eyebrow">CaseLock — Community Defense Intelligence</div>
+  <h1>Bowling Green, Ohio<br>Data Center Fight Guide</h1>
+  <p class="hero-sub">$800M Meta facility + 350MW gas plant — built next to your water department — approved without you. Here is every legal tool available to fight back right now.</p>
+</div>
+
+<div class="container">
+
+  <!-- WHAT THEY DID -->
+  <div class="section">
+    <div class="section-label">Section 1 — What Actually Happened</div>
+    <h2>They Built Two Industrial Facilities in Your Backyard. You Were Never Asked.</h2>
+
+    <div class="stat-grid">
+      <div class="stat">
+        <div class="stat-num">$800M</div>
+        <div class="stat-label">Meta investment — 280-acre hyperscale facility, Middleton Township</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">350MW</div>
+        <div class="stat-label">Natural gas power plant — "Apollo" — approved with ZERO public hearings</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">54</div>
+        <div class="stat-label">Private water wells within one mile of the construction site</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">75%</div>
+        <div class="stat-label">Property tax abatement given to Meta — for 15 years — negotiated in secret</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">90 days</div>
+        <div class="stat-label">Total time for Ohio to approve a 350MW gas plant — no hearings, no community vote</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">14</div>
+        <div class="stat-label">Total public comments submitted — all opposed — all ignored</div>
+      </div>
+    </div>
+
+    <div class="card red">
+      <div class="card-title">The Project Was Hidden Under A Code Name</div>
+      <p>Meta's data center was assembled under the shell company <strong>Liames LLC</strong> with the internal code name <strong>"Accordion."</strong> Farmland was quietly acquired. A 75% tax abatement for 15 years was negotiated behind closed doors. Local residents found out years after the process started. Non-disclosure agreements were signed by local officials. This is not unusual — it is standard industry practice in Ohio.</p>
+    </div>
+
+    <div class="card red">
+      <div class="card-title">The Gas Plant Was Auto-Approved — No One Asked For Your Input</div>
+      <p>The Apollo Power Generation Facility was filed November 5, 2025 under Ohio's <strong>"Letter of Notification" expedited review process</strong> — a loophole designed for small power plants serving a single customer. Under <strong>ORC 4906.13(B)</strong>, the Ohio Power Siting Board has sole authority over siting decisions — overriding local zoning. The plant was scheduled to auto-approve February 3, 2026 if no board member raised concerns. No board member did. Construction started February 9, 2026.</p>
+    </div>
+
+    <div class="quote-box">
+      "None of the citizens wanted the data center nor a power plant right next to it. This is very disheartening for our community."
+      <div class="quote-attr">— Wood County resident, official public comment, Ohio Power Siting Board, Jan 2026</div>
+    </div>
+    <div class="quote-box">
+      "We are tired of being ignored and sold out for a quick buck. All allowing these projects will do is make the rich richer, increase utility bills, decrease property values, and result in people just moving away."
+      <div class="quote-attr">— Wood County resident, official public comment, Ohio Power Siting Board, Jan 2026</div>
+    </div>
+    <div class="quote-box">
+      "We give up! You have defeated our attempts to contact you about fast tracking the Apollo Power Generation Facility."
+      <div class="quote-attr">— Wood County resident, final public comment submitted before auto-approval</div>
+    </div>
+  </div>
+
+  <!-- WHAT YOU CAN STILL DO -->
+  <div class="section">
+    <div class="section-label">Section 2 — What You Can Still Do Right Now</div>
+    <h2>Construction Started — But The Fight Is Not Over. Here Are Your Live Options.</h2>
+
+    <div class="card blue">
+      <div class="card-title">⚡ Option 1 — Challenge the Air Permit (ERAC Appeal) — PROVEN PLAYBOOK</div>
+      <p>The City of <strong>Hilliard, Ohio</strong> used this exact strategy against Amazon's data center. They filed an appeal with the <strong>Environmental Review Appeals Commission (ERAC)</strong> — Ohio's independent environmental appeals court — challenging the Ohio EPA's air permit. <strong>The appeal is still active.</strong></p>
+      <ul>
+        <li>The Apollo gas plant must obtain a <strong>Title V Operating Permit</strong> within 12 months of commercial operation</li>
+        <li>Any person or community can challenge that permit at ERAC within <strong>30 days of issuance</strong></li>
+        <li>The 350MW plant qualifies as a <strong>major emission source</strong> — the legal bar for challenge is lower</li>
+        <li>Hilliard's appeal argued the EPA <strong>failed to give proper notice</strong> to local government — same issue may apply here</li>
+        <li>Norwich Township trustees sided with Hilliard citing "unresolved risks to public safety" from gas pipeline proximity to neighborhoods</li>
+      </ul>
+    </div>
+
+    <div class="action-box">
+      <div class="action-title">Action Step — Air Permit Challenge</div>
+      <ul>
+        <li>Contact Middleton Township trustees NOW — request they formally intervene at the OPSB (local governments have automatic right to intervene under Ohio law)</li>
+        <li>File a FOIA request with Wood County for all communications between county officials, Meta/Liames LLC, and any state agency</li>
+        <li>Monitor Ohio EPA for the Title V permit application filing — the 30-day appeal window begins on that date</li>
+        <li>Contact: <strong>Ohio Environmental Review Appeals Commission</strong> — erac.ohio.gov</li>
+        <li>Contact: <strong>FreshWater Accountability Project Ohio</strong> — the nonprofit already tracking this exact project</li>
+      </ul>
+    </div>
+
+    <div class="card blue">
+      <div class="card-title">⚡ Option 2 — Water Withdrawal & Wastewater Permit Challenge</div>
+      <p>The Ohio EPA proposed a new <strong>General NPDES Permit</strong> for data center wastewater discharge. The Great Lakes Environmental Law Center and the Alliance for the Great Lakes formally opposed it, citing hot, contaminated discharge water threatening Ohio waterways. <strong>Ohio Senate Democrats sent a letter to Ohio EPA demanding stronger water use requirements.</strong></p>
+      <ul>
+        <li>Data centers must obtain water withdrawal permits under the <strong>Great Lakes Compact</strong> (ORC 1522) for withdrawals over 100,000 gallons/day — a hyperscale facility far exceeds this</li>
+        <li>Any person can submit comments on NPDES permit applications during the public comment period</li>
+        <li>Challenge basis: inadequate environmental impact review on 54 private wells within one mile</li>
+        <li>The ODNR assessment in the permit stated wells "not expected" to be impacted — that is a legal opinion, not a scientific finding, and can be challenged</li>
+      </ul>
+    </div>
+
+    <div class="card blue">
+      <div class="card-title">⚡ Option 3 — OPSB Rehearing Petition (OAC 4906-2-32)</div>
+      <p>Under <strong>Ohio Administrative Code 4906-2-32</strong>, any affected party can file an application for rehearing within <strong>30 days of a board order.</strong> If the February 3 approval window has passed, the next trigger is any amendment, modification, or new permit filing — which creates a fresh 30-day window. Monitor the OPSB docket for any modifications to the Apollo facility permit.</p>
+    </div>
+
+    <div class="card blue">
+      <div class="card-title">⚡ Option 4 — Sign and Collect the Constitutional Amendment Petition</div>
+      <p>Five Southwest Ohio residents filed a <strong>citizen-initiated constitutional amendment</strong> to ban data centers with aggregate power demand exceeding 25 megawatts. Attorney General Dave Yost certified the petition. <strong>413,000 signatures are needed by July 1, 2026</strong> to put it on the November ballot.</p>
+      <ul>
+        <li>Wood County residents can and should sign — this is a statewide petition</li>
+        <li>Organize a signature drive this weekend — you have 40 days</li>
+        <li>Find the petition: search "Ohio Data Center Constitutional Amendment petition" on ballotpedia.org</li>
+        <li>If the amendment passes in November, it creates a constitutional basis to halt further expansion</li>
+      </ul>
+    </div>
+
+    <div class="action-box">
+      <div class="action-title">Action Step — Petition Drive</div>
+      <p>Wood County has approximately 135,000 residents. Even 5,000 signatures from Wood County is meaningful. Set up a table at the Bowling Green Farmers Market, the BG library, and at every church and school event this weekend. The deadline is July 1.</p>
+    </div>
+
+    <div class="card blue">
+      <div class="card-title">⚡ Option 5 — Demand the Tax Abatement Be Revoked or Renegotiated</div>
+      <p>Meta received a <strong>75% property tax abatement for 15 years</strong>. This was approved by local officials without full public disclosure. Under Ohio law, <strong>Enterprise Zone Agreements and Tax Increment Financing (TIF)</strong> agreements can be challenged or renegotiated if the company fails to meet its community benefit commitments.</p>
+      <ul>
+        <li>File a public records request for the full abatement agreement — it must be a public document</li>
+        <li>Review the community benefit commitments — if Meta fails to meet job creation or infrastructure investment targets, the abatement can be revoked</li>
+        <li>Contact your Wood County Commissioners and demand a public hearing on the abatement terms</li>
+        <li>Ohio is losing an estimated <strong>$143 million per year statewide</strong> in sales tax from data center exemptions — use this number publicly</li>
+      </ul>
+    </div>
+
+    <div class="card blue">
+      <div class="card-title">⚡ Option 6 — Moratorium Push at Middleton Township</div>
+      <p>Cave City, Kentucky passed a <strong>12-month moratorium on data centers 4-1 on May 21, 2026</strong> — 24 hours ago. Carrollton, Ohio passed a similar moratorium April 27. While the Meta facility is already approved, a township moratorium prevents any ADDITIONAL data center applications and sends a powerful political signal that changes the negotiating dynamic.</p>
+      <ul>
+        <li>Attend the next Middleton Township trustee meeting — request it as an agenda item</li>
+        <li>Bring the Cave City, KY resolution as a template</li>
+        <li>A moratorium does not stop Meta — but it stops the next one and forces renegotiation of community benefits on existing projects</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CASE LAW -->
+  <div class="section">
+    <div class="section-label">Section 3 — Legal Precedents & Case Law</div>
+    <h2>Other Communities Have Already Been to Court. Use Their Roadmap.</h2>
+
+    <div class="law-box">
+      <div class="law-title">Hilliard v. Amazon / AEP — Ohio ERAC Appeal (Active, 2025–2026)</div>
+      <p>City of Hilliard filed an appeal with Ohio's Environmental Review Appeals Commission challenging the air permit for Amazon's data center fuel cell system. <strong>Argument: Ohio EPA failed to give proper statutory notice to local government.</strong> The city argued that ORC 4906.13(B) cannot override the constitutional right of municipalities to protect their residents' health and safety. Norwich Township joined as a supporting party. <strong>This case is your direct playbook.</strong></p>
+    </div>
+
+    <div class="law-box">
+      <div class="law-title">ORC 4906.10(A)(6) — "Public Interest, Convenience, and Necessity" Requirement</div>
+      <p>Every Ohio Power Siting Board approval must demonstrate the facility "will serve the public interest, convenience, and necessity." Community members can formally challenge whether a 350MW private gas plant serving one corporation — while sitting next to a municipal water facility — meets this standard. This is the argument that cracked open the Hilliard case.</p>
+    </div>
+
+    <div class="law-box">
+      <div class="law-title">Saline Township, Michigan — Zoning Injunction (2025–2026)</div>
+      <p>Saline Township residents voted down an OpenAI/Oracle data center. Developers went ahead anyway. The township obtained a <strong>temporary restraining order</strong> based on the argument that state economic development authority cannot override local zoning for non-utility private development. The case established that <strong>community consent matters in siting decisions</strong> — even when developers have state approval. Michigan federal court. Cite this in every Ohio filing.</p>
+    </div>
+
+    <div class="law-box">
+      <div class="law-title">Safe Drinking Water Act — 42 U.S.C. § 300f et seq.</div>
+      <p>If any of the 54 wells within one mile of the Apollo facility are private drinking water wells and construction or operation degrades water quality, this creates a <strong>federal cause of action</strong>. The EPA's own permit language states the project is "not expected" to impact wells — but that is a prediction, not a guarantee. Document every change in well water quality with dated photos, lab tests, and written reports. Each documented change is evidence for a federal SDWA claim.</p>
+    </div>
+
+    <div class="law-box">
+      <div class="law-title">Great Lakes Compact — ORC Chapter 1522</div>
+      <p>Ohio is a signatory to the Great Lakes–St. Lawrence River Basin Water Resources Compact. Any water withdrawal exceeding 100,000 gallons per day requires a permit and a finding of no significant adverse impact to the Basin. A hyperscale data center withdrawing millions of gallons daily must comply. <strong>Challenge whether proper Great Lakes Compact review was conducted.</strong> The Alliance for the Great Lakes is already engaged on this issue statewide.</p>
+    </div>
+
+    <div class="law-box">
+      <div class="law-title">NEPA — National Environmental Policy Act (Federal Trigger)</div>
+      <p>If any federal permits, federal funding, federal land, or federal interconnection approvals were involved in this project, <strong>NEPA review is required</strong>. This includes any involvement by FERC (Federal Energy Regulatory Commission) in grid interconnection, any USDA Rural Development funding in the area, or any federal highway/infrastructure impact. File a FOIA with every federal agency that may have touched this project. One federal nexus triggers full NEPA review.</p>
+    </div>
+
+    <div class="law-box">
+      <div class="law-title">Constitutional — Due Process / Notice Requirement</div>
+      <p>The Apollo facility was approved under an "expedited" process that <strong>held no public hearings</strong>. Communities have a due process right to meaningful notice and opportunity to be heard before major industrial facilities affecting their health and safety are sited near their homes. The Hilliard case raises this exact argument. <strong>14 people submitted comments and all were ignored</strong> — that is a fact pattern supporting a procedural due process challenge.</p>
+    </div>
+  </div>
+
+  <!-- OHIO SENATE DEMOCRATS -->
+  <div class="section">
+    <div class="section-label">Section 4 — Your Political Allies Right Now</div>
+    <h2>State and Federal Officials Are Already Engaged. Contact Them Directly.</h2>
+
+    <div class="card green">
+      <div class="card-title">Ohio Senate Democrats — Already On Record</div>
+      <p>Ohio Senate Democrats sent a formal letter to the Ohio EPA demanding stronger water use requirements for data centers. This is your entry point. <strong>Contact your Ohio Senate Democratic caucus member and cite this letter by name.</strong> Request they co-sponsor legislation requiring independent water impact assessments before any data center permit is issued.</p>
+    </div>
+
+    <div class="card green">
+      <div class="card-title">FreshWater Accountability Project Ohio — Already Tracking This Exact Project</div>
+      <p>This nonprofit issued a press release specifically about the Meta/Apollo project in Wood County on February 3, 2026 — the day the gas plant was auto-approved. They are monitoring this. <strong>Contact them immediately.</strong> They can connect you with legal resources, provide technical water analysis, and amplify your case to statewide media.</p>
+    </div>
+
+    <div class="card green">
+      <div class="card-title">Alliance for the Great Lakes — Water Permit Challenge</div>
+      <p>Already filed opposition to Ohio EPA's general data center wastewater permit. They have legal standing, staff attorneys, and a public presence. <strong>Contact them with your water well documentation.</strong> greatlakes.org</p>
+    </div>
+
+    <div class="card green">
+      <div class="card-title">Rep. Alexandria Ocasio-Cortez — Direct Congressional Contact</div>
+      <p>AOC held up brown water from Morgan County, Georgia in a congressional hearing on May 21, 2026 and forced an EPA pledge to investigate. <strong>Send her office your documentation.</strong> She is actively building a national casefile. Wood County evidence strengthens the congressional record. Contact: ocasio-cortez.house.gov</p>
+    </div>
+
+    <div class="card green">
+      <div class="card-title">Bernie Sanders / AOC Data Center Moratorium Bill — March 2026</div>
+      <p>Sanders and AOC introduced legislation in March 2026 to <strong>pause AI data center construction nationally</strong> until environmental protection laws are in place. Your case is direct supporting evidence for this bill. Write to your federal representatives asking them to co-sponsor it. Every documented case of water contamination or procedural bypassing strengthens the bill's chances.</p>
+    </div>
+  </div>
+
+  <!-- EVIDENCE COLLECTION -->
+  <div class="section">
+    <div class="section-label">Section 5 — Build Your Evidence Now</div>
+    <h2>What Every Wood County Resident Should Be Documenting This Week</h2>
+
+    <div class="card yellow">
+      <div class="card-title">Water Testing — Do This Before Construction Disturbs More Groundwater</div>
+      <ul>
+        <li><strong>Test your well water NOW</strong> — get a baseline before further construction</li>
+        <li>Test for: iron, manganese, turbidity, coliform bacteria, heavy metals, pH, conductivity</li>
+        <li>Use a <strong>state-certified lab</strong> — Ohio EPA maintains a list at epa.ohio.gov/divisions/drinking-and-ground-waters</li>
+        <li>Keep dated, signed copies of every result</li>
+        <li>Photograph your water in a clear glass against a white background — date the photo</li>
+        <li>If water changes after construction milestones — document immediately</li>
+        <li>Ask neighbors to test too — multiple affected wells = pattern evidence = legal standing</li>
+      </ul>
+    </div>
+
+    <div class="card yellow">
+      <div class="card-title">Document Air Quality Near the Site</div>
+      <ul>
+        <li>Note any odors, visible emissions, or unusual haze near the construction or gas plant site</li>
+        <li>PurpleAir sensors ($250) provide real-time, court-admissible air quality data — get one near the site</li>
+        <li>The 350MW gas plant is a <strong>major emission source</strong> — 1.45 million pounds of CO₂/day capacity. Document any visible stack emissions with video</li>
+        <li>Schools and parks within 4,000 feet of the site: document proximity with GPS coordinates</li>
+      </ul>
+    </div>
+
+    <div class="card yellow">
+      <div class="card-title">FOIA Everything Now — Before Documents Disappear</div>
+      <ul>
+        <li>Wood County Commissioners — all communications with Meta/Liames LLC from 2020 to present</li>
+        <li>Ohio Power Siting Board — full Apollo docket including the confidential sections Will-Power tried to seal</li>
+        <li>Ohio EPA — all water permit applications and internal review documents for the site</li>
+        <li>Middleton Township — all zoning, permitting, and NDA-related documents</li>
+        <li>Ohio Department of Natural Resources — groundwater well impact assessments</li>
+      </ul>
+    </div>
+
+    <div class="action-box">
+      <div class="action-title">FOIA Template — Ohio Public Records Request</div>
+      <p style="font-family: monospace; font-size: 12px; background: #0d1117; padding: 14px; border-radius: 6px; line-height: 1.9;">
+        Pursuant to the Ohio Public Records Act (ORC § 149.43), I hereby request copies of all records, communications, contracts, agreements, memoranda, emails, and meeting minutes related to the Meta/Liames LLC "Accordion" data center project and the Will-Power "Apollo" Power Generation Facility located in Middleton Township, Wood County, Ohio, from January 1, 2019 to the present date. This request includes but is not limited to: all tax abatement agreements, non-disclosure agreements, water use assessments, groundwater impact studies, and any communications between [agency name] and Meta Platforms, Liames LLC, or Will-Power OH LLC.
+      </p>
+    </div>
+  </div>
+
+  <!-- COMMUNITY ORGANIZING -->
+  <div class="section">
+    <div class="section-label">Section 6 — Organize Now</div>
+    <h2>The 30-Day Action Plan for Wood County</h2>
+
+    <table class="deadline-table">
+      <thead>
+        <tr><th>Timeframe</th><th>Action</th><th>Who</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>This weekend</strong></td>
+          <td>Start water testing for all wells within 1 mile. Set up signature tables for the constitutional amendment petition. Contact FreshWater Accountability Project Ohio.</td>
+          <td>Residents + Neighbors</td>
+        </tr>
+        <tr>
+          <td><strong>Week 1</strong></td>
+          <td>File FOIA requests with Wood County, Middleton Township, Ohio EPA, and OPSB. Contact Alliance for the Great Lakes. Request a Middleton Township trustee meeting on moratorium.</td>
+          <td>Organizers</td>
+        </tr>
+        <tr>
+          <td><strong>Week 2</strong></td>
+          <td>Compile water test results. Meet with a local attorney about ERAC appeal options. Contact Ohio Senate Democratic caucus member about the pending water legislation.</td>
+          <td>Legal team + Residents</td>
+        </tr>
+        <tr>
+          <td><strong>Week 3</strong></td>
+          <td>Present at Middleton Township trustee meeting with moratorium request. Submit formal written comments to Ohio EPA on any open permit periods. Connect with Hilliard's legal team — their ERAC case is your roadmap.</td>
+          <td>Full coalition</td>
+        </tr>
+        <tr>
+          <td><strong>July 1</strong></td>
+          <td><strong style="color: #ea580c;">HARD DEADLINE — Constitutional amendment petition signatures must be submitted.</strong> 413,000 needed statewide. Every Wood County signature counts.</td>
+          <td>Everyone</td>
+        </tr>
+        <tr>
+          <td><strong>Ongoing</strong></td>
+          <td>Monitor Title V air permit application. Monitor NPDES wastewater permit. Document water and air quality continuously. Build the evidence file for federal action.</td>
+          <td>Full coalition</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TALKING POINTS -->
+  <div class="section">
+    <div class="section-label">Section 7 — What To Say</div>
+    <h2>Ready-To-Use Statements for Meetings, Media, and Public Comment</h2>
+
+    <div class="card purple">
+      <div class="card-title">For Township Trustees</div>
+      <p>"This facility was approved through a process that held zero public hearings. The Ohio Power Siting Board auto-approved a 350 megawatt natural gas plant in 90 days. Only 14 people were able to submit comments, and all 14 opposed it. Cave City, Kentucky passed a 12-month moratorium on data centers by a 4-1 vote two days ago. We are asking this board to do the same — to give residents time to understand what is happening to their water and air before any further approvals are made."</p>
+    </div>
+    <div class="card purple">
+      <div class="card-title">For Ohio EPA Comment Periods</div>
+      <p>"There are 54 private water wells within one mile of this construction site. The ODNR assessment states impacts are 'not expected' — that is a prediction, not a guarantee. Morgan County, Georgia residents were also told their water would be safe. On May 21, 2026, a U.S. Congresswoman held up a jar of that community's brown water in a congressional hearing. We demand an independent, third-party hydrogeological assessment of all wells within the impact zone before any operating permit is issued."</p>
+    </div>
+    <div class="card purple">
+      <div class="card-title">For Media</div>
+      <p>"Wood County residents found out their land had been targeted years after the process started — under a code name, through a shell company, with non-disclosure agreements signed by local officials. They were never asked. The gas plant was auto-approved in 90 days with no public hearings. Meanwhile, the same company that built this facility — Meta — is now the subject of a congressional investigation for turning the drinking water brown in Morgan County, Georgia. We want to know what happens to our 54 wells."</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>CaseLock Community Defense Intelligence · <a href="https://v-hub-bot.github.io/caselock-library/" style="color:#3B82F6;">Back to Library</a></p>
+  <p style="margin-top:8px;">Sources: BG Independent News · Ohio Power Siting Board official docket · Signal Ohio · Hilliard Beacon · FreshWater Accountability Project Ohio · Alliance for the Great Lakes · Ballotpedia · Ohio Revised Code · Farm Office OSU · Ohio Capital Journal</p>
+  <p style="margin-top:6px;font-size:11px;">This report is for community education only. It does not constitute legal advice. Consult an Ohio-licensed attorney for case-specific guidance.</p>
+</div>
+
+</body>
+</html>
