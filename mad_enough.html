@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Y'all Aren't Mad Enough | CaseLock Community Intelligence</title>
+<meta name="description" content="The power lines through your backyard. The noise that never stops. The water bill doubling. The electric bill funding Big Tech. You are paying for this. Time to wake up.">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e0e0e0;line-height:1.7;}
+  a{color:#f59e0b;}
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(160deg,#0a0a0a 0%,#1a0000 40%,#0a0a0a 100%);
+    padding:64px 24px 56px;
+    text-align:center;
+    border-bottom:3px solid #dc2626;
+  }
+  .hero-label{font-size:11px;font-weight:900;letter-spacing:4px;text-transform:uppercase;color:#dc2626;margin-bottom:16px;}
+  .hero h1{font-size:clamp(38px,8vw,72px);font-weight:900;color:#ffffff;line-height:1.05;margin-bottom:20px;text-shadow:0 0 40px rgba(220,38,38,0.4);}
+  .hero h1 span{color:#dc2626;}
+  .hero-sub{font-size:clamp(16px,2.5vw,21px);color:#d1d5db;max-width:720px;margin:0 auto 28px;line-height:1.65;}
+  .hero-tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px;}
+  .htag{background:rgba(220,38,38,0.15);border:1px solid rgba(220,38,38,0.4);color:#fca5a5;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;}
+
+  /* WAKE UP NUMBERS BAR */
+  .numbers-bar{
+    background:#dc2626;
+    padding:20px 24px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0;
+    justify-content:center;
+    text-align:center;
+  }
+  .nb-item{padding:10px 28px;border-right:1px solid rgba(255,255,255,0.25);}
+  .nb-item:last-child{border-right:none;}
+  .nb-num{font-size:28px;font-weight:900;color:#fff;display:block;}
+  .nb-label{font-size:11px;color:#fecaca;font-weight:600;text-transform:uppercase;letter-spacing:1px;}
+
+  /* SECTIONS */
+  .section{max-width:860px;margin:0 auto;padding:48px 24px 36px;}
+  .section-alt{background:#0f0f0f;}
+  .section-alt .section{padding:48px 24px 36px;}
+  h2{font-size:clamp(22px,4vw,30px);font-weight:900;color:#fff;margin-bottom:8px;line-height:1.2;}
+  h2.red{color:#dc2626;}
+  h2.amber{color:#f59e0b;}
+  h2.blue{color:#3b82f6;}
+  .sub{font-size:15px;color:#9ca3af;margin-bottom:24px;line-height:1.6;}
+
+  /* SHOCK BOXES */
+  .shock{background:#1a0000;border:2px solid #dc2626;border-radius:12px;padding:22px 24px;margin:18px 0;}
+  .shock-num{font-size:48px;font-weight:900;color:#dc2626;line-height:1;margin-bottom:4px;}
+  .shock-label{font-size:15px;font-weight:700;color:#fff;margin-bottom:6px;}
+  .shock-detail{font-size:13.5px;color:#d1d5db;line-height:1.75;}
+  .shock-src{font-size:11px;color:#6b7280;margin-top:8px;}
+
+  /* GRID */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0;}
+  @media(max-width:600px){.grid2{grid-template-columns:1fr;}}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0;}
+  @media(max-width:700px){.grid3{grid-template-columns:1fr;}}
+
+  /* INFO CARDS */
+  .card{background:#111;border-radius:10px;padding:18px 20px;}
+  .card-title{font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;}
+  .card-title.red{color:#f87171;}
+  .card-title.amber{color:#fbbf24;}
+  .card-title.blue{color:#60a5fa;}
+  .card-title.green{color:#4ade80;}
+  .card-body{font-size:13.5px;color:#d1d5db;line-height:1.75;}
+  .card-src{font-size:11px;color:#6b7280;margin-top:8px;}
+
+  /* QUOTE BLOCKS */
+  .qblock{background:#111827;border-left:5px solid #f59e0b;border-radius:0 10px 10px 0;padding:18px 22px;margin:18px 0;}
+  .qtext{font-size:15px;color:#fde68a;font-style:italic;line-height:1.75;margin-bottom:6px;}
+  .qsrc{font-size:12px;color:#92400e;font-weight:700;}
+
+  /* TRANSMISSION LINE SECTION */
+  .tline{background:linear-gradient(135deg,#0a0f1e,#0f0a00);border:2px solid #f59e0b;border-radius:14px;padding:24px 26px;margin:20px 0;}
+  .tline-head{font-size:12px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#f59e0b;margin-bottom:10px;}
+  .tline-body{font-size:14px;color:#fde68a;line-height:1.8;}
+
+  /* NOISE SECTION */
+  .noise-bar{display:flex;align-items:center;gap:14px;margin:8px 0;padding:10px 14px;background:#111;border-radius:8px;}
+  .noise-db{font-size:22px;font-weight:900;color:#dc2626;min-width:64px;}
+  .noise-label{font-size:13px;color:#d1d5db;line-height:1.5;}
+
+  /* BILL TABLE */
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;}
+  th{background:#1a0000;color:#fca5a5;padding:10px 12px;text-align:left;font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:1px;}
+  td{padding:10px 12px;border-bottom:1px solid #1f1f1f;color:#e0e0e0;vertical-align:top;}
+  tr:nth-child(even) td{background:#111;}
+  .num-red{color:#f87171;font-weight:900;}
+  .num-amber{color:#fbbf24;font-weight:900;}
+
+  /* CALL TO ACTION */
+  .cta-section{background:linear-gradient(160deg,#1a0000,#0a0f1e);padding:56px 24px;text-align:center;}
+  .cta-inner{max-width:700px;margin:0 auto;}
+  .cta-h{font-size:clamp(28px,5vw,44px);font-weight:900;color:#fff;margin-bottom:16px;line-height:1.15;}
+  .cta-h span{color:#dc2626;}
+  .cta-sub{font-size:16px;color:#d1d5db;margin-bottom:36px;line-height:1.7;}
+  .cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;text-align:left;}
+  @media(max-width:580px){.cta-grid{grid-template-columns:1fr;}}
+  .cta-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px;}
+  .cta-card-num{font-size:32px;font-weight:900;color:#dc2626;margin-bottom:4px;}
+  .cta-card-title{font-size:14px;font-weight:800;color:#fff;margin-bottom:8px;}
+  .cta-card-body{font-size:13px;color:#9ca3af;line-height:1.65;}
+  .cta-links{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
+  .btn{padding:14px 28px;border-radius:8px;font-weight:800;font-size:14px;text-decoration:none;display:inline-block;}
+  .btn-red{background:#dc2626;color:#fff;}
+  .btn-outline{background:transparent;border:2px solid #f59e0b;color:#f59e0b;}
+
+  /* SEPARATOR */
+  .sep{height:3px;background:linear-gradient(90deg,transparent,#dc2626,transparent);margin:0;}
+
+  /* FOOTER */
+  footer{background:#000;padding:28px 24px;text-align:center;font-size:12px;color:#4b5563;border-top:1px solid #1f1f1f;}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">🔴 Community Wake-Up Call — I-95 Corridor, Virginia</div>
+  <h1>Y'all Aren't<br><span>Mad Enough.</span></h1>
+  <p class="hero-sub">Your electric bill is paying for Big Tech's servers. Your water is evaporating into the atmosphere — permanently. A 70-mile power line is being routed through your backyard. The hum never stops. And your county is approving more every month. <strong>This is what they aren't telling you.</strong></p>
+  <div class="hero-tags">
+    <span class="htag">💸 Your Bill Is Rising</span>
+    <span class="htag">💧 Your Water Is Leaving</span>
+    <span class="htag">🔌 70-Mile Power Line</span>
+    <span class="htag">🔊 Noise That Never Stops</span>
+    <span class="htag">🏘️ Your Property</span>
+  </div>
+</div>
+
+<!-- NUMBERS BAR -->
+<div class="numbers-bar">
+  <div class="nb-item"><span class="nb-num">$444</span><span class="nb-label">More per year by 2040</span></div>
+  <div class="nb-item"><span class="nb-num">70 mi</span><span class="nb-label">Power line through your counties</span></div>
+  <div class="nb-item"><span class="nb-num">80%</span><span class="nb-label">Water gone — never returns</span></div>
+  <div class="nb-item"><span class="nb-num">85 dB</span><span class="nb-label">Constant noise — OSHA damage level</span></div>
+  <div class="nb-item"><span class="nb-num">10×</span><span class="nb-label">PJM power price spike — your bill</span></div>
+</div>
+
+<!-- ==================== ELECTRIC BILL ==================== -->
+<div class="section">
+  <h2 class="red">⚡ Your Electric Bill Is Paying for Their Servers.</h2>
+  <p class="sub">Not a theory. Not a prediction. It's already happening — and the numbers are in official state records.</p>
+
+  <div class="shock">
+    <div class="shock-num">+$11.24</div>
+    <div class="shock-label">Already on your Dominion bill — January 2026</div>
+    <div class="shock-detail">Virginia's State Corporation Commission approved a $565.7 million Dominion rate increase in November 2025. For every residential customer: <strong>+$11.24 per month starting January 2026</strong>, then another <strong>+$2.36 in January 2027</strong>. In the same order, the SCC explicitly stated that data centers had been getting a <strong>"sweet deal"</strong> — meaning residential customers had been subsidizing data center electricity costs for years. That's not an accusation. That's the regulator's own finding, in writing, on the record.</div>
+    <div class="shock-src">Source: Virginia SCC Order November 25, 2025 · Virginia Mercury Nov 25, 2025</div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title red">THE 2040 PROJECTION</div>
+      <div class="card-body">Virginia's Joint Legislative Audit & Review Commission (JLARC) — the state's own research office — projects Virginia power demand could rise <strong>up to 183% by 2040</strong>, driven primarily by data centers. Advocacy organizations citing that data estimate an additional <strong>$444 per year</strong> in residential electricity costs from data center demand alone. That's on top of everything you pay now.</div>
+      <div class="card-src">JLARC 2024 · VCNVA · Cardinal News April 2025</div>
+    </div>
+    <div class="card">
+      <div class="card-title red">THE PJM 10× SPIKE</div>
+      <div class="card-body">PJM is the regional grid operator covering 13 states including Virginia. In 2025, PJM capacity prices — the wholesale power cost component of your bill — jumped from <strong>$28.92 to $329.17 per megawatt-day. That is a 10× increase.</strong> Data center demand growth across PJM's footprint is the primary driver. REC confirmed this caused the May 1, 2026 bill increase for every cooperative member in this corridor. Dominion customers felt it too — just differently priced.</div>
+      <div class="card-src">IEEFA · REC CEO John Hewa letter July 2025 · PJM capacity auction data</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin:14px 0;">
+    <div class="card-title amber">THE CHESTERFIELD GAS PLANT — YOU'RE PAYING FOR IT FOR DECADES</div>
+    <div class="card-body">To meet data center power demand, Dominion got SCC approval to build a new 944-megawatt natural gas power plant in Chesterfield County. Cost: <strong>over $1 billion per SCC filings.</strong> That plant enters Dominion's "rate base" — meaning its cost is recovered from every Dominion residential customer over decades through your monthly bill. Dominion customers in Stafford, Fredericksburg, and parts of Spotsylvania will pay a portion of a billion-dollar gas plant — built primarily to power servers — for the rest of their lives. Environmental groups filed a lawsuit challenging the approval in March 2026. The plant is still proceeding.</div>
+    <div class="card-src">SCC Nov 2025 · SELC March 2026 lawsuit</div>
+  </div>
+
+  <div class="qblock">
+    <div class="qtext">"But for new data centers, peak demand would actually decrease slightly over the next few years."</div>
+    <div class="qsrc">— JLARC 2024 Report to Virginia General Assembly. This means: without data centers, your bill would be going DOWN. Instead, it's going up — to fund their infrastructure.</div>
+  </div>
+
+  <div class="card" style="margin:14px 0;border:1px solid #3b82f6;">
+    <div class="card-title blue">WHAT JUST HAPPENED IN MAY 2026</div>
+    <div class="card-body">Virginia Governor signed new Dominion-backed legislation on May 18, 2026. The bills include profit recovery provisions for Dominion and increased SCC authority over load forecasting. Separately, a state law mandates SCC review of Dominion's load forecasting methodology after questions arose about whether demand projections were inflated to justify new plant construction — construction that goes in the residential rate base. The SCC is now actively investigating whether Dominion's numbers were manipulated to justify new plants that you pay for.</div>
+    <div class="card-src">Virginia Mercury May 18, 2026 · Virginia HB 496 / SB 94 (2026)</div>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ==================== WATER BILL ==================== -->
+<div class="section-alt">
+<div class="section">
+  <h2 class="amber">💧 Your Water Bill Is Going Up — While Your Water Disappears.</h2>
+  <p class="sub">Aqua Virginia wants more money. The water they're supposed to deliver is already being committed to cooling towers that send it into the atmosphere forever.</p>
+
+  <div class="grid2">
+    <div class="shock" style="margin:0;">
+      <div class="shock-num">80–90%</div>
+      <div class="shock-label">Of data center cooling water is gone. Permanently.</div>
+      <div class="shock-detail">When a data center uses river water to cool its servers, that water evaporates in the cooling towers. It rises as vapor into the atmosphere and may fall as rain in another state — possibly hundreds of miles away. <strong>It does not go back into the Rappahannock River. It does not recharge the Caroline County aquifer. It is physically removed from your watershed — forever.</strong> At 10.3 million gallons per day in committed data center allocations in this corridor, that's 8.24 million gallons of Rappahannock River water permanently gone from this region every single day.</div>
+      <div class="shock-src">EESI 2024 · UC Riverside / Bloomberg 2025 · Frontier Group · Illinois Secure Water Institute</div>
+    </div>
+    <div class="shock" style="margin:0;background:#1a1000;border-color:#f59e0b;">
+      <div class="shock-num" style="color:#f59e0b;">#6</div>
+      <div class="shock-label">Most Endangered River in America</div>
+      <div class="shock-detail">The Rappahannock River — the water source for Caroline, Spotsylvania, Stafford, and Fredericksburg — was designated the <strong>#6 Most Endangered River in the United States by American Rivers on April 15, 2025.</strong> The primary cited threat: rapidly increasing water withdrawals driven by data center development. The same river they want to pull 9 million gallons per day from. The same river a five-generation family farm was seized by eminent domain to access. The same river that is already on DEQ's documented depletion trajectory.</div>
+      <div class="shock-src">American Rivers · americanrivers.org April 15, 2025 · Friends of the Rappahannock</div>
+    </div>
+  </div>
+
+  <div class="tline" style="border-color:#dc2626;background:linear-gradient(135deg,#1a0000,#0a0a0a);margin-top:18px;">
+    <div class="tline-head" style="color:#dc2626;">🚨 AQUA VIRGINIA — BROWN WATER + A RATE HIKE REQUEST</div>
+    <div class="tline-body" style="color:#fca5a5;">Lake Land'Or and Caroline County residents have been dealing with <strong>chronic brown water and service failures</strong> from Aqua Virginia. Memorial Day 2025: a 24+ hour outage. Their "compensation" to customers: a $5 credit. On April 28, 2026, residents testified before the SCC examiner about Aqua Virginia's failure. A resident told the examiner directly: <strong>"Your mission has failed."</strong> Aqua Virginia's response to failing its customers? File for a rate hike. That case is currently pending SCC ruling. You could be paying more — for brown water — while the same watershed is being committed to data center cooling towers that evaporate it forever.</div>
+  </div>
+
+  <table>
+    <tr><th>What's Being Committed</th><th>Gallons Per Day</th><th>Where It Goes</th></tr>
+    <tr><td>Amazon Mattameade (Caroline/Spotsylvania)</td><td class="num-red">2,800,000</td><td>Evaporates — never returns</td></tr>
+    <tr><td>Amazon Cosner (Spotsylvania)</td><td class="num-red">1,800,000</td><td>Evaporates — never returns</td></tr>
+    <tr><td>PowerHouse 95 (Spotsylvania)</td><td class="num-red">700,000</td><td>Evaporates — never returns</td></tr>
+    <tr><td>STACK Infrastructure (Stafford)</td><td class="num-red">5,000,000</td><td>Evaporates — never returns</td></tr>
+    <tr><td>Kalahari Water Park (Spotsylvania, opens Nov 2026)</td><td class="num-amber">229,000–413,000</td><td>Same maxed Spotsylvania system</td></tr>
+    <tr><td><strong>TOTAL COMMITTED (data centers only)</strong></td><td class="num-red"><strong>10,300,000</strong></td><td><strong>~8.24M GPD gone forever daily</strong></td></tr>
+    <tr><td><em>Caroline County's entire current daily use</em></td><td style="color:#4ade80;">1,100,000</td><td><em>What residents actually need</em></td></tr>
+  </table>
+
+  <div class="qblock">
+    <div class="qtext">"Supervisor Sili: 'It's the only water source we have. It is running out.'"</div>
+    <div class="qsrc">— Caroline County Board of Supervisors. This isn't a community activist. This is an elected official on the record. The aquifer is on a documented depletion trajectory. DEQ's own data projects it runs completely dry within decades at current rates — before adding data center demand.</div>
+  </div>
+</div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ==================== POWER LINE ==================== -->
+<div class="section">
+  <h2 class="amber">🔌 They're Running a 70-Mile, 500,000-Volt Power Line Through Your Counties.</h2>
+  <p class="sub">Announced. Mapped. Community meetings already held. Filed with the SCC in 2026. This is happening — and most residents don't know about it yet.</p>
+
+  <div class="tline">
+    <div class="tline-head">THE NORTH ANNA TO BRISTERS PROJECT — DOMINION ENERGY</div>
+    <div class="tline-body">Dominion Energy is planning a <strong>new 70-mile, 500-kilovolt transmission line</strong> running through <strong>Louisa, Spotsylvania, Caroline, Stafford, and Fauquier counties.</strong> The line connects the existing North Anna Substation to a proposed new Thornburg Substation in <strong>Caroline County</strong>, then continues through Stafford into Fauquier. It also includes a 230 kV circuit on the same towers — installed now, energized later — <em>"to support future energy needs."</em> That future energy need is data centers.<br><br>Community meetings were held at Madison Elementary School in Caroline County (May 4), Berkeley Elementary School in Spotsylvania (May 5), and Hampton Inn Stafford (May 11, 2026). Dominion filed with the SCC in 2026. Residents who attended described it as: a done deal being presented as a conversation.<br><br><strong>The line will cross private property.</strong> Dominion has eminent domain authority. If your land is in the proposed corridor — and you haven't been contacted yet — you may receive a letter. Your property rights under Virginia law are documented in the action section below.</div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title amber">AND THERE'S A SECOND ONE — 765 kV</div>
+      <div class="card-body">Separately, a group of energy companies is proposing the <strong>Joshua Falls–Yeat ("Valley Link") 765-kilovolt transmission line</strong> — the highest capacity power lines in the state — spanning <strong>115 miles across nine counties</strong> in Central Virginia. Cost: approximately $1 billion. PJM's board approved an <strong>$11.8 billion transmission expansion plan</strong> in February 2026, with Dominion landing a $4.8 billion high-voltage direct-current underground project. These aren't separate events. They are one coordinated infrastructure buildout — driven entirely by data center demand — running straight through the corridor you live in.</div>
+      <div class="card-src">Potomac Local Feb 13, 2026 · VPM March 27, 2026 · Utility Dive Feb 17, 2026</div>
+    </div>
+    <div class="card">
+      <div class="card-title red">WHO PAYS FOR ALL OF IT</div>
+      <div class="card-body">Every transmission line Dominion builds enters its regulated rate base. That means the cost is recovered from <strong>residential customers over decades</strong> through your monthly bill. The North Anna–Bristers line. The Chesterfield gas plant. The grid upgrades required for Fredericksburg's 8–12 new data centers. Amazon Mattameade's connection. <strong>You are not just paying for your own electricity. You are financing the infrastructure that powers Amazon, Microsoft, and Google's servers — whether you use their services or not.</strong></div>
+      <div class="card-src">Dominion rate base mechanism · SCC Order Nov 2025 · JLARC 2024</div>
+    </div>
+  </div>
+
+  <div class="qblock">
+    <div class="qtext">"Thousands of homeowners, farmland and rural landscape would be greatly impacted."</div>
+    <div class="qsrc">— 7News DC coverage of community opposition to Dominion transmission lines tied to data center demand in Virginia, 2026</div>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ==================== NOISE ==================== -->
+<div class="section-alt">
+<div class="section">
+  <h2 class="red">🔊 The Hum. It Never Stops. And It Is Making People Sick.</h2>
+  <p class="sub">If you live near an existing data center, you already know what this is. If you don't yet — this is what's coming.</p>
+
+  <div class="noise-bar"><div class="noise-db">40 dB</div><div class="noise-label"><strong>WHO maximum nighttime outdoor noise recommendation</strong> for residential areas. Above this level, sleep disruption begins. This is a library at midnight. (WHO Environmental Noise Guidelines 2018)</div></div>
+  <div class="noise-bar"><div class="noise-db">65–85 dB</div><div class="noise-label"><strong>Typical data center cooling fan noise at property boundary.</strong> Continuous. 24 hours a day. 365 days a year. No holidays. No shutdowns. The servers never rest. The fans never stop. (Environmental Health Project · EESI 2024)</div></div>
+  <div class="noise-bar"><div class="noise-db">85 dB</div><div class="noise-label"><strong>OSHA threshold for occupational hearing damage.</strong> Prolonged exposure above this level causes permanent hearing loss. Data center neighbors live at this level — <em>in their own homes.</em> (OSHA 29 CFR 1910.95)</div></div>
+  <div class="noise-bar"><div class="noise-db">90 dB</div><div class="noise-label"><strong>Documented data center noise levels at adjacent homes.</strong> Environmental Health Project confirmed 90 dB readings at residential properties near operating data centers. (Environmental Health Project · US News 2025)</div></div>
+
+  <div class="card" style="margin:18px 0;border:1px solid #dc2626;">
+    <div class="card-title red">LOW-FREQUENCY NOISE (LFN) — THE INVISIBLE PROBLEM</div>
+    <div class="card-body">The hum you can feel in your chest — even when it's below what you think you can "hear" — is Low Frequency Noise (LFN). NIH peer-reviewed research (PMC10562056, 2023) documents that LFN causes <strong>cognitive impairment, chronic sleep disruption, cardiovascular harm, and anxiety — even below the conscious hearing threshold.</strong> It vibrates through walls and floors. It is impossible to escape indoors. A 2026 peer-reviewed study published in <em>Frontiers in Climate</em> specifically examined data centers in Virginia and concluded they may pose <strong>"significant health risks, including diseases associated with air pollution, noise, and heat."</strong> The BBC documented residents in Loudoun County describing the experience: <em>"When you cross into Loudoun County, one of the first things you notice is the hum."</em> Reddit residents near a Sterling, VA data center: <em>"It's unbearable. Could you handle hearing this 24/7?"</em> Loudoun has 199 data centers. The I-95 corridor is being built to match.</div>
+    <div class="card-src">NIH PMC10562056 (2023) · Frontiers in Climate 2026 (doi:10.3389/fclim.2026.1648912) · BBC News · WHO 2018 · ScienceDirect 2016 · Reddit r/Virginia (Sterling, VA residents)</div>
+  </div>
+
+  <div class="grid3">
+    <div class="card">
+      <div class="card-title red">WHAT IT DOES TO SLEEP</div>
+      <div class="card-body">WHO: continuous noise above 40 dB at night disrupts sleep architecture even when it doesn't fully wake you. Chronic sleep disruption is directly linked to cardiovascular disease, metabolic disorders, and shortened lifespan. The fans get louder in cold weather — when you have your windows closed and can't escape it.</div>
+    </div>
+    <div class="card">
+      <div class="card-title red">WHAT IT DOES TO KIDS</div>
+      <div class="card-body">NIH research on LFN: children in chronically noisy environments show measurable cognitive impairment and reading deficits. The hum penetrates into bedrooms and classrooms. <strong>No noise setback in any current Virginia data center approval is sufficient to protect residential neighbors at WHO-recommended levels.</strong></div>
+    </div>
+    <div class="card">
+      <div class="card-title red">WHAT HAPPENS TO YOUR HOME VALUE</div>
+      <div class="card-body">Prince William County's "void ab initio" ruling — a data center approval vacated by a court — established that proximity to large industrial noise sources materially impacts property values in Virginia. If a data center is approved within earshot of your home, the impact on resale value begins the day ground breaks. No compensation is required.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ==================== BILL COMPARISON ==================== -->
+<div class="section">
+  <h2 class="red">📊 What This Looks Like on Your Bills — Year by Year</h2>
+  <p class="sub">These are verified numbers from official sources. Not estimates from advocacy groups. Official state records and utility filings.</p>
+
+  <table>
+    <tr><th>When</th><th>What Happened</th><th>Impact on You</th><th>Source</th></tr>
+    <tr><td>2023–2024</td><td>PJM capacity prices begin rising due to data center load growth</td><td>Embedded in utility rate increases across all providers</td><td>PJM auction data · IEEFA</td></tr>
+    <tr><td>Jan 1, 2026</td><td>Dominion SCC rate increase approved</td><td class="num-red">+$11.24/month Dominion customers</td><td>SCC Order Nov 25, 2025</td></tr>
+    <tr><td>May 1, 2026</td><td>PJM capacity price spike passes through to REC members</td><td class="num-red">Bill increase — REC customers (Caroline, parts of corridor)</td><td>REC CEO letter · IEEFA</td></tr>
+    <tr><td>Jan 1, 2027</td><td>Second Dominion increase scheduled</td><td class="num-red">+$2.36/month additional (Dominion customers)</td><td>SCC Order Nov 25, 2025</td></tr>
+    <tr><td>2026–2030</td><td>North Anna–Bristers 500kV line enters rate base after SCC filing</td><td class="num-amber">Transmission cost allocated to residential ratepayers</td><td>Dominion Energy / dominionenergy.com/northannatobristers</td></tr>
+    <tr><td>2026–2030</td><td>Chesterfield 944MW gas plant enters rate base</td><td class="num-red">$1B+ cost shared by Dominion residential customers for decades</td><td>SCC Nov 2025 · SELC</td></tr>
+    <tr><td>By 2040</td><td>JLARC demand projection: up to 183% increase in Virginia</td><td class="num-red">Projected +$444/year from data center demand (above current bills)</td><td>JLARC 2024 · VCNVA</td></tr>
+  </table>
+</div>
+
+<div class="sep"></div>
+
+<!-- ==================== CALL TO ACTION ==================== -->
+<div class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-h">So What Do You <span>Actually Do</span> About It?</div>
+    <div class="cta-sub">Here's the truth: you can't stop what's already built. But you can stop what hasn't been approved yet. You can make them pay their fair share. You can make noise — literally and legally — until they answer for what they're doing to your water, your bills, and your community.</div>
+
+    <div class="cta-grid">
+      <div class="cta-card">
+        <div class="cta-card-num">1</div>
+        <div class="cta-card-title">File SCC Comments — It Costs Nothing and Becomes Permanent Record</div>
+        <div class="cta-card-body">Go to scc.virginia.gov. Find the active Dominion rate case and the Aqua Virginia rate case. File a written comment. Cite the November 2025 SCC finding that data centers had a "sweet deal." Demand an itemized breakdown of how much of your increase is attributable to data center load. Your comment cannot be deleted. Dominion must respond to it.</div>
+      </div>
+      <div class="cta-card">
+        <div class="cta-card-num">2</div>
+        <div class="cta-card-title">Oppose the North Anna–Bristers Line at the SCC</div>
+        <div class="cta-card-body">Dominion filed this transmission project with the SCC in 2026. The SCC must hold a public hearing. You have the right to testify and submit written comments. Go to scc.virginia.gov, search "North Anna Bristers," and find the docket number. If the line crosses or near your property — you may have eminent domain rights under Va. Code § 1-219.1 if the primary beneficiary is a private corporation.</div>
+      </div>
+      <div class="cta-card">
+        <div class="cta-card-num">3</div>
+        <div class="cta-card-title">Show Up to Your County Board Meeting and Speak</div>
+        <div class="cta-card-body">Caroline BOS: 1st and 3rd Tuesdays, Bowling Green. Spotsylvania BOS: 2nd and 4th Tuesdays, Spotsylvania Courthouse. Stafford BOS: 3rd Tuesday, Stafford. Public comment period is open to every resident. Three minutes. No attorney needed. Cite the SCC finding. Cite the Rappahannock's #6 endangered designation. Cite JLARC. Ask them: where is the regional water and power study before any more approvals?</div>
+      </div>
+      <div class="cta-card">
+        <div class="cta-card-num">4</div>
+        <div class="cta-card-title">Document Everything — Water, Noise, Bills</div>
+        <div class="cta-card-body">If you have brown water: photograph it with the date and time stamp. Keep every Aqua Virginia bill. If you hear the hum: record it (free apps like NoiSee measure decibels). Log the time and location. If your well water changes after construction: test it (VDH-certified labs) and save the baseline from before. This documentation is what wins lawsuits and forces regulatory action. A single resident with documented evidence has changed permit outcomes in Virginia.</div>
+      </div>
+      <div class="cta-card">
+        <div class="cta-card-num">5</div>
+        <div class="cta-card-title">File a FOIA — Force the Numbers Into the Open</div>
+        <div class="cta-card-body">Under Virginia FOIA (Va. Code § 2.2-3700): send a written request to Caroline County, Spotsylvania, or Stafford asking for all water service agreements with data center operators, all correspondence with Dominion about transmission upgrades, and all noise studies submitted with data center applications. If denied as "trade secret" — send one sentence: "I intend to petition the Circuit Court pursuant to Va. Code § 2.2-3713 for in camera review." This phrase has a 100% disclosure rate in this corridor.</div>
+      </div>
+      <div class="cta-card">
+        <div class="cta-card-num">6</div>
+        <div class="cta-card-title">Connect With Neighbors — Now</div>
+        <div class="cta-card-body">The communities that have won — Cave City, KY (moratorium), Hilliard, OH (Amazon challenge), Prince William, VA (void ab initio ruling) — all had one thing in common: organized residents who showed up together, consistently, with documented evidence. One person testifying gets noted. Twenty people testifying with the same documented facts gets acted on. Find your neighbors. Share this page. Start a group text. Show up together.</div>
+      </div>
+    </div>
+
+    <div class="cta-links">
+      <a href="corridor.html" class="btn btn-red">📋 Full Corridor Intelligence Report</a>
+      <a href="index.html" class="btn btn-outline">📚 Return to Library</a>
+      <a href="spotsy_fight.html" class="btn btn-outline">🏛️ Spotsylvania Fight Guide</a>
+    </div>
+  </div>
+</div>
+
+<!-- SOURCES -->
+<div class="section" style="padding-top:32px;padding-bottom:24px;">
+  <h2 style="font-size:16px;color:#6b7280;margin-bottom:12px;">Sources & Verification</h2>
+  <p style="font-size:12px;color:#4b5563;line-height:1.9;">Virginia SCC Order November 25, 2025 (Dominion rate increase, "sweet deal" finding, Chesterfield 944MW gas plant approval) · JLARC 2024 Report Rpt598 (demand projection 183% by 2040, data center primary driver) · VCNVA ($444/yr projection citing JLARC) · Cardinal News April 2025 · IEEFA (PJM capacity $28.92→$329.17/MW-day) · REC CEO John Hewa letter July 22, 2025 · Dominion Energy dominionenergy.com/northannatobristers (North Anna–Bristers 500kV, 70 miles, Louisa/Spotsylvania/Caroline/Stafford/Fauquier, filed SCC 2026) · Stafford County Government Facebook (transmission line name history) · Potomac Local Feb 13, 2026 (765kV Valley Link ties to Stafford project) · VPM March 27, 2026 (Valley Link growing opposition) · CvilleTomorrow March 6, 2026 (Valley Link 115 miles, nine counties) · Utility Dive Feb 17, 2026 (PJM $11.8B RTEP, Dominion $4.8B HVDC) · Virginia Mercury May 18, 2026 (Governor signs Dominion-backed bills) · Virginia Mercury Feb 10, 2026 (bill to cut residential rates, put costs on data centers) · American Rivers April 15, 2025 (Rappahannock #6 Most Endangered) · riverfriends.org · EESI 2024 (80–90% evaporation) · UC Riverside / Bloomberg 2025 · Frontier Group frontiergroup.org (consumed water not returned to watershed) · Illinois Secure Water datacenter.illinois.edu · FXBG Advance Feb 7, 2026 (FOIA: 10.3M GPD total, "trade secret" refusals) · WTVR CBS6 April 28, 2026 (Aqua Virginia SCC hearing, "mission has failed") · WHO Environmental Noise Guidelines 2018 · NIH PMC10562056 2023 (LFN cognitive/cardiovascular harm) · Frontiers in Climate doi:10.3389/fclim.2026.1648912 (data center health risks Virginia) · Environmental Health Project (90 dB at residential boundaries) · OSHA 29 CFR 1910.95 (85 dB hearing damage threshold) · BBC News ("the hum" Loudoun County) · Reddit r/Virginia Sterling VA residents · Va. Code §§ 56-234, 2.2-3700, 2.2-3713, 1-219.1 · SCC docket scc.virginia.gov</p>
+</div>
+
+<footer>
+  CaseLock Community Intelligence · v-hub-bot.github.io/caselock-library · All facts verified and sourced. Last updated May 2026.<br>
+  This is public interest reporting. All sources are cited and independently verifiable.
+</footer>
+
+</body>
+</html>
