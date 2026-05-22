@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lockport, IL — Full Data Center Defense Guide | CaseLock Community Intelligence</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#f4f6f9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a2e;line-height:1.75;font-size:15px;}
+.hero{background:linear-gradient(160deg,#0A0F1E 0%,#1a0505 50%,#0a1020 100%);color:white;padding:52px 24px 44px;text-align:center;}
+.hero .badge{display:inline-block;background:#dc2626;color:white;font-weight:800;font-size:11px;letter-spacing:1.5px;padding:6px 18px;border-radius:20px;margin-bottom:16px;text-transform:uppercase;}
+.hero h1{font-size:clamp(26px,5vw,46px);font-weight:900;line-height:1.1;margin-bottom:12px;}
+.hero h1 span{color:#F59E0B;}
+.hero .sub{font-size:15px;opacity:.88;max-width:720px;margin:0 auto 18px;line-height:1.75;}
+.hero .when{background:rgba(245,158,11,.18);border:1px solid #F59E0B;border-radius:8px;display:inline-block;padding:10px 24px;font-size:14px;font-weight:700;color:#F59E0B;margin-top:8px;}
+.container{max-width:920px;margin:0 auto;padding:0 16px;}
+.sec{background:white;border-radius:14px;padding:28px 32px;margin:18px 0;box-shadow:0 2px 14px rgba(0,0,0,.08);}
+.sec-hdr{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+.c-red{color:#dc2626;} .c-blue{color:#1e40af;} .c-amber{color:#d97706;} .c-green{color:#059669;} .c-purple{color:#7c3aed;} .c-teal{color:#0891b2;}
+.sec h2{font-size:21px;font-weight:900;color:#0A0F1E;margin-bottom:14px;line-height:1.3;}
+.sec h3{font-size:15px;font-weight:800;color:#0A0F1E;margin:20px 0 8px;}
+.sec p{font-size:14px;color:#374151;margin-bottom:10px;line-height:1.78;}
+.sec ul{margin:8px 0 14px 20px;}
+.sec li{font-size:14px;color:#374151;margin-bottom:6px;line-height:1.7;}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:14px 0 18px;}
+th{background:#0A0F1E;color:white;padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.5px;}
+td{padding:10px 12px;border-bottom:1px solid #f0f0f0;vertical-align:top;line-height:1.65;}
+tr:nth-child(even) td{background:#f9fafb;}
+.alert{border-radius:10px;padding:16px 20px;margin:14px 0;font-size:13.5px;line-height:1.72;}
+.a-red{background:#fff5f5;border-left:5px solid #dc2626;color:#7f1d1d;}
+.a-red strong{color:#dc2626;}
+.a-amber{background:#fffbeb;border-left:5px solid #F59E0B;color:#78350f;}
+.a-amber strong{color:#b45309;}
+.a-green{background:#f0fdf4;border-left:5px solid #059669;color:#065f46;}
+.a-green strong{color:#047857;}
+.a-blue{background:#eff6ff;border-left:5px solid #3B82F6;color:#1e3a8a;}
+.a-blue strong{color:#1d4ed8;}
+.a-dark{background:#0A0F1E;color:rgba(255,255,255,.9);border-left:5px solid #F59E0B;}
+.a-dark strong{color:#F59E0B;}
+.law-box{border:1px solid #e5e7eb;border-radius:10px;padding:18px;margin:12px 0;}
+.law-box .lt{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;}
+.law-box .ln{font-weight:900;font-size:15px;color:#0A0F1E;margin-bottom:2px;}
+.law-box .lc{font-family:monospace;font-size:12px;color:#6b7280;margin-bottom:8px;}
+.law-box p{font-size:13px;color:#374151;margin-bottom:6px;}
+.law-box .use{display:inline-block;font-size:11px;font-weight:700;color:white;padding:3px 10px;border-radius:4px;margin-top:6px;margin-right:4px;}
+.script{background:#1e293b;color:#e2e8f0;border-radius:10px;padding:20px 24px;margin:14px 0;font-size:13.5px;line-height:1.85;font-style:italic;}
+.script .slbl{display:block;font-style:normal;font-weight:800;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#F59E0B;margin-bottom:10px;}
+.step{display:flex;gap:16px;margin-bottom:22px;align-items:flex-start;}
+.snum{flex-shrink:0;width:44px;height:44px;border-radius:50%;background:#0A0F1E;color:white;font-weight:900;font-size:18px;display:flex;align-items:center;justify-content:center;}
+.scon h3{font-size:15px;font-weight:800;margin-bottom:6px;color:#0A0F1E;}
+.scon p{font-size:13.5px;color:#374151;margin-bottom:6px;line-height:1.72;}
+.tip{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;padding:10px 14px;font-size:13px;color:#065f46;margin-top:6px;line-height:1.72;}
+.warn{background:#fff7ed;border:1px solid #fed7aa;border-radius:6px;padding:10px 14px;font-size:13px;color:#9a3412;margin-top:6px;line-height:1.72;}
+.cite{font-size:11px;color:#9ca3af;font-style:italic;margin-top:6px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0;}
+@media(max-width:580px){.grid2{grid-template-columns:1fr;}}
+.stat-box{background:#0A0F1E;color:white;border-radius:12px;padding:20px;text-align:center;}
+.stat-box .num{font-size:clamp(22px,4vw,32px);font-weight:900;color:#F59E0B;line-height:1.1;margin-bottom:6px;}
+.stat-box .lbl{font-size:12px;opacity:.82;line-height:1.4;}
+.verdict{display:inline-block;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:4px;}
+.v-win{background:#dcfce7;color:#166534;}
+.v-lose{background:#fee2e2;color:#991b1b;}
+.v-mixed{background:#fef3c7;color:#92400e;}
+.footer{text-align:center;font-size:11px;color:#9ca3af;margin:40px 0 20px;border-top:1px solid #e5e7eb;padding-top:16px;}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="badge">🛡️ CaseLock — Community Defense Intelligence — Lockport, IL</div>
+  <h1>No Data Centers<br><span>in Lockport.</span></h1>
+  <p class="sub">The complete legal, scientific, and strategic guide for Lockport residents fighting the Star Innovation District data center proposal. State law. County law. Case law. Water science. What to say tonight.</p>
+  <div class="when">⚡ WORKSHOP #1 — TONIGHT, MAY 26, 2026 · 7:00 PM · LTHS Auditorium · 1333 E. 7th Street</div>
+</div>
+
+<div class="container">
+
+<!-- SITUATION BRIEF -->
+<div class="sec" style="border-top:4px solid #dc2626;margin-top:24px;">
+  <div class="sec-hdr c-red">SITUATION BRIEF — WHAT IS ACTUALLY HAPPENING</div>
+  <h2>What Lockport City Hall Is Not Leading With</h2>
+  <p>In 2021, the City of Lockport purchased the <strong>Star Innovation District</strong> — the southern portion of the former Texaco/Chevron refinery site. In 2022, data centers were listed as a "supported use" in the master plan. Now, in 2026, as data centers have become deeply controversial nationwide, the City is holding a series of "workshops" — framed as neutral education — to build community consensus for a data center development on that site.</p>
+  <div class="alert a-amber">
+    <strong>⚠️ What "workshops" actually mean:</strong> Lockport's own announcement says the goal is to discuss "if there are criteria that the community could establish that would make a data center or industrial technology a viable use in the District." The frame is not whether — it's how. Tonight is your best and earliest chance to put a hard NO on the record before any permit, annexation, or zoning vote happens.
+  </div>
+  <div class="grid2">
+    <div class="stat-box"><div class="num">795 acres</div><div class="lbl">Size of Joliet's approved data center — just miles away. Largest in Illinois history.</div></div>
+    <div class="stat-box"><div class="num">2030</div><div class="lbl">Year Lockport's Cambrian-Ordovician aquifer is projected to be unable to meet demand without new sources.</div></div>
+    <div class="stat-box"><div class="num">3M gal/day</div><div class="lbl">Water a single mid-size data center uses — equal to 10,000 homes daily.</div></div>
+    <div class="stat-box"><div class="num">85%</div><div class="lbl">Of that water that evaporates and never returns to your aquifer. Gone permanently.</div></div>
+  </div>
+</div>
+
+<!-- WATER SECTION -->
+<div class="sec" style="border-top:4px solid #0891b2;">
+  <div class="sec-hdr c-teal">WATER — THE CRISIS UNDER YOUR FEET</div>
+  <h2>💧 Lockport's Aquifer Is Already Running Out — A Data Center Accelerates That</h2>
+
+  <div class="alert a-red">
+    <strong>VERIFIED FACT — Chicago Tribune, May 2025:</strong> Officials with Elwood, Lemont, <strong>Lockport</strong>, Manhattan, and Morris acknowledged their communities are on the Cambrian-Ordovician aquifer — and that Lockport is already exploring a future transition to Lake Michigan water because the aquifer cannot sustainably meet long-term demand.
+  </div>
+
+  <h3>The Cambrian-Ordovician Aquifer — Lockport's Water Source</h3>
+  <table>
+    <tr><th>FACT</th><th>VERIFIED DATA</th><th>SOURCE</th></tr>
+    <tr><td><strong>Water level drop</strong></td><td>Levels have declined <strong>up to 1,000 feet</strong> in parts of NE Illinois since pre-industrial pumping began</td><td>Illinois State Geological Survey / USGS ArcGIS Story Map</td></tr>
+    <tr><td><strong>2030 crisis point</strong></td><td>The Cambrian-Ordovician aquifer serving Will, Kendall, Kane, and McHenry counties is projected to <strong>not be able to meet demand by 2030</strong></td><td>Illinois State Water Survey (ISWS), University of Illinois blog</td></tr>
+    <tr><td><strong>Joliet already switching</strong></td><td>Joliet built a 31-mile Lake Michigan pipeline because their aquifer is exhausted. Multiple Will County towns are following</td><td>Chicago Tribune, May 2025; Great Lakes Now</td></tr>
+    <tr><td><strong>Lockport exploring switch</strong></td><td>City of Lockport is actively evaluating a future <strong>transition to Lake Michigan water</strong> — acknowledging the aquifer's limits</td><td>Lockport Herald-News / Facebook, Lockport city records</td></tr>
+    <tr><td><strong>Recharge rate</strong></td><td><strong>1% per year</strong> — what takes 1 year to deplete takes 100 years to refill</td><td>University of Wisconsin, Center for Water Policy</td></tr>
+    <tr><td><strong>Minooka precedent</strong></td><td>A proposed 3M GPD data center in nearby Minooka would use <strong>30% of the municipality's entire allocated drinking water</strong></td><td>Capitol News Illinois; newsfromthestates.com</td></tr>
+  </table>
+
+  <h3>The Math They Won't Put On a Slide Tonight</h3>
+  <div class="alert a-dark">
+    <strong>A single mid-size data center: 3,000,000 gallons/day withdrawn.</strong><br>
+    85% evaporates = 2,550,000 gallons permanently gone from your aquifer every day.<br>
+    That's 930,750,000 gallons per year — extracted from an aquifer Lockport is already planning to abandon by necessity.<br><br>
+    <strong>And that's ONE data center. The Star Innovation District master plan contemplates multiple buildings.</strong>
+  </div>
+
+  <h3>What "Cone of Depression" Means For Your Neighbors</h3>
+  <p>When a large facility pumps massive groundwater volumes, it creates a <strong>funnel-shaped drop in the surrounding water table</strong> — pulling private wells and shallow municipal intakes dry within a 1–2 mile radius. In Lockport, where the aquifer is already under documented stress, this effect is amplified. Nearby residential wells can go dry within weeks. Drilling deeper costs homeowners $10,000–$25,000 out of pocket — with no reimbursement obligation on the developer.</p>
+
+  <h3>What To Ask At Tonight's Workshop — Water Questions</h3>
+  <div class="script">
+    <span class="slbl">🎤 Stand up and say this — water section:</span>
+    "My question is about water, and I want it on the record.
+
+    Lockport is already exploring a transition away from the Cambrian-Ordovician aquifer because it cannot sustain long-term demand. The City's own records confirm this. The Illinois State Water Survey projects this aquifer will not meet Will County demand by 2030.
+
+    So my question is: what is the projected daily water withdrawal for the proposed Star Innovation District data center? What percentage of that water will be returned to the local aquifer versus permanently lost to evaporative cooling? And has a cone of depression impact study been conducted for private wells within two miles of the site?
+
+    If those numbers aren't available tonight, this workshop cannot produce an informed community recommendation. I'm requesting those studies be completed and made public before Workshop #2."
+  </div>
+</div>
+
+<!-- STATE LAW -->
+<div class="sec" style="border-top:4px solid #1e40af;">
+  <div class="sec-hdr c-blue">ILLINOIS STATE LAW — YOUR LEGAL WEAPONS</div>
+  <h2>⚖️ What Illinois Law Actually Gives You</h2>
+
+  <div class="law-box">
+    <div class="lt c-blue">Illinois Municipal Code</div>
+    <div class="ln">Full Local Zoning Authority</div>
+    <div class="lc">65 ILCS 5/11-13-1 through 5/11-13-25</div>
+    <p>Illinois municipalities have broad, independent authority to regulate land use through zoning ordinances — including classifying, restricting, and prohibiting specific industrial uses. Lockport is a home-rule municipality (population over 25,000), which gives it <strong>even broader authority</strong> than non-home-rule towns. Home-rule units can enact zoning regulations that exceed state minimums without special legislative approval.</p>
+    <span class="use" style="background:#1e40af;">USE TONIGHT</span>
+    <p style="margin-top:8px;">Ask: "Is the Star Innovation District currently zoned for data center use? If a Special Use Permit or rezoning is required, when will the public hearing be scheduled, and will residents receive formal notice?"</p>
+  </div>
+
+  <div class="law-box">
+    <div class="lt c-red">Illinois Home Rule Powers</div>
+    <div class="ln">Emergency Moratorium Authority</div>
+    <div class="lc">Illinois Constitution, Article VII, §6(a) — Home Rule</div>
+    <p>As a home-rule municipality, Lockport City Council can pass an <strong>emergency moratorium on industrial permits</strong> while conducting environmental and infrastructure studies. Aurora did exactly this — passing a 180-day moratorium on data centers and warehouses in September 2025. DeKalb County extended theirs under public pressure. <strong>Lockport can do the same tonight if the Council votes to act.</strong></p>
+    <span class="use" style="background:#dc2626;">DEMAND THIS</span>
+    <p style="margin-top:8px;">Ask: "Will the City Council pass an emergency moratorium on data center permits for the Star Innovation District while these workshops are ongoing? That is standard practice — Aurora did it. DeKalb County did it. It protects the community while the City gathers information."</p>
+  </div>
+
+  <div class="law-box">
+    <div class="lt c-green">Illinois Environmental Protection Act</div>
+    <div class="ln">Environmental Impact Review Requirement</div>
+    <div class="lc">415 ILCS 5/1 et seq.</div>
+    <p>Facilities with significant water use, air emissions, or chemical storage are subject to Illinois EPA review. The former Texaco/Chevron refinery site has documented pre-existing contamination — any redevelopment requires a Phase I and Phase II Environmental Site Assessment. Data centers with diesel backup generators (required by all large facilities) are also subject to air permit requirements under IEPA rules.</p>
+    <span class="use" style="background:#059669;">USE IN PERMIT STAGE</span>
+  </div>
+
+  <div class="law-box">
+    <div class="lt c-amber">Illinois Open Meetings Act</div>
+    <div class="ln">All Deliberations Must Be Public</div>
+    <div class="lc">5 ILCS 120/1 et seq.</div>
+    <p>Every deliberation, negotiation, and vote related to zoning, permitting, or annexation agreements for the Star Innovation District must occur in open public meetings with proper notice. <strong>Any decision made in a closed session or without proper notice is legally voidable.</strong> Non-disclosure agreements with developers do not override the Open Meetings Act for governmental actions.</p>
+    <span class="use" style="background:#d97706;">DOCUMENT EVERYTHING</span>
+    <p style="margin-top:8px;">Record tonight's meeting. Request all meeting minutes, agendas, and communications between City staff and data center developers via FOIA (see below).</p>
+  </div>
+
+  <div class="law-box">
+    <div class="lt c-purple">Illinois Freedom of Information Act</div>
+    <div class="ln">Your Right To See All Communications</div>
+    <div class="lc">5 ILCS 140/1 et seq.</div>
+    <p>You are legally entitled to request all emails, letters, presentations, contracts, and proposals between City of Lockport officials and any data center developer. The City has <strong>5 business days</strong> to respond. This includes any agreements already signed, any letters of intent, and all communications with ComEd, Nicor, or regional water agencies about the Star Innovation District.</p>
+    <span class="use" style="background:#7c3aed;">FILE IMMEDIATELY</span>
+    <div class="tip" style="margin-top:10px;">Send a FOIA request to: City of Lockport, 222 East 9th Street, Lockport, IL 60441 or submit through cityoflockport.net. Request: "All communications, contracts, letters of intent, memoranda, and presentations related to data center development at the Star Innovation District from January 1, 2022 to present."</div>
+  </div>
+
+  <div class="law-box">
+    <div class="lt c-teal">Illinois Data Center Reporting — Pending Legislation</div>
+    <div class="ln">SB — Illinois Data Center Energy and Water Reporting Act</div>
+    <div class="lc">Sen. Steve Stadelman, 34th District — Active 2025–2026 session</div>
+    <p>State Sen. Stadelman introduced legislation requiring data centers to publicly report annual water and energy consumption. The industry has blocked it by claiming usage is "proprietary." This bill has not yet passed — meaning right now, the City of Lockport has <strong>no legal mechanism to compel water use disclosure</strong> from a developer. You can demand the City create its own local disclosure requirement as a condition of any permit.</p>
+    <span class="use" style="background:#0891b2;">CITE THIS TONIGHT</span>
+  </div>
+</div>
+
+<!-- COUNTY LAW -->
+<div class="sec" style="border-top:4px solid #059669;">
+  <div class="sec-hdr c-green">WILL COUNTY LAW — LOCAL AUTHORITY</div>
+  <h2>🏛️ Will County and City of Lockport — Local Legal Tools</h2>
+
+  <div class="law-box">
+    <div class="lt c-green">Will County Land Use Department</div>
+    <div class="ln">County Zoning & Permitting Authority</div>
+    <div class="lc">Will County Zoning Ordinance; willcounty.gov/County-Offices/Economic-Development/Will-County-Land-Use-Department</div>
+    <p>Will County maintains independent zoning jurisdiction over unincorporated areas. For parcels within Lockport city limits, the City controls zoning — but County infrastructure permits (roads, utilities, stormwater) may be required. The Star Innovation District is within Lockport's borders, so the City Council's zoning vote is the primary gate.</p>
+  </div>
+
+  <div class="law-box">
+    <div class="lt c-green">Special Use Permit Process</div>
+    <div class="ln">Mandatory Public Hearing Before Any Data Center Permit</div>
+    <div class="lc">City of Lockport Zoning Code — requires SUP for heavy industrial uses</div>
+    <p>Data centers classified as heavy industrial require a Special Use Permit in most Illinois municipalities. A SUP requires: (1) a formal application, (2) public notice to all property owners within 250–500 feet, (3) a public hearing before the Zoning Board of Appeals, and (4) a separate vote by the full City Council. <strong>This creates two distinct veto points</strong> — the ZBA and the Council. Packing both with opposition is the goal.</p>
+    <span class="use" style="background:#059669;">KEY STRATEGY</span>
+  </div>
+
+  <div class="law-box">
+    <div class="lt c-amber">Annexation Agreement</div>
+    <div class="ln">The Hidden Gate — Most Likely Vehicle</div>
+    <div class="lc">65 ILCS 5/11-15.1 — Illinois Municipal Annexation Authority</div>
+    <p>If any portion of the Star Innovation District is not yet within city limits, a developer may seek an annexation agreement — which is a contract between the City and the developer that bundles zoning, tax incentives, and infrastructure commitments. <strong>Annexation agreements require a public hearing AND a supermajority City Council vote.</strong> This is often where deals get locked in before residents know what happened. File a FOIA request specifically asking about any pending annexation agreement.</p>
+    <span class="use" style="background:#d97706;">WATCH FOR THIS</span>
+  </div>
+</div>
+
+<!-- CASE LAW -->
+<div class="sec" style="border-top:4px solid #7c3aed;">
+  <div class="sec-hdr c-purple">CASE LAW — WHAT COURTS HAVE SAID</div>
+  <h2>📚 Illinois & Federal Case Law You Can Cite</h2>
+
+  <table>
+    <tr><th>CASE</th><th>WHAT IT ESTABLISHED</th><th>OUTCOME</th><th>HOW TO USE IT</th></tr>
+    <tr>
+      <td><strong>Village of Euclid v. Ambler Realty Co.</strong><br><span style="font-size:11px;color:#6b7280;">272 U.S. 365 (1926) — U.S. Supreme Court</span></td>
+      <td>The foundational case for all American zoning law. The Supreme Court ruled that municipalities have the constitutional right to use zoning to protect residential areas from incompatible industrial uses.</td>
+      <td><span class="verdict v-win">COMMUNITY WIN</span></td>
+      <td>The entire legal basis for Lockport's right to say no to industrial development in or near residential zones. Cite this if anyone claims the city "can't" restrict data centers.</td>
+    </tr>
+    <tr>
+      <td><strong>Hawthorne v. Village of Olympia Fields</strong><br><span style="font-size:11px;color:#6b7280;">Illinois Supreme Court, Docket No. 93462</span></td>
+      <td>Illinois Supreme Court addressed whether a non-home-rule municipality can use statutory zoning authority to prevent specific industrial operations. Confirmed that zoning authority is broad and municipalities are not required to permit every industrial use.</td>
+      <td><span class="verdict v-win">COMMUNITY WIN</span></td>
+      <td>Lockport is home-rule (even stronger authority). This case confirms Illinois municipalities have wide discretion to restrict or deny industrial uses through zoning, even when a developer argues economic benefit.</td>
+    </tr>
+    <tr>
+      <td><strong>Aurora, IL Data Center Moratorium</strong><br><span style="font-size:11px;color:#6b7280;">City of Aurora, Sept. 25, 2025 — Municipal ordinance</span></td>
+      <td>Aurora City Council enacted a 180-day moratorium on new data center AND warehouse developments while conducting a comprehensive infrastructure and environmental review.</td>
+      <td><span class="verdict v-win">PRECEDENT SET</span></td>
+      <td>Direct Illinois precedent — same state, same legal framework. Lockport can do exactly this. Tonight, demand the Council pass a moratorium before any workshop recommendation is acted upon.</td>
+    </tr>
+    <tr>
+      <td><strong>DeKalb County, IL Moratorium Extension</strong><br><span style="font-size:11px;color:#6b7280;">DeKalb County Board, 2025–2026</span></td>
+      <td>Community pressure forced the DeKalb County Board to extend their data center moratorium by 6 months — giving residents additional time to organize and present evidence.</td>
+      <td><span class="verdict v-win">COMMUNITY WIN</span></td>
+      <td>Proves that sustained community pressure works in Illinois. Moratoriums can be extended. Tonight starts the clock.</td>
+    </tr>
+    <tr>
+      <td><strong>Pekin, IL Community Victory</strong><br><span style="font-size:11px;color:#6b7280;">Pekin, Illinois — 2024–2025</span></td>
+      <td>Pekin residents organized, documented infrastructure concerns, and successfully blocked a data center development through the public zoning process. The city council voted against the Special Use Permit after community testimony.</td>
+      <td><span class="verdict v-win">COMMUNITY WIN</span></td>
+      <td>Proof that Illinois communities can win at the SUP stage. The key was organized testimony at the public hearing — exactly what Lockport needs to build now.</td>
+    </tr>
+    <tr>
+      <td><strong>Saline Township, MI Lawsuit</strong><br><span style="font-size:11px;color:#6b7280;">Michigan Circuit Court — 2024</span></td>
+      <td>Residents sued after a data center was approved without adequate environmental review. The lawsuit alleged violations of state environmental law and the failure to conduct a proper impact assessment for groundwater and noise.</td>
+      <td><span class="verdict v-mixed">ONGOING</span></td>
+      <td>Use this as the threat model. If Lockport approves a data center without proper environmental review and water impact studies, residents have grounds for a similar legal challenge. Make this clear to the Council tonight.</td>
+    </tr>
+    <tr>
+      <td><strong>Newton County, GA Groundwater Case</strong><br><span style="font-size:11px;color:#6b7280;">Newton County, GA — 2023–2024</span></td>
+      <td>A data center was approved without a baseline groundwater study. After approval, residents discovered well depletion had already begun. With no pre-approval baseline, there was no legal proof of causation — leaving residents without recourse.</td>
+      <td><span class="verdict v-lose">RESIDENTS LOST</span></td>
+      <td><strong>This is what happens if you don't demand a baseline study BEFORE approval.</strong> Demand tonight: "We need a groundwater baseline study completed and publicly filed before any permit is issued. If we don't have a baseline, we can never prove damages."</td>
+    </tr>
+  </table>
+</div>
+
+<!-- TONIGHT'S PLAYBOOK -->
+<div class="sec" style="border-top:4px solid #F59E0B;">
+  <div class="sec-hdr c-amber">TONIGHT'S PLAYBOOK — MAY 26, 7PM, LTHS AUDITORIUM</div>
+  <h2>🎯 What To Do At Tonight's Workshop — Step By Step</h2>
+
+  <div class="alert a-amber">
+    <strong>Remember:</strong> Tonight is Workshop #1. The City will bring in ComEd, Nicor, water agency reps, and "data center experts." These are NOT neutral sources — they have financial interests in the development proceeding. Your job is to get your questions on the record, document everything, and build the coalition for Workshop #2.
+  </div>
+
+  <div class="step">
+    <div class="snum">1</div>
+    <div class="scon">
+      <h3>Arrive Early — Sign In, Get a Seat, Record Everything</h3>
+      <p>Arrive by 6:30 PM. Sign in with your name and address — this creates a public record of community attendance. Use your phone to record the entire meeting (Illinois is a one-party consent state — you do NOT need to announce you're recording). This audio becomes evidence if anything is misrepresented later.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="snum">2</div>
+    <div class="scon">
+      <h3>Ask For Public Comment Time — In Writing If Needed</h3>
+      <p>Before the workshop starts, approach the moderator and ask: "Is there a public comment period tonight? If so, I'd like to be placed on the speaker list." If they say there is no public comment period — that itself is important. Stand up anyway during Q&A and use your questions.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="snum">3</div>
+    <div class="scon">
+      <h3>Use These Four Questions — Get Them On Record</h3>
+      <div class="script">
+        <span class="slbl">🎤 QUESTION 1 — WATER</span>
+        "What is the projected daily water withdrawal for this facility? What percentage returns to the local Cambrian-Ordovician aquifer versus being lost to evaporation? Has a cone of depression study been done for private wells within 2 miles? Lockport is already exploring a Lake Michigan transition because this aquifer is failing — adding a data center accelerates that timeline."
+      </div>
+      <div class="script">
+        <span class="slbl">🎤 QUESTION 2 — MORATORIUM</span>
+        "Aurora passed a 180-day data center moratorium in September 2025 while doing exactly this kind of community review. DeKalb County extended theirs under public pressure. Will the Lockport City Council pass a moratorium on data center permits for the Star Innovation District while these workshops are ongoing? Without a moratorium, a permit could be filed and approved before Workshop #6 even happens."
+      </div>
+      <div class="script">
+        <span class="slbl">🎤 QUESTION 3 — FOIA / TRANSPARENCY</span>
+        "Has the City already signed any letter of intent, memorandum of understanding, or preliminary agreement with a data center developer for the Star Innovation District? These communications are subject to FOIA. I am submitting a formal FOIA request this week for all developer communications since 2022. Can the City commit tonight to releasing those records proactively?"
+      </div>
+      <div class="script">
+        <span class="slbl">🎤 QUESTION 4 — BASELINE STUDY</span>
+        "Newton County, Georgia approved a data center without a groundwater baseline study. Wells went dry. Residents had no legal recourse because there was no pre-approval baseline to prove causation. I am requesting that the City of Lockport require a full groundwater baseline study — filed publicly — before any permit is issued. Will the Council commit to that tonight?"
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="snum">4</div>
+    <div class="scon">
+      <h3>Build Your Coalition — Collect Names Tonight</h3>
+      <p>Bring a clipboard or your phone. Collect names, emails, and addresses of every neighbor who shows up opposed. This is your base for Workshop #2, the SUP hearing, and any Council vote. The goal is 200+ names before the next meeting.</p>
+      <div class="tip">Share the petition Lydia already started on Change.org — every person tonight should sign it before they leave.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="snum">5</div>
+    <div class="scon">
+      <h3>File Your FOIA Request This Week</h3>
+      <p>Don't wait. Send a written FOIA request to: <strong>City of Lockport, 222 East 9th Street, Lockport, IL 60441</strong></p>
+      <div class="script" style="font-style:normal;font-size:13px;">
+        <span class="slbl">📄 FOIA REQUEST TEMPLATE — COPY AND SEND</span>
+        Pursuant to the Illinois Freedom of Information Act (5 ILCS 140), I request the following public records:<br><br>
+        1. All emails, letters, memoranda, contracts, letters of intent, and presentations between City of Lockport officials and any data center developer or operator regarding the Star Innovation District, from January 1, 2022 to present.<br>
+        2. All communications between City staff and ComEd, Nicor, or regional water agencies regarding data center infrastructure at the Star Innovation District.<br>
+        3. Any environmental assessments, groundwater studies, or water use projections prepared for or provided to the City related to the Star Innovation District.<br>
+        4. The complete Star Innovation District Master Plan and all amendments thereto.<br><br>
+        Please provide these records within 5 business days as required by law.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT THEY'LL SAY — YOUR REBUTTALS -->
+<div class="sec" style="border-top:4px solid #dc2626;">
+  <div class="sec-hdr c-red">THE DEVELOPER'S PLAYBOOK — YOUR REBUTTALS</div>
+  <h2>🥊 What They'll Say Tonight — And What You Say Back</h2>
+
+  <table>
+    <tr><th>THEY SAY</th><th>YOU SAY</th></tr>
+    <tr>
+      <td>"Data centers bring jobs and tax revenue."</td>
+      <td>"A hyperscale data center employs 15–50 people. Meanwhile, Illinois gives them a 100% sales tax exemption on equipment — worth hundreds of millions. Your town absorbs the infrastructure costs with none of the tax revenue. Show us the actual net fiscal impact study — not the developer's projections."</td>
+    </tr>
+    <tr>
+      <td>"We use water efficiently — we return it to the system."</td>
+      <td>"Cooling towers work by evaporation. Up to 85% of withdrawn water turns to steam and leaves the local watershed permanently. The Missouri Policy Initiative and the Energy and Environment Study Institute have both verified this. What percentage returns to the Cambrian-Ordovician aquifer specifically? We need that number on the record."</td>
+    </tr>
+    <tr>
+      <td>"We'll use reclaimed water, not drinking water."</td>
+      <td>"Show us the infrastructure plan for reclaimed water delivery to this site. In Minooka, the village said the same thing — and then admitted they'd still need to build the infrastructure at public expense. What is the cost to Lockport taxpayers for that infrastructure, and who pays for it?"</td>
+    </tr>
+    <tr>
+      <td>"This site is already designated for industrial use."</td>
+      <td>"The 2022 master plan was written before data centers became what they are today — before the NERC Level 3 grid alerts, before Minooka's water crisis, before Aurora's moratorium, before the EPA mercury rollbacks. The master plan can be amended. That's exactly what these workshops are for."</td>
+    </tr>
+    <tr>
+      <td>"Other communities have approved similar projects."</td>
+      <td>"And other communities have successfully rejected them. Pekin, Illinois. DeKalb County, Illinois. The Saline Township lawsuit in Michigan. The community that doesn't fight is the one that ends up with the data center. We're fighting."</td>
+    </tr>
+    <tr>
+      <td>"There's no proof of harm yet."</td>
+      <td>"Newton County, Georgia didn't have a baseline groundwater study before approval. After approval, wells went dry — and residents had no legal recourse because there was no pre-approval baseline. We are asking for that study now, before anything is approved, so that we have legal standing if harm occurs."</td>
+    </tr>
+  </table>
+</div>
+
+<!-- ACTION PLAN -->
+<div class="sec" style="border-top:4px solid #059669;">
+  <div class="sec-hdr c-green">30-DAY ACTION PLAN</div>
+  <h2>📅 What To Do After Tonight — Week By Week</h2>
+
+  <div class="step">
+    <div class="snum" style="background:#dc2626;">W1</div>
+    <div class="scon">
+      <h3>This Week (May 26–June 1)</h3>
+      <ul>
+        <li>File FOIA request (template above) — do it by May 28</li>
+        <li>Share tonight's recording to the community group</li>
+        <li>Circulate Lydia's Change.org petition to every person at the meeting</li>
+        <li>Contact Sen. Steve Stadelman (34th District) — tell him Lockport needs the water reporting bill passed NOW</li>
+        <li>Reach out to Illinois Environmental Council and Prairie Rivers Network — they have legal resources for exactly this fight</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="snum" style="background:#d97706;">W2</div>
+    <div class="scon">
+      <h3>Week 2 (June 1–7)</h3>
+      <ul>
+        <li>Review FOIA response — look for any letters of intent, signed agreements, or developer presentations</li>
+        <li>Contact Alliance for the Great Lakes (greatlakes.org) — they published the August 2025 "Finite Resource" report and have data specific to Will County</li>
+        <li>Request a meeting with your Alderperson before Workshop #2 — bring the water data and the Newton County case study</li>
+        <li>Draft a formal written request to the City Council to pass a moratorium — signed by as many residents as possible</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="snum" style="background:#059669;">W3</div>
+    <div class="scon">
+      <h3>Workshop #2 and Beyond</h3>
+      <ul>
+        <li>Pack Workshop #2 — bring everyone from tonight plus the petition signers</li>
+        <li>Submit formal written comments to the City Clerk before each workshop</li>
+        <li>If the City schedules a SUP hearing — mobilize everyone you have for that hearing. That is the binding legal event.</li>
+        <li>If the City tries to fast-track without proper process — contact an Illinois environmental law attorney about a procedural challenge under the Open Meetings Act</li>
+      </ul>
+      <div class="tip">Illinois Environmental Law Attorneys with data center experience: Contact the Environmental Law & Policy Center (Chicago, elpc.org) and the Land of Lincoln Legal Aid for referrals.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACTS -->
+<div class="sec" style="background:#0A0F1E;color:white;">
+  <div class="sec-hdr" style="color:#F59E0B;">KEY CONTACTS</div>
+  <h2 style="color:white;">📞 Who To Contact — Starting Tonight</h2>
+  <table style="margin-top:14px;">
+    <tr><th>WHO</th><th>WHY</th><th>CONTACT</th></tr>
+    <tr><td style="color:#e2e8f0;"><strong>City of Lockport — Mayor & Council</strong></td><td style="color:#9ca3af;">Demand moratorium vote, FOIA, groundwater study</td><td style="color:#e2e8f0;">222 E. 9th Street, Lockport, IL 60441 | (815) 838-0549</td></tr>
+    <tr><td style="color:#e2e8f0;"><strong>Sen. Steve Stadelman, 34th District</strong></td><td style="color:#9ca3af;">Push the water reporting bill — Lockport is his constituency</td><td style="color:#e2e8f0;">stadelman@sgop.ilga.gov | (217) 782-8516</td></tr>
+    <tr><td style="color:#e2e8f0;"><strong>Alliance for the Great Lakes</strong></td><td style="color:#9ca3af;">Published the Will County water report — has experts ready</td><td style="color:#e2e8f0;">greatlakes.org | Chicago office: (312) 939-0838</td></tr>
+    <tr><td style="color:#e2e8f0;"><strong>Illinois EPA — Water Division</strong></td><td style="color:#9ca3af;">File concerns about industrial water use at a contaminated site</td><td style="color:#e2e8f0;">(217) 782-3397 | illinois.gov/agency/epa</td></tr>
+    <tr><td style="color:#e2e8f0;"><strong>Environmental Law & Policy Center</strong></td><td style="color:#9ca3af;">Legal challenge support — data center and water rights</td><td style="color:#e2e8f0;">elpc.org | (312) 673-6500</td></tr>
+    <tr><td style="color:#e2e8f0;"><strong>Prairie Rivers Network</strong></td><td style="color:#9ca3af;">Protecting the Mahomet Aquifer — connected to Will County water advocates</td><td style="color:#e2e8f0;">prairierivers.org</td></tr>
+    <tr><td style="color:#e2e8f0;"><strong>Illinois State Water Survey (ISWS)</strong></td><td style="color:#9ca3af;">Official aquifer data — will provide expert testimony if contacted</td><td style="color:#e2e8f0;">isws.illinois.edu | (217) 244-5459</td></tr>
+  </table>
+</div>
+
+</div><!-- /container -->
+
+<div class="footer container">
+  <strong>CaseLock Community Defense Intelligence — Lockport, IL Edition — May 2026</strong><br>
+  Sources: City of Lockport Workshop Notice (May 11/21, 2026) · Chicago Tribune Sept 10 2025 (Great Lakes data center water threats) · Chicago Tribune May 6 2025 (Will County aquifer, Lockport exploring Lake Michigan switch) · Illinois State Water Survey / University of Illinois (Cambrian-Ordovician 2030 depletion) · USGS ArcGIS Story Map (1,000 ft water level decline NE Illinois) · Missouri Policy Initiative (85% evaporation verified) · EESI (data center water consumption) · Joyce Foundation (300K–3M GPD per data center) · Alliance for the Great Lakes, "A Finite Resource," Aug 2025 · Village of Euclid v. Ambler Realty Co., 272 U.S. 365 (1926) · Hawthorne v. Village of Olympia Fields, IL Supreme Court No. 93462 · Aurora, IL moratorium ordinance Sept 25 2025 · DeKalb County moratorium 2025–2026 · Pekin, IL community victory 2024–2025 · Capitol News Illinois (Minooka 30% municipal water) · newsfromthestates.com (Minooka cautionary tale) · 65 ILCS 5/11-13 · 415 ILCS 5 · 5 ILCS 120 · 5 ILCS 140 · IL Constitution Art. VII §6(a) · 65 ILCS 5/11-15.1<br><br>
+  This report is for informational and educational purposes only. NOT legal advice. CaseLock is not a law firm. Consult a licensed Illinois attorney before taking legal action.
+</div>
+
+</body>
+</html>
