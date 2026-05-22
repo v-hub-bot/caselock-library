@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CaseLock Community Intelligence Library</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0A0F1E; color: #E2E8F0; }
+
+  .hero { background: linear-gradient(135deg, #0A0F1E 0%, #0a1628 50%, #0A0F1E 100%); border-bottom: 2px solid #3B82F622; padding: 40px 20px 32px; text-align: center; }
+  .logo { font-size: 1.5rem; font-weight: 900; color: #fff; letter-spacing: -0.5px; margin-bottom: 6px; }
+  .logo span { color: #F59E0B; }
+  .tagline { font-size: 13px; color: #64748B; margin-bottom: 18px; }
+  h1 { font-size: clamp(1.3rem, 4vw, 2rem); font-weight: 900; color: #fff; margin-bottom: 10px; line-height: 1.25; }
+  .sub { font-size: 13.5px; color: #94A3B8; max-width: 600px; margin: 0 auto 20px; line-height: 1.6; }
+  .stats { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 8px; }
+  .stat { background: #1E293B; border: 1px solid #334155; border-radius: 8px; padding: 6px 14px; font-size: 12px; color: #94A3B8; }
+  .stat strong { color: #F59E0B; }
+
+  .container { max-width: 880px; margin: 0 auto; padding: 28px 16px 48px; }
+
+  .section-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px; margin-top: 32px; padding: 4px 12px; border-radius: 999px; display: inline-block; }
+  .section-label.blue { background: #3B82F615; border: 1px solid #3B82F640; color: #60A5FA; }
+  .section-label.green { background: #10B98115; border: 1px solid #10B98140; color: #34D399; }
+  .section-label.amber { background: #F59E0B15; border: 1px solid #F59E0B40; color: #FCD34D; }
+  .section-label.red { background: #EF444415; border: 1px solid #EF444440; color: #FCA5A5; }
+  .section-label.purple { background: #8B5CF615; border: 1px solid #8B5CF640; color: #C4B5FD; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-bottom: 8px; }
+
+  .card { background: #0F1729; border: 1px solid #1E293B; border-radius: 14px; padding: 18px; text-decoration: none; display: flex; flex-direction: column; gap: 8px; transition: border-color 0.2s, transform 0.15s; cursor: pointer; }
+  .card:hover { border-color: #3B82F6; transform: translateY(-2px); }
+  .card.virginia { border-left: 3px solid #3B82F6; }
+  .card.water { border-left: 3px solid #06B6D4; }
+  .card.national { border-left: 3px solid #10B981; }
+  .card.action { border-left: 3px solid #F59E0B; }
+  .card.health { border-left: 3px solid #EF4444; }
+  .card.rights { border-left: 3px solid #8B5CF6; }
+
+  .card-icon { font-size: 22px; }
+  .card-title { font-size: 13.5px; font-weight: 800; color: #E2E8F0; line-height: 1.35; }
+  .card-desc { font-size: 12px; color: #64748B; line-height: 1.55; flex: 1; }
+  .card-tag { font-size: 10px; font-weight: 700; color: #475569; margin-top: 4px; }
+  .card-arrow { font-size: 11px; color: #3B82F6; font-weight: 700; margin-top: 4px; }
+
+  .featured { background: linear-gradient(135deg, #0a1a10, #0F1729); border: 2px solid #10B98130; border-radius: 16px; padding: 20px; margin-bottom: 20px; display: flex; gap: 16px; align-items: flex-start; text-decoration: none; transition: border-color 0.2s; }
+  .featured:hover { border-color: #10B981; }
+  .featured-icon { font-size: 32px; flex-shrink: 0; }
+  .featured-body { flex: 1; }
+  .featured-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #10B981; margin-bottom: 5px; }
+  .featured-title { font-size: 15px; font-weight: 900; color: #fff; margin-bottom: 6px; line-height: 1.3; }
+  .featured-desc { font-size: 13px; color: #94A3B8; line-height: 1.6; }
+
+  .divider { border: none; border-top: 1px solid #1E293B; margin: 28px 0; }
+
+  footer { text-align: center; padding: 24px 16px; border-top: 1px solid #1E293B; color: #475569; font-size: 11px; line-height: 1.7; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="logo">Case<span>Lock</span></div>
+  <div class="tagline">Community Defense Intelligence Platform</div>
+  <h1>🛡️ Community Intelligence Library</h1>
+  <p class="sub">Free, verified intelligence for Virginia residents and communities nationwide fighting data center expansion. Share freely — no account needed.</p>
+  <div class="stats">
+    <span class="stat"><strong>18</strong> Reports</span>
+    <span class="stat"><strong>Virginia</strong> Water, Power &amp; Land</span>
+    <span class="stat"><strong>National</strong> Community Fights</span>
+    <span class="stat"><strong>100%</strong> Free to Share</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- FEATURED -->
+  <div class="section-label blue">⭐ Start Here — Most Important</div>
+
+  <a class="featured" href="https://media.base44.com/files/public/69fa26ea9861789dfed072dd/799fa07e7_corridor_water_crisis.html" target="_blank">
+    <div class="featured-icon">🌊</div>
+    <div class="featured-body">
+      <div class="featured-label">🔥 Most Shared — Virginia Residents</div>
+      <div class="featured-title">The I-95 Corridor Crisis: Caroline, Spotsylvania, Stafford & Fredericksburg</div>
+      <div class="featured-desc">The full picture — Stafford County giving 50% of its water capacity to data centers, the Rappahannock aquifer under siege, how all 4 counties are connected, and exactly what you can do. This is the one to send your neighbors.</div>
+    </div>
+  </a>
+
+  <a class="featured" href="https://media.base44.com/files/public/69fa26ea9861789dfed072dd/90b35df72_national_data_center_crisis.html" target="_blank">
+    <div class="featured-icon">🌎</div>
+    <div class="featured-body">
+      <div class="featured-label">National — All 50 States</div>
+      <div class="featured-title">The National Data Center Crisis: Water, Power, Chemicals & Your Community</div>
+      <div class="featured-desc">The complete national picture — water depletion, chemical hazards, grid failures, what communities have won, and the full legal toolkit. Everything in one place.</div>
+    </div>
+  </a>
+
+  <!-- VIRGINIA WATER -->
+  <hr class="divider">
+  <div class="section-label blue">💧 Virginia — Water & Aquifer</div>
+  <div class="grid">
+    <a class="card water" href="https://media.base44.com/files/public/69fa26ea9861789dfed072dd/63d024de1_virginia_water_rights.html" target="_blank">
+      <div class="card-icon">💧</div>
+      <div class="card-title">Virginia Water Rights & Data Centers</div>
+      <div class="card-desc">The Rappahannock River, the Piedmont Aquifer, and what data center water permits mean for your well and your water bill.</div>
+      <div class="card-arrow">Open Report →</div>
+    </a>
+    <a class="card water" href="https://media.base44.com/files/public/69fa26ea9861789dfed072dd/82d0d4c8d_aqua_fight.html" target="_blank">
+      <div class="card-icon">🚰</div>
+      <div class="card-title">The Aqua America Fight: Every Community, Every Right, Every Tool</div>
+      <div class="card-desc">Aqua Virginia's rate hikes, who's behind them, what every customer is legally entitled to, and the communities fighting back.</div>
+      <div class="card-arrow">Open Report →</div>
+    </a>
+    <a class="card water" href="https://media.base44.com/files/public/69fa26ea9861789dfed072dd/04d6098c1_aqua_virginia_customers.html" target="_blank">
+      <div class="card-icon">📋</div>
+      <div class="card-title">Aqua Virginia Customer Rights</div>
+      <div class="card-desc">Your specific rights as an Aqua Virginia customer — complaint procedures, SCC filings, rate challenge process step by step.</div>
+      <div class="card-arrow">Open Report →</div>
+    </a>
+  </div>
+
+  <!-- VIRGINIA POWER & GRID -->
+  <hr class="divider">
+  <div class="section-label amber">⚡ Virginia — Power & Electric Bills</div>
+  <div class="grid">
+    <a class="card virginia" href="https://media.base44.com/files/public/69fa26ea9861789dfed072dd/cab6af675_electric_fight.html" target="_blank">
+      <div class="card-icon">💡</div>
+      <div class="card-title">Your Electric Bill Is Going Up Because of Data Centers</div>
+      <div class="card-desc">Verified: how data centers are driving Virginia's power costs up — and what rural co-op customers are NOT protected from.</div>
+      <div class="card-arrow">Open Report →</div>
+    </a>
+    <a class="card virginia" href="https://media.base44.com/files/public/69fa26ea9861789dfed072dd/f96a3ca54_grid_crisis_report.html" target="_blank">
+      <div class="card-icon">⚡</div>
+      <div class="card-title">The Grid Is Breaking: NERC Level 3 Alert & EPA Rollbacks</div>
+      <div class="card-desc">The May 2026 NERC Level 3 alert, the EPA mercury rollback, and the 3 types of data centers your community needs to know about.</div>
+      <div class="card-arrow">Open Report →</div>
+    </a>
+    <a class="card virginia" href="https://media.base44.com/files/public/69fa26ea9861789dfed072dd/682ffd1ed_virginia_tax_subsidy.html" target="_blank">
+      <div class="card-icon">💰</div>
+      <div class="card-title">Virginia's $2 Billion Data Center Tax Giveaway</div>
+      <div class="card-desc">How Virginia gave $2 billion in tax breaks to data centers — while residents pay higher rates and infrastructure crumbles.</div>
+      <div class="card-arrow">Open Report →</div>
+    </a>
+    <a class="card virginia" href="https://media.base44.com/files/public/69fa26ea9861789dfed072dd/dcc0cacaa_valley_link.html" target="_blank">
+      <div class="card-icon">🔌</div>
+      <div class="card-title">Valley Link & Dominion: 9 Counties, 115 Miles, One Fight</div>
+      <div class="card-desc">Dominion's proposed transmission line to feed data centers — 9 Virginia counties, September 2026 SCC filing, how to stop it.</div>
+      <div class="card-arrow">Open Report →</div>
+    </a>
+  </div>
+
+  <!-- LOCAL VIRGINIA -->
+  <hr class="divider">
+  <div class="section-label blue">📍 Local Virginia Communities</div>
+  <div class="grid">
+    <a class="card virginia" href="https://media.base44.com/files/public/69fa26ea9861789dfed072dd/ff3652a0b_caroline_county_action.html" target="_blank">
+      <div class="card-icon">📍</div>
+      <div class="card-title">Caroline County: The Numbers, The Law, What You Can Do</div>
+      <div class="card-desc">Caroline County specific — REC infrastructure, the Thornburg waterpark, aquifer stress, and the exact steps residents can take today.</div>
+      <div class="card-arrow">Open Report →</div>
+    </a>
+    <a class="card virginia" href="https://media.base44.com/files/public/69fa26ea9861789dfed072dd/1c68e0e2f_henrico_varina.html" target="_blank">
+      <div class="card-icon">🏭</div>
+      <div class="card-title">Henrico County / Varina: QTS Expansion — 17 Buildings, 300+ Generators</div>
+      <div class="card-desc">The QTS Varina mega-campus next to a majority-Black community — what CBS 6 confirmed, what the county approved, and what residents are doing.</div>
+      <div class="card-arrow">Open Report →</div>
+    </a>
+  </div>
+
+  <!-- HEALTH & SAFETY -->
+  <hr class="divider">
+  <div class="section-label red">🏥 Health & Safety</div>
+  <div class="grid">
+    <a class="card health" href="https://media.base44.com/files/public/69fa26ea9861789dfed072dd/56797ec36_infrasound_health.html" target="_blank">
+      <div class="card-icon">🔊</div>
+      <div class="card-title">The Hum You Cannot Hear: How Data Center Infrasound Is Making Residents Sick</div>
+      <div class="card-desc">Peer-reviewed science on infrasound health effects — headaches, sleep disruption, anxiety — with the Chandler, AZ precedent and your legal options.</div>
+      <div class="card-arrow">Open Report →</div>
+    </a>
+    <a class="card health" href="https://media.base44.com/files/public/69fa26ea9861789dfed072dd/4928afc3e_data_center_ghost_towns.html" target="_blank">
+      <div class="card-icon">🏚️</div>
+      <div class="card-title">When Data Centers Come to Town: The Ghost Town Warning</div>
+      <div class="card-desc">What actually happens to small towns after approval — property values, community character, and the towns that became industrial wastelands.</div>
+      <div class="card-arrow">Open Report →</div>
+    </a>
+    <a class="card health" href="https://media.base44.com/files/public/69fa26ea9861789dfed072dd/24aa89a19_data_center_property_values.html" target="_blank">
+      <div class="card-icon">🏠</div>
+      <div class="card-title">Data Centers & Your Home: The Real Evidence</div>
+      <div class="card-desc">Documented property value impacts — the studies, the numbers, and what happened to homes within 1 mile of existing facilities.</div>
+      <div class="card-arrow">Open Report →</div>
+    </a>
+  </div>
+
+  <!-- ACTION TOOLS -->
+  <hr class="divider">
+  <div class="section-label green">⚖️ Take Action — Legal Tools</div>
+  <div class="grid">
+    <a class="card action" href="https://media.base44.com/files/public/69fa26ea9861789dfed072dd/a133d584b_moratorium_guide.html" target="_blank">
+      <div class="card-icon">🛑</div>
+      <div class="card-title">How to Declare an Official Data Center Moratorium</div>
+      <div class="card-desc">The exact ordinance language, the legal authority, and the step-by-step process to get your county to officially pause all data center approvals.</div>
+      <div class="card-arrow">Open Report →</div>
+    </a>
+    <a class="card action" href="https://media.base44.com/files/public/69fa26ea9861789dfed072dd/0455aac23_first_amendment.html" target="_blank">
+      <div class="card-icon">⚖️</div>
+      <div class="card-title">Know Your Rights: First Amendment, Retaliation & Safe Advocacy</div>
+      <div class="card-desc">Virginia's Anti-SLAPP statute, the Noerr-Pennington doctrine, and what protects you legally when you speak out publicly against developers.</div>
+      <div class="card-arrow">Open Report →</div>
+    </a>
+    <a class="card action" href="https://media.base44.com/files/public/69fa26ea9861789dfed072dd/3e6d414dc_illinois_fight_guide.html" target="_blank">
+      <div class="card-icon">🏘️</div>
+      <div class="card-title">Illinois Small Town Fight Guide: Stop a Data Center Before the Vote</div>
+      <div class="card-desc">5-day action plan, door-knocking scripts, 7 questions to ask on the record, the Pekin IL win, and the Michigan warning. Works for any state.</div>
+      <div class="card-arrow">Open Report →</div>
+    </a>
+  </div>
+
+  <!-- NATIONAL & SECURITY -->
+  <hr class="divider">
+  <div class="section-label purple">🌐 National Intelligence</div>
+  <div class="grid">
+    <a class="card national" href="https://media.base44.com/files/public/69fa26ea9861789dfed072dd/3dfbf46d6_say_no_community_intel.html" target="_blank">
+      <div class="card-icon">👥</div>
+      <div class="card-title">Community Intelligence Digest: What Others Are Saying Nationwide</div>
+      <div class="card-desc">What the Say NO to Data Centers community is finding, sharing, and fighting — aggregated from communities across the country.</div>
+      <div class="card-arrow">Open Report →</div>
+    </a>
+    <a class="card national" href="https://media.base44.com/files/public/69fa26ea9861789dfed072dd/f54f42d91_china_security_report.html" target="_blank">
+      <div class="card-icon">🔐</div>
+      <div class="card-title">Data Centers & The China Components Problem</div>
+      <div class="card-desc">Executive Order 14318, NDAA Section 889, and the documented national security risks embedded in foreign-component data center infrastructure.</div>
+      <div class="card-arrow">Open Report →</div>
+    </a>
+  </div>
+
+</div>
+
+<footer>
+  <p>CaseLock Community Intelligence Library · All reports independently verified · Free to share</p>
+  <p style="margin-top:5px;">Not legal advice. For legal emergencies in Virginia: Virginia Legal Aid Society · Environmental Law & Policy Center</p>
+  <p style="margin-top:5px;">Updated: May 2026 · caselock.us</p>
+</footer>
+
+</body>
+</html>
