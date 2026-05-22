@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community Evidence Board | CaseLock Intelligence</title>
+<meta name="description" content="Share your proof. Read what your neighbors are seeing. Water bills, dirty water, noise, power lines. Every state. Every county. All verified by the people living it.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e0e0e0;line-height:1.6;}
+a{color:#3b82f6;text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+.hero{background:linear-gradient(160deg,#0a0f1e 0%,#0f1a0f 50%,#0a0a0a 100%);padding:48px 24px 40px;text-align:center;border-bottom:3px solid #16a34a;}
+.hero-label{font-size:11px;font-weight:900;letter-spacing:4px;text-transform:uppercase;color:#16a34a;margin-bottom:14px;}
+.hero h1{font-size:clamp(28px,6vw,52px);font-weight:900;color:#fff;margin-bottom:12px;line-height:1.1;}
+.hero h1 span{color:#16a34a;}
+.hero-sub{font-size:15px;color:#9ca3af;max-width:660px;margin:0 auto 20px;line-height:1.65;}
+.hero-stats{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-top:18px;}
+.hstat{text-align:center;}
+.hstat-n{font-size:28px;font-weight:900;color:#4ade80;}
+.hstat-l{font-size:11px;color:#6b7280;text-transform:uppercase;letter-spacing:1px;}
+
+/* FILTER BAR */
+.filter-bar{background:#111;border-bottom:1px solid #1f1f1f;padding:14px 24px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;position:sticky;top:0;z-index:100;}
+.filter-btn{padding:7px 16px;border-radius:20px;font-size:12px;font-weight:700;border:1px solid #2d2d2d;background:#1a1a1a;color:#9ca3af;cursor:pointer;transition:all 0.15s;}
+.filter-btn:hover,.filter-btn.active{background:#16a34a;border-color:#16a34a;color:#fff;}
+.filter-btn.all.active{background:#3b82f6;border-color:#3b82f6;}
+#state-filter{background:#1a1a1a;border:1px solid #2d2d2d;color:#e0e0e0;padding:7px 14px;border-radius:20px;font-size:12px;font-weight:700;cursor:pointer;}
+
+/* LAYOUT */
+.layout{max-width:1100px;margin:0 auto;padding:28px 20px;display:grid;grid-template-columns:1fr 340px;gap:24px;}
+@media(max-width:800px){.layout{grid-template-columns:1fr;}}
+
+/* FEED */
+.feed-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
+.feed-title{font-size:18px;font-weight:800;color:#fff;}
+.feed-count{font-size:13px;color:#6b7280;}
+
+/* REPORT CARD */
+.report-card{background:#111;border:1px solid #1f1f1f;border-radius:12px;padding:18px 20px;margin-bottom:14px;transition:border-color 0.15s;}
+.report-card:hover{border-color:#16a34a;}
+.rc-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px;}
+.rc-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+.rc-name{font-size:13px;font-weight:700;color:#e0e0e0;}
+.rc-loc{font-size:12px;color:#6b7280;background:#1a1a1a;padding:3px 10px;border-radius:12px;}
+.rc-tag{font-size:11px;font-weight:700;padding:3px 10px;border-radius:12px;text-transform:uppercase;letter-spacing:.5px;}
+.rc-tag.water-bill{background:#1e3a5f;color:#60a5fa;}
+.rc-tag.dirty-water{background:#1a2e1a;color:#4ade80;}
+.rc-tag.noise{background:#2d1a2e;color:#c084fc;}
+.rc-tag.power-line{background:#2d1c00;color:#fbbf24;}
+.rc-tag.electric-bill{background:#2d1a00;color:#fb923c;}
+.rc-tag.aquifer{background:#0d1f3a;color:#38bdf8;}
+.rc-tag.eminent-domain{background:#1a0000;color:#f87171;}
+.rc-tag.other{background:#1f1f1f;color:#9ca3af;}
+.rc-date{font-size:11px;color:#4b5563;white-space:nowrap;}
+.rc-body{font-size:14px;color:#d1d5db;line-height:1.75;margin-bottom:12px;}
+.rc-body.clamped{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;}
+.rc-photos{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;}
+.rc-photo{width:80px;height:80px;border-radius:8px;object-fit:cover;cursor:pointer;border:1px solid #2d2d2d;}
+.rc-photo:hover{border-color:#16a34a;}
+.rc-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+.rc-btn{padding:6px 14px;border-radius:8px;font-size:12px;font-weight:700;border:1px solid #2d2d2d;background:#1a1a1a;color:#9ca3af;cursor:pointer;transition:all 0.15s;}
+.rc-btn:hover{border-color:#16a34a;color:#4ade80;}
+.rc-btn.supported{border-color:#16a34a;color:#4ade80;background:#0d1a0d;}
+.rc-replies-badge{font-size:12px;color:#6b7280;}
+.rc-expand{font-size:12px;color:#3b82f6;cursor:pointer;background:none;border:none;}
+.rc-expand:hover{text-decoration:underline;}
+
+/* REPLIES */
+.replies-area{background:#0a0a0a;border-radius:8px;padding:14px;margin-top:12px;display:none;}
+.replies-area.open{display:block;}
+.reply-item{border-left:3px solid #1f2d1f;padding:10px 14px;margin-bottom:10px;}
+.reply-name{font-size:12px;font-weight:700;color:#6b7280;margin-bottom:4px;}
+.reply-text{font-size:13px;color:#d1d5db;line-height:1.65;}
+.reply-photos{display:flex;gap:6px;margin-top:6px;}
+.reply-photo{width:60px;height:60px;border-radius:6px;object-fit:cover;cursor:pointer;}
+.reply-form{margin-top:14px;padding-top:14px;border-top:1px solid #1f1f1f;}
+.reply-form textarea{width:100%;background:#111;border:1px solid #2d2d2d;color:#e0e0e0;border-radius:8px;padding:10px;font-size:13px;resize:vertical;min-height:70px;}
+.reply-form-row{display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap;}
+.reply-form input[type=text]{flex:1;background:#111;border:1px solid #2d2d2d;color:#e0e0e0;border-radius:8px;padding:7px 12px;font-size:12px;min-width:120px;}
+.reply-submit{padding:7px 18px;background:#16a34a;color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;}
+.reply-submit:hover{background:#15803d;}
+.reply-anon{display:flex;align-items:center;gap:6px;font-size:12px;color:#6b7280;cursor:pointer;}
+
+/* CONTACT BOX inside reply area */
+.contacts-box{background:#0d1a0d;border:1px solid #16a34a;border-radius:8px;padding:12px 14px;margin-top:12px;}
+.contacts-title{font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#4ade80;margin-bottom:10px;}
+.contact-item{margin-bottom:8px;}
+.contact-name{font-size:13px;font-weight:700;color:#86efac;}
+.contact-detail{font-size:12px;color:#6b7280;line-height:1.5;}
+
+/* SIDEBAR */
+.sidebar{}
+.sidebar-card{background:#111;border:1px solid #1f1f1f;border-radius:12px;padding:20px;margin-bottom:16px;}
+.sc-title{font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#4ade80;margin-bottom:14px;}
+
+/* SUBMIT FORM */
+.submit-form{background:#0d1a0d;border:2px solid #16a34a;border-radius:12px;padding:22px;margin-bottom:16px;}
+.sf-title{font-size:16px;font-weight:900;color:#fff;margin-bottom:4px;}
+.sf-sub{font-size:12px;color:#6b7280;margin-bottom:18px;}
+.sf-field{margin-bottom:12px;}
+.sf-label{font-size:11px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;display:block;}
+.sf-input,.sf-select,.sf-textarea{width:100%;background:#0a0a0a;border:1px solid #2d2d2d;color:#e0e0e0;border-radius:8px;padding:9px 12px;font-size:13px;}
+.sf-textarea{resize:vertical;min-height:100px;}
+.sf-select{cursor:pointer;}
+.sf-row{display:flex;gap:8px;}
+.sf-row .sf-field{flex:1;}
+.sf-check{display:flex;align-items:center;gap:8px;font-size:12px;color:#9ca3af;cursor:pointer;margin-bottom:8px;}
+.sf-upload{background:#111;border:1px dashed #2d2d2d;border-radius:8px;padding:14px;text-align:center;cursor:pointer;font-size:12px;color:#6b7280;margin-bottom:12px;}
+.sf-upload:hover{border-color:#16a34a;}
+.sf-upload input{display:none;}
+.sf-preview{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;}
+.sf-preview img{width:60px;height:60px;border-radius:6px;object-fit:cover;}
+.sf-submit{width:100%;padding:12px;background:#16a34a;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:800;cursor:pointer;}
+.sf-submit:hover{background:#15803d;}
+.sf-submit:disabled{background:#1f2d1f;color:#4b5563;cursor:not-allowed;}
+.sf-msg{margin-top:10px;font-size:13px;padding:10px;border-radius:8px;display:none;}
+.sf-msg.success{background:#0d1a0d;color:#4ade80;border:1px solid #16a34a;display:block;}
+.sf-msg.error{background:#1a0000;color:#f87171;border:1px solid #dc2626;display:block;}
+
+/* CONTACT DIRECTORY */
+.contact-dir-item{padding:10px 0;border-bottom:1px solid #1f1f1f;}
+.contact-dir-item:last-child{border-bottom:none;}
+.cdi-name{font-size:13px;font-weight:700;color:#e0e0e0;margin-bottom:2px;}
+.cdi-role{font-size:11px;color:#6b7280;margin-bottom:4px;}
+.cdi-link{font-size:12px;color:#3b82f6;}
+
+/* STATE TAGS */
+.state-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+.st-tag{font-size:11px;padding:4px 10px;border-radius:12px;background:#1a1a1a;border:1px solid #2d2d2d;color:#9ca3af;cursor:pointer;font-weight:600;}
+.st-tag:hover,.st-tag.active{background:#0d1f3a;border-color:#3b82f6;color:#60a5fa;}
+
+/* LOADING / EMPTY */
+.loading{text-align:center;padding:40px;color:#4b5563;}
+.empty{text-align:center;padding:40px;color:#4b5563;}
+.empty-icon{font-size:40px;margin-bottom:12px;}
+.empty-title{font-size:16px;font-weight:700;color:#6b7280;margin-bottom:6px;}
+
+/* PAGINATION */
+.pagination{display:flex;gap:8px;justify-content:center;margin-top:20px;}
+.page-btn{padding:8px 16px;border-radius:8px;background:#111;border:1px solid #2d2d2d;color:#9ca3af;cursor:pointer;font-size:13px;font-weight:700;}
+.page-btn:hover,.page-btn.active{background:#16a34a;border-color:#16a34a;color:#fff;}
+.page-btn:disabled{opacity:0.4;cursor:not-allowed;}
+
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:999;justify-content:center;align-items:center;}
+.lightbox.open{display:flex;}
+.lightbox img{max-width:90vw;max-height:90vh;border-radius:8px;}
+.lb-close{position:absolute;top:20px;right:24px;font-size:28px;color:#fff;cursor:pointer;background:none;border:none;line-height:1;}
+
+/* NAV */
+nav{background:#0a0f1e;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #1f2d3f;}
+.nav-logo{font-size:15px;font-weight:900;color:#fff;}
+.nav-logo span{color:#3b82f6;}
+.nav-links{display:flex;gap:16px;}
+.nav-links a{font-size:12px;color:#6b7280;font-weight:600;}
+.nav-links a:hover{color:#fff;}
+
+/* MEDIA VIDEO */
+.rc-video{width:100%;max-width:300px;border-radius:8px;margin-bottom:8px;}
+
+footer{background:#000;padding:24px;text-align:center;font-size:12px;color:#4b5563;border-top:1px solid #1f1f1f;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Case<span>Lock</span> Community</div>
+  <div class="nav-links">
+    <a href="index.html">← Library</a>
+    <a href="corridor.html">Corridor Report</a>
+    <a href="mad_enough.html">Y'all Aren't Mad Enough</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">🟢 Live Community Evidence Board</div>
+  <h1>Your Neighbors<br>Are <span>Documenting This.</span></h1>
+  <p class="hero-sub">Share photos of brown water. Post your electric bill increase. Show the power line survey notice you received. Tell others what you're seeing. Every report is real. Every voice counts. No login required.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-n" id="stat-total">—</div><div class="hstat-l">Reports Filed</div></div>
+    <div class="hstat"><div class="hstat-n" id="stat-states">—</div><div class="hstat-l">States Represented</div></div>
+    <div class="hstat"><div class="hstat-n" id="stat-support">—</div><div class="hstat-l">Community Supports</div></div>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <button class="filter-btn all active" onclick="setTag('')">All Reports</button>
+  <button class="filter-btn" onclick="setTag('dirty-water')">🟤 Dirty Water</button>
+  <button class="filter-btn" onclick="setTag('water-bill')">💧 Water Bill</button>
+  <button class="filter-btn" onclick="setTag('electric-bill')">⚡ Electric Bill</button>
+  <button class="filter-btn" onclick="setTag('noise')">🔊 Noise</button>
+  <button class="filter-btn" onclick="setTag('power-line')">🔌 Power Line</button>
+  <button class="filter-btn" onclick="setTag('aquifer')">🌊 Aquifer/Well</button>
+  <button class="filter-btn" onclick="setTag('eminent-domain')">🏠 Property Seized</button>
+  <button class="filter-btn" onclick="setTag('other')">📋 Other</button>
+  <select id="state-filter" onchange="setState(this.value)">
+    <option value="">All States</option>
+    <option>Virginia</option>
+    <option>Illinois</option>
+    <option>West Virginia</option>
+    <option>Ohio</option>
+    <option>Kentucky</option>
+    <option>Georgia</option>
+    <option>Texas</option>
+    <option>Nevada</option>
+    <option>Utah</option>
+    <option>Indiana</option>
+    <option>Other</option>
+  </select>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="layout">
+
+  <!-- FEED -->
+  <div>
+    <div class="feed-header">
+      <div class="feed-title">Community Reports</div>
+      <div class="feed-count" id="feed-count"></div>
+    </div>
+    <div id="feed">
+      <div class="loading">Loading reports...</div>
+    </div>
+    <div class="pagination" id="pagination"></div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+
+    <!-- SUBMIT FORM -->
+    <div class="submit-form" id="submit-form">
+      <div class="sf-title">📢 Share Your Report</div>
+      <div class="sf-sub">No login needed. Anonymous option available. Your report helps others know what's really happening.</div>
+
+      <div class="sf-field">
+        <label class="sf-label">What issue are you reporting? *</label>
+        <select class="sf-select" id="f-type">
+          <option value="">Select type...</option>
+          <option value="dirty-water">🟤 Dirty / Brown / Smelly Water</option>
+          <option value="water-bill">💧 Water Bill Increase</option>
+          <option value="electric-bill">⚡ Electric Bill Increase</option>
+          <option value="noise">🔊 Data Center Noise / Hum</option>
+          <option value="power-line">🔌 Power Line / Survey / Notice</option>
+          <option value="aquifer">🌊 Well / Aquifer / Groundwater Change</option>
+          <option value="eminent-domain">🏠 Property Taken / Notice Received</option>
+          <option value="other">📋 Other Issue</option>
+        </select>
+      </div>
+
+      <div class="sf-row">
+        <div class="sf-field">
+          <label class="sf-label">State *</label>
+          <select class="sf-select" id="f-state">
+            <option value="">Select...</option>
+            <option>Virginia</option>
+            <option>Illinois</option>
+            <option>West Virginia</option>
+            <option>Ohio</option>
+            <option>Kentucky</option>
+            <option>Georgia</option>
+            <option>Texas</option>
+            <option>Nevada</option>
+            <option>Utah</option>
+            <option>Indiana</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="sf-field">
+          <label class="sf-label">County / City</label>
+          <input type="text" class="sf-input" id="f-county" placeholder="e.g. Caroline County">
+        </div>
+      </div>
+
+      <div class="sf-field">
+        <label class="sf-label">What happened? *</label>
+        <textarea class="sf-textarea" id="f-testimony" placeholder="Describe what you're experiencing. Include dates, amounts, specific changes you noticed. The more detail, the more it helps others."></textarea>
+      </div>
+
+      <div class="sf-field">
+        <label class="sf-label">Upload Proof (photos, screenshots, bills)</label>
+        <div class="sf-upload" onclick="document.getElementById('f-files').click()">
+          📎 Tap to attach photos, screenshots, or videos<br>
+          <span style="font-size:10px;color:#4b5563;">JPG, PNG, GIF, MP4 · Max 10MB each</span>
+          <input type="file" id="f-files" multiple accept="image/*,video/*" onchange="previewFiles(this)">
+        </div>
+        <div class="sf-preview" id="f-preview"></div>
+      </div>
+
+      <label class="sf-check"><input type="checkbox" id="f-anon" checked> Post anonymously</label>
+      <div id="f-name-row" style="display:none;">
+        <div class="sf-field">
+          <label class="sf-label">Your name (optional)</label>
+          <input type="text" class="sf-input" id="f-name" placeholder="First name or initials">
+        </div>
+      </div>
+
+      <label class="sf-check"><input type="checkbox" id="f-attorney"> I'm open to being contacted by an attorney about this issue</label>
+
+      <button class="sf-submit" id="sf-submit-btn" onclick="submitReport()">📤 Submit Report</button>
+      <div class="sf-msg" id="sf-msg"></div>
+    </div>
+
+    <!-- WHO TO CONTACT -->
+    <div class="sidebar-card">
+      <div class="sc-title">📞 Who to Contact</div>
+      <p style="font-size:12px;color:#6b7280;margin-bottom:12px;">Based on your issue, here are the agencies with actual jurisdiction:</p>
+
+      <div class="contact-dir-item">
+        <div class="cdi-name">Virginia SCC — Utility Complaints</div>
+        <div class="cdi-role">Electric & water bill increases, service failures</div>
+        <div class="cdi-link"><a href="https://scc.virginia.gov" target="_blank">scc.virginia.gov</a> · (800) 552-7945</div>
+      </div>
+      <div class="contact-dir-item">
+        <div class="cdi-name">Virginia DEQ — Water Quality</div>
+        <div class="cdi-role">Aquifer depletion, discharge permits, well contamination</div>
+        <div class="cdi-link"><a href="https://deq.virginia.gov" target="_blank">deq.virginia.gov</a> · (804) 698-4000</div>
+      </div>
+      <div class="contact-dir-item">
+        <div class="cdi-name">EPA Region 3 — Mid-Atlantic</div>
+        <div class="cdi-role">Federal water quality, NPDES permits, CWA violations</div>
+        <div class="cdi-link"><a href="https://www.epa.gov/aboutepa/epa-region-3-mid-atlantic" target="_blank">epa.gov/region3</a> · (215) 814-5000</div>
+      </div>
+      <div class="contact-dir-item">
+        <div class="cdi-name">Illinois EPA</div>
+        <div class="cdi-role">Illinois water quality, aquifer issues, data center impacts</div>
+        <div class="cdi-link"><a href="https://www2.illinois.gov/epa" target="_blank">illinois.gov/epa</a> · (217) 782-3397</div>
+      </div>
+      <div class="contact-dir-item">
+        <div class="cdi-name">U.S. House Oversight Committee</div>
+        <div class="cdi-role">Congressional oversight — data center environmental impact</div>
+        <div class="cdi-link"><a href="https://oversight.house.gov" target="_blank">oversight.house.gov</a></div>
+      </div>
+      <div class="contact-dir-item">
+        <div class="cdi-name">Friends of the Rappahannock</div>
+        <div class="cdi-role">VA river advocacy, legal challenges to permits</div>
+        <div class="cdi-link"><a href="https://riverfriends.org" target="_blank">riverfriends.org</a></div>
+      </div>
+      <div class="contact-dir-item">
+        <div class="cdi-name">Chesapeake Legal Alliance</div>
+        <div class="cdi-role">Legal representation — Rappahannock Tribe permit challenge</div>
+        <div class="cdi-link"><a href="https://chesapeakelegal.org" target="_blank">chesapeakelegal.org</a></div>
+      </div>
+    </div>
+
+    <!-- LIBRARY LINKS -->
+    <div class="sidebar-card">
+      <div class="sc-title">📚 Evidence Library</div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <a href="corridor.html" style="font-size:13px;color:#60a5fa;">🗺️ I-95 Corridor Full Report (VA)</a>
+        <a href="mad_enough.html" style="font-size:13px;color:#f87171;">🔴 Y'all Aren't Mad Enough — Wake Up Call</a>
+        <a href="illinois_fight_guide.html" style="font-size:13px;color:#60a5fa;">🏭 Illinois Fight Guide</a>
+        <a href="lockport.html" style="font-size:13px;color:#60a5fa;">🔬 Lockport, IL Aquifer Guide</a>
+        <a href="bowling_green_ohio_fight.html" style="font-size:13px;color:#60a5fa;">⚡ Bowling Green, OH Fight Guide</a>
+        <a href="brenton_wv.html" style="font-size:13px;color:#60a5fa;">⛏️ Brenton, WV Contamination</a>
+        <a href="wyoming_county_master_brief.html" style="font-size:13px;color:#60a5fa;">📋 Wyoming County, WV Master Brief</a>
+        <a href="national_data_center_crisis.html" style="font-size:13px;color:#60a5fa;">🌍 National Crisis Report</a>
+      </div>
+    </div>
+
+  </div><!-- /sidebar -->
+</div><!-- /layout -->
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox()">×</button>
+  <img id="lb-img" src="" alt="Evidence">
+</div>
+
+<footer>
+  CaseLock Community Evidence Board · All reports are from community members. CaseLock does not verify individual claims but reserves the right to remove harmful content. This is a public interest resource.
+</footer>
+
+<script>
+const API = 'https://case-lock-pro-f824df3e.base44.app/api/functions/communityBoard';
+let currentTag = '';
+let currentState = '';
+let currentPage = 1;
+let uploadedUrls = [];
+let allReports = [];
+
+// ─── INIT ───
+document.addEventListener('DOMContentLoaded', () => {
+  // Read URL params for pre-filtering
+  const params = new URLSearchParams(location.search);
+  if (params.get('tag')) { currentTag = params.get('tag'); highlightFilterBtn(currentTag); }
+  if (params.get('state')) { currentState = params.get('state'); document.getElementById('state-filter').value = currentState; }
+
+  loadReports();
+
+  // Toggle anon name field
+  document.getElementById('f-anon').addEventListener('change', function() {
+    document.getElementById('f-name-row').style.display = this.checked ? 'none' : 'block';
+  });
+});
+
+function highlightFilterBtn(tag) {
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('onclick') === `setTag('${tag}')`);
+  });
+}
+
+// ─── FILTERS ───
+function setTag(tag) {
+  currentTag = tag;
+  currentPage = 1;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  const clicked = [...document.querySelectorAll('.filter-btn')].find(b => b.getAttribute('onclick') === `setTag('${tag}')`);
+  if (clicked) clicked.classList.add('active');
+  loadReports();
+}
+
+function setState(val) {
+  currentState = val;
+  currentPage = 1;
+  loadReports();
+}
+
+// ─── LOAD REPORTS ───
+async function loadReports() {
+  document.getElementById('feed').innerHTML = '<div class="loading">Loading reports…</div>';
+  try {
+    const params = new URLSearchParams({ action: 'list', page: currentPage });
+    if (currentTag) params.set('tag', currentTag);
+    if (currentState) params.set('state', currentState);
+
+    const res = await fetch(`${API}?${params}`);
+    const data = await res.json();
+    allReports = data.reports || [];
+
+    updateStats(data.total || 0, allReports);
+    renderFeed(allReports, data.total || 0);
+    renderPagination(data.pages || 1);
+  } catch(e) {
+    document.getElementById('feed').innerHTML = '<div class="empty"><div class="empty-icon">⚠️</div><div class="empty-title">Could not load reports</div><div>Please try again in a moment.</div></div>';
+  }
+}
+
+function updateStats(total) {
+  document.getElementById('stat-total').textContent = total;
+  // Count unique states and total supports
+  const states = new Set(allReports.map(r => r.location?.split(',')[0]).filter(Boolean));
+  document.getElementById('stat-states').textContent = states.size;
+  const supports = allReports.reduce((s, r) => s + (r.support_count || 0), 0);
+  document.getElementById('stat-support').textContent = supports;
+}
+
+// ─── RENDER FEED ───
+function renderFeed(reports, total) {
+  document.getElementById('feed-count').textContent = total > 0 ? `${total} report${total !== 1 ? 's' : ''}` : '';
+  if (!reports.length) {
+    document.getElementById('feed').innerHTML = `
+      <div class="empty">
+        <div class="empty-icon">📭</div>
+        <div class="empty-title">No reports yet for this filter</div>
+        <div style="font-size:13px;color:#4b5563;margin-top:6px;">Be the first to document what's happening in your area.</div>
+      </div>`;
+    return;
+  }
+
+  document.getElementById('feed').innerHTML = reports.map(r => reportCard(r)).join('');
+}
+
+function reportCard(r) {
+  const tag = r.testimony_type || 'other';
+  const tagLabel = {
+    'dirty-water': '🟤 Dirty Water',
+    'water-bill':  '💧 Water Bill',
+    'electric-bill':'⚡ Electric Bill',
+    'noise':        '🔊 Noise',
+    'power-line':   '🔌 Power Line',
+    'aquifer':      '🌊 Aquifer/Well',
+    'eminent-domain':'🏠 Property',
+    'other':        '📋 Other',
+  }[tag] || '📋 Other';
+
+  const photos = (r.photo_urls || []).filter(u => u && !u.match(/\.(mp4|mov|webm)$/i));
+  const videos = (r.photo_urls || []).filter(u => u && u.match(/\.(mp4|mov|webm)$/i));
+  const date = r.created_date ? new Date(r.created_date).toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'}) : '';
+  const supported = localStorage.getItem('sup_'+r.id);
+
+  return `
+<div class="report-card" id="card-${r.id}">
+  <div class="rc-top">
+    <div class="rc-meta">
+      <span class="rc-name">${esc(r.display_name || 'Anonymous')}</span>
+      <span class="rc-loc">📍 ${esc(r.location || 'Unknown')}</span>
+      <span class="rc-tag ${tag}">${tagLabel}</span>
+    </div>
+    <span class="rc-date">${date}</span>
+  </div>
+  <div class="rc-body clamped" id="body-${r.id}">${esc(r.testimony)}</div>
+  ${r.testimony.length > 300 ? `<button class="rc-expand" onclick="expandBody('${r.id}')">Read more ↓</button>` : ''}
+  ${photos.length ? `<div class="rc-photos">${photos.map(u => `<img class="rc-photo" src="${u}" alt="Evidence" onclick="openLightbox('${u}')" loading="lazy">`).join('')}</div>` : ''}
+  ${videos.length ? videos.map(u => `<video class="rc-video" controls><source src="${u}"></video>`).join('') : ''}
+  <div class="rc-actions">
+    <button class="rc-btn ${supported ? 'supported' : ''}" id="sup-${r.id}" onclick="support('${r.id}')">
+      👍 ${supported ? 'Supported' : 'Same here'} · <span id="sup-count-${r.id}">${r.support_count || 0}</span>
+    </button>
+    <button class="rc-btn" onclick="toggleReplies('${r.id}')">
+      💬 <span id="reply-count-${r.id}">${r.reply_count || 0}</span> ${(r.reply_count || 0) === 1 ? 'reply' : 'replies'}
+    </button>
+    ${r.attorney_contact_ok ? '<span style="font-size:11px;color:#4ade80;">✅ Open to attorney contact</span>' : ''}
+  </div>
+  <div class="replies-area" id="replies-${r.id}">
+    <div id="replies-list-${r.id}"><div class="loading" style="padding:20px;font-size:13px;">Loading replies…</div></div>
+    ${contactsForTag(tag)}
+    <div class="reply-form">
+      <textarea id="rt-${r.id}" placeholder="Add your reply, experience, or tip…"></textarea>
+      <div class="reply-form-row">
+        <input type="text" id="rn-${r.id}" placeholder="Your name (optional)">
+        <label class="reply-anon"><input type="checkbox" id="ra-${r.id}" checked> Anonymous</label>
+        <button class="reply-submit" onclick="submitReply('${r.id}')">Reply</button>
+      </div>
+    </div>
+  </div>
+</div>`;
+}
+
+function contactsForTag(tag) {
+  const contacts = {
+    'dirty-water': `<div class="contacts-box"><div class="contacts-title">Who to contact about dirty water</div>
+      <div class="contact-item"><div class="contact-name">Virginia DEQ Water Quality</div><div class="contact-detail">deq.virginia.gov · (804) 698-4000 · Report contamination, request testing</div></div>
+      <div class="contact-item"><div class="contact-name">EPA Safe Drinking Water Hotline</div><div class="contact-detail">(800) 426-4791 · Federal drinking water violations</div></div>
+      <div class="contact-item"><div class="contact-name">Friends of the Rappahannock</div><div class="contact-detail">riverfriends.org · VA river advocacy and legal action</div></div>
+    </div>`,
+    'water-bill': `<div class="contacts-box"><div class="contacts-title">Who to contact about water bill increases</div>
+      <div class="contact-item"><div class="contact-name">Virginia SCC — Utility Division</div><div class="contact-detail">scc.virginia.gov · (800) 552-7945 · File formal complaint against Aqua Virginia</div></div>
+      <div class="contact-item"><div class="contact-name">Your State Attorney General</div><div class="contact-detail">Search "[your state] attorney general consumer complaint" — utility fraud is AG jurisdiction in most states</div></div>
+    </div>`,
+    'electric-bill': `<div class="contacts-box"><div class="contacts-title">Who to contact about electric bill increases</div>
+      <div class="contact-item"><div class="contact-name">Virginia SCC — Electric</div><div class="contact-detail">scc.virginia.gov · (800) 552-7945 · Cite Nov 2025 SCC finding that data centers had a "sweet deal" at residential expense</div></div>
+      <div class="contact-item"><div class="contact-name">VCNVA (Virginia Consumers for Clean Energy)</div><div class="contact-detail">Advocacy for residential ratepayer protection in Dominion rate cases</div></div>
+    </div>`,
+    'noise': `<div class="contacts-box"><div class="contacts-title">Who to contact about data center noise</div>
+      <div class="contact-item"><div class="contact-name">Your County Zoning Administrator</div><div class="contact-detail">Document dB levels with the free NoiSee app. File a formal noise complaint with your county's zoning/code enforcement office — this creates a paper trail for future litigation.</div></div>
+      <div class="contact-item"><div class="contact-name">Virginia DEQ — Air Division</div><div class="contact-detail">deq.virginia.gov · Noise from industrial facilities is regulated under Virginia air quality regulations</div></div>
+    </div>`,
+    'power-line': `<div class="contacts-box"><div class="contacts-title">Who to contact about power line notices</div>
+      <div class="contact-item"><div class="contact-name">Virginia SCC — Utility Siting</div><div class="contact-detail">scc.virginia.gov · File written comments in the North Anna–Bristers docket before SCC approval. Your comment becomes part of the permanent record.</div></div>
+      <div class="contact-item"><div class="contact-name">Your County Board of Supervisors</div><div class="contact-detail">Supervisors can formally intervene in SCC proceedings on behalf of residents. Attend the next public meeting.</div></div>
+    </div>`,
+    'aquifer': `<div class="contacts-box"><div class="contacts-title">Who to contact about well/aquifer changes</div>
+      <div class="contact-item"><div class="contact-name">Virginia DEQ Groundwater Program</div><div class="contact-detail">deq.virginia.gov/water/water-quantity/groundwater · (804) 698-4000 · Report well changes, request aquifer monitoring data</div></div>
+      <div class="contact-item"><div class="contact-name">Virginia Department of Health — Well Testing</div><div class="contact-detail">vdh.virginia.gov · Get your well tested by a certified lab. Caroline County: specifically test for radioactive elements — already documented in Bowling Green wells.</div></div>
+    </div>`,
+    'eminent-domain': `<div class="contacts-box"><div class="contacts-title">Who to contact if your property is at risk</div>
+      <div class="contact-item"><div class="contact-name">Virginia Attorney General — Property Rights</div><div class="contact-detail">oag.state.va.us · Va. Code § 1-219.1 limits eminent domain — property cannot be taken primarily for private economic development. If a data center primarily benefits a private company, contest it.</div></div>
+      <div class="contact-item"><div class="contact-name">Property Rights attorney — consult immediately</div><div class="contact-detail">If you receive a survey notice or offer letter, do not sign anything. Get an independent appraisal. You have the right to contest both the taking AND the amount.</div></div>
+    </div>`,
+  };
+  return contacts[tag] || '';
+}
+
+// ─── EXPAND BODY ───
+function expandBody(id) {
+  const el = document.getElementById('body-'+id);
+  el.classList.remove('clamped');
+  event.target.remove();
+}
+
+// ─── SUPPORT ───
+async function support(id) {
+  if (localStorage.getItem('sup_'+id)) return;
+  try {
+    const res = await fetch(`${API}?action=support`, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({id}) });
+    const d = await res.json();
+    if (d.ok) {
+      document.getElementById('sup-count-'+id).textContent = d.support_count;
+      document.getElementById('sup-'+id).classList.add('supported');
+      document.getElementById('sup-'+id).innerHTML = `👍 Supported · <span id="sup-count-${id}">${d.support_count}</span>`;
+      localStorage.setItem('sup_'+id, '1');
+    }
+  } catch(e) {}
+}
+
+// ─── TOGGLE REPLIES ───
+async function toggleReplies(id) {
+  const area = document.getElementById('replies-'+id);
+  const isOpen = area.classList.contains('open');
+  if (isOpen) { area.classList.remove('open'); return; }
+  area.classList.add('open');
+  await loadReplies(id);
+}
+
+async function loadReplies(id) {
+  const list = document.getElementById('replies-list-'+id);
+  try {
+    const res = await fetch(`${API}?action=get&id=${id}`);
+    const d = await res.json();
+    if (!d.ok || !d.replies) { list.innerHTML = '<div style="color:#6b7280;font-size:13px;padding:8px 0;">No replies yet. Be the first.</div>'; return; }
+    if (d.replies.length === 0) { list.innerHTML = '<div style="color:#6b7280;font-size:13px;padding:8px 0;">No replies yet. Be the first.</div>'; return; }
+    list.innerHTML = d.replies.map(r => `
+      <div class="reply-item">
+        <div class="reply-name">${esc(r.display_name || 'Anonymous')} · ${new Date(r.created_date).toLocaleDateString('en-US',{month:'short',day:'numeric'})}</div>
+        <div class="reply-text">${esc(r.reply_text)}</div>
+        ${(r.photo_urls||[]).length ? `<div class="reply-photos">${r.photo_urls.map(u=>`<img class="reply-photo" src="${u}" onclick="openLightbox('${u}')" loading="lazy">`).join('')}</div>` : ''}
+      </div>`).join('');
+  } catch(e) {
+    list.innerHTML = '<div style="color:#f87171;font-size:13px;">Could not load replies.</div>';
+  }
+}
+
+// ─── SUBMIT REPLY ───
+async function submitReply(id) {
+  const text = document.getElementById('rt-'+id).value.trim();
+  const name = document.getElementById('rn-'+id).value.trim();
+  const anon = document.getElementById('ra-'+id).checked;
+  if (!text || text.length < 5) { alert('Please write a reply first.'); return; }
+
+  try {
+    const res = await fetch(`${API}?action=reply`, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ report_entry_id: id, display_name: name, reply_text: text, is_anonymous: anon })
+    });
+    const d = await res.json();
+    if (d.ok) {
+      document.getElementById('rt-'+id).value = '';
+      await loadReplies(id);
+      const countEl = document.getElementById('reply-count-'+id);
+      if (countEl) countEl.textContent = parseInt(countEl.textContent||'0') + 1;
+    }
+  } catch(e) { alert('Could not submit reply. Please try again.'); }
+}
+
+// ─── SUBMIT REPORT ───
+async function submitReport() {
+  const btn = document.getElementById('sf-submit-btn');
+  const msg = document.getElementById('sf-msg');
+  msg.className = 'sf-msg';
+
+  const type  = document.getElementById('f-type').value;
+  const state = document.getElementById('f-state').value;
+  const county = document.getElementById('f-county').value.trim();
+  const text  = document.getElementById('f-testimony').value.trim();
+  const anon  = document.getElementById('f-anon').checked;
+  const name  = document.getElementById('f-name').value.trim();
+  const atty  = document.getElementById('f-attorney').checked;
+
+  if (!type) { showMsg('error', 'Please select an issue type.'); return; }
+  if (!state) { showMsg('error', 'Please select your state.'); return; }
+  if (!text || text.length < 20) { showMsg('error', 'Please describe what happened (at least 20 characters).'); return; }
+
+  btn.disabled = true;
+  btn.textContent = 'Submitting…';
+
+  const location = county ? `${state} — ${county}` : state;
+
+  try {
+    const res = await fetch(`${API}?action=submit`, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        display_name: name,
+        location,
+        testimony_type: type,
+        testimony: text,
+        photo_urls: uploadedUrls,
+        is_anonymous: anon,
+        attorney_contact_ok: atty,
+      })
+    });
+    const d = await res.json();
+    if (d.ok) {
+      showMsg('success', '✅ Report submitted! It will appear in the feed now. Thank you for documenting this.');
+      document.getElementById('f-type').value = '';
+      document.getElementById('f-state').value = '';
+      document.getElementById('f-county').value = '';
+      document.getElementById('f-testimony').value = '';
+      document.getElementById('f-preview').innerHTML = '';
+      uploadedUrls = [];
+      setTimeout(() => { currentPage = 1; loadReports(); }, 1500);
+    } else {
+      showMsg('error', d.error || 'Submission failed. Please try again.');
+    }
+  } catch(e) {
+    showMsg('error', 'Network error. Please check your connection and try again.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '📤 Submit Report';
+  }
+}
+
+function showMsg(type, text) {
+  const el = document.getElementById('sf-msg');
+  el.className = 'sf-msg ' + type;
+  el.textContent = text;
+}
+
+// ─── FILE PREVIEW (no upload — just base64 inline for now) ───
+function previewFiles(input) {
+  const preview = document.getElementById('f-preview');
+  const files = Array.from(input.files);
+  files.forEach(file => {
+    if (file.size > 10 * 1024 * 1024) { alert(`${file.name} is too large (max 10MB).`); return; }
+    const reader = new FileReader();
+    reader.onload = e => {
+      const url = e.target.result;
+      uploadedUrls.push(url);
+      if (file.type.startsWith('image/')) {
+        const img = document.createElement('img');
+        img.src = url; img.style.cssText = 'width:60px;height:60px;border-radius:6px;object-fit:cover;';
+        preview.appendChild(img);
+      } else {
+        const span = document.createElement('div');
+        span.textContent = '🎥 ' + file.name;
+        span.style.cssText = 'font-size:11px;color:#6b7280;background:#111;padding:6px 10px;border-radius:6px;';
+        preview.appendChild(span);
+      }
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+// ─── PAGINATION ───
+function renderPagination(pages) {
+  const el = document.getElementById('pagination');
+  if (pages <= 1) { el.innerHTML = ''; return; }
+  let html = '';
+  if (currentPage > 1) html += `<button class="page-btn" onclick="goPage(${currentPage-1})">← Prev</button>`;
+  for (let i = 1; i <= pages; i++) {
+    if (pages > 7 && Math.abs(i - currentPage) > 2 && i !== 1 && i !== pages) continue;
+    html += `<button class="page-btn ${i===currentPage?'active':''}" onclick="goPage(${i})">${i}</button>`;
+  }
+  if (currentPage < pages) html += `<button class="page-btn" onclick="goPage(${currentPage+1})">Next →</button>`;
+  el.innerHTML = html;
+}
+
+function goPage(p) {
+  currentPage = p;
+  loadReports();
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// ─── LIGHTBOX ───
+function openLightbox(src) {
+  document.getElementById('lb-img').src = src;
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+}
+
+// ─── UTILS ───
+function esc(str) {
+  if (!str) return '';
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/\n/g,'<br>');
+}
+</script>
+
+</body>
+</html>
