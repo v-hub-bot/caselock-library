@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community Petitions | CaseLock Intelligence</title>
+<meta name="description" content="Sign petitions to hold Dominion, Aqua Virginia, coal companies, and county boards accountable. Signatures grouped by county — ready to file with the SCC, Board of Supervisors, or court.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e0e0e0;line-height:1.6;}
+a{color:#3b82f6;text-decoration:none;}
+
+nav{background:#0a0f1e;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #1f2d3f;flex-wrap:wrap;gap:8px;}
+.nav-logo{font-size:15px;font-weight:900;color:#fff;}.nav-logo span{color:#3b82f6;}
+.nav-links{display:flex;gap:16px;flex-wrap:wrap;}
+.nav-links a{font-size:12px;color:#6b7280;font-weight:600;}
+.nav-links a:hover{color:#fff;}
+
+.hero{background:linear-gradient(160deg,#0a0f1e 0%,#0f0a1e 50%,#0a0a0a 100%);padding:48px 24px 40px;text-align:center;border-bottom:3px solid #7c3aed;}
+.hero-label{font-size:11px;font-weight:900;letter-spacing:4px;text-transform:uppercase;color:#a78bfa;margin-bottom:14px;}
+.hero h1{font-size:clamp(28px,6vw,52px);font-weight:900;color:#fff;margin-bottom:12px;line-height:1.1;}
+.hero h1 span{color:#a78bfa;}
+.hero-sub{font-size:15px;color:#9ca3af;max-width:680px;margin:0 auto 20px;line-height:1.65;}
+.hero-note{display:inline-block;background:#1e1a2e;border:1px solid #4c1d95;border-radius:8px;padding:10px 20px;font-size:13px;color:#c4b5fd;margin-top:8px;}
+
+.filter-bar{background:#111;border-bottom:1px solid #1f1f1f;padding:12px 24px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;}
+.filter-btn{padding:7px 16px;border-radius:20px;font-size:12px;font-weight:700;border:1px solid #2d2d2d;background:#1a1a1a;color:#9ca3af;cursor:pointer;transition:all 0.15s;}
+.filter-btn:hover,.filter-btn.active{background:#7c3aed;border-color:#7c3aed;color:#fff;}
+.filter-btn.all.active{background:#3b82f6;border-color:#3b82f6;}
+
+/* PETITION CARDS */
+.grid{max-width:1060px;margin:0 auto;padding:32px 20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(480px,1fr));gap:20px;}
+@media(max-width:560px){.grid{grid-template-columns:1fr;}}
+
+.petition-card{background:#111;border:1px solid #2d2d2d;border-radius:14px;overflow:hidden;transition:border-color 0.15s,transform 0.15s;}
+.petition-card:hover{border-color:#7c3aed;transform:translateY(-2px);}
+.pc-header{padding:20px 22px 16px;border-bottom:1px solid #1f1f1f;}
+.pc-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+.pc-tag{font-size:10px;font-weight:800;padding:3px 10px;border-radius:12px;text-transform:uppercase;letter-spacing:.5px;}
+.pc-tag.utility{background:#1a1a2e;color:#818cf8;}
+.pc-tag.county{background:#0d1a0d;color:#4ade80;}
+.pc-tag.state{background:#1a1500;color:#fbbf24;}
+.pc-tag.federal{background:#1a0000;color:#f87171;}
+.pc-tag.corporation{background:#1a0f00;color:#fb923c;}
+.pc-state{font-size:11px;color:#6b7280;background:#1a1a1a;padding:3px 10px;border-radius:12px;}
+.pc-title{font-size:16px;font-weight:900;color:#fff;line-height:1.3;margin-bottom:6px;}
+.pc-target{font-size:12px;color:#6b7280;margin-bottom:8px;}
+.pc-target strong{color:#9ca3af;}
+.pc-desc{font-size:13px;color:#9ca3af;line-height:1.7;}
+
+.pc-progress{padding:16px 22px;border-bottom:1px solid #1f1f1f;}
+.pc-progress-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;}
+.pc-count{font-size:28px;font-weight:900;color:#a78bfa;}
+.pc-goal{font-size:13px;color:#4b5563;}
+.progress-bar{background:#1f1f1f;border-radius:99px;height:8px;overflow:hidden;}
+.progress-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#7c3aed,#a78bfa);transition:width 0.6s ease;}
+.pc-pct{font-size:12px;color:#6b7280;margin-top:5px;}
+
+.pc-county-preview{padding:12px 22px;border-bottom:1px solid #1f1f1f;display:flex;flex-wrap:wrap;gap:6px;}
+.county-pill{font-size:11px;padding:4px 10px;border-radius:12px;background:#1e1a2e;color:#c4b5fd;font-weight:600;}
+.county-pill.zero{background:#1a1a1a;color:#4b5563;}
+
+.pc-actions{padding:16px 22px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.btn-sign{flex:1;padding:12px 20px;background:#7c3aed;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:800;cursor:pointer;transition:background 0.15s;}
+.btn-sign:hover{background:#6d28d9;}
+.btn-sign.signed{background:#1e1a2e;color:#a78bfa;cursor:default;}
+.btn-details{padding:12px 16px;background:#1a1a1a;color:#9ca3af;border:1px solid #2d2d2d;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;}
+.btn-details:hover{border-color:#7c3aed;color:#a78bfa;}
+
+/* SIGN MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:200;align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.open{display:flex;}
+.modal{background:#111;border:1px solid #3d2d5e;border-radius:16px;padding:28px;max-width:520px;width:100%;max-height:90vh;overflow-y:auto;}
+.modal-close{float:right;background:none;border:none;color:#6b7280;font-size:22px;cursor:pointer;line-height:1;}
+.modal-title{font-size:18px;font-weight:900;color:#fff;margin-bottom:4px;}
+.modal-petition-name{font-size:13px;color:#a78bfa;margin-bottom:18px;line-height:1.5;}
+.sf-field{margin-bottom:12px;}
+.sf-label{font-size:11px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;display:block;}
+.sf-input,.sf-select,.sf-textarea{width:100%;background:#0a0a0a;border:1px solid #2d2d2d;color:#e0e0e0;border-radius:8px;padding:9px 12px;font-size:13px;}
+.sf-textarea{resize:vertical;min-height:80px;}
+.sf-row{display:flex;gap:8px;}
+.sf-row .sf-field{flex:1;}
+.sf-check{display:flex;align-items:center;gap:8px;font-size:12px;color:#9ca3af;cursor:pointer;margin-bottom:8px;}
+.sf-submit{width:100%;padding:13px;background:#7c3aed;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:800;cursor:pointer;margin-top:8px;}
+.sf-submit:hover{background:#6d28d9;}
+.sf-submit:disabled{background:#2d1f4e;color:#6b7280;cursor:not-allowed;}
+.sf-msg{margin-top:10px;font-size:13px;padding:10px;border-radius:8px;display:none;}
+.sf-msg.success{background:#0d1a0d;color:#4ade80;border:1px solid #16a34a;display:block;}
+.sf-msg.error{background:#1a0000;color:#f87171;border:1px solid #dc2626;display:block;}
+
+/* DETAIL MODAL */
+.detail-modal{max-width:680px;}
+.detail-section{margin-bottom:20px;}
+.detail-section h3{font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#a78bfa;margin-bottom:12px;}
+.county-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #1f1f1f;font-size:13px;}
+.county-row:last-child{border-bottom:none;}
+.county-name{color:#d1d5db;}
+.county-count{font-weight:800;color:#a78bfa;}
+.county-bar-wrap{flex:1;margin:0 12px;background:#1f1f1f;border-radius:99px;height:6px;overflow:hidden;}
+.county-bar{height:100%;background:#7c3aed;border-radius:99px;}
+.sig-item{padding:10px 0;border-bottom:1px solid #1f1f1f;}
+.sig-item:last-child{border-bottom:none;}
+.sig-name{font-size:13px;font-weight:700;color:#e0e0e0;}
+.sig-loc{font-size:12px;color:#6b7280;margin-bottom:4px;}
+.sig-comment{font-size:13px;color:#9ca3af;line-height:1.6;font-style:italic;}
+.export-btn{padding:10px 18px;background:#1e1a2e;color:#a78bfa;border:1px solid #4c1d95;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;}
+.export-btn:hover{background:#2d1f4e;}
+
+.loading{text-align:center;padding:40px;color:#4b5563;}
+.empty{text-align:center;padding:40px;color:#4b5563;}
+
+footer{background:#000;padding:24px;text-align:center;font-size:12px;color:#4b5563;border-top:1px solid #1f1f1f;margin-top:40px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Case<span>Lock</span> Petitions</div>
+  <div class="nav-links">
+    <a href="index.html">← Library</a>
+    <a href="community.html" style="color:#4ade80;">🟢 Community Board</a>
+    <a href="corridor.html">Corridor Report</a>
+    <a href="mad_enough.html">Y'all Aren't Mad Enough</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">✊ Community Accountability Petitions</div>
+  <h1>Sign. Submit.<br><span>Hold Them Accountable.</span></h1>
+  <p class="hero-sub">Every signature is logged by county and state. When a petition reaches its goal, we generate a printable document — sorted by county — that can be filed directly with the SCC, your Board of Supervisors, the EPA, or in court. Your name on paper, in the official record, where it actually matters.</p>
+  <div class="hero-note">📋 Signatures are grouped by county for official filing. No spam. Anonymous option available.</div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <button class="filter-btn all active" onclick="setFilter('')">All Petitions</button>
+  <button class="filter-btn" onclick="setFilter('Virginia')">🏛️ Virginia</button>
+  <button class="filter-btn" onclick="setFilter('Illinois')">🌽 Illinois</button>
+  <button class="filter-btn" onclick="setFilter('West Virginia')">⛏️ West Virginia</button>
+  <button class="filter-btn" onclick="setFilter('utility')">⚡ vs. Utilities</button>
+  <button class="filter-btn" onclick="setFilter('county')">🏛️ vs. Counties</button>
+  <button class="filter-btn" onclick="setFilter('state')">📜 vs. State</button>
+</div>
+
+<!-- GRID -->
+<div class="grid" id="petition-grid">
+  <div class="loading" style="grid-column:1/-1;">Loading petitions…</div>
+</div>
+
+<!-- SIGN MODAL -->
+<div class="modal-overlay" id="sign-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeSignModal()">×</button>
+    <div class="modal-title">✍️ Add Your Signature</div>
+    <div class="modal-petition-name" id="modal-petition-name"></div>
+
+    <div class="sf-field">
+      <label class="sf-label">Your Name</label>
+      <input type="text" class="sf-input" id="sig-name" placeholder="First name, full name, or initials">
+    </div>
+
+    <div class="sf-row">
+      <div class="sf-field">
+        <label class="sf-label">State *</label>
+        <select class="sf-select" id="sig-state">
+          <option value="">Select state…</option>
+          <option>Virginia</option><option>Illinois</option><option>West Virginia</option>
+          <option>Ohio</option><option>Kentucky</option><option>Georgia</option>
+          <option>Texas</option><option>Nevada</option><option>Utah</option>
+          <option>Indiana</option><option>Maryland</option><option>Pennsylvania</option>
+          <option>North Carolina</option><option>Tennessee</option><option>Other</option>
+        </select>
+      </div>
+      <div class="sf-field">
+        <label class="sf-label">County / City</label>
+        <input type="text" class="sf-input" id="sig-county" placeholder="e.g. Caroline County">
+      </div>
+    </div>
+
+    <div class="sf-field">
+      <label class="sf-label">Why are you signing? <span style="color:#4b5563;font-weight:400;text-transform:none;">(optional — shown publicly)</span></label>
+      <textarea class="sf-textarea" id="sig-comment" placeholder="Share your reason. Your words may appear in the petition filing."></textarea>
+    </div>
+
+    <div class="sf-field">
+      <label class="sf-label">Email <span style="color:#4b5563;font-weight:400;text-transform:none;">(optional — private, only for updates)</span></label>
+      <input type="email" class="sf-input" id="sig-email" placeholder="you@example.com">
+    </div>
+
+    <label class="sf-check"><input type="checkbox" id="sig-updates"> Notify me when this petition is filed or reaches its goal</label>
+    <label class="sf-check"><input type="checkbox" id="sig-anon"> Sign anonymously (your name won't appear publicly)</label>
+
+    <button class="sf-submit" id="sig-submit-btn" onclick="submitSignature()">✍️ Sign This Petition</button>
+    <div class="sf-msg" id="sig-msg"></div>
+  </div>
+</div>
+
+<!-- DETAIL MODAL -->
+<div class="modal-overlay" id="detail-modal">
+  <div class="modal detail-modal">
+    <button class="modal-close" onclick="closeDetailModal()">×</button>
+    <div id="detail-content"><div class="loading">Loading…</div></div>
+  </div>
+</div>
+
+<footer>
+  CaseLock Community Petitions · Signatures stored securely. One signature per person per petition (IP-verified). Anonymous option available. Petition data can be exported as a formal filing document.
+</footer>
+
+<script>
+const API = 'https://case-lock-pro-f824df3e.base44.app/api/functions/petitionBoard';
+let allPetitions = [];
+let currentFilter = '';
+let activePetitionId = null;
+
+// ─── INIT ───
+document.addEventListener('DOMContentLoaded', () => {
+  loadPetitions();
+  document.getElementById('sign-modal').addEventListener('click', e => { if(e.target===e.currentTarget) closeSignModal(); });
+  document.getElementById('detail-modal').addEventListener('click', e => { if(e.target===e.currentTarget) closeDetailModal(); });
+});
+
+// ─── FILTER ───
+function setFilter(f) {
+  currentFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('onclick') === `setFilter('${f}')`);
+  });
+  renderGrid();
+}
+
+// ─── LOAD ───
+async function loadPetitions() {
+  try {
+    const res = await fetch(`${API}?action=list`);
+    const d = await res.json();
+    allPetitions = d.petitions || [];
+    renderGrid();
+  } catch(e) {
+    document.getElementById('petition-grid').innerHTML = '<div class="empty" style="grid-column:1/-1;">Could not load petitions. Please try again.</div>';
+  }
+}
+
+// ─── RENDER ───
+function renderGrid() {
+  const typeFilters = ['utility','county','state','federal','corporation'];
+  let list = allPetitions;
+  if (currentFilter) {
+    if (typeFilters.includes(currentFilter)) {
+      list = list.filter(p => p.target_type === currentFilter);
+    } else {
+      list = list.filter(p => p.state === currentFilter);
+    }
+  }
+
+  if (!list.length) {
+    document.getElementById('petition-grid').innerHTML = '<div class="empty" style="grid-column:1/-1;padding:40px;text-align:center;color:#6b7280;">No petitions match this filter.</div>';
+    return;
+  }
+
+  document.getElementById('petition-grid').innerHTML = list.map(p => petitionCard(p)).join('');
+}
+
+function petitionCard(p) {
+  const signed = localStorage.getItem('signed_' + p.id);
+  const pct = p.goal_signatures ? Math.min(100, Math.round(((p.signature_count||0) / p.goal_signatures) * 100)) : 0;
+  const tagLabel = { utility:'⚡ Utility', county:'🏛️ County', state:'📜 State', federal:'🏛️ Federal', corporation:'🏢 Corporation' }[p.target_type] || p.target_type;
+
+  // County pills — parse from counties string
+  const counties = (p.county || '').split(',').map(c => c.trim()).filter(Boolean).slice(0, 4);
+  const countyPills = counties.map(c => `<span class="county-pill">${esc(c)}</span>`).join('');
+
+  return `
+<div class="petition-card" id="pc-${p.id}">
+  <div class="pc-header">
+    <div class="pc-tags">
+      <span class="pc-tag ${p.target_type}">${tagLabel}</span>
+      <span class="pc-state">📍 ${esc(p.state)}</span>
+    </div>
+    <div class="pc-title">${esc(p.title)}</div>
+    <div class="pc-target">→ <strong>Filed against:</strong> ${esc(p.target)}</div>
+    <div class="pc-desc">${esc(p.description)}</div>
+  </div>
+
+  <div class="pc-progress">
+    <div class="pc-progress-row">
+      <div class="pc-count" id="pc-count-${p.id}">${(p.signature_count||0).toLocaleString()}</div>
+      <div class="pc-goal">of ${(p.goal_signatures||0).toLocaleString()} goal</div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+    <div class="pc-pct">${pct}% to goal${pct >= 100 ? ' 🎯 — Ready to file!' : ''}</div>
+  </div>
+
+  ${countyPills ? `<div class="pc-county-preview">${countyPills}</div>` : ''}
+
+  <div class="pc-actions">
+    <button class="btn-sign ${signed ? 'signed' : ''}" id="sign-btn-${p.id}" onclick="${signed ? '' : `openSignModal('${p.id}', \`${esc(p.title)}\`)`}">
+      ${signed ? '✅ Signed' : '✍️ Sign This Petition'}
+    </button>
+    <button class="btn-details" onclick="openDetail('${p.id}')">📊 See Signatures</button>
+    ${p.linked_report ? `<a href="${p.linked_report}" style="font-size:12px;color:#6b7280;" target="_blank">📄 Evidence</a>` : ''}
+  </div>
+</div>`;
+}
+
+// ─── SIGN MODAL ───
+function openSignModal(id, title) {
+  activePetitionId = id;
+  document.getElementById('modal-petition-name').textContent = title;
+  document.getElementById('sig-msg').className = 'sf-msg';
+  document.getElementById('sig-msg').textContent = '';
+  document.getElementById('sig-submit-btn').disabled = false;
+  document.getElementById('sig-submit-btn').textContent = '✍️ Sign This Petition';
+  document.getElementById('sign-modal').classList.add('open');
+}
+function closeSignModal() {
+  document.getElementById('sign-modal').classList.remove('open');
+  activePetitionId = null;
+}
+
+async function submitSignature() {
+  const btn = document.getElementById('sig-submit-btn');
+  const msg = document.getElementById('sig-msg');
+  msg.className = 'sf-msg';
+
+  const name    = document.getElementById('sig-name').value.trim();
+  const state   = document.getElementById('sig-state').value;
+  const county  = document.getElementById('sig-county').value.trim();
+  const comment = document.getElementById('sig-comment').value.trim();
+  const email   = document.getElementById('sig-email').value.trim();
+  const updates = document.getElementById('sig-updates').checked;
+  const anon    = document.getElementById('sig-anon').checked;
+
+  if (!state) { showSigMsg('error', 'Please select your state.'); return; }
+
+  btn.disabled = true;
+  btn.textContent = 'Submitting…';
+
+  try {
+    const res = await fetch(`${API}?action=sign`, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        petition_id: activePetitionId,
+        display_name: name,
+        state, county, comment, email,
+        email_updates: updates,
+        is_anonymous: anon,
+      })
+    });
+    const d = await res.json();
+    if (d.ok) {
+      if (d.already_signed) {
+        showSigMsg('success', '✅ You have already signed this petition from this device. Thank you!');
+      } else {
+        showSigMsg('success', '✅ Signature recorded! Thank you for standing up. Spread the word.');
+        localStorage.setItem('signed_' + activePetitionId, '1');
+        // Update count in card
+        const countEl = document.getElementById('pc-count-' + activePetitionId);
+        if (countEl) countEl.textContent = (d.signature_count || 0).toLocaleString();
+        const signBtn = document.getElementById('sign-btn-' + activePetitionId);
+        if (signBtn) { signBtn.textContent = '✅ Signed'; signBtn.classList.add('signed'); signBtn.onclick = null; }
+        setTimeout(() => closeSignModal(), 2500);
+      }
+    } else {
+      showSigMsg('error', d.error || 'Something went wrong. Please try again.');
+    }
+  } catch(e) {
+    showSigMsg('error', 'Network error. Please check your connection.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '✍️ Sign This Petition';
+  }
+}
+function showSigMsg(type, text) {
+  const el = document.getElementById('sig-msg');
+  el.className = 'sf-msg ' + type;
+  el.textContent = text;
+}
+
+// ─── DETAIL MODAL ───
+async function openDetail(id) {
+  document.getElementById('detail-content').innerHTML = '<div class="loading">Loading signature data…</div>';
+  document.getElementById('detail-modal').classList.add('open');
+  try {
+    const res = await fetch(`${API}?action=get&id=${id}`);
+    const d = await res.json();
+    if (!d.ok) { document.getElementById('detail-content').innerHTML = '<div style="color:#f87171;padding:20px;">Could not load data.</div>'; return; }
+    renderDetail(d);
+  } catch(e) {
+    document.getElementById('detail-content').innerHTML = '<div style="color:#f87171;padding:20px;">Network error.</div>';
+  }
+}
+function closeDetailModal() {
+  document.getElementById('detail-modal').classList.remove('open');
+}
+
+function renderDetail(d) {
+  const p = d.petition;
+  const pct = p.goal_signatures ? Math.min(100, Math.round(((d.total_signatures||0) / p.goal_signatures) * 100)) : 0;
+  const maxCount = d.county_breakdown.length ? d.county_breakdown[0].count : 1;
+
+  const countyRows = d.county_breakdown.length
+    ? d.county_breakdown.map(c => `
+        <div class="county-row">
+          <div class="county-name">${esc(c.location)}</div>
+          <div class="county-bar-wrap"><div class="county-bar" style="width:${Math.round((c.count/maxCount)*100)}%"></div></div>
+          <div class="county-count">${c.count.toLocaleString()}</div>
+        </div>`).join('')
+    : '<div style="color:#4b5563;font-size:13px;padding:8px 0;">No signatures yet. Be the first.</div>';
+
+  const recentSigs = d.recent_signatures.length
+    ? d.recent_signatures.map(s => `
+        <div class="sig-item">
+          <div class="sig-name">${esc(s.display_name || 'Supporter')}</div>
+          <div class="sig-loc">📍 ${esc([s.county, s.state].filter(Boolean).join(', '))}</div>
+          ${s.comment ? `<div class="sig-comment">"${esc(s.comment)}"</div>` : ''}
+        </div>`).join('')
+    : '<div style="color:#4b5563;font-size:13px;padding:8px 0;">No public comments yet.</div>';
+
+  document.getElementById('detail-content').innerHTML = `
+    <div style="margin-bottom:16px;">
+      <div style="font-size:17px;font-weight:900;color:#fff;margin-bottom:4px;">${esc(p.title)}</div>
+      <div style="font-size:12px;color:#a78bfa;margin-bottom:12px;">→ ${esc(p.target)}</div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;">
+        <div style="font-size:32px;font-weight:900;color:#a78bfa;">${(d.total_signatures||0).toLocaleString()}</div>
+        <div style="font-size:13px;color:#4b5563;">of ${(p.goal_signatures||0).toLocaleString()} goal</div>
+      </div>
+      <div style="background:#1f1f1f;border-radius:99px;height:10px;overflow:hidden;margin-bottom:6px;">
+        <div style="height:100%;border-radius:99px;background:linear-gradient(90deg,#7c3aed,#a78bfa);width:${pct}%;transition:width 0.6s;"></div>
+      </div>
+      <div style="font-size:12px;color:#6b7280;">${pct}% to goal${pct >= 100 ? ' 🎯 Ready to file!' : ''}</div>
+    </div>
+
+    <div style="background:#0a0a0a;border:1px solid #1e1a2e;border-radius:10px;padding:14px 16px;margin-bottom:16px;">
+      <div style="font-size:11px;font-weight:800;color:#a78bfa;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">📋 HOW TO FILE THIS PETITION</div>
+      <div style="font-size:13px;color:#d1d5db;line-height:1.75;">When signatures reach goal, use the export button to download a county-grouped PDF ready for filing with the <strong>SCC, Board of Supervisors, EPA, or Circuit Court</strong>. Each county's signatures appear as a separate section so the filing body can see exactly how many constituents from their jurisdiction signed.</div>
+    </div>
+
+    <div class="detail-section">
+      <h3>📍 Signatures by County</h3>
+      ${countyRows}
+    </div>
+
+    ${d.state_breakdown.length > 1 ? `
+    <div class="detail-section">
+      <h3>🗺️ States Represented</h3>
+      ${d.state_breakdown.map(s => `<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #1f1f1f;font-size:13px;"><span style="color:#d1d5db;">${esc(s.state)}</span><span style="color:#a78bfa;font-weight:700;">${s.count.toLocaleString()}</span></div>`).join('')}
+    </div>` : ''}
+
+    <div class="detail-section">
+      <h3>💬 Recent Signatures</h3>
+      ${recentSigs}
+    </div>
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;">
+      <button class="btn-sign" style="flex:1;" onclick="closeDetailModal(); openSignModal('${p.id}', \`${esc(p.title)}\`)">✍️ Add Your Signature</button>
+      <a class="export-btn" href="${API}?action=export&petition_id=${p.id}" target="_blank" download="petition_export.json">📥 Export for Filing</a>
+    </div>
+  `;
+}
+
+function esc(str) {
+  if (!str) return '';
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/`/g,'&#96;').replace(/\n/g,'<br>');
+}
+</script>
+
+</body>
+</html>
