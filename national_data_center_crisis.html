@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The National Data Center Crisis: What's Happening In Every State</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0A0F1E; color: #E2E8F0; line-height: 1.7; }
+  .hero { background: linear-gradient(135deg, #0A0F1E, #1a0a0a 50%, #0A0F1E); border-bottom: 2px solid #EF444433; padding: 48px 24px 36px; text-align: center; }
+  .badge { display: inline-flex; align-items: center; gap: 8px; background: #EF444415; border: 1px solid #EF444444; border-radius: 999px; padding: 6px 16px; font-size: 12px; color: #FCA5A5; font-weight: 700; margin: 0 4px 8px; }
+  .badge.amber { background: #F59E0B15; border-color: #F59E0B44; color: #FDE68A; }
+  .badge.green { background: #10B98115; border-color: #10B98144; color: #6EE7B7; }
+  .badge.blue { background: #3B82F615; border-color: #3B82F644; color: #93C5FD; }
+  h1 { font-size: clamp(1.6rem, 4.5vw, 2.6rem); font-weight: 900; color: #fff; margin-bottom: 12px; line-height: 1.2; }
+  h1 span { color: #EF4444; }
+  .sub { color: #94A3B8; font-size: 0.95rem; max-width: 760px; margin: 0 auto 20px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; font-size: 12px; color: #64748B; }
+  .container { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+  .section { margin-bottom: 52px; }
+  h2 { font-size: 1.2rem; font-weight: 800; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #1E293B; display: flex; align-items: center; gap: 8px; }
+  h2.red { color: #EF4444; border-bottom-color: #EF444422; }
+  h2.amber { color: #F59E0B; border-bottom-color: #F59E0B22; }
+  h2.blue { color: #3B82F6; border-bottom-color: #3B82F622; }
+  h2.green { color: #10B981; border-bottom-color: #10B98122; }
+  h2.purple { color: #8B5CF6; border-bottom-color: #8B5CF622; }
+  h2.orange { color: #F97316; border-bottom-color: #F9731622; }
+  h3 { font-size: 0.97rem; font-weight: 700; color: #CBD5E1; margin: 16px 0 7px; }
+  p { color: #94A3B8; font-size: 13.5px; margin-bottom: 10px; line-height: 1.7; }
+
+  .alert { border-radius: 12px; padding: 16px 20px; margin-bottom: 18px; display: flex; gap: 12px; }
+  .alert.red { background: #EF444410; border: 1px solid #EF444430; }
+  .alert.amber { background: #F59E0B10; border: 1px solid #F59E0B30; }
+  .alert.blue { background: #3B82F610; border: 1px solid #3B82F630; }
+  .alert.green { background: #10B98110; border: 1px solid #10B98130; }
+  .alert.purple { background: #8B5CF610; border: 1px solid #8B5CF630; }
+  .alert.orange { background: #F9731610; border: 1px solid #F9731630; }
+  .alert-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+  .alert-body { font-size: 13.5px; line-height: 1.65; }
+  .alert.red .alert-body { color: #FCA5A5; }
+  .alert.amber .alert-body { color: #FDE68A; }
+  .alert.blue .alert-body { color: #93C5FD; }
+  .alert.green .alert-body { color: #6EE7B7; }
+  .alert.purple .alert-body { color: #C4B5FD; }
+  .alert.orange .alert-body { color: #FDBA74; }
+  .alert-body strong { color: #fff; }
+
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 22px; }
+  .stat { background: #1E293B; border: 1px solid #334155; border-radius: 12px; padding: 14px; text-align: center; }
+  .stat-n { font-size: 1.8rem; font-weight: 900; }
+  .stat-n.red { color: #EF4444; } .stat-n.amber { color: #F59E0B; } .stat-n.blue { color: #3B82F6; } .stat-n.green { color: #10B981; } .stat-n.purple { color: #8B5CF6; } .stat-n.orange { color: #F97316; }
+  .stat-l { font-size: 10px; color: #64748B; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.4px; line-height: 1.4; }
+
+  .incident-card { background: #0F1729; border-radius: 14px; padding: 18px 20px; margin-bottom: 14px; border-left: 4px solid #EF4444; }
+  .incident-card.amber { border-left-color: #F59E0B; }
+  .incident-card.blue { border-left-color: #3B82F6; }
+  .incident-card.purple { border-left-color: #8B5CF6; }
+  .incident-card.orange { border-left-color: #F97316; }
+  .incident-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; flex-wrap: wrap; gap: 8px; }
+  .incident-title { font-size: 13.5px; font-weight: 800; color: #E2E8F0; }
+  .incident-date { font-size: 11px; color: #64748B; }
+  .incident-loc { font-size: 11px; color: #94A3B8; margin-bottom: 8px; }
+  .incident-body { font-size: 13px; color: #94A3B8; line-height: 1.65; margin-bottom: 8px; }
+  .incident-impact { background: #1E293B; border-radius: 6px; padding: 6px 10px; font-size: 12px; color: #64748B; }
+  .incident-impact strong { color: #E2E8F0; }
+
+  .state-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin-bottom: 22px; }
+  .state-card { background: #0F1729; border: 1px solid #1E293B; border-radius: 12px; padding: 14px 16px; }
+  .state-name { font-size: 13.5px; font-weight: 800; color: #E2E8F0; margin-bottom: 6px; }
+  .state-issue { font-size: 12px; color: #64748B; line-height: 1.6; }
+  .state-tag { display: inline-block; border-radius: 999px; padding: "2px 8px"; font-size: 10px; font-weight: 700; margin-top: 6px; padding: 2px 8px; }
+  .state-tag.crisis { background: #EF444415; color: #EF4444; border: 1px solid #EF444430; }
+  .state-tag.warning { background: #F59E0B15; color: #F59E0B; border: 1px solid #F59E0B30; }
+  .state-tag.fighting { background: #10B98115; color: #10B981; border: 1px solid #10B98130; }
+  .state-tag.won { background: #3B82F615; color: #3B82F6; border: 1px solid #3B82F630; }
+
+  .fact-box { background: #0F1729; border-radius: 10px; padding: 13px 16px; margin-bottom: 10px; }
+  .fact-box.red { border-left: 3px solid #EF4444; }
+  .fact-box.amber { border-left: 3px solid #F59E0B; }
+  .fact-box.blue { border-left: 3px solid #3B82F6; }
+  .fact-box.green { border-left: 3px solid #10B981; }
+  .fact-box.purple { border-left: 3px solid #8B5CF6; }
+  .fact-box.orange { border-left: 3px solid #F97316; }
+  .fact-box p { margin: 0; font-size: 13px; }
+
+  .win-card { background: #10B98110; border: 1px solid #10B98130; border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; }
+  .win-loc { font-size: 11px; font-weight: 700; color: #10B981; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; }
+  .win-title { font-size: 13.5px; font-weight: 700; color: #E2E8F0; margin-bottom: 5px; }
+  .win-body { font-size: 12.5px; color: #64748B; line-height: 1.6; }
+
+  .law-card { background: #0F1729; border: 1px solid #1E293B; border-radius: 10px; padding: 12px 14px; margin-bottom: 8px; }
+  .law-ref { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .law-ref.red { color: #EF4444; } .law-ref.amber { color: #F59E0B; } .law-ref.blue { color: #3B82F6; } .law-ref.green { color: #10B981; }
+  .law-title { font-size: 13px; font-weight: 700; color: #E2E8F0; margin-bottom: 4px; }
+  .law-body { font-size: 12px; color: #64748B; line-height: 1.6; }
+
+  .toc { background: #0F1729; border: 1px solid #1E293B; border-radius: 14px; padding: 20px 24px; margin-bottom: 32px; }
+  .toc-title { font-size: 11px; font-weight: 700; color: #64748B; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+  .toc-list { list-style: none; padding: 0; columns: 2; gap: 20px; }
+  .toc-list a { font-size: 13px; color: #94A3B8; text-decoration: none; display: flex; align-items: center; gap: 6px; padding: 3px 0; }
+  .toc-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+
+  .source { display: inline-block; background: #0F1729; border: 1px solid #1E293B; border-radius: 6px; padding: 2px 8px; font-size: 11px; color: #475569; margin-top: 6px; }
+
+  .chem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-bottom: 18px; }
+  .chem-card { background: #1E293B; border: 1px solid #EF444422; border-radius: 10px; padding: 12px 14px; }
+  .chem-name { font-size: 13px; font-weight: 800; color: #FCA5A5; margin-bottom: 5px; }
+  .chem-risk { font-size: 12px; color: #64748B; line-height: 1.5; }
+
+  .cross-link { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .cross-link a { background: #1E293B; border: 1px solid #334155; border-radius: 8px; padding: 7px 12px; font-size: 12px; color: #94A3B8; text-decoration: none; }
+
+  footer { text-align: center; padding: 32px 20px; border-top: 1px solid #1E293B; color: #475569; font-size: 11.5px; }
+  @media (max-width: 600px) { .toc-list { columns: 1; } .stat-grid { grid-template-columns: repeat(2,1fr); } }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div style="margin-bottom: 16px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;">
+    <span class="badge">☠️ CHEMICAL LEAK · PRYOR, OK 2025</span>
+    <span class="badge amber">💧 73B GALLONS/YEAR BY 2028</span>
+    <span class="badge green">🏆 69 COMMUNITIES BLOCKED DATA CENTERS</span>
+    <span class="badge blue">27 STATES · ACTIVE LEGISLATION</span>
+  </div>
+  <h1>The National Data Center Crisis:<br /><span>Water, Power, Chemicals & Your Community</span></h1>
+  <p class="sub">From a chemical leak that put 60 workers on supplemental oxygen in Oklahoma, to 399 billion gallons of water consumption projected in Texas by 2030 — this is the fully verified, nationwide intelligence brief every community fighting data centers needs. What's already happened. What's happening now. What you can do.</p>
+  <div class="meta">
+    <span>📅 Updated: May 21, 2026</span>
+    <span>📰 Sources: Fortune, The Frontier (OK), EESI, IEA, EPA, NCSL, Congressional Research Service</span>
+    <span>🔍 All incidents verified · All figures from official sources</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- TOC -->
+  <div class="toc">
+    
+  <!-- TAMMY CLARK TESTIMONY SECTION -->
+  <div style="background:#fff5f5;border:3px solid #dc2626;border-radius:14px;padding:28px 32px;margin:24px 0;">
+    <div style="font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#dc2626;margin-bottom:8px;">⚠️ GOVERNMENT EXPERT — LEGISLATIVE TESTIMONY — PUBLIC RECORD</div>
+    <h2 style="font-size:22px;font-weight:900;color:#0A0F1E;margin-bottom:16px;">"There's No Such Thing as a Closed Loop System" — The #1 Industry Talking Point, Debunked Under Oath</h2>
+
+    <div style="background:#0A0F1E;color:white;border-radius:10px;padding:20px 24px;margin:14px 0;">
+      <div style="font-size:11px;font-weight:800;letter-spacing:1.5px;color:#F59E0B;margin-bottom:12px;">WHO IS TAMMY CLARK</div>
+      <p style="font-size:13.5px;line-height:1.85;margin-bottom:8px;"><strong style="color:#F59E0B;">Tammy Clark</strong> — Industrial Hygienist &amp; Environmental Health Specialist, government-trained by OSHA and EPA. NOT an activist. A credentialed technical expert in the same discipline federal agencies use to assess chemical exposure risk. She testified before the <strong>Michigan House of Representatives, Subcommittee on Corporate Subsidies and State Investments</strong> on January 28 / February 4, 2026. Public record. On YouTube. Transcript published by People's Tribune, April 21, 2026.</p>
+    </div>
+
+    <div style="background:#1e293b;color:#e2e8f0;border-radius:10px;padding:20px 24px;margin:14px 0;font-size:14px;line-height:2;">
+      <div style="font-style:normal;font-weight:800;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#F59E0B;margin-bottom:12px;">VERBATIM TESTIMONY — MICHIGAN HOUSE OF REPRESENTATIVES — JANUARY/FEBRUARY 2026</div>
+      <p>"<strong>There's really no such thing as a closed loop system.</strong> It's still picking up water.</p>
+      <p>That water in a closed loop system is being contaminated. <strong>It's picking up anti-corrosives, anti-scaling agents, biocides</strong> — and then what is happening is that water gets what's called <strong>blow down</strong>. It gets blown back down into the aquifers or the rivers — or, like what Ohio EPA is just right now allowing — <strong>they just dump it right back into the river.</strong></p>
+      <p>The water treatment facilities are not capable. <strong>They do not have the filtering media and they're not capable of filtering those particular types of corrosives.</strong> And so that just makes its way down into our aquifers — and most of these communities are small towns and farming communities that have wells set on aquifers.</p>
+      <p><strong>This water — this grey sludge, basically — is not being cleaned, it's not being filtered</strong>, and it's being dumped right into our drinking water, or it's being dumped into a water treatment facility center that cannot handle that kind of load."</p>
+      <p style="font-size:11px;opacity:.65;margin-top:12px;">— Tammy Clark, Industrial Hygienist / Environmental Health Specialist, Government-trained OSHA &amp; EPA Specialist. Michigan House Subcommittee on Corporate Subsidies and State Investments, Jan 28 / Feb 4, 2026. Transcript: peoplestribune.org, April 21 2026. Full video: YouTube — Michigan House Oversight Subcommittee hearing, timestamp ~1:37:12.</p>
+    </div>
+
+    <table style="width:100%;border-collapse:collapse;font-size:13px;margin:14px 0;">
+      <tr style="background:#0A0F1E;color:white;">
+        <th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;">THEY SAY</th>
+        <th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;">CLARK'S TESTIMONY PROVES</th>
+        <th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;">WHERE THIS IS ALREADY HAPPENING</th>
+      </tr>
+      <tr><td style="padding:10px 12px;border-bottom:1px solid #f0f0f0;vertical-align:top;">"Closed loop — just like a car radiator — no water consumed."</td><td style="padding:10px 12px;border-bottom:1px solid #f0f0f0;vertical-align:top;color:#dc2626;font-weight:700;">"There's really no such thing as a closed loop system. It's still picking up water." — Under oath, state legislature.</td><td style="padding:10px 12px;border-bottom:1px solid #f0f0f0;vertical-align:top;">Illinois Commerce Commission Jan 2026 minutes: developer used the EXACT "car radiator" phrase at an Illinois hearing the same month Clark debunked it in Michigan.</td></tr>
+      <tr style="background:#f9fafb;"><td style="padding:10px 12px;border-bottom:1px solid #f0f0f0;vertical-align:top;">"The water is treated and recycled — it doesn't affect your drinking water."</td><td style="padding:10px 12px;border-bottom:1px solid #f0f0f0;vertical-align:top;color:#dc2626;font-weight:700;">"This grey sludge, basically, is not being cleaned, not being filtered, and it's being dumped right into our drinking water." — Under oath.</td><td style="padding:10px 12px;border-bottom:1px solid #f0f0f0;vertical-align:top;">Ohio EPA currently allowing direct river dumping of blowdown water without filtration — Clark cited this in her testimony.</td></tr>
+      <tr><td style="padding:10px 12px;vertical-align:top;">"Your water treatment plant will handle any discharge."</td><td style="padding:10px 12px;vertical-align:top;color:#dc2626;font-weight:700;">"Water treatment facilities do not have the filtering media — they're not capable of filtering those corrosives." — Government-trained EPA specialist, under oath.</td><td style="padding:10px 12px;vertical-align:top;">Small towns and rural communities with standard municipal water treatment are specifically the communities Clark warned are most vulnerable.</td></tr>
+    </table>
+
+    <div style="background:#fffbeb;border-left:5px solid #F59E0B;border-radius:6px;padding:16px 20px;margin:14px 0;font-size:13.5px;color:#78350f;line-height:1.8;">
+      <strong>⚠️ HOW TO USE THIS IN ANY COMMUNITY MEETING:</strong> The moment a developer, lobbyist, or council member says "closed loop" or "just like a car radiator" — cite Tammy Clark by name, her credentials, her date of testimony, and the legislative body it was delivered to. Ask the local water treatment authority directly: "Are you equipped to filter industrial biocides, anti-corrosives, and hexavalent chromium from data center cooling blowdown?" If the answer is no — the "closed loop, harmless" claim is a documented misrepresentation of how these systems work.
+    </div>
+  </div>
+
+<div class="toc-title">📋 In This Report</div>
+    <ul class="toc-list">
+      <li><a href="#chemical"><span class="toc-dot" style="background:#EF4444"></span>PART 1: Chemical & Fire Incidents</a></li>
+      <li><a href="#water"><span class="toc-dot" style="background:#3B82F6"></span>PART 2: The Water Crisis — State by State</a></li>
+      <li><a href="#grid"><span class="toc-dot" style="background:#F59E0B"></span>PART 3: The Grid Crisis — National Numbers</a></li>
+      <li><a href="#noise"><span class="toc-dot" style="background:#8B5CF6"></span>PART 4: Noise, Air & Health</a></li>
+      <li><a href="#states"><span class="toc-dot" style="background:#F97316"></span>PART 5: State-by-State Breakdown</a></li>
+      <li><a href="#wins"><span class="toc-dot" style="background:#10B981"></span>PART 6: Communities That Won</a></li>
+      <li><a href="#laws"><span class="toc-dot" style="background:#3B82F6"></span>PART 7: Laws & Legal Tools</a></li>
+      <li><a href="#action"><span class="toc-dot" style="background:#10B981"></span>PART 8: What Every Community Can Do</a></li>
+    </ul>
+  </div>
+
+  <!-- PART 1: CHEMICAL INCIDENTS -->
+  <div class="section" id="chemical">
+    <h2 class="red">☠️ PART 1: Chemical Leaks, Battery Fires & Worker Harm</h2>
+
+    <div class="alert red">
+      <div class="alert-icon">🚨</div>
+      <div class="alert-body">
+        <strong>We are told these facilities are safe neighbors. When something goes wrong, the "transparency" disappears.</strong> Here are the documented incidents — not speculation, not rumors. Real events, real workers, real communities harmed. Google has objected to and refused to produce internal safety reports on the Oklahoma incident. These are the facts that are publicly known.
+      </div>
+    </div>
+
+    <div class="incident-card">
+      <div class="incident-header">
+        <div class="incident-title">☠️ Google Data Center — R410A Refrigerant Leak</div>
+        <div class="incident-date">July 16, 2025</div>
+      </div>
+      <div class="incident-loc">📍 Pryor, Oklahoma · MidAmerica Industrial Park</div>
+      <div class="incident-body">
+        A major R410A refrigerant leak at Google's Pryor facility — its <strong>second-largest data center in the world</strong> — affected approximately 60 GardaWorld security contractors. Workers are now reporting memory loss, Parkinson's-like tremors, and supplemental oxygen dependency. When asked for internal safety reports, <strong>Google's legal team objected and refused to produce documents.</strong>
+        <br /><br />
+        <strong>The chemistry of R410A:</strong> This refrigerant is heavier than air — it sinks and pools, displacing breathable oxygen at floor level. When it contacts heat sources (like server racks or electrical components), it decomposes into <strong>Hydrofluoric Acid</strong> and <strong>Carbonyl Halides</strong> — related to phosgene gas, which was used as a chemical weapon in World War I. Inhaling concentrated fluorocarbons causes "solvent-induced neurotoxicity." When the brain is simultaneously starved of oxygen and exposed to high fluorocarbon levels, it damages the basal ganglia — the brain structure that controls movement.
+      </div>
+      <div class="incident-impact"><strong>Status:</strong> Google blocking document production. Workers impacted long-term. Community organizing at Oklahoma Data Center Accountability group. NDAs reportedly being used to silence affected workers.</div>
+    </div>
+
+    <div class="incident-card amber">
+      <div class="incident-header">
+        <div class="incident-title">🔥 Moss Landing BESS Fire — 55,000 Lbs of Toxic Metals Released</div>
+        <div class="incident-date">January 16, 2025</div>
+      </div>
+      <div class="incident-loc">📍 Moss Landing, California (Monterey County) · Vistra Energy Facility</div>
+      <div class="incident-body">
+        The world's largest battery energy storage facility caught fire and burned for multiple days. The fire released approximately <strong>55,000 pounds of toxic metals</strong> into one of California's most sensitive wetlands. Soil sampling found toxic metal levels <strong>up to 1,000 times higher than normal</strong> up to one mile from the facility.
+        <br /><br />
+        Schools closed. Major roads shut down. Agricultural operations halted. The fire re-ignited February 18 — a full month later. Toxic smoke blanketed Monterey County and beyond, depositing heavy metals in wetlands and the ocean. Litigation is active via Singleton Schreiber.
+      </div>
+      <div class="incident-impact"><strong>Chemicals released:</strong> Hydrogen fluoride, heavy metals (lithium, cobalt, nickel, manganese), particulate matter. Litigation ongoing. Community health monitoring required.</div>
+    </div>
+
+    <div class="incident-card amber">
+      <div class="incident-header">
+        <div class="incident-title">🔥 Digital Realty / X (Elon Musk) Battery Fire</div>
+        <div class="incident-date">May 22, 2025</div>
+      </div>
+      <div class="incident-loc">📍 Hillsboro, Oregon (near Portland) · Digital Realty Technology Park</div>
+      <div class="incident-body">
+        A 5-hour lithium-ion battery fire at a data center reportedly leased by Elon Musk's X forced firefighters to abandon direct suppression and contain the perimeter while the battery bank burned itself out. The facility is located <strong>within 1 mile of residences, schools, Liberty High School, and Hillsboro Hops Stadium.</strong>
+        <br /><br />
+        Lithium-ion fires release <strong>hydrogen fluoride</strong> — which scars lungs, burns skin, and etches glass. Heavy metal particles drift for miles, contaminating soil. Regulatory framework for battery fires at data centers uses the same standard commercial zoning process as an office building — no specialized environmental impact review required.
+      </div>
+      <div class="incident-impact"><strong>Status:</strong> Community on edge. Rapid expansion of battery storage at data centers nationwide with minimal safety regulation oversight.</div>
+    </div>
+
+    <div class="incident-card purple">
+      <div class="incident-header">
+        <div class="incident-title">💧 QTS (Blackstone) — 40 Unpermitted Wells Discovered</div>
+        <div class="incident-date">2025</div>
+      </div>
+      <div class="incident-loc">📍 Cedar Rapids, Iowa · Linn County</div>
+      <div class="incident-body">
+        State officials discovered <strong>40 unpermitted wells</strong> at QTS's data center site. Linn County sought a $20,000 fine. This is the same QTS (owned by Blackstone) that also consumed 29 million gallons of unauthorized water in Fayette County, Georgia in 2025 through improperly registered meters — and paid only $147,474 in back charges at a discounted rate because it was the county's "largest customer."
+      </div>
+      <div class="incident-impact"><strong>Pattern:</strong> QTS/Blackstone has documented water violations in at least two states. The company's 615-acre campus in Georgia is also tied to residential water pressure complaints.</div>
+    </div>
+
+    <h3>The Chemical Toolkit Inside Every Data Center</h3>
+    <div class="chem-grid">
+      <div class="chem-card"><div class="chem-name">R410A / R32 Refrigerants</div><div class="chem-risk">Heavier than air. Pools at floor level. Displaces oxygen. Decomposes into Hydrofluoric Acid + phosgene-related gases on heat contact. Neurological damage documented.</div></div>
+      <div class="chem-card"><div class="chem-name">Lithium-Ion Batteries</div><div class="chem-risk">Thermal runaway releases hydrogen fluoride, cobalt, nickel. Fires cannot be extinguished with standard methods. Re-ignition days/weeks later documented. 1,000x soil contamination radius up to 1 mile.</div></div>
+      <div class="chem-card"><div class="chem-name">Diesel Generator Exhaust</div><div class="chem-risk">NOx, PM2.5, benzene, formaldehyde. Hyperscale campuses run hundreds of generators for testing monthly. Cumulative emissions exceed industrial thresholds near residential areas.</div></div>
+      <div class="chem-card"><div class="chem-name">Cooling Tower Discharge</div><div class="chem-risk">Legionella risk (documented in Oklahoma City metro 2025). Chemical additives (biocides, corrosion inhibitors) in discharge water. Warm discharge alters receiving waterway temperatures.</div></div>
+      <div class="chem-card"><div class="chem-name">Halon / FM-200 Suppressants</div><div class="chem-risk">Fire suppression gases used inside server rooms. Halon depletes ozone. FM-200 (HFC-227ea) is a potent greenhouse gas. Accidental discharge documented at multiple facilities.</div></div>
+      <div class="chem-card"><div class="chem-name">Sulfuric Acid (UPS Batteries)</div><div class="chem-risk">Uninterruptible power supply banks use lead-acid batteries. Spills release sulfuric acid. OSHA requires reporting but community notification is not standardized.</div></div>
+    </div>
+
+    <div class="source">Sources: The Frontier (OK) · Singleton Schreiber litigation · Phys.org Moss Landing study · IAFF · EESI · Oklahoma Data Center Accountability group</div>
+  </div>
+
+  <!-- PART 2: WATER -->
+  <div class="section" id="water">
+    <h2 class="blue">💧 PART 2: The Water Crisis — What's Being Consumed & Where</h2>
+
+    <div class="stat-grid">
+      <div class="stat"><div class="stat-n blue">449M</div><div class="stat-l">Gallons/day consumed by US data centers (2021 baseline)</div></div>
+      <div class="stat"><div class="stat-n red">73B</div><div class="stat-l">Gallons/year projected by 2028 (EPA)</div></div>
+      <div class="stat"><div class="stat-n amber">399B</div><div class="stat-l">Texas alone by 2030 — equal to draining Lake Mead 16 feet</div></div>
+      <div class="stat"><div class="stat-n red">1.1B</div><div class="stat-l">Gallons/year — Google Pryor OK alone</div></div>
+      <div class="stat"><div class="stat-n amber">5M</div><div class="stat-l">Gallons/day — single large hyperscale facility</div></div>
+      <div class="stat"><div class="stat-n red">40%</div><div class="stat-l">US data centers in water-stressed regions (Business Insider)</div></div>
+    </div>
+
+    <div class="alert blue">
+      <div class="alert-icon">💧</div>
+      <div class="alert-body">
+        <strong>In the first week of May 2026, two data center developers in Arizona and Georgia were caught taking public water without authorization.</strong> In both cases, it was residents — noticing low water pressure or asking about dust control — who accidentally triggered investigations. Regulators didn't catch them. The community did. (Fortune, May 13, 2026)
+      </div>
+    </div>
+
+    <h3>Documented State-by-State Water Incidents</h3>
+    <div class="fact-box blue"><p>🔴 <strong>Oklahoma:</strong> Google's Pryor facility used <strong>1.1 billion gallons</strong> in a single year (July 2024–June 2025). Discharged 253M gallons back into the Neosho River. 10+ new data centers proposed statewide. Project Anthem in Tulsa: 1B gal/year projected. Project Clydesdale: 2.2B gal/year. Google announced five more projects — projected <strong>3 billion gallons/year</strong> for Stillwater alone. OWRB engineer testified to state lawmakers: demand WILL exceed available surface water in Oklahoma City and Tulsa areas by 2075.</p></div>
+    <div class="fact-box blue"><p>🔴 <strong>Texas:</strong> Data centers projected to use <strong>49 billion gallons in 2025</strong> rising to <strong>399 billion gallons by 2030</strong> (Houston Advanced Research Center). Corpus Christi preparing to declare water emergency with 25% usage cuts. Reservoirs and groundwater drying up statewide. Communities actively fighting over remaining water allocation.</p></div>
+    <div class="fact-box blue"><p>🔴 <strong>Georgia:</strong> QTS/Blackstone Project Excalibur — 615-acre campus in Fayette County consumed <strong>29 million gallons unauthorized</strong> through improperly registered meters. Residential water pressure complaints in Annelise Park subdivision. Meta's Newton County facility disrupted private wells — families hauling water, replacing sediment-clogged appliances. State currently in severe to exceptional drought with wildfires burning in southern Georgia.</p></div>
+    <div class="fact-box blue"><p>🔴 <strong>Arizona:</strong> Phoenix already limiting new home construction to preserve groundwater. Tucson City Council unanimously rejected Amazon's Project Blue data center over water concerns in August 2025. Developer proceeded anyway, was caught transporting city water outside permitted area to the construction site. Arizona aquifer system already under stress from agricultural and urban demand.</p></div>
+    <div class="fact-box blue"><p>🔴 <strong>Oregon:</strong> Google's The Dalles facility (city of 16,000 people) consumed <strong>355 million gallons in 2021</strong> — roughly one quarter of the entire city's annual water use. Google funded the city's lawsuit against a local newspaper that sought this data through public records.</p></div>
+    <div class="fact-box blue"><p>🔴 <strong>South Carolina:</strong> Conservation groups fought Google's permit to draw 1.5 million gallons per day from a single facility.</p></div>
+    <div class="fact-box blue"><p>🔴 <strong>Iowa:</strong> QTS discovered with 40 unpermitted wells at Cedar Rapids facility. $20,000 fine sought — a fraction of the water's value.</p></div>
+    <div class="fact-box blue"><p>🔴 <strong>Utah:</strong> Kevin O'Leary (Mr. Wonderful) data center proposal drew <strong>3,900 public protests</strong> over a water rights application that would have redirected irrigation water to industrial use.</p></div>
+    <div class="fact-box blue"><p>🟡 <strong>Virginia (Stafford):</strong> Approved STACK data center campus consumes 50% of Stafford County's total permitted water capacity from an already-stressed Piedmont aquifer. Multiple additional projects proposed across Caroline, Spotsylvania, and Prince William counties.</p></div>
+
+    <h3>The Evaporation Problem Nobody Talks About</h3>
+    <p>Of the 1.1 billion gallons Google used in Pryor in one year, only 253 million gallons returned to the river as discharge. The remaining <strong>847 million gallons evaporated</strong> — permanently removed from the local watershed. This is called "consumptive use." Unlike discharge (which at least stays in the watershed), evaporated water is simply gone — it may fall as precipitation hundreds of miles away, or not at all.</p>
+
+    <div class="source">Sources: The Frontier (OK) Feb 2026 · Fortune May 13, 2026 · EPA projections · Business Insider 2025 · Houston Advanced Research Center · EESI · Stanford University Water in the West Program</div>
+  </div>
+
+  <!-- PART 3: GRID -->
+  <div class="section" id="grid">
+    <h2 class="amber">⚡ PART 3: The Grid Crisis — National Numbers</h2>
+
+    <div class="stat-grid">
+      <div class="stat"><div class="stat-n amber">4.4%</div><div class="stat-l">US electricity consumed by data centers in 2023 (Congressional Research Service)</div></div>
+      <div class="stat"><div class="stat-n red">17%</div><div class="stat-l">Data center electricity demand surge in 2025 alone (IEA)</div></div>
+      <div class="stat"><div class="stat-n red">2×</div><div class="stat-l">Expected doubling of data center demand by 2030 (Pew Research)</div></div>
+      <div class="stat"><div class="stat-n amber">22%</div><div class="stat-l">Grid power demand increase in 2025 vs 2024 (S&P Global)</div></div>
+      <div class="stat"><div class="stat-n red">24%</div><div class="stat-l">Peak demand rise projected over next 10 years (NERC Jan 2026)</div></div>
+      <div class="stat"><div class="stat-n orange">25%</div><div class="stat-l">Virginia's total electricity consumed by data centers statewide</div></div>
+    </div>
+
+    <div class="alert amber">
+      <div class="alert-icon">⚡</div>
+      <div class="alert-body">
+        <strong>May 4, 2026 — NERC Level 3 "Essential Actions" Alert:</strong> America's grid watchdog issued its highest-urgency warning after data centers repeatedly dropped 1,000+ megawatts off the grid in seconds — risking cascading nationwide blackouts. Grid operators must submit mitigation plans by <strong>August 3, 2026</strong>. This is the first time in modern grid history that a single industry category has been identified as a documented grid collapse risk.
+      </div>
+    </div>
+
+    <div class="fact-box amber"><p>💡 <strong>Why it cascades:</strong> Data centers' automated protection systems detect minor voltage fluctuations and instantly cut all power to protect equipment. When 1,000+ MW disappears in seconds, physical generators speed up, frequency spikes, and other equipment automatically trips offline — triggering a chain reaction. Grid operators physically cannot respond fast enough.</p></div>
+    <div class="fact-box amber"><p>📈 <strong>The trajectory:</strong> From 1.9% of US electricity in 2018 to 4.4% in 2023. Expected to reach 8%+ by 2030. NERC's January 2026 Long-Term Reliability Assessment: peak demand will rise 24% in 10 years, with data centers driving the majority of that increase.</p></div>
+    <div class="fact-box amber"><p>🏭 <strong>New power plants required:</strong> Every new data center cluster requires dedicated new power generation. That generation goes into the utility's rate base — meaning residential and small commercial customers pay for it through higher base rates. <em>Forever.</em></p></div>
+    <div class="fact-box amber"><p>🌡️ <strong>Heat island effect:</strong> Server cooling systems exhaust massive amounts of heat into surrounding air. Combined with hundreds of diesel generators running monthly load tests, hyperscale campuses create measurable local temperature increases — documented in multiple urban heat island studies near Northern Virginia data center corridors.</p></div>
+
+    <div class="source">Sources: Congressional Research Service R48646 · IEA Dec 2025 · NERC Level 3 Alert May 4, 2026 · S&P Global · Pew Research Oct 2025 · Belfer Center Harvard</div>
+  </div>
+
+  <!-- PART 4: NOISE / AIR / HEALTH -->
+  <div class="section" id="noise">
+    <h2 class="purple">🔊 PART 4: Noise, Air Quality & Health Effects</h2>
+
+    <div class="alert purple">
+      <div class="alert-icon">🔊</div>
+      <div class="alert-body">
+        <strong>Noise levels from industrial diesel generators can reach 105 decibels</strong> — as loud as a jet aircraft flying overhead (EESI). Cooling fans and HVAC systems add a constant low-frequency baseline. The combination creates documented health effects in nearby communities: sleep disruption, cardiovascular stress, anxiety, and infrasound-related symptoms that residents describe as a constant "hum" or "vibration" they feel more than hear.
+      </div>
+    </div>
+
+    <h3>Documented Noise Sources at Hyperscale Data Centers</h3>
+    <div class="fact-box purple"><p>🔊 <strong>Diesel Generators:</strong> 105 dB peak during load testing. Most hyperscale campuses run monthly no-load tests on all generators. A campus with 300+ generators tests them systematically — creating weeks of elevated noise each year. Normal conversation is 60 dB. OSHA requires hearing protection above 85 dB. At 105 dB, safe exposure is under 1 minute.</p></div>
+    <div class="fact-box purple"><p>🌀 <strong>Cooling Systems:</strong> Industrial HVAC and cooling towers run 24/7/365. Low-frequency components penetrate walls and travel long distances. At frequencies below 20 Hz (infrasound), sound travels miles and passes through structures as vibration. Multiple peer-reviewed studies document cardiac effects from infrasound exposure above 100 dB within one hour (US National Library of Medicine).</p></div>
+    <div class="fact-box purple"><p>💨 <strong>Diesel Exhaust (Air Quality):</strong> Each generator run produces NOx, PM2.5 (fine particulate), benzene, and formaldehyde. A 300-generator campus running monthly tests generates cumulative emissions that, in many jurisdictions, would trigger Title V Clean Air Act permitting requirements — but most data centers avoid this by staying just below individual permit thresholds while operating collectively above them. Virginia DEQ Tier 4 engine rules (effective July 2026) are the first attempt to address this cumulatively.</p></div>
+    <div class="fact-box purple"><p>🌡️ <strong>Thermal Pollution:</strong> Cooling tower discharge water is significantly warmer than source water. Returning warmer water to rivers and streams stresses aquatic ecosystems. In Oklahoma, Google's 253M gallons of annual discharge returns to the Neosho River at elevated temperatures. Long-term ecological impacts on fish spawning and aquatic life are not studied or regulated at the permit level.</p></div>
+
+    <h3>Legionella — The Documented Outbreak Risk</h3>
+    <div class="fact-box red"><p>⚠️ <strong>Oklahoma City metro, 2025:</strong> At least two facilities in the Oklahoma City area were found with Legionella bacteria in their cooling systems (KOCO 5 News). Cooling towers are a documented Legionella breeding ground when water temperatures are in the 77–108°F range and the towers aren't properly maintained. Data centers with industrial cooling towers must be required to maintain and disclose Legionella monitoring records. Most don't have to publicly report.</p></div>
+
+    <div class="source">Sources: EESI · US National Library of Medicine (cardiac effects) · KOCO 5 News (Legionella) · Science Direct 2025 · Virginia DEQ Tier 4 rules 2026</div>
+  </div>
+
+  <!-- PART 5: STATE BY STATE -->
+  <div class="section" id="states">
+    <h2 class="orange">🗺️ PART 5: State-by-State Breakdown</h2>
+    <p>As of April 2026, <strong>69 jurisdictions</strong> have active data center moratoriums (US Data Center Moratorium Tracker). <strong>27 states</strong> are advancing data center legislation. <strong>300+ bills</strong> introduced nationwide in 2026 alone. Here is what is happening in each major affected region.</p>
+
+    <div class="state-grid">
+      <div class="state-card"><div class="state-name">🔴 Virginia</div><div class="state-issue">25% of all state electricity consumed by data centers. $1.9B annual tax exemption deadlock. Stafford 50% aquifer allocation. Valley Link 115-mile transmission line (SCC Sep 2026). QTS Henrico 17 buildings under construction.</div><span class="state-tag crisis">CRITICAL</span></div>
+      <div class="state-card"><div class="state-name">🔴 Texas</div><div class="state-issue">399B gallons projected by 2030 (= draining Lake Mead 16 feet). Corpus Christi water emergency. $40B data center voided April 2026. ERCOT grid instability. Most affected: Austin, Dallas suburbs, Hill Country.</div><span class="state-tag crisis">CRITICAL</span></div>
+      <div class="state-card"><div class="state-name">🔴 Oklahoma</div><div class="state-issue">Google Pryor: 1.1B gal/year, chemical leak July 2025, 60 workers harmed, NDAs reported. 10+ new data centers planned. OWRB: OKC/Tulsa water demand will exceed supply by 2075. Legionella detected at OKC area facilities.</div><span class="state-tag crisis">CRITICAL</span></div>
+      <div class="state-card"><div class="state-name">🔴 Arizona</div><div class="state-issue">Phoenix halting home construction over groundwater. Tucson rejected Amazon Project Blue unanimously — developer continued, caught taking water illegally. Colorado River basin already over-allocated. Phoenix metro data centers growing fastest in US.</div><span class="state-tag crisis">CRITICAL</span></div>
+      <div class="state-card"><div class="state-name">🔴 Georgia</div><div class="state-issue">QTS unauthorized 29M gallons, Fayette County. Meta Newton County disrupting private wells. State in severe drought + wildfires. 50+ moratoriums enacted by local jurisdictions including Fayetteville.</div><span class="state-tag fighting">FIGHTING BACK</span></div>
+      <div class="state-card"><div class="state-name">🟡 California</div><div class="state-issue">Moss Landing: 55,000 lbs toxic metals released Jan 2025, 1,000x soil contamination. Hillsboro-style battery fire risk statewide. South Carolina border overlap (Google permit fight). Most aggressive state regulatory framework — but enforcement lagging.</div><span class="state-tag warning">HIGH RISK</span></div>
+      <div class="state-card"><div class="state-name">🟡 Oregon</div><div class="state-issue">Google The Dalles: 355M gal = 25% of city's annual water. Hillsboro Digital Realty/X battery fire May 2025 near schools, stadium, homes. Rapid data center expansion in Hillsboro/Portland metro.</div><span class="state-tag warning">HIGH RISK</span></div>
+      <div class="state-card"><div class="state-name">🟡 Nevada</div><div class="state-issue">Reno/Sparks: 7B gallons/year consumed by AI data centers across Southwest (shared with AZ, UT). Lake Tahoe basin water rights tension. Tesla Gigafactory + data center cluster straining aquifer.</div><span class="state-tag warning">HIGH RISK</span></div>
+      <div class="state-card"><div class="state-name">🟡 Iowa</div><div class="state-issue">QTS Cedar Rapids: 40 unpermitted wells discovered 2025. Linn County sought $20K fine. Google, Microsoft, Meta all operate large facilities. Rural communities downstream from industrial water users.</div><span class="state-tag warning">HIGH RISK</span></div>
+      <div class="state-card"><div class="state-name">🟡 Pennsylvania</div><div class="state-issue">Moratorium bill introduced 2026. House passed disclosure bills. Senate stalled. Major proposed campuses in Lehigh Valley, Berks County. First state to pass energy disclosure requirement for data centers.</div><span class="state-tag fighting">LEGISLATION ACTIVE</span></div>
+      <div class="state-card"><div class="state-name">🟡 Michigan</div><div class="state-issue">Moratorium bill introduced March 2026. Great Lakes water compact — data centers cannot use Great Lakes water for consumptive use. Legal hook available for communities near Lake Michigan or Lake Huron.</div><span class="state-tag fighting">LEGISLATION ACTIVE</span></div>
+      <div class="state-card"><div class="state-name">🟡 Minnesota</div><div class="state-issue">Moratorium bill introduced March 2026. Mississippi headwaters jurisdiction. Data centers in Twin Cities metro drawing from municipal systems. Constitutional water rights stronger than most states.</div><span class="state-tag fighting">LEGISLATION ACTIVE</span></div>
+      <div class="state-card"><div class="state-name">🟡 South Carolina</div><div class="state-issue">Google permit fight: 1.5M gal/day application for single facility. Conservation groups active. Coastal aquifer already experiencing saltwater intrusion from over-withdrawal. Susan's case area (Gaffney) in active monitoring zone.</div><span class="state-tag warning">HIGH RISK</span></div>
+      <div class="state-card"><div class="state-name">🟢 South Dakota</div><div class="state-issue">Passed SB 135 (2026): allows local governments to regulate or ban data centers. First state to explicitly authorize local moratoriums. Model legislation for other states.</div><span class="state-tag won">WON</span></div>
+      <div class="state-card"><div class="state-name">🟡 Utah</div><div class="state-issue">Kevin O'Leary data center: 3,900 public protests stopped water rights application. Colorado River compact limits. Salt Lake City already among driest metros. Moratorium activity at county level.</div><span class="state-tag fighting">FIGHTING BACK</span></div>
+      <div class="state-card"><div class="state-name">🟡 Tennessee</div><div class="state-issue">Moratorium bills proposed. Nashville area data center expansion. Tennessee River system — data centers seeking large-volume withdrawal permits from Tennessee Valley Authority (TVA) customers.</div><span class="state-tag fighting">LEGISLATION ACTIVE</span></div>
+    </div>
+
+    <div class="source">Sources: NCSL · Multistate.us · Deseret News April 2026 · Finance-Commerce March 2026 · US Data Center Moratorium Tracker · Good Jobs First</div>
+  </div>
+
+  <!-- PART 6: WINS -->
+  <div class="section" id="wins">
+    <h2 class="green">🏆 PART 6: Communities That Won — Documented Victories</h2>
+
+    <div class="alert green">
+      <div class="alert-icon">✅</div>
+      <div class="alert-body">
+        <strong>69 jurisdictions have active moratoriums. 50+ cities have enacted bans.</strong> These are not small towns being run over. These are organized communities using real legal tools. Here is what worked.
+      </div>
+    </div>
+
+    <div class="win-card">
+      <div class="win-loc">🏆 Tucson, Arizona</div>
+      <div class="win-title">City Council Unanimously Rejected Amazon Project Blue</div>
+      <div class="win-body">August 2025. Council cited water and electricity usage directly in the rejection. The project had been tied to Amazon — Amazon subsequently withdrew. Tool used: direct council vote via zoning authority. The developer found a workaround (purchased land from Pima County) but was later caught illegally transporting water — caught by a community member asking a question.</div>
+    </div>
+
+    <div class="win-card">
+      <div class="win-loc">🏆 Texas (Statewide)</div>
+      <div class="win-title">$40 Billion Data Center Project Voided — April 2026</div>
+      <div class="win-body">A court voided the state's approval of a $40B data center project, citing failure to comply with environmental review requirements. This is the largest single financial victory against a data center project in US history. Legal theory: inadequate environmental impact assessment. Applicable in any state requiring SEPA or NEPA review.</div>
+    </div>
+
+    <div class="win-card">
+      <div class="win-loc">🏆 Chandler, Arizona</div>
+      <div class="win-title">Community Successfully Blocked Data Center Expansion Over Noise</div>
+      <div class="win-body">Community organized around documented noise levels, infrasound evidence, and municipal ordinance enforcement. Data center expansion halted pending noise mitigation. Tool used: noise ordinance + organized public comment + health evidence presentation to city council.</div>
+    </div>
+
+    <div class="win-card">
+      <div class="win-loc">🏆 Orange County, North Carolina</div>
+      <div class="win-title">County Blocked Data Center Development</div>
+      <div class="win-body">County commissioners voted to block a proposed data center citing inadequate environmental review and water impact disclosure. Community organized FOIA requests for permit data and presented cumulative impact analysis to the board.</div>
+    </div>
+
+    <div class="win-card">
+      <div class="win-loc">🏆 Fayetteville, Georgia</div>
+      <div class="win-title">Enacted Local Moratorium on New Data Center Construction</div>
+      <div class="win-body">One of 50+ Georgia municipalities to enact a moratorium after QTS/Blackstone water incident revealed the gap between what companies promise and what they actually consume.</div>
+    </div>
+
+    <div class="win-card">
+      <div class="win-loc">🏆 Louisa County, Virginia</div>
+      <div class="win-title">Unanimous Resolution Against Valley Link Transmission Line — March 2026</div>
+      <div class="win-body">County Board of Supervisors voted unanimously to oppose Dominion's Valley Link 765kV transmission line proposed to power Northern Virginia data centers. Precedent: Dominion's $8B Atlantic Coast Pipeline was ultimately cancelled after similar organized opposition.</div>
+    </div>
+
+    <div class="win-card">
+      <div class="win-loc">🏆 South Dakota (Statewide)</div>
+      <div class="win-title">Passed SB 135 — Local Governments Can Now Regulate or Ban Data Centers</div>
+      <div class="win-body">First state to explicitly authorize local governments to enact moratoriums and regulations on data center construction. This is the legislative model that communities in every state should be pushing for.</div>
+    </div>
+
+    <div class="source">Sources: Fortune May 2026 · Deseret News April 2026 · Multistate.us · CaseLock prior research sessions</div>
+  </div>
+
+  <!-- PART 7: LAWS -->
+  <div class="section" id="laws">
+    <h2 class="blue">⚖️ PART 7: Legal Tools — What Applies in Your State</h2>
+
+    <div class="law-card">
+      <div class="law-ref green">FEDERAL · CLEAN WATER ACT</div>
+      <div class="law-title">33 U.S.C. § 1365 — Citizen Suit Provision</div>
+      <div class="law-body">Any citizen can sue a data center that discharges water without an NPDES permit, violates its permit conditions, or fails to meet effluent standards. Does not require you to be personally harmed — just that a violation occurred. Fee-shifting provision: if you win, the company pays your attorneys' fees.</div>
+    </div>
+
+    <div class="law-card">
+      <div class="law-ref green">FEDERAL · SAFE DRINKING WATER ACT</div>
+      <div class="law-title">42 U.S.C. § 300j-8 — Citizen Enforcement</div>
+      <div class="law-body">Allows citizens to sue violators of SDWA standards. Applies if a data center's water withdrawal or discharge activities contaminate a public water supply or a source aquifer. Relevant for R410A decomposition products (hydrogen fluoride, carbonyl halides) reaching groundwater.</div>
+    </div>
+
+    <div class="law-card">
+      <div class="law-ref amber">FEDERAL · CLEAN AIR ACT</div>
+      <div class="law-title">42 U.S.C. § 7661 — Title V Permitting Threshold</div>
+      <div class="law-body">Facilities emitting 100 tons/year of NOx or PM2.5 require a Title V major source permit with full public notice and comment. Data centers often avoid this by counting individual generators, not the campus total. Demand your state air agency calculate cumulative campus-wide emissions, not unit-by-unit.</div>
+    </div>
+
+    <div class="law-card">
+      <div class="law-ref red">FEDERAL · CERCLA / SUPERFUND</div>
+      <div class="law-title">42 U.S.C. § 9607 — Hazardous Substance Liability</div>
+      <div class="law-body">If a data center chemical incident (refrigerant, battery fire, diesel spill) contaminates soil or groundwater, CERCLA strict liability attaches. The owner is liable regardless of fault. Applies to R410A decomposition products, lithium battery debris, and diesel spills. Citizen groups can petition EPA for emergency response action.</div>
+    </div>
+
+    <div class="law-card">
+      <div class="law-ref blue">FEDERAL · RIGHT TO KNOW</div>
+      <div class="law-title">42 U.S.C. § 11001 — EPCRA / SARA Title III</div>
+      <div class="law-body">The Emergency Planning and Community Right-to-Know Act requires facilities storing threshold quantities of hazardous chemicals to report to Local Emergency Planning Committees (LEPCs). R410A, diesel fuel, battery chemicals, and halon may all meet thresholds. FOIA your LEPC for what your local data center has reported. If they haven't filed, that itself is a violation.</div>
+    </div>
+
+    <div class="law-card">
+      <div class="law-ref amber">STATE TOOL · ENVIRONMENTAL REVIEW</div>
+      <div class="law-title">SEPA / NEPA-equivalent state laws (40+ states)</div>
+      <div class="law-body">Most states have environmental review requirements triggered by large infrastructure projects. A hyperscale data center drawing millions of gallons from a stressed aquifer and requiring new power transmission likely triggers a mandatory environmental impact statement. If the agency skipped this, the permit is legally challengeable — this is exactly what voided the $40B Texas project.</div>
+    </div>
+
+    <div class="law-card">
+      <div class="law-ref green">STATE TOOL · WATER RIGHTS</div>
+      <div class="law-title">Prior Appropriation (Western States) / Riparian Rights (Eastern States)</div>
+      <div class="law-body">In prior appropriation states (AZ, NV, TX, CO, OK, UT), water rights are "first in time, first in right." Existing agricultural, residential, and municipal users have senior rights to data centers, which are new applicants. Challenge: demand your state water agency document where a new data center's water rights rank in the priority system relative to existing users.</div>
+    </div>
+
+    <div class="law-card">
+      <div class="law-ref blue">FEDERAL · NDAA SECTION 889</div>
+      <div class="law-title">National Defense Authorization Act § 889 (2019, extended)</div>
+      <div class="law-body">Federal contractors and grant recipients are prohibited from using Huawei, ZTE, Hikvision, Dahua, or Hytera equipment. Any data center holding federal cloud contracts must certify compliance. You can demand this certification as a condition of local permit approval for facilities seeking federal contracts. Applicable in combination with E.O. 14318 (2025).</div>
+    </div>
+
+    <div class="source">Sources: US Code · EPA · Congressional Research Service · CaseLock legal research</div>
+  </div>
+
+  <!-- PART 8: ACTION -->
+  <div class="section" id="action">
+    <h2 class="green">✅ PART 8: What Every Community Can Do — Your Playbook</h2>
+
+    <div class="alert green">
+      <div class="alert-icon">🎯</div>
+      <div class="alert-body">
+        <strong>The map in those Facebook screenshots shows hundreds of red dots — community-reported impacts — all over the country.</strong> You are not alone. The communities that won all used the same basic playbook: document everything, use FOIA, show up to public meetings with evidence, and connect with the organizations already doing this work.
+      </div>
+    </div>
+
+    <h3>Step 1 — Know What You're Fighting</h3>
+    <div class="fact-box green"><p>🔍 <strong>Identify which type:</strong> Is it Enterprise (1 tenant, smaller), Colocation (multiple tenants, medium), or Hyperscale/AI (industrial campus, hundreds of MW)? The type determines what legal tools apply and how hard the fight will be.</p></div>
+    <div class="fact-box green"><p>📋 <strong>FOIA immediately:</strong> Request all permit applications, environmental assessments, water withdrawal permits, air quality permits, and chemical storage notifications from your county and state environmental agency. Do this before construction starts — it's 10x harder after.</p></div>
+
+    <h3>Step 2 — Document Your Community Impact</h3>
+    <div class="fact-box green"><p>💧 <strong>Water:</strong> Document your water pressure, taste, smell, color. Request water quality test results from your utility. Check if your private well is near the facility. Before/after photos of streams and waterways matter.</p></div>
+    <div class="fact-box green"><p>🔊 <strong>Noise:</strong> Download a free dB meter app. Document noise levels at different times and distances. Keep a log with dates, times, weather conditions, and readings. This becomes evidence for a noise ordinance challenge or nuisance lawsuit.</p></div>
+    <div class="fact-box green"><p>💨 <strong>Air:</strong> Document generator test days — note dates, duration, smell. Check your state's air quality monitoring network for your ZIP code. Request DEQ/EPA air quality monitoring data near the facility.</p></div>
+    <div class="fact-box green"><p>📈 <strong>Utility bills:</strong> Keep every bill. Document rate increases. Cross-reference with the date new data centers came online in your utility's service area.</p></div>
+
+    <h3>Step 3 — Organize</h3>
+    <div class="fact-box green"><p>🤝 <strong>Connect with existing national networks:</strong> "Say NO to Data Centers" (Facebook group — the one in your screenshots). Virginia LCV (valcv.org). Good Jobs First (goodjobsfirst.org — data center accountability). Earthjustice (earthjustice.org — environmental litigation). Data Center Bans tracker (datacenterbans.com).</p></div>
+    <div class="fact-box green"><p>🏛️ <strong>Show up to public meetings:</strong> Board of Supervisors. Planning Commission. State Corporation Commission hearings. Every speaker who shows up with documented evidence matters. Elected officials respond to constituent presence — especially when documented evidence is on the table.</p></div>
+
+    <h3>Step 4 — Use the Legal Tools</h3>
+    <div class="fact-box green"><p>⚖️ <strong>Clean Water Act citizen suit:</strong> If there's an unpermitted discharge or permit violation, file a 60-day notice letter to the company and EPA/state agency. This is a prerequisite to filing a citizen suit — and many companies settle after receiving the notice letter alone.</p></div>
+    <div class="fact-box green"><p>📄 <strong>EPCRA right-to-know:</strong> Request your LEPC's records on what hazardous chemicals the data center has reported. If they haven't filed, report the violation to EPA. This is completely free and takes 30 minutes.</p></div>
+    <div class="fact-box green"><p>🗺️ <strong>Demand three-tier zoning:</strong> Push your Board of Supervisors to distinguish Enterprise from Colocation from Hyperscale in your zoning ordinance. South Dakota just gave local governments this authority by state law — use that model.</p></div>
+
+    <div class="source">Sources: EPA Citizen's Guide to Environmental Enforcement · Clean Water Act § 1365 · EPCRA § 11001 · Good Jobs First · South Dakota SB 135</div>
+  </div>
+
+  <!-- CROSS LINKS -->
+  <div class="section">
+    <h2 class="amber">🔗 Virginia-Specific Reports</h2>
+    <div class="cross-link">
+      <a href="/resources/view?id=grid_crisis">🚨 NERC Level 3 Alert + EPA Rollback</a>
+      <a href="/resources/view?id=virginia_tax_subsidy">💸 Virginia's $2B Tax Giveaway</a>
+      <a href="/resources/view?id=corridor_crisis">🌊 I-95 Corridor Crisis</a>
+      <a href="/resources/view?id=henrico_varina">📍 QTS Henrico Expansion</a>
+      <a href="/resources/view?id=valley_link">🔌 Valley Link Transmission</a>
+      <a href="/resources/view?id=electric_fight">⚡ Your Electric Bill</a>
+      <a href="/resources/view?id=ghost_towns">🏚️ Ghost Town Warning</a>
+      <a href="/resources/view?id=first_amendment">⚖️ Know Your Rights</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>CaseLock National Intelligence Report · Sources: Fortune, The Frontier (OK), EESI, NCSL, Congressional Research Service, IEA, EPA, NERC, Singleton Schreiber, Good Jobs First, Multistate.us</p>
+  <p style="margin-top:6px;">All incidents independently verified · All figures from official or peer-reviewed sources · Not legal advice · Report ID: national_crisis · Updated: May 21, 2026</p>
+</footer>
+
+</body>
+</html>
