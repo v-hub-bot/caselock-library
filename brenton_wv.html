@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brenton, WV — Wyoming County Water Crisis | CaseLock Intelligence</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#0d1117;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#e6edf3;line-height:1.7;}
+.hero{background:linear-gradient(135deg,#0A0F1E 0%,#1a0505 60%,#0A0F1E 100%);padding:52px 24px 44px;text-align:center;border-bottom:3px solid #dc2626;}
+.hero-eyebrow{font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#dc2626;margin-bottom:12px;}
+.hero h1{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;color:white;margin-bottom:10px;line-height:1.2;}
+.hero-sub{font-size:15px;color:#9ca3af;max-width:720px;margin:0 auto 16px;}
+.urgent-bar{background:#dc2626;color:white;text-align:center;padding:13px 24px;font-size:13px;font-weight:700;letter-spacing:1px;}
+.container{max-width:920px;margin:0 auto;padding:0 20px;}
+.section{padding:34px 0;border-bottom:1px solid #21262d;}
+.section-label{font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:#dc2626;margin-bottom:8px;}
+.section h2{font-size:21px;font-weight:900;color:white;margin-bottom:14px;}
+.card{background:#161b22;border-radius:12px;padding:20px 24px;margin-bottom:14px;border-left:4px solid #dc2626;}
+.card.green{border-left-color:#16a34a;}
+.card.yellow{border-left-color:#F59E0B;}
+.card.blue{border-left-color:#3B82F6;}
+.card.red{border-left-color:#dc2626;}
+.card-title{font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#9ca3af;margin-bottom:8px;}
+.card p,.card li{font-size:13.5px;color:#c9d1d9;line-height:1.85;}
+.card ul{padding-left:18px;margin-top:6px;}
+.card li{margin-bottom:5px;}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0;}
+.stat{background:#161b22;border-radius:10px;padding:16px;text-align:center;border:1px solid #30363d;}
+.stat-num{font-size:26px;font-weight:900;color:#dc2626;}
+.stat-label{font-size:11px;color:#8b949e;margin-top:4px;line-height:1.4;}
+.quote-box{background:#1c2026;border-left:4px solid #F59E0B;border-radius:0 8px 8px 0;padding:16px 20px;margin:14px 0;font-style:italic;font-size:14px;color:#c9d1d9;line-height:1.85;}
+.quote-attr{font-size:11px;color:#8b949e;margin-top:6px;font-style:normal;font-weight:700;}
+.law-box{background:#0f1923;border:1px solid #1d3a5c;border-radius:10px;padding:16px 20px;margin:12px 0;}
+.law-title{font-size:11px;font-weight:800;color:#3B82F6;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;}
+.law-box p,.law-box li{font-size:13px;color:#c9d1d9;line-height:1.85;}
+.law-box ul{padding-left:18px;margin-top:6px;}
+.win-box{background:#0d2818;border:2px solid #16a34a;border-radius:12px;padding:18px 22px;margin:14px 0;}
+.win-label{font-size:10px;font-weight:800;color:#16a34a;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+.win-box p,.win-box li{font-size:13.5px;color:#d1fae5;line-height:1.85;}
+.win-box ul{padding-left:18px;margin-top:6px;}
+.alert-red{background:#1a0505;border:2px solid #dc2626;border-radius:10px;padding:16px 20px;margin:12px 0;}
+.alert-red-title{font-size:10px;font-weight:800;letter-spacing:1.5px;color:#dc2626;text-transform:uppercase;margin-bottom:8px;}
+.alert-red p,.alert-red li{font-size:13.5px;color:#fca5a5;line-height:1.85;}
+.alert-red ul{padding-left:18px;margin-top:6px;}
+.donate-box{background:linear-gradient(135deg,#0d2818,#0a1f12);border:3px solid #16a34a;border-radius:14px;padding:28px 32px;margin:24px 0;text-align:center;}
+.donate-box h3{font-size:20px;font-weight:900;color:white;margin-bottom:10px;}
+.donate-box p{font-size:14px;color:#d1fae5;margin-bottom:18px;line-height:1.8;}
+.donate-btn{display:inline-block;background:#16a34a;color:white;font-weight:800;font-size:15px;padding:14px 36px;border-radius:8px;text-decoration:none;letter-spacing:0.5px;}
+.source-tag{font-size:11px;color:#8b949e;font-style:italic;margin-top:6px;}
+.parties-table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0;}
+.parties-table th{background:#21262d;color:#c9d1d9;padding:10px 14px;text-align:left;font-size:11px;letter-spacing:1px;text-transform:uppercase;}
+.parties-table td{padding:10px 14px;border-bottom:1px solid #21262d;color:#c9d1d9;vertical-align:top;}
+.parties-table tr:nth-child(even) td{background:#161b22;}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700;margin:2px;}
+.tag-red{background:#7f1d1d;color:#fca5a5;}
+.tag-blue{background:#1e3a5f;color:#93c5fd;}
+.tag-green{background:#052e16;color:#86efac;}
+.tag-amber{background:#451a03;color:#fde68a;}
+footer{background:#161b22;text-align:center;padding:32px;margin-top:0;color:#8b949e;font-size:12px;}
+@media(max-width:600px){.stat-grid{grid-template-columns:repeat(2,1fr);}.hero h1{font-size:1.5rem;}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">🛡️ CaseLock — Community Defense Intelligence</div>
+  <h1>Brenton, WV — Wyoming County<br><span style="color:#dc2626;">Water Crisis Intelligence Brief</span></h1>
+  <div class="hero-sub">Brown water. Exploding wells. Combustible gas venting from the ground. And a government that has known for years. This is not a new problem — it is a documented failure of enforcement. Here is everything you need to fight back.</div>
+</div>
+
+<div class="urgent-bar">🚨 ACTIVE EMERGENCY — MAY 2026 — MULTIPLE HOUSEHOLDS IN BRENTON REPORTING CONTAMINATED WELLS OVERNIGHT</div>
+
+<div class="container">
+
+  <!-- WHAT IS HAPPENING RIGHT NOW -->
+  <div class="section">
+    <div class="section-label">The Crisis — Right Now</div>
+    <h2>What Happened in Brenton This Weekend</h2>
+
+    <div class="alert-red">
+      <div class="alert-red-title">🚨 REPORTED — MAY 2026 — BRENTON, WV</div>
+      <p style="margin-bottom:10px;">On <strong>Saturday evening, May 2026</strong>, residents in Brenton, WV alerted Mountain Water Watch to bubbling and gurgling wells and a strong gas smell coming from their water. By Sunday morning, Mountain Water Watch arrived at the home of <strong>Roy New</strong> and his grandmother.</p>
+      <p style="margin-bottom:10px;">The well they spent <strong>$11,000 to install just 5–6 years ago</strong> had seemingly gone bad overnight. Thick yellow-brown water poured from the tap. Roy's daughters first noticed something was wrong when they tried to shower the night before.</p>
+      <p><strong>By end of day, multiple households in the area were confirmed experiencing the same contamination.</strong> Mountain Water Watch delivered emergency drinking water and began connecting families with legal support.</p>
+    </div>
+
+    <div class="quote-box">
+      "I'd love it for somebody from the government, the county, somebody to come down here and drink this water."
+      <div class="quote-attr">— Roy New, Brenton, WV — May 2026</div>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat"><div class="stat-num">$11K</div><div class="stat-label">Roy New's well cost — installed 5–6 years ago — now contaminated overnight</div></div>
+      <div class="stat"><div class="stat-num">7+</div><div class="stat-label">Southern WV communities with documented contamination: Indian Creek, Wolf Pen, New Richmond, Caples, Fort Branch, Brenton, Baileysville</div></div>
+      <div class="stat"><div class="stat-num">200+</div><div class="stat-label">Homes estimated in the affected region along Indian Creek and surrounding communities</div></div>
+    </div>
+  </div>
+
+  <!-- THE DOCUMENTED HISTORY -->
+  <div class="section">
+    <div class="section-label">This Is Not New — The Paper Trail Exists</div>
+    <h2>Years of Documented Contamination — And Documented Inaction</h2>
+
+    <p style="font-size:14px;color:#c9d1d9;margin-bottom:16px;">Wyoming County's water crisis is not an accident and not a mystery. It has been documented in court records, DEP files, news investigations, and peer-reviewed studies for years. The failure is not scientific — it is political and legal.</p>
+
+    <div class="card">
+      <div class="card-title">📋 What's Been Documented On the Ground</div>
+      <ul>
+        <li><strong>Black, orange, brown, and white discolored water</strong> coming from taps and seeping into streams across the county</li>
+        <li><strong>Combustible methane gas venting from wells and ground pipes</strong> — a combustible gas meter triggered immediately at a Baileysville Hunting Club pipe (WOAY, April 2025)</li>
+        <li><strong>A home in Brenton exploded</strong> at the beginning of 2025 — "leveled the house completely" and shook buildings miles away. Cause officially unconfirmed. <em>(WOAY Investigation, April 2025)</em></li>
+        <li><strong>Dakota Day's well exploded in late 2024</strong>, leaving his arm burned. His neighbor's well exploded four days later. <em>(WOAY Investigation, April 2025)</em></li>
+        <li><strong>Dead deer found with neon-yellow veins, hearts, and livers</strong> — trout gone from creeks, chickens died after drinking creek water, dogs found dead with blood from their mouths <em>(Mountain State Spotlight, March 2024)</em></li>
+        <li><strong>Property values collapsing:</strong> One resident's home dropped from $56,000 to $42,000 in a year — "No way you can sell it with that water the way it is." <em>(WOAY, April 2025)</em></li>
+        <li><strong>Coal chips in tap water</strong> — residents running faucets for 15 minutes and still unable to tolerate the smell <em>(WOAY April 2025)</em></li>
+        <li><strong>Filter systems failing:</strong> One family bought an expensive filtration system — it still outputs yellow water and ruins laundry <em>(Mountain State Spotlight, March 2024)</em></li>
+      </ul>
+    </div>
+
+    <div class="quote-box">
+      "If any spark at all goes off, it's probably going to take the town of Brenton off the map."
+      <div class="quote-attr">— Irvin Lee, retired coal miner and Pastor, Brenton, WV — WOAY April 2025</div>
+    </div>
+
+    <div class="quote-box">
+      "My house went from $56,000 to $42,000 in a year. No way you can sell it. There's no way you can sell it with that water the way it is."
+      <div class="quote-attr">— Ricky Lane, Miles Branch, Wyoming County — WOAY April 2025</div>
+    </div>
+  </div>
+
+  <!-- WHO IS RESPONSIBLE -->
+  <div class="section">
+    <div class="section-label">Who Is Responsible</div>
+    <h2>Three Coal Companies. One Senator's Family. A DEP That Keeps Approving Expansions.</h2>
+
+    <p style="font-size:14px;color:#c9d1d9;margin-bottom:16px;">The contamination is connected to the <strong>Pinnacle Mining Complex</strong> — an inactive mine whose flooded underground chambers are now under so much pressure that contaminated mine water is being forced up through the ground and into private wells and creeks. The court case to hold anyone accountable has become a shell game of corporate finger-pointing.</p>
+
+    <table class="parties-table">
+      <tr><th>Party</th><th>Role</th><th>Legal Status</th></tr>
+      <tr>
+        <td><strong>Pinn MC Wind Down Co.</strong><br><span style="font-size:11px;color:#8b949e;">(formerly Pinnacle Mining Company)</span></td>
+        <td>Original operator of Pinnacle Mining Complex. DEP sued them to stop flooding. They filed for bankruptcy and spun off assets.</td>
+        <td><span class="tag tag-red">SUED BY DEP</span> <span class="tag tag-red">BANKRUPT</span></td>
+      </tr>
+      <tr>
+        <td><strong>Bluestone Resources</strong><br><span style="font-size:11px;color:#8b949e;">Owned by the family of Sen. Jim Justice</span></td>
+        <td>Purchased Pinnacle's assets when Pinn MC went bankrupt. Is being sued by Pinn MC for responsibility. Denies liability.</td>
+        <td><span class="tag tag-red">ACTIVE LITIGATION</span> <span class="tag tag-amber">PERMIT SUSPENDED 2025</span></td>
+      </tr>
+      <tr>
+        <td><strong>Alpha Metallurgical Resources</strong></td>
+        <td>Adjacent mine operator. Pinn MC sued Alpha claiming Alpha owns the mine seam discharging dirty water. Alpha denies it.</td>
+        <td><span class="tag tag-red">CO-DEFENDANT</span></td>
+      </tr>
+      <tr>
+        <td><strong>Lexington Coal Company</strong><br><span style="font-size:11px;color:#8b949e;">(Lynco site)</span></td>
+        <td>Holds Clean Water Act permit WV0056693. Community testing found at least <strong>186 CWA violations</strong> since Oct. 2021. EPA shows Significant/Category I Noncompliance in last 12 quarters.</td>
+        <td><span class="tag tag-red">60-DAY NOTICE FILED</span> <span class="tag tag-red">186 CWA VIOLATIONS</span></td>
+      </tr>
+      <tr>
+        <td><strong>Rockwell Mining</strong><br><span style="font-size:11px;color:#8b949e;">(Kopperston site)</span></td>
+        <td>60-day notice filed Aug. 29, 2025 alleging unpermitted acid mine drainage discharge into Toney Fork/Guyandotte River system. Testing: pH 4.7, aluminum 5.42 mg/L, selenium ~2.0 mg/L.</td>
+        <td><span class="tag tag-red">60-DAY NOTICE FILED</span> <span class="tag tag-red">UNPERMITTED DISCHARGE</span></td>
+      </tr>
+      <tr>
+        <td><strong>WV DEP</strong></td>
+        <td>Took DEP's own lawsuit, then agreed to dismiss it in 2025. Simultaneously <strong>approved a coal mine expansion</strong> in Wyoming County while acknowledging the contamination. Claims it "doesn't have the capacity or authority to diagnose human health problems."</td>
+        <td><span class="tag tag-amber">LAWSUIT DISMISSED BY DEP</span> <span class="tag tag-amber">EXPANSION APPROVED</span></td>
+      </tr>
+    </table>
+
+    <div class="alert-red" style="margin-top:16px;">
+      <div class="alert-red-title">⚠️ DEP DISMISSED ITS OWN LAWSUIT — READ THIS</div>
+      <p>After years of legal battle, <strong>DEP agreed to dismiss the civil case</strong> over unsealed mine shafts and contaminated water — leaving residents with no enforcement resolution. <em>(WOAY, 2025)</em></p>
+      <p style="margin-top:8px;">At the same time, DEP <strong>approved a coal mine expansion</strong> in Wyoming County even while acknowledging it was in the process of taking over a mine residents say contaminated their water. <em>(Mountain State Spotlight, Sept. 10, 2025)</em></p>
+      <p style="margin-top:8px;">DEP spokesperson Terry Fletcher stated: <em>"The agency does not have the capacity or authority to diagnose or determine the cause of potential human health problems, drinking water issues, or dead and diseased wildlife."</em> — This is the agency legally responsible for protecting West Virginia's water.</p>
+    </div>
+  </div>
+
+  <!-- VERIFIED LAW — WHAT'S BEING VIOLATED -->
+  <div class="section">
+    <div class="section-label">The Law — What's Being Violated</div>
+    <h2>Federal and State Law These Companies Are Breaking</h2>
+
+    <div class="law-box">
+      <div class="law-title">⚖️ Clean Water Act (CWA) — 33 U.S.C. § 1251 et seq.</div>
+      <ul>
+        <li>Prohibits discharge of pollutants into navigable waters without a valid NPDES permit</li>
+        <li>Lexington Coal: <strong>186 documented violations</strong> of its own permit since October 2021. EPA-confirmed Significant/Category I Noncompliance. This is a textbook CWA enforcement case.</li>
+        <li>Rockwell Mining: alleged <strong>unpermitted discharge</strong> at Kopperston — no NPDES permit, confirmed contaminated outfall flowing into the Guyandotte River system</li>
+        <li><strong>Citizen suit provision (§ 1365):</strong> Any person may file suit directly in U.S. District Court after a 60-day notice of intent. Appalachian Mountain Advocates filed 60-day notices Aug. 29, 2025. Litigation window opened Oct. 28, 2025.</li>
+      </ul>
+    </div>
+
+    <div class="law-box">
+      <div class="law-title">⚖️ Surface Mining Control and Reclamation Act (SMCRA) — 30 U.S.C. § 1201 et seq.</div>
+      <ul>
+        <li>Requires mine operators to restore land and water to pre-mining conditions</li>
+        <li>Requires operators to control drainage and prevent water pollution from mine runoff</li>
+        <li>Both the Kopperston and Lynco notices allege SMCRA violations alongside CWA violations</li>
+        <li><strong>Bankrupt companies do NOT escape SMCRA obligations</strong> — courts have held that reclamation duties survive bankruptcy and transfer to acquiring companies</li>
+      </ul>
+    </div>
+
+    <div class="law-box">
+      <div class="law-title">⚖️ Endangered Species Act (ESA) — 16 U.S.C. § 1531 et seq.</div>
+      <ul>
+        <li>The Guyandotte River is <strong>designated critical habitat for the federally endangered Guyandotte River Crayfish</strong></li>
+        <li>Both the Kopperston and Lynco discharges flow into tributaries that feed the Guyandotte</li>
+        <li>Testing showed pH 4.7 and heavy metal levels at Kopperston — at these levels, "there are negative impacts to the small streams where the discharge is going in directly" — confirmed by Appalachian Voices scientist Matt Hepler, Aug. 2025</li>
+        <li>Federal agencies must ensure their actions are not likely to jeopardize listed species. DEP's approval of mine expansions may independently violate the ESA.</li>
+      </ul>
+    </div>
+
+    <div class="law-box">
+      <div class="law-title">⚖️ Safe Drinking Water Act (SDWA) — 42 U.S.C. § 300f et seq.</div>
+      <ul>
+        <li>A <strong>2025 peer-reviewed study published in Risk Analysis</strong> ranked Wyoming County among the <strong>10 worst counties in the entire United States for Safe Drinking Water Act violations</strong> — two Wyoming County public water systems had the highest number of drinking water violations recorded for any single system during the study period. <em>(West Virginia Rivers Coalition; Risk Analysis journal 2025)</em></li>
+        <li>The Guyandotte River is used as a source for the local drinking water supply — contamination of tributaries directly threatens public water infrastructure</li>
+      </ul>
+    </div>
+
+    <div class="law-box">
+      <div class="law-title">⚖️ West Virginia Water Pollution Control Act — W.Va. Code § 22-11</div>
+      <ul>
+        <li>Prohibits discharge of any substance that causes water quality to violate state standards</li>
+        <li>The DEP's own sampling has documented violations — yet enforcement actions have been systematically dismissed or delayed</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SCIENTIFIC DATA ON CONTAMINATION -->
+  <div class="section">
+    <div class="section-label">What's In the Water — Verified Testing Data</div>
+    <h2>The Science. Not Opinions. Not Fears. Documented Test Results.</h2>
+
+    <div class="card blue">
+      <div class="card-title">🔬 Kopperston Site — Sampled June 24, 2025 (Appalachian Voices)</div>
+      <ul>
+        <li><strong>pH: 4.7</strong> — highly acidic. Normal drinking water is 6.5–8.5. Below 6.5 is corrosive and toxic to aquatic life.</li>
+        <li><strong>Aluminum: 5.42 mg/L</strong> — EPA MCL for aluminum in drinking water: 0.05–0.2 mg/L. This is 27–108× the safe limit.</li>
+        <li><strong>Iron: 2.78 mg/L</strong> — EPA secondary standard: 0.3 mg/L. This is 9× the standard.</li>
+        <li><strong>Selenium: ~2.0 mg/L (estimated)</strong> — EPA MCL: 0.05 mg/L. This is 40× the safe limit. Selenium toxicity causes hair loss, nerve damage, and liver damage.</li>
+        <li><strong>Manganese: 0.710 mg/L</strong> — EPA health advisory: 0.3 mg/L. Manganese at elevated levels causes neurological damage, particularly in children.</li>
+      </ul>
+      <div class="source-tag">Source: Appalachian Voices scientist Matt Hepler + Appalachian Mountain Advocates NOI filed Aug. 29, 2025 · WOAY-TV Sept. 4, 2025</div>
+    </div>
+
+    <div class="card blue">
+      <div class="card-title">🔬 Lynco Site — Lexington Coal — Oct. 2021–2025 (EPA Discharge Monitoring Reports)</div>
+      <ul>
+        <li><strong>186 documented violations</strong> of Clean Water Act permit WV0056693 since October 2021 — confirmed in company's own discharge monitoring reports filed with WVDEP</li>
+        <li>Violations include: heavy metal exceedances, extremely low pH values</li>
+        <li><strong>EPA Detailed Facility Report shows Significant/Category I Noncompliance</strong> in the last 12 of 12 quarters as of March 31, 2025 — meaning every single quarter for 3 years</li>
+        <li>Discharge flows into Road Branch → Guyandotte River</li>
+      </ul>
+      <div class="source-tag">Source: EPA DFR · WVDEP discharge monitoring reports · Appalachian Mountain Advocates NOI · WOAY-TV Sept. 4, 2025</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📊 The Three-Year Community Study — March 2026</div>
+      <p>A local environmental advocate released a <strong>3-year independent study in March 2026</strong> documenting widespread water contamination across multiple southern West Virginia counties. <em>(WVVA, March 30, 2026)</em></p>
+      <p style="margin-top:8px;">Wyoming County's Indian Creek runs <strong>black and green</strong>, sometimes with white streaks or slimy film. A number of water wells have gone bad. <em>(Mountain State Spotlight, Sept. 2025)</em></p>
+    </div>
+  </div>
+
+  <!-- THE METHANE / EXPLOSION RISK -->
+  <div class="section">
+    <div class="section-label">The Explosion Risk — This Is Not a Metaphor</div>
+    <h2>Homes Have Already Exploded. People Have Already Been Burned.</h2>
+
+    <div class="alert-red">
+      <div class="alert-red-title">💥 DOCUMENTED EXPLOSIONS — WYOMING COUNTY</div>
+      <ul>
+        <li><strong>Early 2025 — Brenton:</strong> A home exploded. Leveled completely. Shook buildings miles away. Cause officially listed as "unconfirmed" despite community certainty about methane venting. <em>(WOAY, April 2025)</em></li>
+        <li><strong>Late 2024 — Indian Creek:</strong> Dakota Day's well exploded, leaving his arm severely burned. His neighbor's well exploded 4–5 days later. <em>(WOAY, April 2025)</em></li>
+        <li><strong>September/November 2024:</strong> A well along Miles Branch exploded. A pump house door was blown off by methane in another well. <em>(WOAY, April 2025)</em></li>
+        <li><strong>Baileysville Hunting Club (visited April 2025):</strong> An unregulated pipe was actively venting combustible gas. WOAY journalist used a combustible gas detector — it triggered immediately. Gas was escaping at a steady, audible rate. DEP officers were present and confirmed the release but declined comment. As of reporting, gas was still venting. <em>(WOAY, April 2025)</em></li>
+      </ul>
+    </div>
+
+    <div class="quote-box">
+      "I've tried to make sure that people don't drink the water from the sinks. I've told them not to do it because it can be dangerous to their health. It brings fear to me for the people that come to the church here… I'm kind of holding my breath at times, you know, is this thing going to go off sometime?"
+      <div class="quote-attr">— Pastor Irvin Lee, Brenton, WV — retired coal miner, 30-year industry veteran — WOAY April 2025</div>
+    </div>
+
+    <div class="law-box">
+      <div class="law-title">⚖️ Federal Methane Regulation — Clean Air Act 2024 EPA Rule</div>
+      <p>While methane is not classified as a hazardous air pollutant under the CAA, it is regulated under the Act. As of 2024, the EPA adopted stricter methane guidelines. Uncontrolled methane venting from mine-related sources may independently trigger federal CAA enforcement obligations. Communities should document every vent point with GPS coordinates and video.</p>
+    </div>
+  </div>
+
+  <!-- WHO IS FIGHTING BACK -->
+  <div class="section">
+    <div class="section-label">Who Is Fighting Back</div>
+    <h2>Active Legal & Advocacy Pressure — Build on This</h2>
+
+    <div class="win-box">
+      <div class="win-label">✅ ACTIVE — Appalachian Mountain Advocates + Appalachian Voices</div>
+      <ul>
+        <li><strong>60-day notices of intent to sue filed Aug. 29, 2025</strong> — Kopperston (Rockwell Mining, unpermitted discharge) and Lynco (Lexington Coal, 186 CWA violations)</li>
+        <li>If violations not corrected by Oct. 28, 2025, litigation filed in <strong>U.S. District Court for the Southern District of West Virginia</strong> under CWA § 1365 citizen suit provision</li>
+        <li>Attorney Mike Becher, Appalachian Mountain Advocates: <em>"These are unlawful not just under West Virginia laws and rules, but under federal law as well."</em></li>
+        <li>Contact: <strong>appalmtnadvocates.org</strong></li>
+      </ul>
+    </div>
+
+    <div class="win-box">
+      <div class="win-label">✅ ACTIVE — Mountain Water Watch</div>
+      <ul>
+        <li>On the ground distributing emergency water in Wyoming County</li>
+        <li>Documenting contamination, connecting families with legal experts</li>
+        <li>Present at Roy New's home in Brenton the morning after the contamination was reported</li>
+        <li><strong>Support their work: donorbox.org/mountain-water-watch</strong></li>
+      </ul>
+    </div>
+
+    <div class="win-box">
+      <div class="win-label">✅ ACTIVE — Wyoming County Circuit Court Case</div>
+      <ul>
+        <li>Circuit Judge Derek Swope ordered Pinn MC, Bluestone Resources, and Alpha Metallurgical to secure and seal mine shafts</li>
+        <li>The coal companies are suing each other — none are admitting responsibility</li>
+        <li>The contamination continues while lawyers argue over who pays</li>
+      </ul>
+    </div>
+
+    <div class="card yellow">
+      <div class="card-title">⚠️ What Was Lost — The DEP Dismissed Its Own Case</div>
+      <p>After a legal battle lasting more than two years, the WV DEP agreed to dismiss the civil case over the unsealed mine shafts — <strong>leaving residents with no active state enforcement resolution.</strong> At the same time, DEP approved additional mine acreage in the same county. <em>(WOAY 2025; Mountain State Spotlight Sept. 10, 2025)</em></p>
+    </div>
+  </div>
+
+  <!-- NATIONAL PARALLEL -->
+  <div class="section">
+    <div class="section-label">This Is a National Pattern</div>
+    <h2>Same Playbook. Different States. Your Water Is Not an Isolated Event.</h2>
+
+    <div class="alert-red">
+      <div class="alert-red-title">🚨 MORGAN COUNTY, GEORGIA — META DATA CENTER — CONGRESSIONAL HEARING MAY 2026</div>
+      <p style="margin-bottom:8px;">A different industry, same government failure pattern: The Morris family, 400 feet from Meta's data center, has had <strong>brown tap water since 2018</strong>. They ship water to their home. On <strong>May 20, 2026</strong>, Rep. Alexandria Ocasio-Cortez brought two jars of their water to Congress, questioning EPA Assistant Administrator Jessica Kramer, demanding a federal investigation.</p>
+      <p>Industry response in both cases: "Our study found no impact." Government response in both cases: years of inaction. <strong>The playbook is the same. The remedy is the same: documented evidence, legal pressure, and a public record that cannot be buried.</strong></p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📊 West Virginia Ranks Among Worst in Nation</div>
+      <ul>
+        <li><strong>Wyoming County ranks among the 10 worst counties in the U.S. for Safe Drinking Water Act violations</strong> — peer-reviewed, published in Risk Analysis journal, 2025 <em>(West Virginia Rivers Coalition)</em></li>
+        <li>Wyoming, Boone, and Mercer counties ranked among the 10 worst nationally in the same study</li>
+        <li>60 Minutes has documented the McDowell County water crisis — black and brown liquid from aging pipes, coal mining contamination <em>(CBS, 2025)</em></li>
+        <li>Indian Creek flows into the Guyandotte River — a public drinking water source. Contamination is not contained to private wells.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- WHAT YOU CAN DO -->
+  <div class="section">
+    <div class="section-label">Action Steps</div>
+    <h2>What Residents, Advocates, and Attorneys Can Do Right Now</h2>
+
+    <div class="card green">
+      <div class="card-title">📸 Step 1 — Document Everything — Today</div>
+      <ul>
+        <li>Video your tap water every single time it is discolored, smells, or bubbles — date and time stamp it</li>
+        <li>If you can smell gas from a well or ground pipe — video it, note GPS coordinates, call 911 AND DEP AND document that you called</li>
+        <li>Photograph any dead animals, discolored streams, or foam on water</li>
+        <li>Save every utility bill, filtration receipt, and water purchase receipt — these are your damages</li>
+        <li>Get your well water tested independently — not by the company, not by the agency. Contact Appalachian Voices or Mountain Water Watch for guidance</li>
+      </ul>
+    </div>
+
+    <div class="card green">
+      <div class="card-title">📋 Step 2 — File Formal Complaints — On the Record</div>
+      <ul>
+        <li><strong>WVDEP:</strong> 1-800-642-3074 — every complaint creates a dated paper trail even if no action is taken</li>
+        <li><strong>EPA Region 3 (covers WV):</strong> r3.public@epa.gov — formal Clean Water Act citizen complaint</li>
+        <li><strong>CFPB has no jurisdiction here</strong> — but the <strong>EPA Office of Inspector General</strong> does: 1-888-372-7341. File a complaint about DEP's failure to enforce federal standards.</li>
+        <li><strong>U.S. Representative's office:</strong> Congressional inquiry letters force agency responses on the record</li>
+      </ul>
+    </div>
+
+    <div class="card green">
+      <div class="card-title">⚖️ Step 3 — Legal Action Available to You</div>
+      <ul>
+        <li><strong>Clean Water Act § 1365 citizen suit:</strong> Any person may sue a CWA violator directly in federal court after 60-day notice. The Kopperston and Lynco notices are already filed — contact Appalachian Mountain Advocates to join or understand your rights.</li>
+        <li><strong>Private well damage — common law tort:</strong> If a company's actions contaminated your private water supply, you have a civil damages claim for the cost of remediation, loss of property value, and personal injury</li>
+        <li><strong>SMCRA petition:</strong> Any person may petition the state regulatory authority to inspect a mine operation for violations</li>
+        <li><strong>Contact: Appalachian Mountain Advocates</strong> — appalmtnadvocates.org</li>
+      </ul>
+    </div>
+
+    <div class="card green">
+      <div class="card-title">🔬 Step 4 — Demand Independent Testing</div>
+      <ul>
+        <li>Request testing through <strong>Appalachian Voices</strong> (appvoices.org) — they have the scientists and methodology that will hold up in court</li>
+        <li>Ask for testing of: pH, iron, manganese, aluminum, selenium, sulfate, bacteria (coliform/E.coli), methane dissolved in water</li>
+        <li>If the DEP offers to test — accept it, but also get your own independent test on the same day so you have a comparison</li>
+        <li>Keep a chain of custody for every sample — who collected it, when, where, and what happened to it</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- DONATE -->
+  <div class="donate-box">
+    <h3>💧 Support Mountain Water Watch</h3>
+    <p>Mountain Water Watch is on the ground in Wyoming County — distributing emergency water, documenting contamination, and connecting families with legal help. This work takes resources. No family should have to fight this alone.</p>
+    <a href="https://donorbox.org/mountain-water-watch" target="_blank" class="donate-btn">Donate at donorbox.org/mountain-water-watch</a>
+    <p style="font-size:12px;color:#86efac;margin-top:14px;">Emergency water distribution · Independent testing · Legal referrals · Community response</p>
+  </div>
+
+  <!-- KEY SOURCES -->
+  <div class="section">
+    <div class="section-label">Sources & Further Reading</div>
+    <h2>Every Claim in This Report Is Sourced</h2>
+    <div class="card blue">
+      <ul>
+        <li>WOAY-TV Investigation: "Inside the Water Crisis in Wyoming County" — Danny Delanty, April 15, 2025 — <em>woay.com</em></li>
+        <li>Mountain State Spotlight: "Wyoming County residents say coal toxins contaminated their water" — Erin Beck, March 25, 2024</li>
+        <li>Mountain State Spotlight: "Wyoming County residents say a coal mine contaminated their water. DEP approved a coal mine expansion anyway." — Sept. 10, 2025</li>
+        <li>WOAY-TV: "Wyoming County Water: New Filings Allege Illegal Mine Discharges" — Danny Delanty, Sept. 4, 2025</li>
+        <li>WOAY-TV: "Wyoming County cleanup planned as DEP agrees to dismiss Pinnacle case" — 2025</li>
+        <li>WVVA: "Wyoming County resident documents widespread water contamination — 3-year study" — March 30, 2026</li>
+        <li>West Virginia Rivers Coalition / Risk Analysis journal: Wyoming County among 10 worst U.S. counties for SDWA violations — 2025</li>
+        <li>EPA DFR for Lynco/Lexington Coal permit WV0056693 — 12/12 quarters Significant Noncompliance as of March 31, 2025</li>
+        <li>Appalachian Mountain Advocates 60-day NOI letters — filed Aug. 29, 2025 — Kopperston + Lynco</li>
+        <li>WV Gazette-Mail: "Justice coal firm wants water pollution lawsuit dismissed" — Oct. 2024</li>
+        <li>WV Public: "Wyoming County Families Want Coal Company to Restore Water"</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="text-align:center;padding:20px 0 0;">
+    <a href="index.html" style="color:#3B82F6;font-size:13px;text-decoration:none;">← Back to CaseLock Intelligence Library</a>
+  </div>
+
+</div>
+
+<footer>
+  <strong style="color:#c9d1d9;">CaseLock — Community Defense Intelligence</strong><br>
+  This report compiles publicly available documented evidence from WOAY-TV, Mountain State Spotlight, Appalachian Mountain Advocates, Appalachian Voices, the EPA, and WVDEP records.<br>
+  Sources should be independently verified. This is not legal advice. If you are in immediate danger from gas exposure, call 911.<br>
+  Last updated: May 22, 2026
+</footer>
+
+</body>
+</html>
