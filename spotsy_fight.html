@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spotsylvania County Data Centers — How to Fight Back | CaseLock Intelligence</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#0d1117;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#e6edf3;line-height:1.7;}
+.hero{background:linear-gradient(135deg,#0A0F1E 0%,#1a0a1a 60%,#0A0F1E 100%);padding:52px 24px 40px;text-align:center;border-bottom:3px solid #3B82F6;}
+.hero-eyebrow{font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#3B82F6;margin-bottom:12px;}
+.hero h1{font-size:clamp(1.5rem,4vw,2.3rem);font-weight:900;color:white;margin-bottom:10px;line-height:1.2;}
+.hero-sub{font-size:14px;color:#9ca3af;max-width:780px;margin:8px auto 0;}
+.container{max-width:960px;margin:0 auto;padding:0 20px;}
+.section{padding:36px 0;border-bottom:1px solid #21262d;}
+.section-label{font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:#3B82F6;margin-bottom:8px;}
+.section h2{font-size:22px;font-weight:900;color:white;margin-bottom:16px;}
+.card{background:#161b22;border-radius:12px;padding:20px 24px;margin-bottom:14px;border:1px solid #30363d;}
+.card-title{font-size:13px;font-weight:800;color:white;margin-bottom:10px;}
+.card p,.card li{font-size:13.5px;color:#c9d1d9;line-height:1.85;}
+.card ul,.card ol{padding-left:18px;margin-top:8px;}
+.card li{margin-bottom:6px;}
+.alert-red{background:#1a0505;border-left:4px solid #dc2626;border-radius:0 10px 10px 0;padding:18px 22px;margin-bottom:14px;}
+.alert-title{font-size:12px;font-weight:800;color:#dc2626;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;}
+.alert-red p,.alert-red li{font-size:13.5px;color:#fca5a5;line-height:1.85;}
+.alert-red ul{padding-left:18px;margin-top:8px;}
+.win-box{background:#0d2818;border-left:4px solid #16a34a;border-radius:0 10px 10px 0;padding:18px 22px;margin-bottom:14px;}
+.win-title{font-size:12px;font-weight:800;color:#16a34a;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;}
+.win-box p,.win-box li{font-size:13.5px;color:#d1fae5;line-height:1.85;}
+.win-box ul{padding-left:18px;margin-top:8px;}
+.yellow-box{background:#1c1500;border-left:4px solid #F59E0B;border-radius:0 10px 10px 0;padding:18px 22px;margin-bottom:14px;}
+.yellow-title{font-size:12px;font-weight:800;color:#F59E0B;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;}
+.yellow-box p,.yellow-box li{font-size:13.5px;color:#fde68a;line-height:1.85;}
+.yellow-box ul{padding-left:18px;margin-top:8px;}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0;}
+.stat{background:#161b22;border-radius:10px;padding:16px;text-align:center;border:1px solid #30363d;}
+.stat-n{font-size:28px;font-weight:900;color:#3B82F6;}
+.stat-l{font-size:11px;color:#8b949e;margin-top:4px;line-height:1.4;}
+.action-step{background:linear-gradient(135deg,#0d2818,#0a1f12);border:2px solid #16a34a;border-radius:12px;padding:20px 24px;margin-bottom:14px;}
+.step-num{font-size:28px;font-weight:900;color:#16a34a;float:left;margin-right:14px;line-height:1;}
+.step-title{font-size:14px;font-weight:800;color:white;margin-bottom:8px;}
+.step-body{font-size:13.5px;color:#d1fae5;line-height:1.85;}
+.step-body ul{padding-left:18px;margin-top:6px;}
+.data-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;}
+.data-table th{background:#1d3a5c;color:white;padding:10px 12px;text-align:left;font-weight:800;}
+.data-table td{padding:10px 12px;border-bottom:1px solid #21262d;color:#c9d1d9;vertical-align:top;}
+.data-table tr:nth-child(even) td{background:#161b22;}
+.source-tag{font-size:11px;color:#8b949e;font-style:italic;margin-top:8px;}
+.meeting-box{background:linear-gradient(135deg,#1a0a1a,#0f0f1a);border:3px solid #a855f7;border-radius:14px;padding:22px 26px;margin:16px 0;}
+.meeting-label{font-size:10px;font-weight:800;letter-spacing:2px;color:#a855f7;text-transform:uppercase;margin-bottom:8px;}
+.btn{display:inline-block;padding:10px 22px;border-radius:8px;font-weight:800;font-size:13px;text-decoration:none;margin:4px;}
+footer{background:#161b22;text-align:center;padding:32px;color:#8b949e;font-size:12px;}
+@media(max-width:700px){.stat-row{grid-template-columns:1fr;}.step-num{float:none;display:block;margin-bottom:6px;}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-eyebrow">🛡️ CaseLock Intelligence — Spotsylvania County, Virginia</div>
+  <h1>You're Right to Be Concerned.<br><span style="color:#3B82F6;">Here's What You Can Actually Do.</span></h1>
+  <div class="hero-sub">The facts on what's happening in Spotsylvania. The water numbers that were hidden until a journalist sued to get them. The legal tools that have stopped 25 data centers nationally. The exact steps — starting with the June 4th meeting.</div>
+</div>
+
+<div class="container">
+
+  <div class="meeting-box" style="margin-top:28px;">
+    <div class="meeting-label">🗓️ URGENT — COMMUNITY MEETING — CONFIRMED</div>
+    <p style="font-size:16px;font-weight:800;color:white;margin-bottom:6px;">June 4, 2026 — Lees Hill Community Center — 6:00 PM</p>
+    <p style="font-size:13.5px;color:#e9d5ff;margin-bottom:10px;">Community meeting regarding RCK Digital's proposed data center (Special Industrial Application). This is the SUP process — the one legal moment where community opposition can change the outcome. <strong>Show up. Bring neighbors. Numbers at these meetings are counted.</strong></p>
+    <p style="font-size:13px;color:#d8b4fe;">Meeting contact per notice image: Katie Nix, Hirschler Law — knix@hirschlerlaw.com</p>
+    <p style="font-size:12px;color:#a78bfa;margin-top:6px;">A second meeting is scheduled at a different location for the Benchmark/Powerhouse site. Watch spotsylvania.va.us for the full schedule.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">What's There Now — Confirmed Count</div>
+    <h2>This Is Not One Data Center. There Are 17 Projects in Spotsylvania.</h2>
+    <div class="alert-red">
+      <div class="alert-title">🚨 17 Data Center Project Sites in Spotsylvania County as of May 2026</div>
+      <p>The FXBG Advance confirmed 17 project sites either under construction, in rezoning, in site plan review, or with approved permits. This is a county-wide industrial build-out, not an isolated facility.</p>
+    </div>
+    <table class="data-table">
+      <tr><th>Project</th><th>Operator</th><th>Status</th><th>Location</th></tr>
+      <tr><td><strong>Cosner Tech Campus</strong></td><td>Amazon (AWS)</td><td>Approved Oct 2023. Phase II: 322 additional acres, 1.3M sq ft, 5 buildings — filed 2025</td><td>Cosner Drive</td></tr>
+      <tr><td><strong>Mattameade Amazon</strong></td><td>Amazon (AWS)</td><td>Active — water service agreement signed</td><td>Mattameade area</td></tr>
+      <tr><td><strong>PowerHouse 95</strong></td><td>PowerHouse Data</td><td>800MW campus — broke ground 2024. First 300MW substation live Oct 2025.</td><td>I-95 corridor</td></tr>
+      <tr><td><strong>RCK Digital</strong></td><td>RCK Digital</td><td>Special Industrial Application pending — <strong>June 4 meeting</strong></td><td>Benchmark/Massaponax</td></tr>
+      <tr><td><strong>Crossroads Tech Campus</strong></td><td>Unknown</td><td>Special Use Permit requested 2025–2026. 2.2M sq ft proposed.</td><td>Spotsylvania</td></tr>
+      <tr><td><strong>Massaponax Tech Campus</strong></td><td>Unknown</td><td>Mapped — status varies</td><td>Massaponax Church Rd</td></tr>
+    </table>
+    <div class="source-tag">Source: FXBG Advance "The Status of Data Centers in Spotsylvania" · Baxtel · DataCenterDynamics · Fredericksburg Free Press Aug. 2025 · PowerHouse Data press release 2024</div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">The Water Numbers — Hidden Until a Journalist Sued</div>
+    <h2>Spotsylvania Redacted These Numbers. Here's What's Actually Allocated.</h2>
+    <div class="yellow-box">
+      <div class="yellow-title">⚠️ How These Numbers Were Obtained</div>
+      <p>Spotsylvania County redacted water allocation amounts from public data center agreements as "trade secrets." FXBG Advance columnist Eric Bonds filed FOIA requests, was denied, threatened suit — county immediately released full unredacted agreements. <strong>These numbers were hidden from you until legal pressure forced them out.</strong></p>
+      <div class="source-tag">Source: FXBG Advance, Eric Bonds, "How Much Water Have Local Governments Promised to Data Center Companies?" Feb. 7, 2026</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><div class="stat-n">2.8M</div><div class="stat-l">gallons/day maximum — Mattameade Amazon complex</div></div>
+      <div class="stat"><div class="stat-n">1.8M</div><div class="stat-l">gallons/day maximum — Cosner Tech Campus (Amazon)</div></div>
+      <div class="stat"><div class="stat-n">700K</div><div class="stat-l">gallons/day maximum — PowerHouse 95</div></div>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><div class="stat-n">5M</div><div class="stat-l">gallons/day — Stafford County's STACK deal alone. Equal to the entire daily wastewater output of a 20,000-person town.</div></div>
+      <div class="stat"><div class="stat-n">60%</div><div class="stat-l">of cooling water permanently lost to evaporation — not returned to the Rappahannock or the aquifer</div></div>
+      <div class="stat"><div class="stat-n">86%</div><div class="stat-l">increase in data center water use at Northern Virginia utilities 2019–2023 — before the current wave</div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">💧 What This Means for Your Well and the Rappahannock</div>
+      <ul>
+        <li>The Cosner and Mattameade agreements use treated wastewater — but water that would otherwise return to the Rappahannock is instead permanently evaporated</li>
+        <li>The <strong>Rappahannock River was designated the 6th most endangered river in the US</strong> in April 2025 — data center pressure is a primary cited cause <em>(Friends of the Rappahannock)</em></li>
+        <li><strong>Caroline County is seeking a DEQ permit to withdraw 9 million gallons/day directly from the Rappahannock</strong> for data centers upstream. The Rappahannock Tribe is challenging this in court.</li>
+        <li>For private well owners: high-volume industrial pumping nearby creates a documented USGS-confirmed "cone of depression" that can reverse groundwater flow and destabilize well pressure — this is the mechanism behind well disruptions documented nationally near data centers</li>
+        <li>The water agreements contain <strong>no binding cap limiting use to Amazon's stated 4.1% estimate</strong> — the maximum can be reached at any time</li>
+      </ul>
+      <div class="source-tag">FXBG Advance FOIA investigation · Friends of the Rappahannock April 2025 · Rappahannock Tribe DEQ challenge 2024 · USGS groundwater science</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Why They Keep Approving Them</div>
+    <h2>Spotsylvania Charges $1.25 Per $100. Neighbors Charge $4.50. That's Why They're All Coming Here.</h2>
+    <div class="alert-red">
+      <div class="alert-title">🚨 The Tax Rate That Made Spotsylvania the Target</div>
+      <p style="margin-bottom:8px;">A signed economic development agreement locked in a data center equipment tax rate of <strong>$1.25 per $100</strong> for Amazon for at least 20 years. Prince William charges $4.50. Fairfax and Loudoun charge $4.15. Spotsylvania charges less than one-third of what neighboring counties charge.</p>
+      <p>J.D. Keeling and Ricky Robinson in the comment thread identified this exactly. The math explains everything: data centers go where the rate is lowest. Spotsylvania's BOS made Spotsylvania the cheapest option in the entire region.</p>
+      <div class="source-tag">Source: Spotsylvania County Local Performance Agreement — dhcd.virginia.gov · Nick Minock Facebook post, confirmed against county documents</div>
+    </div>
+    <div class="card">
+      <div class="card-title">📊 The State Tax Break on Top of That</div>
+      <ul>
+        <li>Virginia has exempted data centers from state sales and use tax (4.3%) since 2010. This now costs Virginia <strong>$1.6 billion per year</strong> in foregone revenue as of FY2025 <em>(Good Jobs First 2025)</em></li>
+        <li>Permanent jobs per facility: <strong>2–30 people</strong> — security, maintenance, occasional technicians. Construction is temporary. The comment thread was right.</li>
+        <li>The 20-year lock-in means residents bear the infrastructure burden for two decades with no ability to renegotiate</li>
+        <li>Ricky Robinson's question about decommissioning is unanswered — no documented end-of-life plan exists for these facilities in Spotsylvania's agreements</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">It Can Be Won — Proof</div>
+    <h2>25 Data Centers Were Stopped in 2025. Here's How.</h2>
+    <div class="win-box">
+      <div class="win-title">✅ 25 Data Centers Cancelled in 2025 — Community Resistance Worked</div>
+      <p>Data center cancellations <strong>quadrupled in 2025</strong> — from 6 in 2024 to 25 in 2025. At least <strong>4.7 GW of planned capacity killed by community organizing</strong>. In September 2025, Microsoft abandoned a planned 244-acre data center after months of community resistance. <em>(Heatmap Pro review of public records · Construction Dive · CRE Daily, Feb. 2026)</em></p>
+      <p style="margin-top:8px;">More than <strong>140 local groups nationwide have blocked or delayed over $64 billion in data center investment</strong> — by showing up at meetings, not by hiring lobbyists. <em>(Erin Brockovich report, April 28, 2026)</em></p>
+    </div>
+    <div class="win-box">
+      <div class="win-title">✅ Spotsylvania BOS Now Requires Special Use Permits — Feb 24, 2026</div>
+      <p>The BOS voted on <strong>February 24, 2026</strong> to require SUPs for all new data center developments. They adopted: 300-foot residential buffers, 75-foot height limits, 400-foot setbacks. <strong>The RCK Digital project at Benchmark requires community approval through this process. The June 4 meeting is that process in action.</strong></p>
+      <div class="source-tag">Source: Spotsylvania County "Guidelines for Data Center Development Adopted 2-24-2026" — spotsylvania.va.us/DocumentCenter/View/40711</div>
+    </div>
+    <div class="win-box">
+      <div class="win-title">✅ Virginia Reform Legislation Moving — 2026</div>
+      <ul>
+        <li><strong>HB589</strong> — requires Virginia data centers to report water use to the state — supported by Friends of the Rappahannock (riverfriends.org/2026/02/hb589)</li>
+        <li><strong>PEC Virginia</strong> — pecva.org — advocating for statewide disclosure requirements and energy/emissions reporting</li>
+        <li>Orange County has moved to remove data centers as a by-right use entirely — requiring SUPs in all zones</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">The River — Bigger Than Your Neighborhood</div>
+    <h2>Deborah Morgan Is Right to Worry About the Rappahannock</h2>
+    <div class="alert-red">
+      <div class="alert-title">🚨 The Rappahannock: 6th Most Endangered River in the US — April 2025</div>
+      <p>Friends of the Rappahannock confirmed this American Rivers designation in April 2025. Data center water extraction pressure is a primary cited cause. Caroline County is seeking a permit to withdraw <strong>9 million gallons per day</strong> from the Rappahannock upstream — the Rappahannock Tribe filed a formal DEQ challenge. Spotsylvania, Fredericksburg, and Stafford wastewater treatment plants all discharge <em>downstream</em> of that intake point.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">What to Do — In Order — Starting Now</div>
+    <h2>Six Steps From This Weekend to the June 4th Meeting</h2>
+
+    <div class="action-step">
+      <div class="step-num">1</div>
+      <div class="step-title">Show Up June 4 — Lees Hill Community Center — 6 PM</div>
+      <div class="step-body">Every body in that room counts. Bring 3 neighbors. Hand written comments to staff even if you don't speak — it goes on the official record. Ask on the record: <em>"What is the legally binding maximum daily water use? What is the maximum decibel level at the nearest residential property line during peak cooling? What is the decommissioning plan?"</em></div>
+    </div>
+
+    <div class="action-step">
+      <div class="step-num">2</div>
+      <div class="step-title">Email All 7 BOS Members Before June 4</div>
+      <div class="step-body">
+        Lori Hayes (Chair, Lees Hill) · Drew Mullins (Vice-Chair) · Chris Yakabouski (Courtland) · David Goosman (Battlefield) · Gerald Childress (Berkeley) · Jacob Lane (Chancellor) · Deborah Livingston (Salem). Contact info at <strong>spotsylvania.va.us</strong>
+        <ul>
+          <li>State your address and proximity to the project</li>
+          <li>Ask specifically for the water use cap, noise limits, and decommissioning plan</li>
+          <li>State you will be at the June 4 meeting</li>
+          <li>Every email is a constituent contact on the public record</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="action-step">
+      <div class="step-num">3</div>
+      <div class="step-title">File a FOIA Request for ALL Water Agreements</div>
+      <div class="step-body">
+        You have the right to the unredacted water service agreements. Eric Bonds won them for three sites. There may be more. Send a FOIA request to Spotsylvania County requesting: <em>"All unredacted water service, water allocation, and water reuse agreements between Spotsylvania County and any data center operator, 2020 to present, and all economic development agreements committing the county to data center tax rates."</em>
+        <ul>
+          <li>Virginia FOIA: 5 business day response deadline</li>
+          <li>If they redact water amounts again — cite that Bonds already received this data. They cannot legally re-redact what they already released.</li>
+          <li>File at: spotsylvania.va.us/FOIA or mail to Spotsylvania County Administration, 9104 Courthouse Road, Spotsylvania, VA 22553</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="action-step">
+      <div class="step-num">4</div>
+      <div class="step-title">If You Have a Private Well — Get a Baseline Test NOW</div>
+      <div class="step-body">
+        Before any new facility near you becomes operational. Test for: coliform bacteria, nitrates, iron, manganese, pH, arsenic, lead. Keep a dated sealed sample. <strong>Virginia Tech Well Water Program offers low-cost testing: wellwater.cals.vt.edu</strong>. If your water changes after construction ramps up — your dated baseline is the evidence that proves the before-state. Without it, you have no legal claim.
+      </div>
+    </div>
+
+    <div class="action-step">
+      <div class="step-num">5</div>
+      <div class="step-title">Connect With the Organizations Already Fighting This</div>
+      <div class="step-body">
+        <ul>
+          <li><strong>Friends of the Rappahannock</strong> — riverfriends.org — fighting data center water allocations on the Rappahannock specifically</li>
+          <li><strong>Piedmont Environmental Council</strong> — pecva.org — advises on SUP conditions, what to demand at hearings</li>
+          <li><strong>Southern Environmental Law Center</strong> — selcva.org — Clean Air Act and environmental impact cases involving data centers</li>
+          <li><strong>Erin Brockovich Data Center Map</strong> — brockovichdatacenter.com / erin@brockovich.com — submit Spotsylvania cases</li>
+          <li><strong>Data Center Tracker</strong> — datacentertracker.org — add Spotsylvania to the national map</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="action-step">
+      <div class="step-num">6</div>
+      <div class="step-title">The Petition — And What Works Better</div>
+      <div class="step-body">
+        Petitions show sentiment. What moves BOS members: bodies at hearings, written comments on the record, and constituent emails. If you collect signatures — have every signer also <strong>email the BOS directly</strong> (spotsylvania.va.us). That creates official record the petition alone does not. Format that works: <em>"I live at [address], [X] feet from [project]. I oppose this SUP because [specific concern]. I request the BOS require [specific condition]."</em>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Every Source — Verified</div>
+    <h2>All Citations</h2>
+    <div class="card">
+      <ul>
+        <li>FXBG Advance, Eric Bonds: "How Much Water Have Local Governments Promised to Data Center Companies?" Feb. 7, 2026 — FOIA-obtained unredacted water agreements (Mattameade: 2.8M gal/day; Cosner: 1.8M gal/day; PowerHouse: 700K gal/day; Stafford STACK: 5M gal/day)</li>
+        <li>FXBG Advance: "The Status of Data Centers in Spotsylvania" — 17 project sites confirmed</li>
+        <li>Spotsylvania County: "Guidelines for Data Center Development Adopted 2-24-2026" — 300ft buffer, 75ft height, 400ft setback — spotsylvania.va.us/DocumentCenter/View/40711</li>
+        <li>DataCenterDynamics: "Amazon wants to add 322 acres to planned tech park in Spotsylvania County" 2025</li>
+        <li>Fredericksburg Free Press, Taft Coghill Jr.: "Spotsylvania Planning Commission recommends approval of 2.2M sq ft data center campus" Aug. 11, 2025</li>
+        <li>PowerHouse Data: "PowerHouse breaks ground on 800MW data center campus" — 300MW live Oct. 2025</li>
+        <li>Spotsylvania County DHCD Local Performance Agreement — $1.25/$100 tax rate, 20-year lock-in: dhcd.virginia.gov</li>
+        <li>Good Jobs First: Virginia data center tax breaks cost $1.6B/year FY2025 — goodjobsfirst.org</li>
+        <li>Friends of the Rappahannock: 6th most endangered river in US, April 2025 — riverfriends.org</li>
+        <li>Heatmap Pro: 25 data center cancellations in 2025, 4× increase from 2024 — heatmap.news</li>
+        <li>Erin Brockovich Report April 28, 2026: 140+ groups blocked $64B in investment — thebrockovichreport.com</li>
+        <li>USGS: Cone of Depression / groundwater flow — usgs.gov water science school</li>
+        <li>Virginia FOIA: § 2.2-3700 et seq. — citizen enforcement mechanism</li>
+        <li>Rappahannock Tribe letter to Caroline County DEQ, 2024</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="text-align:center;padding:24px 0 0 0;">
+    <a href="wyoming_county_master_brief.html" style="display:inline-block;background:#F59E0B;color:#0A0F1E;font-weight:800;font-size:13px;padding:10px 22px;border-radius:8px;text-decoration:none;margin:4px;">WV Complete Legal Case →</a>
+    <a href="brenton_wv.html" style="display:inline-block;background:#1d4ed8;color:white;font-weight:800;font-size:13px;padding:10px 22px;border-radius:8px;text-decoration:none;margin:4px;">WV Emergency Report →</a>
+    <a href="index.html" style="display:inline-block;background:#30363d;color:white;font-weight:800;font-size:13px;padding:10px 22px;border-radius:8px;text-decoration:none;margin:4px;">← Library Home</a>
+  </div>
+
+</div>
+
+<footer>
+  <strong style="color:#c9d1d9;">CaseLock — Community Defense Intelligence</strong><br>
+  All sources publicly available and independently verifiable. Not legal advice.<br>
+  BOS contact: spotsylvania.va.us · Rappahannock: riverfriends.org · Brockovich map: brockovichdatacenter.com<br>
+  Last updated: May 22, 2026
+</footer>
+</body>
+</html>
