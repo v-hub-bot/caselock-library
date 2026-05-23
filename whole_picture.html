@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Whole Picture: Data Centers vs. Communities — What's Happening and What Can Actually Be Done | CaseLock Library</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0f1e;color:#e2e8f0;font-family:system-ui,sans-serif;line-height:1.7}
+.hero{background:linear-gradient(135deg,#000814,#0a0f1e 60%,#001a0a);padding:52px 20px 40px;text-align:center;border-bottom:3px solid #16a34a}
+.badge{display:inline-block;background:#16a34a;color:#fff;font-size:10px;font-weight:900;letter-spacing:2px;padding:4px 14px;border-radius:20px;margin-bottom:14px;text-transform:uppercase}
+.hero h1{font-size:clamp(20px,4vw,38px);font-weight:900;color:#fff;margin-bottom:10px;line-height:1.2}
+.hero p{font-size:13px;color:#94a3b8;max-width:800px;margin:8px auto 0;line-height:1.9}
+.nav{background:#0f1929;border-bottom:1px solid #1e3a5f;padding:10px 20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:sticky;top:0;z-index:100}
+.nav a{color:#60a5fa;font-size:11px;text-decoration:none;font-weight:700;padding:4px 8px;border-radius:4px}
+.nav a:hover{background:#1e3a5f}
+.container{max-width:980px;margin:0 auto;padding:30px 20px}
+.section{background:#0f1929;border:1px solid #1e3a5f;border-radius:10px;padding:26px;margin-bottom:24px}
+.section.red{border-color:#dc2626;background:#0d0000}
+.section.amber{border-color:#d97706;background:#0d0900}
+.section.green{border-color:#16a34a;background:#001a0a}
+.section.blue{border-color:#3b82f6;background:#00101a}
+.section.purple{border-color:#7c3aed;background:#0a0014}
+.section.teal{border-color:#0d9488;background:#001a14}
+.sec-title{font-size:10px;font-weight:900;color:#f59e0b;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+h3{font-size:18px;font-weight:800;color:#f1f5f9;margin-bottom:14px}
+h4{font-size:14px;font-weight:800;color:#e2e8f0;margin:16px 0 8px}
+p{font-size:13px;color:#cbd5e1;margin-bottom:10px;line-height:1.8}
+.alert{border-radius:8px;padding:14px 18px;margin:12px 0;font-size:13px;line-height:1.8}
+.alert-red{background:#1a0000;border:1px solid #dc2626}
+.alert-amber{background:#1a1000;border:1px solid #f59e0b}
+.alert-green{background:#001a0a;border:1px solid #22c55e}
+.alert-blue{background:#00101a;border:1px solid #3b82f6}
+.source{font-size:11px;color:#4b5563;font-style:italic;margin-top:8px;line-height:1.7;border-top:1px solid #1e293b;padding-top:6px}
+table{width:100%;border-collapse:collapse;font-size:12px;margin:14px 0}
+th{background:#1e293b;color:#94a3b8;padding:8px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:1px}
+td{padding:9px 12px;border-bottom:1px solid #1e293b;vertical-align:top;line-height:1.6;color:#cbd5e1}
+tr:last-child td{border-bottom:none}
+ul{padding-left:18px;margin:8px 0}
+ul li{margin-bottom:8px;font-size:13px;color:#cbd5e1;line-height:1.7}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:16px 0}
+.stat{background:#0a0f1e;border:1px solid #1e3a5f;border-radius:8px;padding:14px;text-align:center}
+.stat-val{font-size:24px;font-weight:900;display:block;margin-bottom:4px}
+.red{color:#f87171}.amber{color:#fbbf24}.green{color:#4ade80}.blue{color:#60a5fa}.white{color:#f1f5f9}
+.stat-label{font-size:11px;color:#64748b;line-height:1.4}
+.win-card{background:#001a0a;border:2px solid #16a34a;border-radius:10px;padding:16px;margin-bottom:12px}
+.win-title{font-size:13px;font-weight:900;color:#4ade80;margin-bottom:6px}
+.win-detail{font-size:12px;color:#d1fae5;line-height:1.7}
+.win-how{font-size:11px;color:#065f46;margin-top:8px;font-weight:800;text-transform:uppercase;letter-spacing:1px}
+.action-tier{background:#0a0f1e;border:1px solid #374151;border-radius:10px;padding:18px;margin-bottom:14px}
+.tier-label{font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px}
+.tier-red{color:#f87171}
+.tier-amber{color:#fbbf24}
+.tier-green{color:#4ade80}
+.tier-blue{color:#60a5fa}
+.quote{border-left:3px solid #f59e0b;padding-left:14px;margin:14px 0;font-style:italic;font-size:14px;color:#fde68a;line-height:1.9}
+.quote-attr{font-size:11px;color:#64748b;font-style:normal;margin-top:4px}
+.pillar{background:#001a0a;border:1px solid #16a34a;border-radius:8px;padding:14px;margin-bottom:10px}
+.pillar-title{font-size:13px;font-weight:900;color:#4ade80;margin-bottom:6px}
+.pillar-text{font-size:12px;color:#d1fae5;line-height:1.7}
+.state-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0}
+.state-card{background:#0a0f1e;border:1px solid #374151;border-radius:8px;padding:12px}
+.state-name{font-size:12px;font-weight:900;color:#f1f5f9;margin-bottom:4px}
+.state-status{font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;display:inline-block;margin-bottom:6px;text-transform:uppercase}
+.status-law{background:#001a0a;color:#4ade80;border:1px solid #16a34a}
+.status-active{background:#1a1000;color:#fbbf24;border:1px solid #d97706}
+.status-blocked{background:#1a0000;color:#f87171;border:1px solid #dc2626}
+.status-coalition{background:#00101a;color:#60a5fa;border:1px solid #3b82f6}
+.state-detail{font-size:11px;color:#94a3b8;line-height:1.6}
+.related-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.rel-btn{flex:1;min-width:180px;background:#0a1628;border:2px solid #1e3a5f;border-radius:10px;padding:14px;text-decoration:none;text-align:center}
+.rel-btn:hover{border-color:#3b82f6}
+.rel-btn-title{font-size:13px;font-weight:800;color:#f1f5f9;display:block;margin-bottom:4px}
+.rel-btn-sub{font-size:11px;color:#64748b}
+.footer{background:#0a0a0a;border-top:2px solid #374151;margin-top:40px;padding:24px 20px;text-align:center;font-size:11px;color:#4b5563;line-height:1.9}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">🌍 Full National Picture — May 23, 2026</div>
+  <h1>The Whole Picture:<br>Data Centers vs. Communities<br><span style="color:#4ade80;">What Is Actually Happening — And What Can Be Done</span></h1>
+  <p>$64 billion in projects blocked or delayed. 142 activist groups across 24 states. 300+ bills in 30 states in the first six weeks of 2026 alone. California signed ratepayer protection into law. Oklahoma passed it unanimously. Communities are winning — and the playbook is documented. Here is the full picture and the real tools that work.</p>
+</div>
+
+<nav class="nav">
+  <a href="#scale">The Scale</a>
+  <a href="#pattern">The Pattern</a>
+  <a href="#wins">Real Wins</a>
+  <a href="#states">State by State</a>
+  <a href="#virginia">Virginia Specifically</a>
+  <a href="#tools">What Actually Works</a>
+  <a href="#federal">Federal Level</a>
+  <a href="#now">Do This Now</a>
+</nav>
+
+<div class="container">
+
+  <!-- THE SCALE -->
+  <div class="section red" id="scale">
+    <div class="sec-title">📊 The Scale — What Is Actually Happening Nationally</div>
+    <h3>This Is Not a Local Problem. It Is a National Infrastructure Crisis Being Fought Community by Community.</h3>
+
+    <div class="stat-grid">
+      <div class="stat"><span class="stat-val red">$64B</span><div class="stat-label">In data center projects blocked or delayed by community opposition (Data Center Watch, May 2024 – March 2025)</div></div>
+      <div class="stat"><span class="stat-val red">$18B</span><div class="stat-label">Worth of projects fully blocked — not just delayed (Data Center Watch)</div></div>
+      <div class="stat"><span class="stat-val amber">142</span><div class="stat-label">Active advocacy organizations across 24 states fighting data center expansion (Data Center Watch)</div></div>
+      <div class="stat"><span class="stat-val amber">69</span><div class="stat-label">U.S. jurisdictions have blocked data center construction (widely reported, 2025)</div></div>
+      <div class="stat"><span class="stat-val white">300+</span><div class="stat-label">State data center bills introduced in 30+ states in just the first 6 weeks of 2026 (AFS Law analysis)</div></div>
+      <div class="stat"><span class="stat-val amber">27</span><div class="stat-label">States advancing data center bills on energy costs and moratoriums in 2026 (Multistate, April 2026)</div></div>
+      <div class="stat"><span class="stat-val red">55% / 45%</span><div class="stat-label">Republican/Democrat split among elected officials publicly opposing data centers — this is bipartisan (Data Center Watch)</div></div>
+      <div class="stat"><span class="stat-val green">50%</span><div class="stat-label">Of data center projects planned for 2026 facing delays or cancellations — main factor: organized pushback (MediaJustice citing industry data)</div></div>
+    </div>
+
+    <div class="alert-red alert">
+      <strong>The industry's own data confirms the opposition is working.</strong> Data Center Watch is a pro-industry tracking organization — they catalog opposition as a risk to investors. Their $64 billion figure is not an activist estimate. It is the industry's own assessment of how much project value has been blocked by community resistance. When the industry is warning investors about community opposition as a material financial risk, that is confirmation that the organizing is effective.
+    </div>
+    <div class="source">Sources: Data Center Watch report (datacenterwatch.org/report), May 2024 – March 2025; AFS Law, "State Regulation of Data Centers in 2026" (afslaw.com); Multistate.us, April 14, 2026; MediaJustice Instagram citing industry data, 2026.</div>
+  </div>
+
+  <!-- THE PATTERN -->
+  <div class="section amber" id="pattern">
+    <div class="sec-title">🔄 The National Pattern — Same Script, Every State</div>
+    <h3>It Is the Same Playbook in Every Community. Once You See It, You Cannot Unsee It.</h3>
+
+    <table>
+      <tr><th>Stage</th><th>What Happens</th><th>What It Looks Like Locally</th></tr>
+      <tr>
+        <td><strong>1. Site Selection</strong></td>
+        <td>Company identifies rural/lower-income area with cheap land, cheap power, available water, and local officials who "need a boost to their economies" (Richard Kuser, May 2026 — Digital Realty community account)</td>
+        <td>A few acres change hands quietly. Anonymous LLCs appear in county planning records. NDAs prevent officials from disclosing who is buying.</td>
+      </tr>
+      <tr>
+        <td><strong>2. Economic Promise</strong></td>
+        <td>Company promises massive tax revenue and job creation. Numbers are presented without context — actual permanent jobs: 30-50 per facility. Tax revenue takes 5-10 years to materialize.</td>
+        <td>Local officials vote 6-0 to approve. Community learns about it from a planning notice. "Jobs" are cited repeatedly. Nobody mentions water.</td>
+      </tr>
+      <tr>
+        <td><strong>3. Infrastructure Demand</strong></td>
+        <td>Data center requires power and water commitments that exceed what local infrastructure can supply. Utilities are asked to build new lines, substations, and water agreements — costs get spread to all ratepayers.</td>
+        <td>Dominion contracts 47 gigawatts of data center load — triples its peak capacity — without a single public vote on who pays for the grid upgrades.</td>
+      </tr>
+      <tr>
+        <td><strong>4. Permit-by-Permit Approval</strong></td>
+        <td>Each project is reviewed individually. No cumulative impact assessment. By the time the 8th project is approved, the watershed is already stressed — but no single approval triggered a comprehensive review.</td>
+        <td>Spotsylvania has 17 project sites. Each was reviewed separately. The official planning map confirming the full scale was only produced after most were already approved or in process.</td>
+      </tr>
+      <tr>
+        <td><strong>5. Community Discovery</strong></td>
+        <td>Residents discover what is happening — often from a neighbor, a Facebook post, or a local reporter. By this point, multiple permits are already issued.</td>
+        <td>The "Enjoy Stafford, Virginia" Facebook group. The "Aqua Virginia Customers Unite" group. The Caroline County water meetings. All reactive — after the contracts are signed.</td>
+      </tr>
+      <tr>
+        <td><strong>6. The Lobbying Wall</strong></td>
+        <td>Companies deploy professional lobbyists at every level simultaneously. Bills that would protect communities are killed. Sen. Stuart: "They swarm like bees the minute they know what you're going to do."</td>
+        <td>Stuart's moratorium bill failed 8-2. His water prioritization bill failed. Roem's siting bill has been in conference committee for months. $226,000/day federal lobbying continues.</td>
+      </tr>
+      <tr>
+        <td><strong>7. The Extraction</strong></td>
+        <td>Facilities operate for years, drawing water and power. When better markets emerge — or water runs out — companies move on. Infrastructure stays. Water does not come back.</td>
+        <td>Christina Lhamon (Stafford): "Just like the rust belt...move in, drain, and leave." The Eastern Virginia aquifer is projected to reach depletion stress by 2055.</td>
+      </tr>
+    </table>
+    <div class="source">Pattern synthesis from: Data Center Watch report; Fredericksburg Free Press Nov 2024 (Stuart quotes); Virginia Mercury; Cardinal News March 2026; PEC Virginia "Four Pillars"; community testimony documented throughout this library.</div>
+  </div>
+
+  <!-- REAL WINS -->
+  <div class="section green" id="wins">
+    <div class="sec-title">✅ Real Wins — Communities That Actually Stopped It</div>
+    <h3>$64 Billion Blocked. These Are the Documented Cases of What Worked.</h3>
+
+    <div class="win-card">
+      <div class="win-title">🏆 Cascade Locks, Oregon — Port Authority Officials RECALLED</div>
+      <div class="win-detail">Voters recalled two Port Authority officials in June 2023 for supporting a $100 million data center project from Roadhouse Digital. The newly seated board canceled the project entirely in July 2023. Full stop. Project dead.</div>
+      <div class="win-how">How they won: Electoral accountability — voted out officials who approved it, replaced them with opponents</div>
+    </div>
+
+    <div class="win-card">
+      <div class="win-title">🏆 Warrenton, Virginia — Entire Town Council Voted Out</div>
+      <div class="win-detail">In the November 2024 election, residents voted out every town council member who supported Amazon's proposed data center. The newly elected council — composed entirely of project opponents — now holds the mandate to block it.</div>
+      <div class="win-how">How they won: Organized electoral campaign — made the data center vote the defining issue in a local election</div>
+    </div>
+
+    <div class="win-card">
+      <div class="win-title">🏆 Tucson, Arizona — $3.6 Billion Project Killed</div>
+      <div class="win-detail">In August 2025, the Tucson City Council voted unanimously to kill Project Blue — a $3.6 billion data center proposed for a 290-acre site. This is one of the largest single project cancellations by dollar value in the opposition movement.</div>
+      <div class="win-how">How they won: Organized public testimony + zoning objections + council majority persuaded on environmental grounds</div>
+    </div>
+
+    <div class="win-card">
+      <div class="win-title">🏆 Fluvanna County, Virginia — Permanent Moratorium</div>
+      <div class="win-detail">Implemented a special-use permit requirement and effectively ended by-right data center development with a unanimous Board of Supervisors vote. No new data centers can be built without going through a full public hearing process.</div>
+      <div class="win-how">How they won: Organized citizen testimony + persistent advocacy + county attorneys who understood zoning law</div>
+    </div>
+
+    <div class="win-card">
+      <div class="win-title">🏆 California — Ratepayer Protection Law SIGNED</div>
+      <div class="win-detail">Governor Newsom signed SB 57 into law on October 11, 2025. Directs the California Public Utilities Commission to study data center energy costs and their impact on ratepayers — creating the evidentiary foundation for future mandatory cost-shifting protections. Mid-Atlantic grid rates already jumping from $2.2 billion to $14.7 billion for power delivery — the cost shift is documented.</div>
+      <div class="win-how">How they won: State Senate bill by Sen. Steve Padilla + documented rate impact data + utility commission accountability</div>
+    </div>
+
+    <div class="win-card">
+      <div class="win-title">🏆 Oklahoma — Ratepayer Protection Passed UNANIMOUSLY</div>
+      <div class="win-detail">The Oklahoma Senate unanimously passed the Data Center Consumer Ratepayer Protection Act of 2026 (HB 2992). Protects Oklahoma families and small businesses from bearing data center energy infrastructure costs. Oklahoma — a deeply conservative, business-friendly state — passed this unanimously. That is the definition of bipartisan consensus.</div>
+      <div class="win-how">How they won: Bipartisan framing as consumer protection, not anti-tech — emphasizing ratepayer fairness over environmental concerns</div>
+    </div>
+
+    <div class="win-card">
+      <div class="win-title">🏆 Virginia Data Center Reform Coalition — 120+ Advocates at Capitol</div>
+      <div class="win-detail">More than 120 Virginians traveled to Richmond for the 2026 Lobby Day. The Coalition has grown to 50+ nonprofit organizations, HOAs, and community groups. They pushed the Four Pillars framework: Transparency, Oversight, Protections, Incentives. Multiple bills introduced on their agenda in 2026.</div>
+      <div class="win-how">How they won (partially): Coalition building across partisan lines — environmental groups + HOAs + conservation organizations + farm groups</div>
+    </div>
+    <div class="source">Sources: Data Center Watch report; drlennecefer.substack.com "What the Anti-Data-Center Movement Could Actually Win" (Aug 2025); California SB 57 (Oct 11, 2025); Oklahoma Legislature HB 2992 / Senate passage; PEC Virginia "Four Pillars" (Jan 2025, updated Feb 2026); this library's Fluvanna documentation.</div>
+  </div>
+
+  <!-- STATE BY STATE -->
+  <div class="section blue" id="states">
+    <div class="sec-title">🗺️ State by State — Where the Fight Is</div>
+    <h3>14 States Considering Bans or Moratoriums. 27 Advancing Bills. 300+ Bills Filed in 6 Weeks.</h3>
+
+    <div class="state-grid">
+      <div class="state-card">
+        <div class="state-name">California</div>
+        <span class="state-status status-law">LAW SIGNED</span>
+        <div class="state-detail">SB 57 signed Oct 11, 2025 — CPUC study on ratepayer cost shifts. Additional bills in pipeline. PUC already has tools to regulate data center grid costs.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-name">Oklahoma</div>
+        <span class="state-status status-law">PASSED UNANIMOUSLY</span>
+        <div class="state-detail">Data Center Consumer Ratepayer Protection Act of 2026 (HB 2992). Senate unanimous. Conservative state. Consumer protection framing worked.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-name">Virginia</div>
+        <span class="state-status status-active">ACTIVE FIGHT</span>
+        <div class="state-detail">SB94/HB153 (siting), SB553/HB496 (water disclosure) in conference. Tax exemption sunset in budget dispute. 50+ group coalition. World's largest data center concentration. NextEra/Dominion merger pending SCC approval.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-name">Texas</div>
+        <span class="state-status status-active">BIPARTISAN OPPOSITION</span>
+        <div class="state-detail">Even in business-friendly Texas, bipartisan support for data center regulation in State Senate. HARC study: 399B gallons by 2030. Data centers already consuming 49B gallons in 2025.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-name">Arizona</div>
+        <span class="state-status status-blocked">PROJECT KILLED</span>
+        <div class="state-detail">Tucson City Council unanimously killed $3.6B Project Blue, August 2025. Phoenix area: 60 centers using ~177M gallons/day. Water scarcity awareness is high.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-name">Oregon</div>
+        <span class="state-status status-blocked">RECALL + CANCELLATION</span>
+        <div class="state-detail">Cascade Locks: officials recalled, project cancelled 2023. Morrow County Amazon nitrate/cancer cluster investigation (Rolling Stone/Futurism, Nov 2025). Notable blue state opposition.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-name">Pennsylvania</div>
+        <span class="state-status status-active">BILLS ADVANCING</span>
+        <div class="state-detail">HB1834 passed House — gives Public Utility Commission authority to regulate data centers and protect consumers from increased energy costs. Salem Township named as a gigawatt-scale corridor target.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-name">Minnesota</div>
+        <span class="state-status status-active">BILL PASSED HOUSE</span>
+        <div class="state-detail">House passed legislation setting environmental and energy regulatory requirements for data centers and modifying tax exemptions. Water and power disclosure required.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-name">North Dakota</div>
+        <span class="state-status status-active">MORATORIUM APPROVED</span>
+        <div class="state-detail">Oliver County commissioners approved 180-day pause on new data center construction. Cited need for better planning. Data center cancellations quadrupled in 2025.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-name">South Carolina</div>
+        <span class="state-status status-active">BILL 4583 PENDING</span>
+        <div class="state-detail">Water usage disclosure bills pending. Cherokee County/Gaffney: Cielo Digital Infrastructure 300MW campus threatening 8-28% of county water capacity. See Gaffney report in this library.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-name">Iowa</div>
+        <span class="state-status status-active">DOCUMENTED USAGE</span>
+        <div class="state-detail">Google's Council Bluffs data center: 1.3 billion gallons in 2024 alone — 3.7M gallons/day — comparable to a mid-sized city's residential use (NASUCA, 2025).</div>
+      </div>
+      <div class="state-card">
+        <div class="state-name">Ohio</div>
+        <span class="state-status status-law">REGULATORY ACTION</span>
+        <div class="state-detail">Energy regulators determined data centers must pay more upfront for their power demands — shifting costs back to the facilities rather than residential ratepayers. Model being watched nationally.</div>
+      </div>
+    </div>
+
+    <div class="alert-amber alert">
+      <strong>The Federal Complication:</strong> In July 2025, Trump signed an executive order titled "Accelerating Federal Permitting of Data Center Infrastructure" — designed to fast-track federal permits for data centers and their power lines. This creates direct tension with state and local efforts to slow or regulate development. However, Data Center Watch's own analysis confirms: "Even a supportive White House has limited control over delays arising at the local level." Most permitting decisions are made by local authorities — zoning, SUPs, site plans, water permits. The federal order cannot override a unanimous city council vote, a recall election, or a state supreme court ruling.
+    </div>
+    <div class="source">Sources: State-specific: California SB 57; Oklahoma HB 2992; Pennsylvania HB1834 (facebook.com/RepCiresi); Minnesota House passage; North Dakota Oliver County moratorium (facebook.com/KFYRtv); South Carolina bill 4583; Iowa — NASUCA "Data Centers and Water Use" Feb 2025; Ohio — California SB 57 citing Ohio precedent; Trump executive order July 2025 (whitehouse.gov); Data Center Watch analysis.</div>
+  </div>
+
+  <!-- VIRGINIA SPECIFICALLY -->
+  <div class="section purple" id="virginia">
+    <div class="sec-title">🏛️ Virginia — The Ground Zero State</div>
+    <h3>The World's Largest Data Center Concentration. 47 Gigawatts Contracted Without a Public Vote. The Most Organized Opposition in the Country.</h3>
+
+    <div class="quote">
+      "Virginia is already home to the world's largest concentration of data centers, with an IT power load believed to be nearly three times greater than the next largest market in Beijing."
+      <div class="quote-attr">— Piedmont Environmental Council / Virginia Data Center Reform Coalition, January 2025</div>
+    </div>
+
+    <div class="quote">
+      "Without any public review or oversight by the state, Dominion Energy has already contracted with data centers for a startling 47 gigawatts of electricity — which nearly triples its current peak energy capacity and is the equivalent of more than 29 nuclear power plants."
+      <div class="quote-attr">— PEC Four Pillars of Data Center Reform, January 2025</div>
+    </div>
+
+    <p><strong>What those 47 gigawatts mean for you:</strong> Dominion used those contracts to justify building new gas plants and delaying coal plant retirements — locking in fossil fuel infrastructure that ratepayers will pay for over decades. The Virginia DEQ has permitted <em>thousands of diesel generators</em> as backup power for data centers. Onsite gas turbines are now being approved as primary power. None of this went to a public vote.</p>
+
+    <h4>The Four Pillars Virginia's Reform Coalition Is Demanding — All Four Are Reasonable</h4>
+    <div class="pillar">
+      <div class="pillar-title">1. TRANSPARENCY — Require Disclosure</div>
+      <div class="pillar-text">Require local disclosure and statewide reporting on data center energy use, water consumption, and emissions. Without standardized reporting, cumulative impacts cannot be assessed. SB553/HB496 (water disclosure bills currently in conference) are the legislative vehicle for this pillar.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-title">2. OVERSIGHT — State-Level Review</div>
+      <div class="pillar-text">Establish state-level regulatory review in addition to local review — to evaluate far-reaching regional impacts that cross jurisdictional lines. The Mattameade campus crossing Spotsylvania/Caroline county lines is the clearest example of why county-by-county review is structurally inadequate.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-title">3. PROTECTIONS — Stop Cost-Shifting to Ratepayers</div>
+      <div class="pillar-text">Prevent residents and businesses from subsidizing data center energy infrastructure. Oklahoma and Ohio have already passed this. California is studying it. Virginia has not acted. The Mid-Atlantic grid capacity auction jumped from $2.2B to $14.7B — that cost lands on all ratepayers, not just data center operators.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-title">4. INCENTIVES — Tie Tax Exemptions to Performance</div>
+      <div class="pillar-text">Connect Virginia's data center sales and use tax exemption to clean energy and efficiency standards. Currently, any data center qualifies regardless of environmental performance. The tax exemption sunset is currently in 2035 — Stuart's bills to accelerate this have faced the lobbyist wall.</div>
+    </div>
+
+    <div class="source">Source: PEC Virginia, "Four Pillars of Data Center Reform," January 8, 2025, updated February 2026 (pecva.org/work/energy-work/data-centers/four-pillars-of-data-center-reform/).</div>
+  </div>
+
+  <!-- WHAT ACTUALLY WORKS -->
+  <div class="section teal" id="tools">
+    <div class="sec-title">⚔️ What Actually Works — Documented by Results</div>
+    <h3>Not Theory. These Are the Tactics That Have Produced the $64 Billion in Blocked Projects.</h3>
+
+    <div class="action-tier">
+      <div class="tier-label tier-red">🔴 TIER 1 — Electoral Accountability (Highest Impact)</div>
+      <ul>
+        <li><strong>Vote out officials who approve projects over community objection.</strong> Cascade Locks, Oregon did it. Warrenton, Virginia did it. Data Center Watch documents this as the tactic the industry fears most — because it removes their captured officials permanently.</li>
+        <li><strong>Make the data center vote the single defining issue in local elections.</strong> Not "anti-development" — frame it as "did this official protect our water and ratepayers?" That framing works across party lines.</li>
+        <li><strong>Document every vote, every official, every approval.</strong> Build the public record so voters can see exactly who approved what.</li>
+      </ul>
+    </div>
+
+    <div class="action-tier">
+      <div class="tier-label tier-red">🔴 TIER 1 — Regulatory Intervention (Highest Legal Impact)</div>
+      <ul>
+        <li><strong>File to intervene in every SCC proceeding.</strong> The NextEra/Dominion merger, the Aqua rate case, the Essential/American Water merger — all require SCC approval and all accept public intervenors. Intervenors get to submit evidence, cross-examine witnesses, and file legal briefs. This is the most powerful legal tool available to ordinary people.</li>
+        <li><strong>File comments in every DEQ water permit proceeding.</strong> The Caroline County 13.9 MGD Rappahannock permit is still suspended. Written comments supporting a residential-only modification are on the record.</li>
+        <li><strong>FOIA the commissioners' financial disclosures.</strong> Virginia Ethics Council, 804-225-3138. If Bagot, Towell, or Hudson own stock in Essential Utilities, NextEra, or Digital Realty — that is a story that changes the political dynamics of the rate case and merger proceedings.</li>
+      </ul>
+    </div>
+
+    <div class="action-tier">
+      <div class="tier-label tier-amber">🟡 TIER 2 — Legislative Pressure (Medium-Term Impact)</div>
+      <ul>
+        <li><strong>Contact Sen. Richard Stuart directly.</strong> (804) 698-7528. He is actively working on 2026-2027 bills and needs community documentation. He specifically said he won't introduce bills early to avoid the lobbyist swarm — meaning he needs constituent evidence, not just lobbying contact.</li>
+        <li><strong>Join or form a local chapter of the Virginia Data Center Reform Coalition.</strong> 120+ people showed up to Lobby Day in Richmond. The coalition has legislative relationships that individual advocates don't. pecva.org/datacenters</li>
+        <li><strong>Contact Sen. Danica Roem and Del. Josh Thomas</strong> — they are carrying SB94/HB153 through conference and need documented constituent support to maintain the siting requirement against Sen. Stanley's opposition.</li>
+        <li><strong>Demand the water disclosure bill (SB553/HB496) pass in conference with teeth.</strong> Without mandatory disclosure of actual water volumes, no cumulative assessment is possible. This is the foundational data bill everything else depends on.</li>
+      </ul>
+    </div>
+
+    <div class="action-tier">
+      <div class="tier-label tier-amber">🟡 TIER 2 — Coalition Building (Medium-Term)</div>
+      <ul>
+        <li><strong>Connect with neighboring county groups.</strong> Spotsylvania residents and Caroline residents filing together on the Mattameade cross-county campus is stronger than either alone. The Army Corps permit covers both counties.</li>
+        <li><strong>Connect with Clean Virginia.</strong> cleanvirginia.org — they are organizing on the NextEra merger specifically and have legal standing in SCC proceedings.</li>
+        <li><strong>Connect with the Piedmont Environmental Council.</strong> pecva.org — they coordinate the Data Center Reform Coalition and have staff who understand the legislative process.</li>
+        <li><strong>Connect with the Data Center Reform Coalition.</strong> They added new members through 2025 and 2026 — community groups, HOAs, and individuals can join.</li>
+      </ul>
+    </div>
+
+    <div class="action-tier">
+      <div class="tier-label tier-green">🟢 TIER 3 — Documentation and FOIA (Foundation Layer)</div>
+      <ul>
+        <li><strong>FOIA every active data center application's water impact study.</strong> Spotsylvania planning dept: every active SUP and rezoning application should have a water assessment. Request them all. Va. Code § 2.2-3704.</li>
+        <li><strong>FOIA the SCC commissioners' financial disclosure filings.</strong> Virginia Ethics Council. Public record. Required under Va. Code § 2.2-3114. This is the one document nobody has pulled yet.</li>
+        <li><strong>FOIA the Spotsylvania wastewater agreement with Amazon</strong> — the Oct 22, 2024 agreement to supply potable water, recycled water, and sewer for Mattameade's 11 buildings. This specifies actual water volumes.</li>
+        <li><strong>FOIA the Dominion data center contracts.</strong> 47 gigawatts contracted. Those contracts are not public. A FOIA to the SCC requesting all data center interconnection agreements filed with it may surface key terms.</li>
+        <li><strong>Look up every anonymous LLC</strong> in the SCC Clerk's Information System (scc.virginia.gov/clk). SpotsyTechnoCampus LLC, RCK Digital Crossroads LLC — find the parent company behind each name.</li>
+      </ul>
+    </div>
+
+    <div class="action-tier">
+      <div class="tier-label tier-blue">🔵 TIER 4 — Public Pressure (Amplification)</div>
+      <ul>
+        <li><strong>Keep all public posts strictly attributed to official sources.</strong> FOIA records, SCC dockets, VPAP donation data, official county planning maps. These are legally protected speech. Unattributed medical or criminal claims are not.</li>
+        <li><strong>Tag journalists directly.</strong> Fredericksburg Free Press (Taft Coghill Jr.), Virginia Mercury, Cardinal News, Inside Climate News — all have documented this beat. A FOIA result or a new community testimony is a story if you bring it to a reporter who covers the issue.</li>
+        <li><strong>Attend every public hearing.</strong> Planning commission meetings, BOS meetings, SCC hearings, DEQ comment periods. Your name in the record matters legally and politically.</li>
+        <li><strong>Run for local office.</strong> Cascade Locks and Warrenton both demonstrate that one election cycle can change everything. Local offices — planning commission, board of supervisors, town council — are decided by dozens to hundreds of votes in many jurisdictions.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FEDERAL LEVEL -->
+  <div class="section red" id="federal">
+    <div class="sec-title">🏛️ Federal Level — What Exists and What Communities Can Use</div>
+    <h3>The White House Is Pro-Data Center. Congress Is Taking Money. But Federal Law Still Has Teeth.</h3>
+
+    <table>
+      <tr><th>Tool</th><th>What It Does</th><th>How to Use It</th></tr>
+      <tr>
+        <td><strong>Army Corps of Engineers Section 404 permits</strong></td>
+        <td>Required for any data center impacting wetlands or waterways. Public notices are issued. Public comment is accepted.</td>
+        <td>NAO-2024-01108 (Mattameade) and NAO-2023-01952 (Massaponax/Amazon) are already public. File detailed technical comments on water impact. Army Corps must respond.</td>
+      </tr>
+      <tr>
+        <td><strong>EPA Region 3 — Enforcement</strong></td>
+        <td>Covers Virginia, West Virginia, Pennsylvania, Maryland, Delaware, DC. Has authority over water quality, NPDES discharge permits, and Clean Water Act enforcement.</td>
+        <td>File a formal complaint citing the documented Bowling Green radioactive contamination (gross alpha at 26-40 pCi/L vs. 15 limit) and the Polecat Creek discharge chain. EPA Region 3 Philadelphia: (215) 814-5000.</td>
+      </tr>
+      <tr>
+        <td><strong>H.R. 6529 — "Protecting Families from AI Data Center Energy Costs Act"</strong></td>
+        <td>Federal bill in 119th Congress (2025-2026). Would protect ratepayers from bearing data center energy infrastructure costs at the federal level.</td>
+        <td>Contact your House representative and demand co-sponsorship. The bill exists — it needs votes. congress.gov/bill/119th-congress/house-bill/6529/text</td>
+      </tr>
+      <tr>
+        <td><strong>FERC — Federal Energy Regulatory Commission</strong></td>
+        <td>Regulates interstate electricity transmission. The NextEra/Dominion merger requires FERC approval in addition to SCC. Public comment accepted.</td>
+        <td>Watch ferc.gov for the merger application. File public comments. FERC can condition approval on consumer protections. Public comment hotline: (866) 208-3372.</td>
+      </tr>
+      <tr>
+        <td><strong>CFPB — Consumer Financial Protection Bureau</strong></td>
+        <td>Has authority over consumer financial harm. If utility rate increases driven by data center cost-shifting harm consumers, this is a CFPB issue.</td>
+        <td>File complaints at consumerfinance.gov/complaint/ documenting the rate increase impact on household budgets. Systemic complaints build the evidentiary record for enforcement.</td>
+      </tr>
+      <tr>
+        <td><strong>Congressional oversight — AI PAC disclosure</strong></td>
+        <td>CNBC confirmed a coalition of anti-Big Tech groups is formally working to expose and counter the "Leading the Future" AI PAC. FEC filings are public.</td>
+        <td>FEC.gov — search "Leading the Future" PAC for all donor records and expenditures. Share findings with journalists who cover campaign finance.</td>
+      </tr>
+    </table>
+
+    <div class="alert-amber alert">
+      <strong>The Trump executive order is not the end of the story.</strong> It accelerates federal permitting — but it cannot override state water law, state utility regulation, or local zoning. The SCC still decides Virginia mergers. The DEQ still issues Virginia water permits. Local zoning boards still approve or reject site plans. The federal order creates pressure but does not eliminate the legal tools that communities have successfully used to block $64 billion in projects.
+    </div>
+    <div class="source">Sources: Army Corps public notices; EPA Region 3 jurisdiction; H.R.6529 (congress.gov); FERC merger review jurisdiction; Trump EO July 2025 (whitehouse.gov); CFPB complaint process; FEC.gov.</div>
+  </div>
+
+  <!-- DO THIS NOW -->
+  <div class="section green" id="now">
+    <div class="sec-title">⚡ Do This Now — The Specific Next Steps for Virginia / Caroline / Spotsylvania</div>
+    <h3>Prioritized. Sourced. Actionable. Starting Today.</h3>
+
+    <div class="action-tier">
+      <div class="tier-label tier-red">🔴 THIS WEEK — URGENT WINDOWS</div>
+      <ul>
+        <li><strong>Call Virginia Ethics Council (804-225-3138).</strong> Request Bagot, Towell, and Hudson's financial disclosure forms. This one phone call could be the most important action in this entire list.</li>
+        <li><strong>Watch SCC docket (scc.virginia.gov/docketsearch) for NextEra/Dominion merger application.</strong> When it files, immediately contact the SCC Clerk at (804) 371-9671 to file as an intervenor. Time-limited window.</li>
+        <li><strong>Watch for Aqua PUR-2025-00071 Hearing Examiner's report.</strong> When it posts, you have a limited window to file exceptions. This determines whether Aqua gets the rate increase before or after the merger review.</li>
+      </ul>
+    </div>
+
+    <div class="action-tier">
+      <div class="tier-label tier-amber">🟡 THIS MONTH</div>
+      <ul>
+        <li><strong>FOIA the Spotsylvania wastewater agreement with Amazon.</strong> Spotsylvania County FOIA officer, (540) 507-7000. Request: the Wastewater Services Agreement signed October 22, 2024 for the Mattameade data center campus. It specifies actual water volumes Amazon committed to consuming.</li>
+        <li><strong>File written comments to DEQ</strong> on the Caroline County Rappahannock River permit — requesting modification to residential water use only. DEQ Office of Water Withdrawal Permitting, Richmond.</li>
+        <li><strong>Join the Virginia Data Center Reform Coalition.</strong> pecva.org/datacenters. 50+ groups. Real legislative relationships. 120+ people at Lobby Day. The next session starts in January 2027.</li>
+        <li><strong>Contact Sen. Stuart (804-698-7528)</strong> and share documented community evidence of water quality impacts. He needs constituent documentation to strengthen upcoming legislation.</li>
+        <li><strong>FOIA the LLC filings</strong> for every anonymous campus: scc.virginia.gov/clk — search SpotsyTechnoCampus LLC, RCK Digital Crossroads LLC, and every other entity on the planning map.</li>
+      </ul>
+    </div>
+
+    <div class="action-tier">
+      <div class="tier-label tier-green">🟢 THIS YEAR — BUILD THE FOUNDATION</div>
+      <ul>
+        <li><strong>Build toward the 2027 Virginia General Assembly session.</strong> Bills need sponsors and constituent evidence 6-12 months before introduction. The water disclosure and siting bills need stronger community documentation to survive conference committee.</li>
+        <li><strong>File an EPA Region 3 complaint</strong> on Bowling Green's documented radioactive contamination (gross alpha at 26-40 pCi/L, limit is 15). This is a documented violation with official VDH notice. EPA: (215) 814-5000 or epa.gov/region3.</li>
+        <li><strong>Make data center oversight the issue in November 2027 Virginia elections.</strong> Every Board of Supervisors seat in Spotsylvania, Caroline, Stafford, and surrounding counties is up. The Warrenton model works.</li>
+        <li><strong>Connect with the national movement.</strong> Data Center Watch tracks 142 groups in 24 states. Organizations like MediaJustice and the Data Center Reform Coalition are coordinating nationally. What works in Tucson and Cascade Locks can work in Caroline County.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="related-links">
+    <a href="deep_dive_ownership.html" class="rel-btn">
+      <span class="rel-btn-title">🔍 Deep Dive 1</span>
+      <span class="rel-btn-sub">SCC commissioners & ownership</span>
+    </a>
+    <a href="deep_dive_part2.html" class="rel-btn">
+      <span class="rel-btn-title">🔍 Deep Dive 2</span>
+      <span class="rel-btn-sub">Dominion money & NextEra record</span>
+    </a>
+    <a href="ai_usage_lies.html" class="rel-btn">
+      <span class="rel-btn-title">💡 AI Usage Lies</span>
+      <span class="rel-btn-sub">Power, water & lobbying verified</span>
+    </a>
+    <a href="aqua_fight.html" class="rel-btn">
+      <span class="rel-btn-title">💧 Aqua Virginia</span>
+      <span class="rel-btn-sub">Caroline County water fight</span>
+    </a>
+    <a href="fight_back.html" class="rel-btn">
+      <span class="rel-btn-title">⚔️ Fight Back</span>
+      <span class="rel-btn-sub">Legal weapons in detail</span>
+    </a>
+    <a href="fluvanna.html" class="rel-btn">
+      <span class="rel-btn-title">✅ Fluvanna Won</span>
+      <span class="rel-btn-sub">The playbook that works</span>
+    </a>
+  </div>
+</div>
+
+<div class="footer">
+  This page is for informational and community advocacy purposes only. It is not legal advice. CaseLock is not a law firm. All statistics sourced and cited inline. Data Center Watch figures are from their May 2024–March 2025 report (datacenterwatch.org/report). State legislative status from Multistate.us (April 2026), AFS Law (2026), and individual state legislative records. California SB 57 from official California Senate District 18 press release (October 11, 2025). Oklahoma HB 2992 from Oklahoma Legislature and House GOP official communications. PEC Four Pillars from pecva.org (January 2025, updated February 2026). Federal tool descriptions from official agency and congressional sources. Electoral wins documented from Data Center Watch and published local news. For legal action, consult a licensed Virginia attorney.
+</div>
+</body>
+</html>
