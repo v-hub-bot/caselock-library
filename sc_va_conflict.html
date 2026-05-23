@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Money Chain — Virginia vs. South Carolina | CaseLock Library</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0a0f1e;color:#e2e8f0;font-family:system-ui,sans-serif;line-height:1.7}
+  .hero{background:linear-gradient(135deg,#0a0f1e,#10001a 50%,#0a0f1e);padding:48px 20px 36px;text-align:center;border-bottom:2px solid #7c3aed}
+  .badge{display:inline-block;background:#7c3aed;color:#fff;font-size:10px;font-weight:900;letter-spacing:2px;padding:4px 14px;border-radius:20px;margin-bottom:14px;text-transform:uppercase}
+  .hero h1{font-size:clamp(22px,4vw,40px);font-weight:900;color:#fff;margin-bottom:8px}
+  .hero h2{font-size:clamp(13px,2vw,18px);color:#c4b5fd;font-weight:700;margin-bottom:14px}
+  .hero p{font-size:13px;color:#94a3b8;max-width:740px;margin:0 auto}
+  .nav{background:#0f1929;border-bottom:1px solid #1e3a5f;padding:10px 20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:sticky;top:0;z-index:100}
+  .nav a{color:#60a5fa;font-size:11px;text-decoration:none;font-weight:700;padding:4px 8px;border-radius:4px}
+  .nav a:hover{background:#1e3a5f}
+  .container{max-width:920px;margin:0 auto;padding:30px 20px}
+  .section{background:#0f1929;border:1px solid #1e3a5f;border-radius:10px;padding:24px;margin-bottom:24px}
+  .sec-title{font-size:10px;font-weight:900;color:#f59e0b;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+  h3{font-size:18px;font-weight:800;color:#f1f5f9;margin-bottom:14px}
+  h4{font-size:14px;font-weight:800;color:#e2e8f0;margin:16px 0 8px}
+  p{font-size:13px;color:#cbd5e1;margin-bottom:10px;line-height:1.8}
+  .alert{border-radius:8px;padding:14px 16px;margin:12px 0;font-size:13px;line-height:1.8}
+  .alert-red{background:#1a0000;border:1px solid #dc2626}
+  .alert-yellow{background:#1a1000;border:1px solid #f59e0b}
+  .alert-green{background:#001a0a;border:1px solid #22c55e}
+  .alert-blue{background:#00101a;border:1px solid #3b82f6}
+  .alert-purple{background:#0f001a;border:1px solid #7c3aed}
+  .source{font-size:11px;color:#4b5563;font-style:italic;margin-top:5px}
+  .source-tag{font-size:10px;color:#3b82f6;font-style:italic;background:#0a1628;border:1px solid #1e3a5f;border-radius:4px;padding:2px 6px;display:inline-block;margin-left:4px}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin:14px 0}
+  th{background:#1e293b;color:#94a3b8;padding:8px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:1px}
+  td{padding:9px 12px;border-bottom:1px solid #1e293b;vertical-align:top;line-height:1.6}
+  tr:last-child td{border-bottom:none}
+  .quote{border-left:3px solid #7c3aed;padding-left:14px;margin:14px 0;font-style:italic;font-size:13px;color:#cbd5e1;line-height:1.9}
+  .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0}
+  .stat{background:#0a0f1e;border:1px solid #1e3a5f;border-radius:8px;padding:14px;text-align:center}
+  .stat-val{font-size:22px;font-weight:900;display:block}
+  .red{color:#f87171;font-weight:700}
+  .yellow{color:#fbbf24;font-weight:700}
+  .green{color:#4ade80;font-weight:700}
+  .purple{color:#c4b5fd;font-weight:700}
+  .stat-label{font-size:11px;color:#64748b;margin-top:4px;line-height:1.4}
+  ul{padding-left:18px}
+  ul li{margin-bottom:8px;font-size:13px;color:#cbd5e1;line-height:1.7}
+  .chain-box{background:#0a0f1e;border:1px solid #374151;border-radius:8px;padding:16px;margin:14px 0}
+  .chain-step{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #1e293b;font-size:13px}
+  .chain-step:last-child{border-bottom:none}
+  .chain-num{background:#7c3aed;color:white;font-weight:900;font-size:12px;width:24px;height:24px;border-radius:50%;text-align:center;line-height:24px;flex-shrink:0;margin-top:2px}
+  .vs-wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+  .vs-box{background:#0a0f1e;border-radius:8px;padding:16px}
+  .vs-title{font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #1e293b}
+  .badge-va{background:#1e3a5f;color:#60a5fa;display:inline-block;font-size:10px;padding:2px 8px;border-radius:10px;margin-bottom:6px}
+  .badge-sc{background:#1a0a00;color:#fbbf24;display:inline-block;font-size:10px;padding:2px 8px;border-radius:10px;margin-bottom:6px}
+  .check{color:#4ade80;font-weight:900}
+  .x{color:#f87171;font-weight:900}
+  .warn{color:#fbbf24;font-weight:900}
+  .related-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .rel-btn{flex:1;min-width:200px;background:#0a1628;border:2px solid #1e3a5f;border-radius:10px;padding:14px;text-decoration:none;text-align:center}
+  .rel-btn:hover{border-color:#7c3aed}
+  .rel-btn-title{font-size:13px;font-weight:800;color:#f1f5f9;display:block;margin-bottom:4px}
+  .rel-btn-sub{font-size:11px;color:#64748b}
+  .footer{background:#0a0a0a;border-top:2px solid #374151;margin-top:40px;padding:24px 20px;text-align:center;font-size:11px;color:#4b5563;line-height:1.9}
+  @media(max-width:600px){.vs-wrap{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">🔎 Deep Dive — All Sources Named</div>
+  <h1>The Money Chain</h1>
+  <h2>Virginia vs. South Carolina — Stock Ownership, Utility Donations, and the Regulators Who Approve Your Rate Hikes</h2>
+  <p>You asked the right question: can the legislators who elect your utility regulators also own stock in the companies those regulators oversee? The answer — documented below for both Virginia and South Carolina — is more damaging than most people realize.</p>
+</div>
+
+<nav class="nav">
+  <a href="#the-question">The Question</a>
+  <a href="#sc-law">SC Ethics Law</a>
+  <a href="#va-law">VA Ethics Law</a>
+  <a href="#sc-donations">SC Donations</a>
+  <a href="#energy-security">Energy Security Act</a>
+  <a href="#side-by-side">Side by Side</a>
+  <a href="#verdict">The Verdict</a>
+</nav>
+
+<div class="container">
+
+  <!-- THE QUESTION -->
+  <div class="section" id="the-question">
+    <div class="sec-title">🎯 The Question You Asked — Answered Directly</div>
+    <h3>Can legislators who elect your utility regulators own stock in those same utility companies?</h3>
+
+    <div class="vs-wrap">
+      <div class="vs-box" style="border:1px solid #1e3a5f;">
+        <div class="vs-title"><span class="badge-va">Virginia</span></div>
+        <p style="font-size:13px;color:#f87171;font-weight:700;">YES — and it has been documented happening.</p>
+        <p style="font-size:13px;color:#cbd5e1;">Clean Virginia documented that <strong>9 Virginia legislators owned stock in Dominion Energy</strong> while voting on legislation that increased Dominion's profits. None recused themselves. Virginia law requires <em>disclosure</em> when dividends exceed $5,000 — but does not require recusal from votes that increase a utility's stock value.</p>
+        <div class="source">Source: Clean Virginia (cleanvirginia.org), April 28, 2022. Virginia Conflicts of Interest Act, Code of Virginia § 30-111.</div>
+      </div>
+      <div class="vs-box" style="border:1px solid #b45309;">
+        <div class="vs-title"><span class="badge-sc">South Carolina</span></div>
+        <p style="font-size:13px;color:#f87171;font-weight:700;">YES — and the law has serious loopholes.</p>
+        <p style="font-size:13px;color:#cbd5e1;">SC Code § 8-13-700 requires recusal when a legislator has a "personal economic interest" in a matter. But the threshold for what triggers that obligation — and how it is enforced — is riddled with gaps documented by the Center for Public Integrity, the Post and Courier, and the SC Policy Council. Stock ownership must be disclosed only if it exceeds $100,000 at fair market value AND constitutes 5% or more of outstanding shares of any class.</p>
+        <div class="source">Source: SC Code § 8-13-700; SC School Law Ethics handout citing disclosure threshold; Center for Public Integrity, October 2015.</div>
+      </div>
+    </div>
+
+    <div class="alert-red alert">
+      <strong>What the 5% Threshold Means in Practice:</strong> Duke Energy's market cap is approximately <strong>$80 billion</strong>. 5% of outstanding shares would be worth <strong>$4 billion</strong>. No individual legislator will ever own that much. So in practice, the stock ownership disclosure threshold for large publicly traded utilities like Duke Energy and Dominion is <strong>functionally meaningless</strong> — a legislator can own millions of dollars in utility stock and never be required to disclose it under this threshold. The recusal obligation that flows from that disclosure obligation is equally hollow.
+    </div>
+  </div>
+
+  <!-- SC ETHICS LAW -->
+  <div class="section" id="sc-law">
+    <div class="sec-title">⚖️ South Carolina Ethics Law — What It Actually Says</div>
+    <h3>SC Code § 8-13-700 — The Full Picture</h3>
+
+    <p>South Carolina's ethics conflict-of-interest law is found at <strong>SC Code § 8-13-700</strong>: "Use of official position or office for financial gain; disclosure of potential conflict of interest."</p>
+
+    <h4>What the Law Technically Requires</h4>
+    <ul>
+      <li>A public official must not "knowingly use their official position to obtain personal financial gain" for themselves, their family, or businesses they're associated with.</li>
+      <li>If a conflict of interest exists, the official must prepare a <strong>written statement</strong> describing the matter and the nature of the conflict, submit it to the presiding officer, and have it entered into the official record.</li>
+      <li>The official must then <strong>recuse themselves</strong> — not vote, not deliberate.</li>
+      <li>Violation is a <strong>misdemeanor</strong> — fine of up to $5,000.</li>
+    </ul>
+
+    <h4>The Loopholes — Documented</h4>
+    <div class="chain-box">
+      <div class="chain-step">
+        <div class="chain-num">1</div>
+        <div><strong>The 5% threshold on stock disclosure.</strong> Stock holdings in a publicly traded company only trigger mandatory disclosure if the holding exceeds $100,000 at fair market value AND constitutes 5% or more of that class of shares. For any major utility — Duke Energy ($80B market cap), Dominion ($40B+) — this threshold can never be triggered by an individual legislator. You can own $50 million in Duke Energy stock and the disclosure rule does not technically apply. <span class="source-tag">SC School Board Association Ethics Handout; SC Code § 8-13-700</span></div>
+      </div>
+      <div class="chain-step">
+        <div class="chain-num">2</div>
+        <div><strong>Self-reporting and self-enforcement.</strong> The legislator bears the burden of identifying their own conflicts and reporting them. There is no independent body reviewing stock portfolios against pending votes. You have to choose to report yourself. <span class="source-tag">MASC Ethics Rules publication, May 2025; SC Code § 8-13-700</span></div>
+      </div>
+      <div class="chain-step">
+        <div class="chain-num">3</div>
+        <div><strong>The legislature oversees itself.</strong> The House Ethics Committee and Senate Ethics Committee have primary jurisdiction over violations by their own members. The same body of legislators — who may have their own financial interests in utilities — investigates their colleagues. <span class="source-tag">SC Code § 8-13-310; SC Ethics Commission jurisdiction notes</span></div>
+      </div>
+      <div class="chain-step">
+        <div class="chain-num">4</div>
+        <div><strong>"Knowingly" standard protects violators.</strong> The law requires that the official "knowingly" use their position for financial gain. If a legislator claims they didn't realize a vote would benefit their stock holdings, the knowing standard makes prosecution nearly impossible. <span class="source-tag">SC Code § 8-13-700(A); Municipal Association SC analysis</span></div>
+      </div>
+      <div class="chain-step">
+        <div class="chain-num">5</div>
+        <div><strong>Documented pattern of legislators profiting from government connections — legally.</strong> The Center for Public Integrity and Post and Courier documented in 2015 that at least 55 current and former SC lawmakers reported ties to millions of dollars in outside work connected to government — contracts, agencies whose budgets they oversee. Their finding: <em>"It's perfectly legal in a state where the 170 legislators make and enforce the ethics rules that govern their behavior."</em> <span class="source-tag">Center for Public Integrity / Post and Courier, October 30, 2015</span></div>
+      </div>
+    </div>
+
+    <div class="alert-yellow alert" style="margin-top:12px;">
+      <strong>The Statement of Economic Interests — What It Covers:</strong> SC legislators must file annual Statements of Economic Interests (SEI) with the SC Ethics Commission. These are public records, searchable at ethicsfiling.sc.gov. They require disclosure of income sources, business associations, and certain financial interests. However, the stock ownership thresholds described above limit what utility holdings are visible. You can search any SC legislator's SEI at: <strong>ethicsfiling.sc.gov/public/statement-economic-interests</strong>
+    </div>
+  </div>
+
+  <!-- VA ETHICS LAW -->
+  <div class="section" id="va-law">
+    <div class="sec-title">⚖️ Virginia Ethics Law — For Comparison</div>
+    <h3>Virginia's Conflict Rules — Different Law, Same Result</h3>
+
+    <p>Virginia's conflict of interest rules for legislators are governed by the <strong>Virginia Conflict of Interests Act (Code of Virginia § 30-101 et seq.)</strong> and the <strong>State and Local Government Conflict of Interests Act (§ 2.2-3100 et seq.)</strong>.</p>
+
+    <ul>
+      <li>Virginia requires disclosure when a legislator receives <strong>$5,000 or more in dividends</strong> from utility stock — a lower and more practical threshold than SC's 5%-of-outstanding-shares rule.</li>
+      <li>But Virginia law does <strong>NOT require recusal</strong> from votes that increase a utility's stock value — only from votes that directly and specifically benefit the legislator's personal economic interest in a unique way.</li>
+      <li>Clean Virginia documented 9 Virginia legislators owning Dominion stock while voting on the bill that raised Dominion's profit margin from 9.3% to 9.7% — worth an estimated $4 billion to the company. <strong>None recused themselves.</strong></li>
+      <li>Two Virginia lawmakers proposed a bill to ban utility stock ownership by legislators. It did not pass.</li>
+    </ul>
+
+    <div class="alert-blue alert">
+      <strong>Virginia vs. SC — Which Is Worse?</strong><br>
+      Virginia has a lower, more realistic disclosure threshold ($5,000 in dividends vs. SC's meaningless 5%-of-class rule) — so Virginia's disclosures are more likely to catch real conflicts. But neither state requires meaningful recusal in practice. Both states allow the legislators who elect their utility regulators to simultaneously profit from those same utilities. South Carolina's threshold is structurally worse because it is designed in a way that can never be triggered for major utilities.
+    </div>
+  </div>
+
+  <!-- SC DONATION SYSTEM -->
+  <div class="section" id="sc-donations">
+    <div class="sec-title">💰 South Carolina's Donation System — The Documented Numbers</div>
+    <h3>What Dominion and Duke Spent to Shape the Laws That Govern Your Bills</h3>
+
+    <div class="alert-red alert">
+      <strong>BREAKING — May 4, 2026 (The State / SC Investigates):</strong><br>
+      Dominion Energy spent <strong>nearly $600,000 at the South Carolina State House in 2025</strong> while lobbying for the Energy Security Act — a law that makes it easier for utilities to raise rates more frequently with less regulatory review. The company then filed for a <strong>$322 million rate increase</strong> the same year.
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat">
+        <span class="stat-val red">$600K</span>
+        <div class="stat-label">Dominion spent at SC State House in 2025 — lobbying + donations combined</div>
+      </div>
+      <div class="stat">
+        <span class="stat-val red">$490K</span>
+        <div class="stat-label">Dominion paid 12 lobbyists in 2025 — up $60K from 2024</div>
+      </div>
+      <div class="stat">
+        <span class="stat-val red">$65K+</span>
+        <div class="stat-label">Dominion PAC donations to lawmakers in 2025 alone</div>
+      </div>
+      <div class="stat">
+        <span class="stat-val red">$322M</span>
+        <div class="stat-label">Dominion rate increase request filed same year as lobbying — ~$20/month per customer</div>
+      </div>
+      <div class="stat">
+        <span class="stat-val yellow">7.6%</span>
+        <div class="stat-label">Settled Dominion rate increase — effective July 2026</div>
+      </div>
+      <div class="stat">
+        <span class="stat-val red">$1.6M</span>
+        <div class="stat-label">Duke Energy federal political contributions, 2024 cycle (OpenSecrets)</div>
+      </div>
+    </div>
+
+    <h4>Where Dominion's $65,000+ in SC Donations Went in 2025</h4>
+    <table>
+      <tr><th>Recipient</th><th>Amount</th><th>Why It Matters</th></tr>
+      <tr><td>SC House Republican Caucus</td><td class="red">$25,000</td><td>Distributed to individual House member campaigns. Entire House was up for election in November 2025.</td></tr>
+      <tr><td>SC Senate Republican Caucus</td><td class="red">$25,000</td><td>Distributed to individual Senate campaigns.</td></tr>
+      <tr><td>House Democratic Caucus</td><td class="red">$15,000</td><td>Bipartisan coverage — both parties receive money from the same utility.</td></tr>
+      <tr><td>SC General Assembly Women's Caucus</td><td class="red">$1,500</td><td>Covers additional legislators across party lines.</td></tr>
+      <tr><td>Dozens of individual SC lawmakers</td><td class="red">$25,000+ combined</td><td>Including committee members who considered the legislation that became the Energy Security Act — the same law that makes it easier to raise your rates.</td></tr>
+    </table>
+    <div class="source">Source: The State / SC Investigates, May 4, 2026. Reported by Bristow Marchant. Public records from SC Ethics Commission filings.</div>
+
+    <h4>Dominion's Top SC Lobbyists — Who They Are</h4>
+    <p>Dominion's three top-paid lobbyists in 2025 worked for <strong>McGuireWoods Consulting</strong> — a multi-state lobbying firm that employs a roster of former SC political insiders, including <strong>former Governor Jim Hodges</strong> who serves as the firm's South Carolina president.</p>
+    <p>This is the revolving door documented in plain sight: former governor becomes top lobbyist for the utility seeking rate increases from regulators elected by the legislators the governor's firm donates to.</p>
+    <div class="source">Source: The State / SC Investigates, May 4, 2026.</div>
+
+    <div class="quote">"I would say that almost always a utility will be, if not the largest, among the largest donors to state-level elections in every state across the U.S."</div>
+    <div class="source">— Conor Harrison, professor of economic geography, University of South Carolina. Quoted in The State, May 4, 2026.</div>
+
+    <div class="quote">"Not to be overly cynical, but obviously there is an influence of money in politics. A company like Dominion has a lawyer team the size of our entire organization."</div>
+    <div class="source">— John Brooker, VP of policy and government relations, Conservation Voters of South Carolina. Quoted in The State, May 4, 2026.</div>
+
+    <h4>SCANA — The Original Documented Case</h4>
+    <p>Even more direct: when the SC General Assembly was investigating SCANA Corporation for the V.C. Summer nuclear fraud, the Post and Courier reported that <strong>SCANA had given money to nearly all of the South Carolina lawmakers investigating them.</strong> The investigators were funded by the investigated. This is not an allegation — it is documented from campaign finance records reported by the Post and Courier in September 2017.</p>
+    <div class="source">Source: Post and Courier, September 2017. Cited in nuclearfreenw.org criminal investigation summary.</div>
+  </div>
+
+  <!-- ENERGY SECURITY ACT -->
+  <div class="section" id="energy-security">
+    <div class="sec-title">⚡ The SC Energy Security Act — What It Actually Does to Your Bill</div>
+    <h3>The Law That Dominion Spent $600,000 to Pass</h3>
+
+    <p>Governor Henry McMaster signed the <strong>South Carolina Energy Security Act (Act 41)</strong> into law on May 12, 2025. Legislators celebrated with "the power is on in SC." Here is what it actually does.</p>
+
+    <ul>
+      <li><strong>Allows utilities to seek smaller rate increases more frequently with less comprehensive review.</strong> Instead of one large rate case every few years with full PSC scrutiny, utilities can now make incremental adjustments more often — and the review process is lighter.</li>
+      <li><strong>Makes it easier for utilities to recover the cost of new power plants and infrastructure</strong> from ratepayers — before those plants are even built. Sound familiar? That is almost identical to the Base Load Review Act that allowed SCANA to charge customers for the V.C. Summer reactors before they were constructed. The reactors were never built. Customers are still paying.</li>
+      <li><strong>Changes how regulators review infrastructure expenses.</strong> Less scrutiny, faster approval, more frequent billing.</li>
+      <li>Dominion has stated it is not using the new law for its current rate case — but explicitly said it "may do so in the future."</li>
+    </ul>
+
+    <div class="alert-red alert">
+      <strong>The Pattern Made Visible:</strong><br>
+      1. Dominion spends $600,000 lobbying SC legislators — including direct donations to the committee members who consider the bill.<br>
+      2. Legislators pass the Energy Security Act — which gives utilities more flexibility to raise rates with less oversight.<br>
+      3. Those same legislators elect PSC commissioners — the regulators who will approve rate increases under the new, weaker standard.<br>
+      4. Dominion files for a $322 million rate increase the same year.<br>
+      5. PSC approves a 7.6% increase effective July 2026.<br>
+      6. The SC General Assembly is called "warming to utilities" — with newer members who weren't around when V.C. Summer failed and ratepayers were left with the $9 billion bill.<br><br>
+      <em>This is not a theory. Every step above is documented to a named primary source.</em>
+    </div>
+    <div class="source">Source: The State / SC Investigates, May 4, 2026; SC Daily Gazette, June 18, 2025; McGuireWoods client news release June 2025; SC PSC docket records.</div>
+  </div>
+
+  <!-- SIDE BY SIDE -->
+  <div class="section" id="side-by-side">
+    <div class="sec-title">📊 Virginia vs. South Carolina — The Complete Side-by-Side</div>
+    <h3>Every Structural Comparison — Documented</h3>
+
+    <table>
+      <tr>
+        <th>Factor</th>
+        <th style="color:#60a5fa;">Virginia</th>
+        <th style="color:#fbbf24;">South Carolina</th>
+      </tr>
+      <tr>
+        <td><strong>Who elects utility regulators?</strong></td>
+        <td>General Assembly — NOT voters. 6-year staggered terms.</td>
+        <td>General Assembly — NOT voters. 4-year staggered terms. One of only 2 states in the US that does this.</td>
+      </tr>
+      <tr>
+        <td><strong>Number of regulators</strong></td>
+        <td>3 SCC commissioners</td>
+        <td>7 PSC commissioners — one per congressional district</td>
+      </tr>
+      <tr>
+        <td><strong>Can commissioners talk to the public about pending cases?</strong></td>
+        <td>No — ex parte rules apply</td>
+        <td class="red">No — explicitly prohibited. PSC is treated as a judicial body. Zero public communication allowed on pending rate cases.</td>
+      </tr>
+      <tr>
+        <td><strong>Can legislators own utility stock?</strong></td>
+        <td class="red">Yes. 9 documented owning Dominion stock while voting on Dominion legislation. None recused.</td>
+        <td class="red">Yes. 5%-of-class disclosure threshold means large utility holdings are never triggerable. Stock portfolios not independently audited against votes.</td>
+      </tr>
+      <tr>
+        <td><strong>Can utilities donate to legislators who elect their regulators?</strong></td>
+        <td class="red">Yes. $40M in documented utility donations to VA legislators since 1996. Bipartisan ban proposed — FAILED.</td>
+        <td class="red">Yes. No limit on corporate donations in SC. Dominion gave $65K+ to legislators in 2025 alone — the same year those legislators passed the Energy Security Act.</td>
+      </tr>
+      <tr>
+        <td><strong>Is there a ban on utility political contributions?</strong></td>
+        <td class="red">No. Bipartisan bill proposed 2023, 2025 — both failed.</td>
+        <td class="red">No. Not even proposed in recent sessions.</td>
+      </tr>
+      <tr>
+        <td><strong>Documented corporate donations to legislators investigating utility fraud?</strong></td>
+        <td>Not directly documented</td>
+        <td class="red">YES — SCANA gave money to "nearly all" legislators investigating them for V.C. Summer nuclear fraud. Documented by Post and Courier, September 2017.</td>
+      </tr>
+      <tr>
+        <td><strong>Has the regulatory system produced proven criminal conduct?</strong></td>
+        <td>No criminal convictions — ongoing civil and regulatory issues</td>
+        <td class="red">YES — SCANA CEO and COO convicted of federal fraud. COO sentenced to federal prison. $9B charged to ratepayers. $2.3B in debt still being repaid by customers.</td>
+      </tr>
+      <tr>
+        <td><strong>Rate increase approval record</strong></td>
+        <td>SCC: Aqua Virginia 8 for 8 since 2006. Dominion multiple increases approved.</td>
+        <td>PSC: Duke Energy 8.7% + 4.3% stacked 2024–25. Dominion 7.6% July 2026. All approved.</td>
+      </tr>
+      <tr>
+        <td><strong>Revolving door — utility lobbyists</strong></td>
+        <td>Documented: former legislators and staff become utility lobbyists</td>
+        <td class="red">Former Governor Jim Hodges is SC president of McGuireWoods Consulting — Dominion's top lobbying firm. Currently lobbying the legislators who elect the PSC commissioners who approve Dominion's rates.</td>
+      </tr>
+      <tr>
+        <td><strong>Data center water disclosure required?</strong></td>
+        <td>Under community pressure — partial measures. Some localities acted. No statewide law enacted.</td>
+        <td class="red">No. Bills 724, 867, 902 pending. None enacted. SC Senate passed a one-year budget proviso only. A data center could drain millions of gallons from Gaffney's water system with no legal reporting obligation.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- THE VERDICT -->
+  <div class="section" id="verdict">
+    <div class="sec-title">🔴 The Verdict — Plain Language</div>
+    <h3>What This Means For You — No Interpretation Needed</h3>
+
+    <div class="chain-box">
+      <div class="chain-step">
+        <div class="chain-num">1</div>
+        <div>In both Virginia and South Carolina, <strong>the same people who receive money from utility companies also elect the commissioners who approve utility rate increases.</strong> This is the structural foundation of both systems. It is not a conspiracy theory — it is how both systems are designed and it is documented in official government records.</div>
+      </div>
+      <div class="chain-step">
+        <div class="chain-num">2</div>
+        <div>In both states, <strong>legislators can own stock in the utility companies whose rates they influence</strong> through their legislative votes — and the stock disclosure rules are either practically unenforceable (SC) or unenforced (VA). In Virginia, 9 legislators owned Dominion stock and voted for a Dominion rate increase. None recused themselves. None were penalized.</div>
+      </div>
+      <div class="chain-step">
+        <div class="chain-num">3</div>
+        <div>South Carolina has already <strong>proven this system causes direct consumer harm at a criminal scale.</strong> The V.C. Summer nuclear scandal — where utility executives went to federal prison for fraud while customers paid $9 billion for reactors never built — happened inside this exact regulatory structure. The same structure still exists today.</div>
+      </div>
+      <div class="chain-step">
+        <div class="chain-num">4</div>
+        <div>South Carolina's situation is structurally <strong>worse than Virginia's</strong> in one specific way: the PSC commissioners are <strong>prohibited from communicating with the public</strong> about pending cases. Virginia's SCC has the same ex parte restriction — but SC's PSC is explicitly treated as a judicial body, making any informal consumer outreach to commissioners legally impossible.</div>
+      </div>
+      <div class="chain-step">
+        <div class="chain-num">5</div>
+        <div>A $2.1 billion data center is coming to <strong>Gaffney's water system</strong> with <strong>zero legally required water usage disclosure</strong>. The bills that would require it have not passed. The PSC that would regulate any water utility impact is elected by legislators who just received money from the utilities those commissioners oversee. This is the system as it currently operates.</div>
+      </div>
+    </div>
+
+    <div class="alert-purple alert" style="margin-top:16px;">
+      <strong>The One Thing That Is Different Between Virginia and South Carolina:</strong><br><br>
+      Virginia has a documented, active consumer advocacy infrastructure — Clean Virginia, the Virginia Consumer Network, the Data Center Reform Coalition (50+ members), and communities like Fluvanna that have won tangible policy changes through organized pressure. The Nukegate scandal burned that infrastructure away in South Carolina. Newer legislators who weren't there for V.C. Summer are now being courted by the same utility industry. The memory of what the system cost ratepayers is fading — and the industry knows it. That is why Dominion spent $600,000 at the SC State House in 2025. The time for SC residents to organize is now, while the Cielo data center fight in Cherokee County is still in its early stages.
+    </div>
+  </div>
+
+  <div class="related-links">
+    <a href="gaffney.html" class="rel-btn">
+      <span class="rel-btn-title">🔎 Gaffney & Cherokee County, SC</span>
+      <span class="rel-btn-sub">The local fight — data center, water quality, PSC rate hikes</span>
+    </a>
+    <a href="aqua_fight.html" class="rel-btn">
+      <span class="rel-btn-title">💧 Aqua Virginia — Full Brief</span>
+      <span class="rel-btn-sub">Caroline County — the Virginia version of the same fight</span>
+    </a>
+    <a href="fluvanna.html" class="rel-btn">
+      <span class="rel-btn-title">🌿 Fluvanna County, VA</span>
+      <span class="rel-btn-sub">How a community fought back — wins and losses</span>
+    </a>
+    <a href="ceo_pay_systemic.html" class="rel-btn">
+      <span class="rel-btn-title">💰 CEO Pay — The National Picture</span>
+      <span class="rel-btn-sub">$626M paid to 51 utility CEOs in 2025 — all sourced</span>
+    </a>
+  </div>
+</div>
+
+<div class="footer">
+  <div style="font-size:11px;font-weight:900;color:#6b7280;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;">Sources & Legal Notice</div>
+  <p>Primary sources: SC Code § 8-13-700 (law.justia.com); SC PSC FAQ (psc.sc.gov); Ballotpedia SC PSC entry; The State / SC Investigates, May 4, 2026 (Bristow Marchant); Post and Courier, September 2017 (SCANA donations to legislators); Center for Public Integrity / Post and Courier, October 30, 2015 (legislators profit from government connections); Clean Virginia, April 28, 2022 (Virginia legislators own Dominion stock); SC Daily Gazette, June 18, 2025 (Energy Security Act); OpenSecrets FEC data (Duke Energy, Dominion); MASC Ethics Rules, May 2025; SC Ethics Commission (ethicsfiling.sc.gov); SC School Board Association Ethics handout (stock disclosure threshold). This page is for informational and community advocacy purposes only. It is not legal advice. All figures should be independently verified before use in any formal legal proceeding.</p>
+</div>
+
+</body>
+</html>
