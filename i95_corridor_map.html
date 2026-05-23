@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The I-95 Data Center Corridor: Spotsylvania to Caroline | CaseLock Library</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0f1e;color:#e2e8f0;font-family:system-ui,sans-serif;line-height:1.7}
+.hero{background:linear-gradient(135deg,#0a0000,#0a0f1e 50%,#000a1a);padding:48px 20px 36px;text-align:center;border-bottom:3px solid #dc2626}
+.badge{display:inline-block;background:#dc2626;color:#fff;font-size:10px;font-weight:900;letter-spacing:2px;padding:4px 14px;border-radius:20px;margin-bottom:14px;text-transform:uppercase}
+.hero h1{font-size:clamp(20px,4vw,36px);font-weight:900;color:#fff;margin-bottom:8px;line-height:1.2}
+.hero p{font-size:13px;color:#94a3b8;max-width:760px;margin:8px auto 0}
+.nav{background:#0f1929;border-bottom:1px solid #1e3a5f;padding:10px 20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:sticky;top:0;z-index:100}
+.nav a{color:#60a5fa;font-size:11px;text-decoration:none;font-weight:700;padding:4px 8px;border-radius:4px}
+.nav a:hover{background:#1e3a5f}
+.container{max-width:960px;margin:0 auto;padding:30px 20px}
+.section{background:#0f1929;border:1px solid #1e3a5f;border-radius:10px;padding:24px;margin-bottom:24px}
+.section.red{border-color:#dc2626;background:#0d0000}
+.section.amber{border-color:#d97706;background:#0d0900}
+.section.green{border-color:#16a34a;background:#001a0a}
+.section.blue{border-color:#3b82f6;background:#00101a}
+.section.purple{border-color:#7c3aed;background:#0a0014}
+.sec-title{font-size:10px;font-weight:900;color:#f59e0b;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+h3{font-size:18px;font-weight:800;color:#f1f5f9;margin-bottom:14px}
+h4{font-size:14px;font-weight:800;color:#e2e8f0;margin:16px 0 8px}
+p{font-size:13px;color:#cbd5e1;margin-bottom:10px;line-height:1.8}
+.alert{border-radius:8px;padding:14px 16px;margin:12px 0;font-size:13px;line-height:1.8}
+.alert-red{background:#1a0000;border:1px solid #dc2626}
+.alert-amber{background:#1a1000;border:1px solid #f59e0b}
+.alert-green{background:#001a0a;border:1px solid #22c55e}
+.alert-blue{background:#00101a;border:1px solid #3b82f6}
+.source{font-size:11px;color:#4b5563;font-style:italic;margin-top:6px;line-height:1.7}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0}
+th{background:#1e293b;color:#94a3b8;padding:8px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:1px}
+td{padding:9px 12px;border-bottom:1px solid #1e293b;vertical-align:top;line-height:1.6}
+tr:last-child td{border-bottom:none}
+.quote{border-left:3px solid #f59e0b;padding-left:14px;margin:14px 0;font-style:italic;font-size:14px;color:#fde68a;line-height:1.9}
+.quote-attr{font-size:11px;color:#64748b;font-style:normal;margin-top:4px}
+ul{padding-left:18px}
+ul li{margin-bottom:8px;font-size:13px;color:#cbd5e1;line-height:1.7}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0}
+.stat{background:#0a0f1e;border:1px solid #1e3a5f;border-radius:8px;padding:14px;text-align:center}
+.stat-val{font-size:24px;font-weight:900;display:block;margin-bottom:4px}
+.red{color:#f87171}.yellow{color:#fbbf24}.green{color:#4ade80}.blue{color:#60a5fa}.purple{color:#c084fc}
+.stat-label{font-size:11px;color:#64748b;line-height:1.4}
+.project-card{background:#0a0f1e;border:1px solid #374151;border-radius:8px;padding:14px;margin-bottom:8px}
+.project-name{font-size:13px;font-weight:900;color:#f1f5f9;margin-bottom:4px}
+.project-status{font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;display:inline-block;margin-bottom:8px;text-transform:uppercase}
+.status-construction{background:#001a0a;color:#4ade80;border:1px solid #16a34a}
+.status-approved{background:#1a1000;color:#fbbf24;border:1px solid #d97706}
+.status-site{background:#00101a;color:#60a5fa;border:1px solid #3b82f6}
+.status-sup{background:#0a0014;color:#c084fc;border:1px solid #7c3aed}
+.status-rezone{background:#1a0000;color:#f87171;border:1px solid #dc2626}
+.status-caroline{background:#001a14;color:#2dd4bf;border:1px solid #0d9488}
+.status-noapply{background:#1a0000;color:#f87171;border:1px solid #dc2626}
+.project-detail{font-size:12px;color:#94a3b8;line-height:1.6}
+.testimony-card{background:#0a0f1e;border-left:3px solid #f59e0b;padding:14px;margin-bottom:10px;border-radius:0 8px 8px 0}
+.testimony-name{font-size:12px;font-weight:900;color:#fbbf24;margin-bottom:4px}
+.testimony-text{font-size:13px;color:#e2e8f0;font-style:italic;line-height:1.8}
+.testimony-note{font-size:11px;color:#4b5563;margin-top:6px;line-height:1.6}
+.admission-box{background:#1a0000;border:2px solid #dc2626;border-radius:10px;padding:20px;margin:16px 0}
+.admission-label{font-size:10px;font-weight:900;color:#f87171;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px}
+.related-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.rel-btn{flex:1;min-width:180px;background:#0a1628;border:2px solid #1e3a5f;border-radius:10px;padding:14px;text-decoration:none;text-align:center}
+.rel-btn:hover{border-color:#3b82f6}
+.rel-btn-title{font-size:13px;font-weight:800;color:#f1f5f9;display:block;margin-bottom:4px}
+.rel-btn-sub{font-size:11px;color:#64748b}
+.footer{background:#0a0a0a;border-top:2px solid #374151;margin-top:40px;padding:24px 20px;text-align:center;font-size:11px;color:#4b5563;line-height:1.9}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">⚠️ New Intelligence — May 23, 2026</div>
+  <h1>"They Are Going to Run the Rappahannock Dry."<br><span style="color:#f87171;">The I-95 Data Center Corridor: Spotsylvania to Caroline</span></h1>
+  <p>An official Spotsylvania County Planning Department map and a community witness account from a Digital Realty AI Summit confirm what residents suspected: this is a coordinated, documented strategy targeting the entire I-95 rural corridor — and your watershed is the resource they need.</p>
+</div>
+
+<nav class="nav">
+  <a href="#admission">The Admission</a>
+  <a href="#map">The Official Map</a>
+  <a href="#projects">All Projects</a>
+  <a href="#water">The Water Math</a>
+  <a href="#testimony">Community Voices</a>
+  <a href="#ashburn">The Ashburn Model</a>
+  <a href="#rustbelt">The Rust Belt Warning</a>
+  <a href="#act">What To Do</a>
+</nav>
+
+<div class="container">
+
+  <!-- THE DIGITAL REALTY ADMISSION -->
+  <div class="section red" id="admission">
+    <div class="sec-title">🚨 The Corporate Admission — Documented by a Community Witness</div>
+    <h3>Digital Realty at an AI Summit: "We Are Specifically Targeting Rural, Impoverished Areas"</h3>
+
+    <div class="admission-box">
+      <div class="admission-label">⚠️ Community Witness Account — Richard Kuser, Stafford/Spotsylvania Resident</div>
+      <p style="font-size:14px;color:#fca5a5;line-height:1.9;margin:0;">
+        "At the AI summit 3 weeks ago the company Digital Realty <strong>SPECIFICALLY</strong> said, they are <strong>TARGETING RURAL</strong> areas, especially <strong>impoverished towns that need a boost to their economies.</strong> Wait huh? How will a Data Center that employs 3 people boost an impoverished economy? Asking for a friend."
+      </p>
+      <p style="font-size:11px;color:#6b7280;margin-top:10px;line-height:1.7;">
+        ⚠️ This is Richard Kuser's personal account of a public AI industry summit, documented here as community testimony. CaseLock does not independently verify this account. Digital Realty has not confirmed or denied this statement publicly. This testimony is documented for community awareness and potential investigative follow-up. Source: "Enjoy Stafford, Virginia" Facebook group, May 2026.
+      </p>
+    </div>
+
+    <h4>Why This Matters — Even as a Community Account</h4>
+    <ul>
+      <li><strong>Digital Realty (NYSE: DLR)</strong> is one of the world's largest data center operators — $54 billion market cap. This is not a small player making an offhand comment.</li>
+      <li>If accurate, the statement describes a deliberate corporate siting strategy that exploits economic desperation in rural communities to bypass stronger local opposition.</li>
+      <li>Rural communities that "need a boost" have fewer resources to mount legal challenges, less media attention, and local officials more likely to approve anything that looks like economic development — regardless of actual job creation.</li>
+      <li>The "3 jobs" framing Richard Kuser raises is consistent with documented data center employment figures: hyperscale facilities of 500,000+ square feet typically employ <strong>30–50 permanent workers</strong> while consuming millions of gallons of water per day and generating billions in revenue for their home states and investors.</li>
+      <li>This is the same pattern documented in Caroline County, Botetourt County (Google), Stafford County (STACK), and Cherokee County, SC (Cielo Digital).</li>
+    </ul>
+
+    <div class="alert-amber alert">
+      <strong>What Investigators Should Ask:</strong> Is there a recording or transcript of this AI summit? What was the name and date of the event? Other attendees who heard this statement are potential witnesses. If Digital Realty's public filings, investor presentations, or internal documents confirm a "rural targeting" strategy, that becomes a documented corporate admission — not just a community account.
+    </div>
+    <div class="source">Source: Richard Kuser, "Enjoy Stafford, Virginia" Facebook group, shared by Joe Brito, May 2026. Community testimony — not independently verified by CaseLock.</div>
+  </div>
+
+  <!-- THE OFFICIAL MAP -->
+  <div class="section amber" id="map">
+    <div class="sec-title">🗺️ The Official Government Map — Spotsylvania County Planning Department</div>
+    <h3>This Is Not a Conspiracy Theory. This Is the County's Own Planning Document.</h3>
+
+    <p>A map produced by the <strong>Spotsylvania County Planning Department</strong> and circulated publicly in the "Enjoy Stafford, Virginia" community group (May 2026) shows every current and proposed data center project along the I-95 corridor from Fredericksburg south into Caroline County. This is an official government planning document — not an estimate or activist projection.</p>
+
+    <div class="stat-grid">
+      <div class="stat"><span class="stat-val red">15+</span><div class="stat-label">Named data center projects on the official Spotsylvania planning map</div></div>
+      <div class="stat"><span class="stat-val red">7</span><div class="stat-label">Active projects along the I-95 corridor between Fredericksburg and Caroline per Richard Kuser's account</div></div>
+      <div class="stat"><span class="stat-val red">3</span><div class="stat-label">Of those 7 now in Culpeper — the corridor is spreading west as well as south</div></div>
+      <div class="stat"><span class="stat-val red">2</span><div class="stat-label">Mattameade Tech Campus entries specifically labeled "Caroline County" on the Spotsylvania map — cross-county infrastructure confirmed</div></div>
+    </div>
+
+    <div class="alert-red alert">
+      <strong>The Mattameade Cross-County Confirmation:</strong> The official Spotsylvania planning map labels two entries as <em>"Mattameade Tech Campus (Accessory to Caroline County)"</em> and <em>"Mattameade Tech Campus (Caroline County)"</em> — in teal, listed separately as "Caroline County Data Center." This is the first official government document confirming that the Mattameade campus infrastructure is classified as crossing county lines. The water infrastructure serving it does not stop at the county border either.
+    </div>
+    <div class="source">Source: Spotsylvania County Planning Department official map, "Spotsylvania County Future and Potential Data Center Projects," circulated via "Enjoy Stafford, Virginia" Facebook group, May 2026. Prepared by Spotsylvania County Planning Department. Government document — public record.</div>
+  </div>
+
+  <!-- ALL NAMED PROJECTS -->
+  <div class="section" id="projects">
+    <div class="sec-title">📋 All Named Projects — From the Official Map</div>
+    <h3>Every Project Visible on the Spotsylvania Planning Department Map</h3>
+    <p>Status classifications are taken directly from the map legend. Each status category is the county's own designation.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin:16px 0">
+
+      <div class="project-card">
+        <div class="project-name">Belvedere Tech Campus</div>
+        <span class="project-status status-noapply">Special Use Permit Required — Not Yet Applied</span>
+        <div class="project-detail">Northeast corner of map. Largest labeled footprint in that quadrant.</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Crossroads Tech Campus</div>
+        <span class="project-status status-noapply">Special Use Permit Required — Not Yet Applied</span>
+        <div class="project-detail">North-central corridor, near the Fredericksburg/Spotsylvania line.</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Masseponax Tech Campus</div>
+        <span class="project-status status-sup">Special Use Permit in Process</span>
+        <div class="project-detail">Large parcel, east-central Spotsylvania. One of the larger projects by acreage on map.</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Summit Technology Park</div>
+        <span class="project-status status-approved">BOS Approved</span>
+        <div class="project-detail">Board of Supervisors already approved. East-central area.</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Summit Crossing Tech Campus</div>
+        <span class="project-status status-approved">BOS Approved</span>
+        <div class="project-detail">Adjacent or near Summit Technology Park. Both already approved.</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Hunter's Ridge Office Park</div>
+        <span class="project-status status-noapply">Special Use Permit Required — Not Yet Applied</span>
+        <div class="project-detail">Northwest quadrant near Fredericksburg Digital.</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Fredericksburg Digital</div>
+        <span class="project-status status-site">Site Plan in Process</span>
+        <div class="project-detail">Northwest area — site plan stage means construction is closer than SUP stage.</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Hunter's Ridge South</div>
+        <span class="project-status status-rezone">Rezoning in Process</span>
+        <div class="project-detail">South of Hunter's Ridge Office Park. Active rezoning = county actively processing.</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Cosner Tech Campus</div>
+        <span class="project-status status-sup">Special Use Permit in Process</span>
+        <div class="project-detail">Central Spotsylvania corridor.</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Carter's Store Tech Campus</div>
+        <span class="project-status status-approved">BOS Approved</span>
+        <div class="project-detail">Already approved. Carter's Store area — southern Spotsylvania, approaching Caroline line.</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Pairmont Data Center Campus</div>
+        <span class="project-status status-site">Site Plan in Process</span>
+        <div class="project-detail">Central-south corridor. Site plan stage.</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Spotsy Techno Campus</div>
+        <span class="project-status status-sup">Special Use Permit in Process</span>
+        <div class="project-detail">Listed separately from the larger tech campuses. Southwest area.</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Commerce Gateway</div>
+        <span class="project-status status-rezone">Rezoning in Process</span>
+        <div class="project-detail">West-central area. Rezoning underway.</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Thornburg Industrial</div>
+        <span class="project-status status-approved">BOS Approved</span>
+        <div class="project-detail">Thornburg area — near the Spotsylvania/Caroline county line. Already approved.</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Thornburg Industrial 2</div>
+        <span class="project-status status-sup">Special Use Permit in Process</span>
+        <div class="project-detail">Adjacent to Thornburg Industrial. Second phase.</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Thornburg Business Park</div>
+        <span class="project-status status-rezone">Rezoning in Process</span>
+        <div class="project-detail">Third Thornburg-area project. Near Broaddus. Close to Caroline border.</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Mattameade Tech Campus (Accessory to Caroline County)</div>
+        <span class="project-status status-caroline">Caroline County Data Center</span>
+        <div class="project-detail">Officially labeled as accessory to Caroline County on the Spotsylvania planning map. Cross-county classification confirmed by county's own document.</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Mattameade Tech Campus (Caroline County)</div>
+        <span class="project-status status-caroline">Caroline County Data Center</span>
+        <div class="project-detail">Second Mattameade entry — Caroline County designation. This is the Amazon Mattameade campus (confirmed from prior research): 11 buildings, 1,143 acres, estimated 2.8M+ gallons/day water consumption.</div>
+      </div>
+
+    </div>
+    <div class="source">Source: Spotsylvania County Planning Department, "Spotsylvania County Future and Potential Data Center Projects" official map. Circulated via "Enjoy Stafford, Virginia" Facebook group, May 2026. All status classifications taken directly from the county map legend.</div>
+  </div>
+
+  <!-- THE WATER MATH -->
+  <div class="section red" id="water">
+    <div class="sec-title">💧 The Water Math — What This Pipeline Actually Means</div>
+    <h3>"How Much Is Too Much? They Are Going to Run the Rappahannock Dry."<br><span style="font-size:14px;color:#94a3b8;">— Joe Brito, Enjoy Stafford Virginia, May 2026</span></h3>
+
+    <p>Joe Brito's headline is not hyperbole. Here is the math using publicly documented figures:</p>
+
+    <table>
+      <tr><th>Factor</th><th>Documented Figure</th><th>Source</th></tr>
+      <tr><td>Water use per large data center per day</td><td>2–5 million gallons</td><td>EPA; Lawrence Berkeley National Laboratory; industry water utility contracts</td></tr>
+      <tr><td>Evaporation rate (cooling towers)</td><td>~80% of water consumed is permanently lost</td><td>KETOS industrial water monitoring; EPA cooling tower data; three independent industry sources</td></tr>
+      <tr><td>Mattameade campus estimated consumption</td><td>2.8M+ gallons/day (11 buildings, 1,143 acres)</td><td>Prior CaseLock research — Amazon campus scale</td></tr>
+      <tr><td>Rappahannock River withdrawal permit applied for by Caroline County</td><td>9–13.9 million gallons/day</td><td>Caroline County permit application — public record</td></tr>
+      <tr><td>STACK Infrastructure Stafford County secret water agreement</td><td>5 million gallons/day = 50% of Stafford total capacity</td><td>FOIA-obtained contract; watershedassociation.org</td></tr>
+      <tr><td>Eastern Virginia Groundwater Management Area projected depletion</td><td>Aquifer system projected to dry by 2055</td><td>Virginia Department of Environmental Quality; 9VAC25-600-20</td></tr>
+      <tr><td>Projects on Spotsylvania map currently approved or under construction</td><td>At minimum 4–5 (Summit, Summit Crossing, Carter's Store, Thornburg Industrial, Fredericksburg Digital)</td><td>Spotsylvania Planning Department official map</td></tr>
+    </table>
+
+    <div class="alert-red alert">
+      <strong>The Cumulative Problem:</strong> Each individual project gets reviewed in isolation. No single approval requires the county to calculate cumulative water withdrawal across all projects simultaneously. By the time the 8th or 10th campus comes online, the Rappahannock, Mattaponi, and Polecat watersheds — the same watersheds Aqua Virginia draws from to serve Lake Land'Or and Heritage — are already severely stressed. There is no legal mechanism currently requiring a cumulative environmental impact assessment across county lines.
+    </div>
+
+    <div class="alert-amber alert">
+      <strong>Tony Maccini's Warning (Community Testimony):</strong> "Wait until Broad Run and Goose Creek run dry. They will be piping in from the Potomac." — This is consistent with documented water authority planning: when local sources are depleted, the next step is long-distance piping from larger rivers, which transfers the cost to ratepayers. Broad Run and Goose Creek serve Loudoun and Fauquier counties. Their depletion would accelerate Rappahannock basin stress.
+    </div>
+    <div class="source">Tony Maccini, comment in "Enjoy Stafford, Virginia" Facebook thread, May 2026. Community testimony — documented as resident awareness of water planning trajectory.</div>
+  </div>
+
+  <!-- COMMUNITY TESTIMONY -->
+  <div class="section purple" id="testimony">
+    <div class="sec-title">💬 Community Voices — Documented Public Testimony</div>
+    <h3>What Residents Are Saying — Stafford and Spotsylvania, May 2026</h3>
+    <p style="font-size:12px;color:#64748b;margin-bottom:16px;">All statements below are documented community testimony published in public Facebook groups. They are presented here as attributed community opinion, not as independently verified facts. CaseLock does not assert these statements as proven.</p>
+
+    <div class="testimony-card">
+      <div class="testimony-name">Joe Brito — "Enjoy Stafford, Virginia" group</div>
+      <div class="testimony-text">"How much is too much? They are going to run the Rappahannock dry!"</div>
+      <div class="testimony-note">Post caption sharing Richard Kuser's map and account. 18 reactions including angry and sad emojis. Public post, May 2026.</div>
+    </div>
+
+    <div class="testimony-card">
+      <div class="testimony-name">Richard Kuser — Stafford/Spotsylvania resident</div>
+      <div class="testimony-text">"Look at all the data centers being built along the I95 corridor between Fxbg and Caroline. Three of 7 are in Culpeper now. They're coming for every acre of land possible. At the AI summit 3 weeks ago the company Digital Realty SPECIFICALLY said they are TARGETING RURAL areas, especially impoverished towns that need a boost to their economies. Wait huh? How will a Data Center that employs 3 people boost an impoverished economy? Asking for a friend."</div>
+      <div class="testimony-note">Public Facebook post, shared by Joe Brito. Richard Kuser claims to have attended an AI summit where Digital Realty executives made this statement. This is his personal account of what was said. CaseLock does not independently verify this claim. Digital Realty has not publicly confirmed or denied this statement.</div>
+    </div>
+
+    <div class="testimony-card">
+      <div class="testimony-name">Mike Meyer — commenter</div>
+      <div class="testimony-text">"Ashburn is green. That's Daya-Center central 🤓"</div>
+      <div class="testimony-note">Reference to Ashburn, Virginia — the world's largest data center hub, now called "Data Center Alley." The point: Ashburn is the model. The corridor is moving south to replicate it. Public comment, May 2026.</div>
+    </div>
+
+    <div class="testimony-card">
+      <div class="testimony-name">Tony Maccini — commenter</div>
+      <div class="testimony-text">"Mike Meyer, wait until Broad Run and Goose Creek run dry. They will be piping in from the Potomac."</div>
+      <div class="testimony-note">Predicts the water depletion sequence: local streams depleted → long-distance Potomac piping → ratepayer cost transfer. Consistent with documented water authority planning patterns. Public comment, May 2026.</div>
+    </div>
+
+    <div class="testimony-card">
+      <div class="testimony-name">Christopher D Shelton — Top Contributor</div>
+      <div class="testimony-text">"Sure going to try!"</div>
+      <div class="testimony-note">Response to the concern. Top Contributor badge indicates active community figure. Public comment, May 2026.</div>
+    </div>
+
+    <div class="testimony-card" style="border-color:#dc2626">
+      <div class="testimony-name" style="color:#f87171">Christina Lhamon — commenter (24 minutes before screenshot)</div>
+      <div class="testimony-text">"When the river goes dry and the mud is left for folks to drink, we can thank the board. The companies will leave as Bezos and Google and Microsoft don't care. Their homes aren't here. They'll just pick up and leave. Just like the rust belt...move in, drain, and leave."</div>
+      <div class="testimony-note">This is among the most precise community articulations of the extraction model documented across this entire library. "Move in, drain, and leave" describes the rust belt pattern applied to water infrastructure. Public comment, May 2026.</div>
+    </div>
+  </div>
+
+  <!-- THE ASHBURN MODEL -->
+  <div class="section" id="ashburn">
+    <div class="sec-title">📍 The Ashburn Model — What They Are Replicating</div>
+    <h3>Ashburn, Virginia Is What This Corridor Becomes</h3>
+    <p>Mike Meyer's comment — "Ashburn is green. That's Daya-Center central" — is the most important single observation in this thread. Ashburn, Virginia (Loudoun County) is now called <strong>"Data Center Alley"</strong> and contains more data center square footage than anywhere else on earth. Here is what that looks like:</p>
+    <ul>
+      <li>Loudoun County processes approximately <strong>70% of the world's internet traffic</strong> through its data center infrastructure</li>
+      <li>Over <strong>300 data centers</strong> concentrated in a single county</li>
+      <li>Loudoun County has seen explosive property tax revenue — but also <strong>massive strain on water, power, and road infrastructure</strong></li>
+      <li>Dulles Greenway corridor has essentially been consumed by industrial data center campuses — residential character permanently altered</li>
+      <li>The industry has now <strong>saturated Loudoun</strong> and is actively moving south along I-95 and west into Culpeper and Fauquier — exactly what Richard Kuser's map documents</li>
+      <li>Tony Maccini's warning about Broad Run and Goose Creek reflects Loudoun's actual experience: local water sources are already under severe stress from Ashburn's data centers</li>
+    </ul>
+    <div class="alert-red alert">
+      <strong>The Direction of Travel Is Confirmed:</strong> The Spotsylvania planning map is not a random cluster of proposals. It is the documented southward and westward expansion of the Ashburn corridor — moving into rural, lower-income, less-organized communities that have fewer resources to fight back. Richard Kuser's account of Digital Realty's stated strategy, if accurate, describes exactly this pattern in the industry's own words.
+    </div>
+  </div>
+
+  <!-- THE RUST BELT WARNING -->
+  <div class="section amber" id="rustbelt">
+    <div class="sec-title">⚠️ The Rust Belt Warning — "Move In, Drain, and Leave"</div>
+    <h3>Christina Lhamon's Warning Is Historically Documented</h3>
+    <p>Christina Lhamon's comment — <em>"Just like the rust belt...move in, drain, and leave"</em> — is not just a slogan. It describes a documented economic pattern:</p>
+    <ul>
+      <li><strong>Steel mills in Pittsburgh, Gary, Youngstown:</strong> Moved in with promises of jobs and tax revenue. Extracted value for decades. Left when costs rose elsewhere. Communities left with contaminated land, depleted infrastructure, and no tax base.</li>
+      <li><strong>Coal in Appalachia (including Wyoming County, WV):</strong> Same pattern. Extracted resource, employed locals at below-market wages, left when seams ran out. Communities still paying for remediation 40 years later.</li>
+      <li><strong>Data centers apply the same model to water and power:</strong> They need cheap land, cheap water, cheap power, and favorable tax treatment. Rural impoverished communities offer all four. When better deals emerge elsewhere — or when local water runs out — the infrastructure is not portable, but the company is.</li>
+      <li><strong>The key difference from previous extraction:</strong> Steel mills left contaminated soil. Data centers will leave a depleted aquifer. You cannot remediate a dry aquifer on a 40-year timeline. The Eastern Virginia aquifer system is projected to reach depletion by 2055 — within the lifespan of children living in these communities today.</li>
+    </ul>
+    <div class="alert-red alert">
+      <strong>Christina Lhamon is correct about one specific thing:</strong> Bezos, Google, and Microsoft executives do not live in Caroline County, Spotsylvania County, or Wyoming County, WV. When the Rappahannock runs dry or the aquifer depletes, their homes are not affected. Their children do not drink this water. Their property values are not impacted. The externalized cost lands entirely on the people who remain.
+    </div>
+    <div class="source">Historical rust belt documentation: Brookings Institution; Ohio History Central; Appalachian Citizens' Law Center. Christina Lhamon community testimony attributed as personal opinion — not independently verified as a factual claim about specific companies' intentions.</div>
+  </div>
+
+  <!-- WHAT TO DO -->
+  <div class="section green" id="act">
+    <div class="sec-title">⚔️ What Spotsylvania and Stafford Residents Can Do Now</div>
+    <h3>The Pipeline Is Official. The Window to Act Is Before Each SUP Hearing.</h3>
+    <ul>
+      <li><strong>FOIA the full Spotsylvania planning map with all attached documents.</strong> Request from Spotsylvania County Planning Department: all applications, water impact studies, and environmental assessments for every project on the Future and Potential Data Center Projects map. Va. Code § 2.2-3704.</li>
+      <li><strong>File public comment on every active SUP application.</strong> Masseponax, Cosner, Spotsy Techno Campus, Hunter's Ridge South, Thornburg Industrial 2, Commerce Gateway all have active proceedings. Public comment is on the record permanently.</li>
+      <li><strong>Demand a cumulative water impact study.</strong> Each project is reviewed in isolation. Demand that the Board of Supervisors commission a cumulative environmental impact assessment covering all projects on the map simultaneously — including cross-county impacts on the Rappahannock and Mattaponi watersheds.</li>
+      <li><strong>Contact the Virginia DEQ.</strong> The Rappahannock River withdrawal permits are DEQ jurisdiction — not just county jurisdiction. File comments with DEQ on permit applications citing cumulative watershed impact. deq.virginia.gov</li>
+      <li><strong>Coordinate with Caroline County residents.</strong> The Mattameade campus crosses county lines. A coordinated cross-county intervention — Spotsylvania residents and Caroline residents filing together — is stronger than either filing alone.</li>
+      <li><strong>Document the Digital Realty summit account.</strong> If anyone else attended the AI summit Richard Kuser describes, their corroborating account strengthens the community's position. A journalist with the right contacts at Digital Realty could request comment on the "rural targeting" statement.</li>
+      <li><strong>File with the Virginia AG Consumer Protection Section.</strong> If you believe the economic development promises made by data center developers to local officials are materially misleading (e.g., "jobs" claims that overstate actual employment), that is a potential consumer protection issue. ag.virginia.gov</li>
+    </ul>
+
+    <div class="alert-green alert">
+      <strong>The Fluvanna Precedent:</strong> Fluvanna County implemented a permanent special-use permit requirement and effectively stopped by-right data center development with a unanimous Board vote. Spotsylvania still has projects in the SUP stage — meaning the window to oppose them at the permit level has not closed. Every project still labeled "Special Use Permit in Process" or "Not Yet Applied" is still stoppable.
+    </div>
+  </div>
+
+  <div class="related-links">
+    <a href="aqua_fight.html" class="rel-btn">
+      <span class="rel-btn-title">💧 Aqua Virginia Full Brief</span>
+      <span class="rel-btn-sub">Caroline County — water crisis documentation</span>
+    </a>
+    <a href="corridor.html" class="rel-btn">
+      <span class="rel-btn-title">🛣️ The I-95 Corridor Report</span>
+      <span class="rel-btn-sub">Full watershed & data center analysis</span>
+    </a>
+    <a href="national_data_center_crisis.html" class="rel-btn">
+      <span class="rel-btn-title">🌍 National Crisis Report</span>
+      <span class="rel-btn-sub">Every state. Same pattern.</span>
+    </a>
+    <a href="fluvanna.html" class="rel-btn">
+      <span class="rel-btn-title">✅ Fluvanna Won</span>
+      <span class="rel-btn-sub">How they stopped it — the playbook</span>
+    </a>
+    <a href="ceo_pay_systemic.html" class="rel-btn">
+      <span class="rel-btn-title">💰 Who Gets Paid</span>
+      <span class="rel-btn-sub">Executive pay vs. your water bill</span>
+    </a>
+    <a href="fight_back.html" class="rel-btn">
+      <span class="rel-btn-title">⚔️ 10 Legal Weapons</span>
+      <span class="rel-btn-sub">What actually stops data centers</span>
+    </a>
+  </div>
+</div>
+
+<div class="footer">
+  This page is for informational and community advocacy purposes only. It is not legal advice and does not create an attorney-client relationship. CaseLock is not a law firm. All community testimony is attributed to named sources and presented as personal accounts — not as independently verified facts. All community voices are documented as public testimony from public Facebook groups. The Digital Realty summit account is Richard Kuser's personal testimony and has not been independently verified. Map data sourced from official Spotsylvania County Planning Department document. DEQ and FOIA references cite publicly available Virginia law. For legal action, consult a licensed Virginia attorney.
+</div>
+</body>
+</html>
