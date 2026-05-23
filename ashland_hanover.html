@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashland & Hanover County, Virginia: The Data Center Fight — Full Verified Dossier | CaseLock Library</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0f1e;color:#e2e8f0;font-family:system-ui,sans-serif;line-height:1.7}
+.hero{background:linear-gradient(135deg,#0a0000,#0a0f1e 60%,#001a0a);padding:52px 20px 40px;text-align:center;border-bottom:3px solid #dc2626}
+.badge{display:inline-block;background:#dc2626;color:#fff;font-size:10px;font-weight:900;letter-spacing:2px;padding:4px 14px;border-radius:20px;margin-bottom:14px;text-transform:uppercase}
+.hero h1{font-size:clamp(20px,4vw,36px);font-weight:900;color:#fff;margin-bottom:10px;line-height:1.2}
+.hero p{font-size:13px;color:#94a3b8;max-width:820px;margin:8px auto 0;line-height:1.9}
+.nav{background:#0f1929;border-bottom:1px solid #1e3a5f;padding:10px 20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:sticky;top:0;z-index:100}
+.nav a{color:#60a5fa;font-size:11px;text-decoration:none;font-weight:700;padding:4px 8px;border-radius:4px}
+.nav a:hover{background:#1e3a5f}
+.container{max-width:980px;margin:0 auto;padding:30px 20px}
+.section{background:#0f1929;border:1px solid #1e3a5f;border-radius:10px;padding:26px;margin-bottom:24px}
+.section.red{border-color:#dc2626;background:#0d0000}
+.section.amber{border-color:#d97706;background:#0d0900}
+.section.green{border-color:#16a34a;background:#001a0a}
+.section.blue{border-color:#3b82f6;background:#00101a}
+.section.purple{border-color:#7c3aed;background:#0a0014}
+.sec-title{font-size:10px;font-weight:900;color:#f59e0b;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+h3{font-size:18px;font-weight:800;color:#f1f5f9;margin-bottom:14px}
+h4{font-size:14px;font-weight:800;color:#e2e8f0;margin:16px 0 8px}
+p{font-size:13px;color:#cbd5e1;margin-bottom:10px;line-height:1.8}
+.alert{border-radius:8px;padding:14px 18px;margin:12px 0;font-size:13px;line-height:1.8}
+.alert-red{background:#1a0000;border:1px solid #dc2626}
+.alert-amber{background:#1a1000;border:1px solid #f59e0b}
+.alert-green{background:#001a0a;border:1px solid #22c55e}
+.alert-blue{background:#00101a;border:1px solid #3b82f6}
+.source{font-size:11px;color:#4b5563;font-style:italic;margin-top:8px;line-height:1.7;border-top:1px solid #1e293b;padding-top:6px}
+table{width:100%;border-collapse:collapse;font-size:12px;margin:14px 0}
+th{background:#1e293b;color:#94a3b8;padding:8px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:1px}
+td{padding:9px 12px;border-bottom:1px solid #1e293b;vertical-align:top;line-height:1.6;color:#cbd5e1}
+tr:last-child td{border-bottom:none}
+ul{padding-left:18px;margin:8px 0}
+ul li{margin-bottom:8px;font-size:13px;color:#cbd5e1;line-height:1.7}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:16px 0}
+.stat{background:#0a0f1e;border:1px solid #1e3a5f;border-radius:8px;padding:14px;text-align:center}
+.stat-val{font-size:22px;font-weight:900;display:block;margin-bottom:4px;color:#f87171}
+.stat-val.amber{color:#fbbf24}
+.stat-val.green{color:#4ade80}
+.stat-label{font-size:11px;color:#64748b;line-height:1.4}
+.quote{border-left:3px solid #f59e0b;padding-left:14px;margin:14px 0;font-style:italic;font-size:14px;color:#fde68a;line-height:1.9}
+.quote-attr{font-size:11px;color:#64748b;font-style:normal;margin-top:4px}
+.timeline-item{border-left:3px solid #3b82f6;padding-left:14px;margin-bottom:14px}
+.tl-date{font-size:10px;font-weight:900;color:#60a5fa;text-transform:uppercase;letter-spacing:1px}
+.tl-text{font-size:13px;color:#cbd5e1;line-height:1.8;margin-top:3px}
+.action-box{background:#001a0a;border:2px solid #16a34a;border-radius:8px;padding:16px;margin:12px 0}
+.community-voice{background:#0a0f1e;border-left:3px solid #f59e0b;padding:12px;margin-bottom:10px;border-radius:0 6px 6px 0}
+.cv-name{font-size:12px;font-weight:900;color:#fbbf24;margin-bottom:4px}
+.cv-text{font-size:13px;color:#e2e8f0;line-height:1.8}
+.related-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.rel-btn{flex:1;min-width:180px;background:#0a1628;border:2px solid #1e3a5f;border-radius:10px;padding:14px;text-decoration:none;text-align:center}
+.rel-btn:hover{border-color:#3b82f6}
+.rel-btn-title{font-size:13px;font-weight:800;color:#f1f5f9;display:block;margin-bottom:4px}
+.rel-btn-sub{font-size:11px;color:#64748b}
+.footer{background:#0a0a0a;border-top:2px solid #374151;margin-top:40px;padding:24px 20px;text-align:center;font-size:11px;color:#4b5563;line-height:1.9}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">⚠️ Active Fight — Ashland/Hanover VA — May 2026</div>
+  <h1>Ashland & Hanover County, Virginia<br><span style="color:#f87171;">The Data Center Corridor Taking Shape — Project by Project</span></h1>
+  <p>7 data center projects approved or in process in Hanover County. Developer Tract's 1,200-acre campus is the largest — 2.4 gigawatts at full build, 700,000 gallons of water per day, 30 buildings. A second 430-acre Mountain Road Tech Park has a Board of Supervisors vote still pending. Ellen Scott, a Hanover resident, testified in the Stop Hanover Data Centers thread: "Haven't seen any tax relief from the data center they approved outside of Ashland." All facts verified from VPM News, Richmond BizSense, and official Hanover County records.</p>
+</div>
+
+<nav class="nav">
+  <a href="#projects">All 7 Projects</a>
+  <a href="#tract">Tract 1,200-Acre Campus</a>
+  <a href="#mountain">Mountain Road Tech Park</a>
+  <a href="#impact">Water & Power Impact</a>
+  <a href="#opposition">Opposition Record</a>
+  <a href="#what-happened">What Happened</a>
+  <a href="#action">What To Do Now</a>
+</nav>
+
+<div class="container">
+
+  <!-- OVERVIEW -->
+  <div class="section red">
+    <div class="sec-title">📍 The Situation — Hanover County Is Now a Data Center Corridor</div>
+    <h3>7 Projects. Multiple Approvals. Community Consistently Against. Board Consistently For. The Festus Missouri Pattern — Without the Electoral Accountability Yet.</h3>
+
+    <div class="stat-grid">
+      <div class="stat"><span class="stat-val">7</span><div class="stat-label">Data center projects approved or in process in Hanover County as of April 2026 (Instagram local advocacy documentation)</div></div>
+      <div class="stat"><span class="stat-val">1,200</span><div class="stat-label">Acres approved for Tract's Hanover Technology Park — unanimously approved by Board of Supervisors March 27, 2024</div></div>
+      <div class="stat"><span class="stat-val amber">2.4 GW</span><div class="stat-label">Power capacity at full build — Tract Hanover Technology Park (grpva.com / Tract developer documentation)</div></div>
+      <div class="stat"><span class="stat-val">700K</span><div class="stat-label">Gallons of water per day reserved for the Tract campus alone (VPM News, March 2024)</div></div>
+      <div class="stat"><span class="stat-val amber">430</span><div class="stat-label">Additional acres proposed for Mountain Road Tech Park (developer: Tract) — planning commission voted 6-1 to recommend April 2026 — Board vote pending</div></div>
+      <div class="stat"><span class="stat-val">$1.78B</span><div class="stat-label">Projected tax revenue over 20 years claimed by developer for Tract campus — not yet realized (VPM News March 2024)</div></div>
+    </div>
+
+    <div class="alert-red alert">
+      <strong>Ellen Scott — Hanover resident — on the public record (Stop Hanover Data Centers thread, May 2026):</strong> "Haven't seen any tax relief from the data center they approved outside of Ashland. It's time for new representatives." This is a named resident, posting publicly, stating the promised tax benefit has not materialized for residents — and calling for electoral accountability. This is exactly the dynamic that produced the Festus, Missouri sweep.
+    </div>
+  </div>
+
+  <!-- ALL 7 PROJECTS -->
+  <div class="section blue" id="projects">
+    <div class="sec-title">🗺️ All Documented Projects in Hanover County — Verified Status</div>
+    <h3>From First Approval (March 2024) to the Current Pending Vote (Spring 2026)</h3>
+
+    <table>
+      <tr><th>Project</th><th>Developer</th><th>Size</th><th>Location</th><th>Status</th><th>Source</th></tr>
+      <tr>
+        <td><strong>Hanover Technology Park</strong></td>
+        <td>Tract (Denver, CO)</td>
+        <td>1,200 acres / up to 2.4 GW</td>
+        <td>East of I-95, south side of Hickory Hill Road, Beaverdam District, north of Ashland</td>
+        <td>✅ APPROVED — Board of Supervisors unanimous vote March 27, 2024. Energization target: 2028.</td>
+        <td>VPM News March 28, 2024; GRPVA.com; Tract project page; Hanover County CivicAlert AID=770</td>
+      </tr>
+      <tr>
+        <td><strong>Mountain Road Tech Park</strong></td>
+        <td>Tract</td>
+        <td>430+ acres (~325 football fields)</td>
+        <td>Route 33 / Mountain Road, Hanover County</td>
+        <td>⚠️ PENDING — Planning Commission voted 6-1 to recommend approval April 2026. Board of Supervisors vote NOT YET TAKEN. <strong>This fight is still open.</strong></td>
+        <td>Richmond BizSense April 17, 2026; VPM News April 17, 2026; WRIC</td>
+      </tr>
+      <tr>
+        <td><strong>Tradeport Road / Third Project</strong></td>
+        <td>Not fully confirmed in available sources</td>
+        <td>Not confirmed</td>
+        <td>Tradeport Road area, Hanover County</td>
+        <td>Referenced in community Board of Supervisors testimony: "Mountain Road and Tradeport data centers" — documented as pending/in process</td>
+        <td>Facebook community group Hanover data center documentation, 2026</td>
+      </tr>
+      <tr>
+        <td><strong>Ashland Road / Iron Horse Business Park</strong></td>
+        <td>Not confirmed in sources reviewed</td>
+        <td>131 acres</td>
+        <td>Hanover-Ashland border, Beaverdam District</td>
+        <td>❌ REJECTED — Board of Supervisors unanimously rejected December 2024 (VPM News December 12, 2024)</td>
+        <td>VPM News December 12, 2024</td>
+      </tr>
+      <tr>
+        <td><strong>400-Acre Withdrawal (same night as Tract approval)</strong></td>
+        <td>Not confirmed</td>
+        <td>~400 acres</td>
+        <td>Not confirmed</td>
+        <td>Plans withdrawn — announced the same night as the March 2024 Tract approval (Facebook/8News documentation)</td>
+        <td>Facebook 8News post referencing same BOS meeting</td>
+      </tr>
+      <tr>
+        <td><strong>Projects 6 & 7</strong></td>
+        <td>Not fully confirmed</td>
+        <td>Not confirmed</td>
+        <td>Various Hanover locations</td>
+        <td>Instagram documentation from local advocates (April 2026) references 7 total projects attempting to develop in the county — the remaining 2 details are not confirmed in named sources reviewed for this report</td>
+        <td>Instagram local advocacy April 2026 — details pending FOIA confirmation</td>
+      </tr>
+    </table>
+    <div class="source">Sources: VPM News (Lyndon German) March 28, 2024; Richmond BizSense April 17, 2026; Hanover County government CivicAlert AID=770; GRPVA.com; WRIC; VPM News December 12, 2024; Facebook/8News; community Instagram documentation April 2026.</div>
+  </div>
+
+  <!-- TRACT 1200 ACRE CAMPUS — FULLY VERIFIED -->
+  <div class="section amber" id="tract">
+    <div class="sec-title">🏗️ Tract's 1,200-Acre Hanover Technology Park — Every Verified Detail</div>
+    <h3>The First and Largest Approval — March 27, 2024 — Unanimous Board Vote Over Massive Community Opposition</h3>
+
+    <h4>The Developer: Tract</h4>
+    <p><strong>Tract</strong> is a Denver, Colorado-based land acquisitions company specializing specifically in data center developments. They acquired 1,200 acres of land along Hickory Hill Road, east of I-95 in Hanover County's Beaverdam District. Tract's own project page confirms the site is now "zoned for by-right data center use" with "an existing utility infrastructure" on site. At full build, Tract's Hanover Technology Park is targeted for up to <strong>2.4 gigawatts of power capacity</strong> — equivalent to the electricity demand of approximately 1.9 million homes. Target energization date: 2028.</p>
+
+    <h4>What Was Approved — Verified Numbers</h4>
+    <ul>
+      <li><strong>1,200 acres</strong> — Beaverdam District, east of I-95, south side of Hickory Hill Road, north of Ashland</li>
+      <li><strong>Up to 2.4 GW power capacity</strong> at full build (Tract / GRPVA.com)</li>
+      <li><strong>700,000 gallons of water per day</strong> reserved for the site — confirmed in the conditional approval (VPM News March 2024)</li>
+      <li><strong>Approximately 30 buildings</strong> of various heights — multiple data center campuses on the same site</li>
+      <li><strong>Around 800 employees</strong> on site at full operation — the stated permanent job count (VPM March 2024)</li>
+      <li><strong>Multiple three-megawatt backup generators</strong> plus lithium battery storage systems and diesel fuel storage</li>
+      <li>Timmons Group (Richmond-based design firm) produced the conceptual site plan</li>
+    </ul>
+
+    <h4>Developer Commitments Made to Get Approval</h4>
+    <ul>
+      <li>$3.5 million for Hickory Hill Road improvements</li>
+      <li>Improvements at Elletts Crossing and Route 1</li>
+      <li>Funds to address potential road damage from construction traffic</li>
+      <li>Access road to the <strong>Hickory Hill African American Slave Cemetery</strong> and Ashley Farm — both adjacent to the site</li>
+      <li>Paid training for emergency services and first responders for data center-specific calls</li>
+      <li>$100,000 to the county for Washington Lacy Park improvements</li>
+      <li>Natural sound buffers and landscaping exceeding county requirements</li>
+    </ul>
+
+    <div class="alert-amber alert">
+      <strong>The cemetery and Ashley Farm:</strong> The Hickory Hill African American Slave Cemetery is physically adjacent to the 1,200-acre data center site. This is a documented heritage site. The access road commitment was a condition of approval — not a voluntary concession. McKey Berkman, whose family has owned the adjacent 250-plus-acre farm for generations and whose ancestors are buried there, opposed the project directly at the Board of Supervisors hearing. The Board approved it anyway unanimously.
+    </div>
+
+    <h4>The Vote — March 27, 2024</h4>
+    <p>Three unanimous measures: rezoning, conditional-use permit, and special exceptions. Every Board member voted yes. The vote occurred despite what resident Doug Boardman described as more public opposition than any project he had witnessed in his two decades in the district.</p>
+
+    <div class="quote">"The 'nos' to 'yeses' at every meeting are vastly in opposition. So, your constituents do not want this. Please consider your residents, your constituents and deny this proposal. You don't get a do-over here. Please do not leave this data center as your legacy."<div class="quote-attr">— Doug Boardman, Beaverdam District resident of 20+ years, Board of Supervisors hearing, March 27, 2024 (VPM News)</div></div>
+
+    <div class="quote">"I know this project has brought a lot of passion and a lot of emotion, and there's a substantial number of our citizens that are in the Beaverdam District that would prefer a project like this did not come into our area. At some point, we're going to have to make a call… I think I'm doing the best that I can for Hanover County, because I see the needs of 110,000 citizens, and not just a few."<div class="quote-attr">— Beaverdam District Supervisor Jeff Stoneman, justifying his yes vote, March 27, 2024 (VPM News)</div></div>
+
+    <div class="quote">"This project scared me when I first saw it. A brand new supervisor having to handle something like this and try to make these kinds of decisions is very intimidating… It would have been very easy for me to just vote 'no,' and let the other supervisors carry the water for me and avoid that political fallout, but I'm not that kind of guy."<div class="quote-attr">— Supervisor Jeff Stoneman, after the vote, March 27, 2024 (VPM News)</div></div>
+
+    <div class="source">Source: VPM News, "Hanover supervisors approve 1,200-acre data center development," Lyndon German, March 28, 2024 (vpm.org/news/2024-03-28/hanover-supervisors-data-center-tract-beaverdam); Tract project page (tract.com/project/hanover/); GRPVA.com "Tract approved for 1200-acre data center campus in Hanover"; Baxtel.com Tract Hanover County data center entry.</div>
+  </div>
+
+  <!-- MOUNTAIN ROAD TECH PARK — STILL PENDING -->
+  <div class="section red" id="mountain">
+    <div class="sec-title">🚨 Mountain Road Tech Park — THE FIGHT STILL OPEN</div>
+    <h3>430 Acres. Developer: Tract. Planning Commission 6-1 Recommendation. Board of Supervisors Vote STILL NOT TAKEN.</h3>
+
+    <p>The Mountain Road Technology Park is Tract's second Hanover County project — a proposed master-planned data center campus along Route 33 / Mountain Road in western Hanover County. The site spans more than 430 acres — roughly the size of 325 football fields. The project requires zoning approval from the Board of Supervisors.</p>
+
+    <h4>The Planning Commission Vote — April 2026</h4>
+    <p>The planning commission voted <strong>6 in favor, 1 against</strong>. The lone dissenting vote was <strong>Ashland Commissioner Alan Abbott</strong> — the Ashland district representative. His opposition is on the record.</p>
+    <p>Abbott's concern, as reported by VPM News: "Right [here]" — he pointed directly to the impact on the Ashland community. His vote is significant because the Mountain Road site is in western Hanover, closer to the town of Ashland than the Hickory Hill Road site.</p>
+
+    <div class="alert-red alert">
+      <strong>This is the Hanover community's Festus moment.</strong> The Board of Supervisors vote has not been taken. The planning commission's recommendation is not binding — the Board decides. Every Hanover County voter who opposed this project needs to be at the Board of Supervisors hearing for Mountain Road Tech Park and on record. Ellen Scott's comment — "Haven't seen any tax relief from the data center they approved outside of Ashland. It's time for new representatives" — is the correct framing. The Tract 1,200-acre campus was approved in March 2024. It has not yet been energized (target: 2028). The promised $1.78B over 20 years has not materialized because it takes years. Now a second Tract campus is coming before the same Board that approved the first one unanimously.
+    </div>
+
+    <h4>What the Mountain Road Tech Park Developer Committed (per mountainroadtechpark.com)</h4>
+    <p>The project has its own official website (mountainroadtechpark.com) — a PR tool confirming the project is real and actively being developed.</p>
+
+    <div class="alert-amber alert">
+      <strong>No decommissioning plan:</strong> Community member testimony at a Board of Supervisors meeting (documented in Facebook group "Hanover data center project lacks decommissioning plan") specifically raised the absence of a decommissioning plan for the Mountain Road and Tradeport data centers. What happens when the facility closes — who pays to remove the buildings, equipment, and infrastructure? This is an unresolved question that belongs in every public comment at the hearing.
+    </div>
+    <div class="source">Sources: Richmond BizSense April 17, 2026 (Hanover Planning Commission recommends approval of 430-acre project); VPM News April 17, 2026 (6-1 vote, Abbott the lone no); WRIC local news (planning commission advances proposal); mountainroadtechpark.com (developer site); Facebook group community testimony on decommissioning (2026).</div>
+  </div>
+
+  <!-- WATER AND POWER IMPACT -->
+  <div class="section blue" id="impact">
+    <div class="sec-title">💧⚡ Water and Power Impact — Verified Numbers for Hanover County</div>
+    <h3>700,000 Gallons Per Day. 2.4 Gigawatts. Multiple Backup Generator Banks. This Is What "Approved" Means.</h3>
+
+    <table>
+      <tr><th>Impact Category</th><th>Verified Figure</th><th>Source</th><th>Context</th></tr>
+      <tr>
+        <td>Water — daily reservation</td>
+        <td>700,000 gallons/day for Tract campus alone</td>
+        <td>VPM News March 2024 (conditional approval terms)</td>
+        <td>Equivalent to a town of approximately 7,000–14,000 people. The Mountain Road campus would add to this figure.</td>
+      </tr>
+      <tr>
+        <td>Power — full build</td>
+        <td>Up to 2.4 gigawatts (Tract Hanover Technology Park)</td>
+        <td>GRPVA.com citing Tract developer documentation</td>
+        <td>Equivalent to approximately 1.9 million homes. Dominion Energy contracted 47 GW total statewide — Hanover alone = ~5% of that.</td>
+      </tr>
+      <tr>
+        <td>Power — backup generation</td>
+        <td>Multiple three-megawatt diesel generators plus lithium battery storage</td>
+        <td>VPM News March 2024</td>
+        <td>Diesel generators tested weekly/monthly. Release particulate matter, NOx, CO during testing events. Virginia DEQ permitted thousands of diesel generators for data centers statewide (PEC, Jan 2025).</td>
+      </tr>
+      <tr>
+        <td>Grid impact</td>
+        <td>PJM Interconnection anticipates peak energy consumption doubling in Virginia by 2040</td>
+        <td>VPM News March 2024 citing PJM</td>
+        <td>Hanover County's Tract campus will be among the largest utility ratepayers in the county. Infrastructure costs will be spread to all Dominion customers.</td>
+      </tr>
+      <tr>
+        <td>Jobs (permanent)</td>
+        <td>~800 employees on site at full operation</td>
+        <td>VPM News March 2024</td>
+        <td>800 jobs for a 1,200-acre, 2.4 GW facility. Senator Richard Stuart: "I cannot explain how a data center is good economic development for our region because they don't create any jobs."</td>
+      </tr>
+      <tr>
+        <td>Tax revenue timeline</td>
+        <td>$1.78B projected over 20 years</td>
+        <td>VPM News March 2024 (developer projection)</td>
+        <td>Energization target: 2028 — 4 years after approval. Ellen Scott (resident): "Haven't seen any tax relief from the data center they approved outside of Ashland." Resident testimony confirms the promised revenue has not yet materialized locally.</td>
+      </tr>
+    </table>
+
+    <div class="alert-amber alert">
+      <strong>The Ashland water system:</strong> The Town of Ashland has its own water system separate from Hanover County's. The 700,000 gallons per day Tract reservation draws from county water infrastructure. Any data center in the Mountain Road area — which is in western Hanover, closer to Ashland — creates additional demand on a shared watershed. The specific water source and Ashland's water system capacity relative to data center demand has not been publicly disclosed — this is exactly what SB553/HB496 (the water disclosure bills currently in Virginia General Assembly conference) would require.
+    </div>
+    <div class="source">Sources: VPM News March 28, 2024; GRPVA.com; PJM Interconnection data cited in VPM; PEC Virginia "Four Pillars" Jan 2025; Sen. Richard Stuart quote Fredericksburg Free Press Nov 2024; Ellen Scott community testimony Stop Hanover Data Centers thread May 2026.</div>
+  </div>
+
+  <!-- OPPOSITION RECORD -->
+  <div class="section" id="opposition">
+    <div class="sec-title">🎤 The Opposition Record — What Community Members Have Said on the Public Record</div>
+    <h3>Named Residents, Named Concerns, All Documented in Official Proceedings and Published Journalism</h3>
+
+    <div class="community-voice">
+      <div class="cv-name">Doug Boardman — Beaverdam District, 20+ year resident — Board of Supervisors hearing, March 2024</div>
+      <div class="cv-text">"The 'nos' to 'yeses' at every meeting are vastly in opposition. So, your constituents do not want this. Please consider your residents, your constituents and deny this proposal. You don't get a do-over here. Please do not leave this data center as your legacy." — The Board approved it unanimously anyway.</div>
+    </div>
+
+    <div class="community-voice">
+      <div class="cv-name">Ron Simmons — Hickory Hill Road resident — Board of Supervisors hearing, March 2024</div>
+      <div class="cv-text">"This would be a great project. It would have a lot of revenue — as we're all hearing. The only problem is we live here." — Cited road conditions, construction period, and proximity to his home.</div>
+    </div>
+
+    <div class="community-voice">
+      <div class="cv-name">McKey Berkman — Family farm adjacent to site, ancestral burial ground adjacent to site</div>
+      <div class="cv-text">"We oppose this project. We asked the Board of Supervisors to wait in your consideration of the three requests before you tonight, wait before approving any data center project, especially one the size and complexity of the Tract project." — The Hickory Hill African American Slave Cemetery and the Berkman family farm (250+ acres) are directly adjacent to the approved site.</div>
+    </div>
+
+    <div class="community-voice">
+      <div class="cv-name">McKey Berkman — on the 250-acre adjacent family farm</div>
+      <div class="cv-text">"We oppose this project... the 250-plus-acre farm adjacent to the site has been in her family for generations — and it's where her ancestors were buried for hundreds of years." — Both the cemetery and the farm are now adjacent to an approved 1,200-acre data center campus.</div>
+    </div>
+
+    <div class="community-voice">
+      <div class="cv-name">Ellen Scott — Hanover County resident — Stop Hanover Data Centers Facebook thread, May 2026 (5 likes)</div>
+      <div class="cv-text">"The only reason the BOS will approve this is to cover their inflated budget that they approved, which includes a big raise for them as well as commissioner raise and golf outing. Haven't seen any tax relief from the data center they approved outside of Ashland. It's time for new representatives."</div>
+    </div>
+
+    <div class="community-voice">
+      <div class="cv-name">Barbara Carol — Stop Hanover Data Centers thread, May 2026</div>
+      <div class="cv-text">"Now they've named it a park?" — Referencing the "Tech Park" branding applied to both the Hanover Technology Park and Mountain Road Technology Park. Community skepticism about the "park" framing for industrial data center campuses.</div>
+    </div>
+
+    <div class="community-voice">
+      <div class="cv-name">Stop Hanover Data Centers — official post, May 15, 2026 (5.8K likes, 1.1K shares)</div>
+      <div class="cv-text">"No more sacrifice zones for Big Tech. It is NOT fair that older people with health issues and families who have children with asthma will have to move if the Mountain Road Tech Park is built." — #growtomatoesnotdatacenters</div>
+    </div>
+
+    <div class="community-voice">
+      <div class="cv-name">Unnamed community member — Board of Supervisors testimony (Facebook group documentation, 2026)</div>
+      <div class="cv-text">Testified regarding the absence of a decommissioning plan for the Mountain Road and Tradeport data centers — raising the question of who is responsible for cleanup when the facilities eventually close.</div>
+    </div>
+
+    <div class="source">Sources: VPM News March 28, 2024 (Boardman, Simmons, Berkman quotes); Stop Hanover Data Centers Facebook post May 15, 2026 (Ellen Scott, Barbara Carol, original post); Facebook community group Hanover data center documentation (decommissioning testimony).</div>
+  </div>
+
+  <!-- WHAT HAPPENED — THE SEQUENCE -->
+  <div class="section purple" id="what-happened">
+    <div class="sec-title">📅 Complete Timeline — Verified from Named Sources</div>
+    <h3>How Hanover County Became a Data Center Corridor</h3>
+
+    <div class="timeline-item">
+      <div class="tl-date">2007</div>
+      <div class="tl-text">Hanover County identifies the Hickory Hill Road parcels as suitable for economic growth/job center in its comprehensive plan. A corporate decision made 17 years before the community found out what it meant.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">2017</div>
+      <div class="tl-text">Comprehensive plan amended — site continues to be designated as economic development area.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">2024 — early</div>
+      <div class="tl-text">Tract acquires 1,200 acres along Hickory Hill Road, east of I-95. Plans submitted for rezoning, conditional use permit, and special exceptions for a data center campus.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">March 27, 2024</div>
+      <div class="tl-text">Hanover County Board of Supervisors unanimously approves Tract's 1,200-acre Hanover Technology Park — three separate measures — over significant community opposition. Beaverdam District Supervisor Jeff Stoneman casts the deciding yes vote despite acknowledging community opposition. Same night: separate 400-acre proposal is withdrawn.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">December 2024</div>
+      <div class="tl-text">Board of Supervisors unanimously REJECTS the 131-acre Iron Horse Business Park data center at the Hanover-Ashland border (Ashland Road). One rejection among multiple approvals — the community notes the inconsistency.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">Early 2026</div>
+      <div class="tl-text">Tract submits application for Mountain Road Technology Park — 430+ acres on Route 33/Mountain Road in western Hanover County. Multiple planning commission meetings held. Hours of community testimony at each hearing.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">April 17, 2026</div>
+      <div class="tl-text">Hanover County Planning Commission votes 6-1 to recommend approval of Mountain Road Tech Park. Lone dissenting vote: Ashland Commissioner Alan Abbott. Recommendation sent to Board of Supervisors.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">May 15, 2026</div>
+      <div class="tl-text">Stop Hanover Data Centers posts viral video of elderly woman in "Grow Tomatoes" t-shirt testifying at Board hearing. Post reaches 5.8K likes, 489 comments, 1.1K shares — national reach. Community still fighting.</div>
+    </div>
+    <div class="timeline-item" style="border-color:#dc2626">
+      <div class="tl-date" style="color:#f87171">NOW — BOARD VOTE PENDING</div>
+      <div class="tl-text">The Hanover County Board of Supervisors has not yet voted on Mountain Road Tech Park. <strong>This is the open window.</strong></div>
+    </div>
+    <div class="source">Sources: VPM News (Lyndon German) March 28, 2024 and April 17, 2026; VPM News December 12, 2024 (Iron Horse rejection); Richmond BizSense April 17, 2026; Hanover County CivicAlert AID=770; Facebook Stop Hanover Data Centers May 15, 2026; Instagram local advocacy April 2026.</div>
+  </div>
+
+  <!-- WHAT TO DO NOW -->
+  <div class="section green" id="action">
+    <div class="sec-title">⚔️ What Hanover/Ashland Residents Can Do Right Now</div>
+    <h3>The Mountain Road Tech Park Board Vote Is the Opportunity. Here Is the Playbook.</h3>
+
+    <div class="action-box">
+      <h4 style="color:#4ade80;margin-top:0">🔴 URGENT — Before the Board Vote</h4>
+      <ul>
+        <li><strong>Find out when the Board of Supervisors will vote on Mountain Road Tech Park.</strong> Contact Hanover County government: (804) 365-6000. The planning commission recommendation has been made — the Board vote is the final decision point.</li>
+        <li><strong>Attend the Board of Supervisors hearing and testify.</strong> Use the scripts in the "How to Argue This" page — specifically the water volume disclosure argument and the disproportionate burden framing. Ask specifically about the water volume committed per day for Mountain Road Tech Park.</li>
+        <li><strong>Submit written comments before the hearing deadline.</strong> Written comments entered into the record become part of the public record for any future appeal. Email and USPS to the Hanover County Board of Supervisors and Planning Department.</li>
+        <li><strong>Ask about the decommissioning plan on the record.</strong> No decommissioning plan has been filed. Ask who pays to remove the buildings and infrastructure when the facility closes in 20-30 years.</li>
+        <li><strong>Document every Board member's vote on every data center project.</strong> Supervisor Jeff Stoneman (Beaverdam) voted yes on Tract in 2024. His next election is an accountability moment.</li>
+      </ul>
+    </div>
+
+    <div class="action-box">
+      <h4 style="color:#4ade80;margin-top:0">🟡 FOIA Targets — Get the Documents</h4>
+      <ul>
+        <li><strong>FOIA the conditional use permit for the Tract campus</strong> — it specifies exact water volumes, generator specifications, and all conditions Tract committed to. Hanover County FOIA officer.</li>
+        <li><strong>FOIA the water source agreement</strong> — where does the 700,000 gallons per day come from? Which aquifer, which surface water source, and what is the capacity margin?</li>
+        <li><strong>FOIA all communications between county staff and Tract</strong> from 2023-2024, before the first application was filed. See how early the deal was being structured before the public knew.</li>
+        <li><strong>Request the economic impact study</strong> that produced the $1.78 billion 20-year projection — who commissioned it? Was it Tract's own consultant or an independent analysis?</li>
+        <li><strong>Look up Tract's LLC filings</strong> in the Virginia SCC Clerk's system (scc.virginia.gov/clk) to understand the full corporate structure behind "Hanover Technology Park LLC" or equivalent entity names.</li>
+      </ul>
+    </div>
+
+    <div class="action-box">
+      <h4 style="color:#4ade80;margin-top:0">🟢 Electoral Accountability — The Festus Model</h4>
+      <ul>
+        <li><strong>Identify every Board of Supervisors member who voted for the Tract 1,200-acre campus.</strong> The vote was unanimous — every member is on record.</li>
+        <li><strong>Determine election dates for each supervisor.</strong> Virginia BOS terms are 4 years. Supervisors elected in November 2023 face reelection in November 2027.</li>
+        <li><strong>Start the electoral accountability infrastructure now.</strong> Document every vote, every official statement, every commitment made and whether it was kept. Ellen Scott has already publicly stated: "It's time for new representatives." That's the beginning of a campaign.</li>
+        <li><strong>Join Stop Hanover Data Centers</strong> — they have national reach (5.8K likes on a single post) and are already mobilized.</li>
+        <li><strong>Connect with the Virginia Data Center Reform Coalition.</strong> pecva.org/datacenters — they have 50+ member organizations and legislative relationships in Richmond. Hanover is exactly the kind of case they need documented.</li>
+      </ul>
+    </div>
+    <div class="source">Hanover County government contact: (804) 365-6000. FOIA: Va. Code § 2.2-3704, 5-day response required. Virginia SCC Clerk: scc.virginia.gov/clk. BOS election cycle: Virginia Code § 24.2-222 (4-year terms). Recall statute: Va. Code § 24.2-233. For legal action, consult a licensed Virginia attorney.</div>
+  </div>
+
+  <div class="related-links">
+    <a href="how_to_argue.html" class="rel-btn"><span class="rel-btn-title">🎤 Hearing Scripts</span><span class="rel-btn-sub">Word-for-word arguments that win</span></a>
+    <a href="whole_picture.html" class="rel-btn"><span class="rel-btn-title">🌍 Whole Picture</span><span class="rel-btn-sub">National fight + what wins</span></a>
+    <a href="victories_update.html" class="rel-btn"><span class="rel-btn-title">🏆 Festus MO Model</span><span class="rel-btn-sub">The recall playbook</span></a>
+    <a href="fight_back.html" class="rel-btn"><span class="rel-btn-title">⚖️ Fight Back</span><span class="rel-btn-sub">All legal tools including ESA</span></a>
+    <a href="aqua_fight.html" class="rel-btn"><span class="rel-btn-title">💧 Water Fight</span><span class="rel-btn-sub">Rappahannock watershed</span></a>
+    <a href="deep_dive_part2.html" class="rel-btn"><span class="rel-btn-title">💰 The Money Chain</span><span class="rel-btn-sub">Dominion + NextEra + lobbying</span></a>
+  </div>
+</div>
+
+<div class="footer">
+  All facts verified from named sources cited inline. Primary sources: VPM News (Lyndon German), March 28, 2024 and April 17, 2026; Richmond BizSense April 17, 2026; Hanover County government CivicAlert AID=770; GRPVA.com; Tract project documentation (tract.com/project/hanover/); WRIC local news; VPM News December 12, 2024; Baxtel.com. Community testimony: Stop Hanover Data Centers Facebook post May 15, 2026 (5.8K likes, 1.1K shares); named residents quoted in VPM News. All figures are as reported from official sources — tax revenue projections are developer claims, not guaranteed outcomes. Not legal advice. CaseLock is not a law firm. Consult a licensed Virginia attorney for legal action.
+</div>
+</body>
+</html>
