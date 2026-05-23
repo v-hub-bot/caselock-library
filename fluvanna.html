@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fluvanna County — The Full Fight | CaseLock Library</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0a0f1e;color:#e2e8f0;font-family:system-ui,sans-serif;line-height:1.7}
+  .hero{background:linear-gradient(135deg,#0a0f1e 0%,#0a1a0a 50%,#0a0f1e 100%);padding:48px 20px 36px;text-align:center;border-bottom:2px solid #166534}
+  .badge{display:inline-block;background:#16a34a;color:#fff;font-size:10px;font-weight:900;letter-spacing:2px;padding:4px 14px;border-radius:20px;margin-bottom:14px;text-transform:uppercase}
+  .hero h1{font-size:clamp(22px,4vw,40px);font-weight:900;color:#fff;margin-bottom:8px}
+  .hero h2{font-size:clamp(13px,2vw,18px);color:#86efac;font-weight:700;margin-bottom:14px}
+  .hero p{font-size:13px;color:#94a3b8;max-width:720px;margin:0 auto}
+  .nav{background:#0f1929;border-bottom:1px solid #1e3a5f;padding:10px 20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:sticky;top:0;z-index:100}
+  .nav a{color:#60a5fa;font-size:11px;text-decoration:none;font-weight:700;padding:4px 8px;border-radius:4px}
+  .nav a:hover{background:#1e3a5f}
+  .container{max-width:900px;margin:0 auto;padding:30px 20px}
+  .section{background:#0f1929;border:1px solid #1e3a5f;border-radius:10px;padding:24px;margin-bottom:24px}
+  .sec-title{font-size:10px;font-weight:900;color:#f59e0b;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+  h3{font-size:18px;font-weight:800;color:#f1f5f9;margin-bottom:14px}
+  h4{font-size:14px;font-weight:800;color:#e2e8f0;margin:14px 0 8px}
+  p{font-size:13px;color:#cbd5e1;margin-bottom:10px;line-height:1.8}
+  .timeline{border-left:3px solid #16a34a;padding-left:20px;margin:16px 0}
+  .tl-item{position:relative;margin-bottom:18px;padding-bottom:4px}
+  .tl-dot{position:absolute;left:-27px;top:4px;width:10px;height:10px;background:#16a34a;border-radius:50%}
+  .tl-date{font-size:10px;font-weight:900;color:#4ade80;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
+  .tl-text{font-size:13px;color:#cbd5e1;line-height:1.7}
+  .win{color:#4ade80;font-weight:700}
+  .loss{color:#f87171;font-weight:700}
+  .yellow{color:#fbbf24;font-weight:700}
+  .blue{color:#60a5fa;font-weight:700}
+  .alert{border-radius:8px;padding:14px 16px;margin:12px 0;font-size:13px;line-height:1.8}
+  .alert-red{background:#1a0000;border:1px solid #dc2626}
+  .alert-yellow{background:#1a1000;border:1px solid #f59e0b}
+  .alert-green{background:#001a0a;border:1px solid #22c55e}
+  .alert-blue{background:#00101a;border:1px solid #3b82f6}
+  .source{font-size:11px;color:#4b5563;font-style:italic;margin-top:5px}
+  .source-tag{font-size:10px;color:#3b82f6;font-style:italic;background:#0a1628;border:1px solid #1e3a5f;border-radius:4px;padding:2px 6px;display:inline-block;margin-left:4px}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin:14px 0}
+  th{background:#1e293b;color:#94a3b8;padding:8px 12px;text-align:left;font-size:11px;text-transform:uppercase}
+  td{padding:9px 12px;border-bottom:1px solid #1e293b;vertical-align:top;line-height:1.6}
+  tr:last-child td{border-bottom:none}
+  .quote{border-left:3px solid #3b82f6;padding-left:14px;margin:12px 0;font-style:italic;font-size:13px;color:#cbd5e1;line-height:1.9}
+  .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:16px 0}
+  .stat{background:#0a0f1e;border:1px solid #1e3a5f;border-radius:8px;padding:14px;text-align:center}
+  .stat-val{font-size:22px;font-weight:900;display:block}
+  .stat-label{font-size:11px;color:#64748b;margin-top:4px;line-height:1.4}
+  ul{padding-left:18px}
+  ul li{margin-bottom:7px;font-size:13px;color:#cbd5e1}
+  .link-btn{display:inline-block;background:#1e3a5f;color:#60a5fa;font-size:12px;font-weight:700;padding:6px 14px;border-radius:6px;text-decoration:none;margin:4px 4px 4px 0}
+  .link-btn:hover{background:#2d4a6f}
+  .footer{background:#0a0a0a;border-top:2px solid #374151;margin-top:40px;padding:24px 20px;text-align:center;font-size:11px;color:#4b5563;line-height:1.9}
+  .related-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .rel-btn{flex:1;min-width:200px;background:#0a1628;border:2px solid #1e3a5f;border-radius:10px;padding:14px;text-decoration:none;text-align:center}
+  .rel-btn:hover{border-color:#3b82f6}
+  .rel-btn-title{font-size:13px;font-weight:800;color:#f1f5f9;display:block;margin-bottom:4px}
+  .rel-btn-sub{font-size:11px;color:#64748b}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">🌿 Full Documented Record</div>
+  <h1>Fluvanna County, Virginia</h1>
+  <h2>The Fight Against Industrial Takeover — Data Centers, Gas Plants, Transmission Lines & Aqua Virginia</h2>
+  <p>Fluvanna County is a small, rural Virginia county fighting on four simultaneous fronts. This is the complete documented record of what happened, what the community won, what they lost, and what is still at stake. Every claim is sourced.</p>
+</div>
+
+<nav class="nav">
+  <a href="#overview">Overview</a>
+  <a href="#datacenters">Data Centers</a>
+  <a href="#tenaska">Tenaska Gas Plant</a>
+  <a href="#amazon">Amazon NDA</a>
+  <a href="#valleylink">Valley Link</a>
+  <a href="#aqua">Aqua Virginia</a>
+  <a href="#community">Community Response</a>
+  <a href="#pattern">The Pattern</a>
+  <a href="#action">Take Action</a>
+</nav>
+
+<div class="container">
+
+  <!-- OVERVIEW -->
+  <div class="section" id="overview">
+    <div class="sec-title">📍 Where Fluvanna Fits</div>
+    <h3>One Small County — Four Industrial Fights Simultaneously</h3>
+    <p>Fluvanna County sits in Virginia's Piedmont region, bordered by the James River and bisected by the Rivanna River — Virginia's first designated state Scenic River. Population approximately 27,000. County seat: Palmyra.</p>
+    <p>Starting in 2024 and accelerating through 2026, Fluvanna found itself at the intersection of four separate industrial development pressures that together represent a complete transformation of the county's rural character — all happening at the same time, with limited public disclosure.</p>
+
+    <div class="stat-grid">
+      <div class="stat"><span class="stat-val win">5–0</span><div class="stat-label">Planning Commission votes to strip data center by-right status</div></div>
+      <div class="stat"><span class="stat-val win">5–0</span><div class="stat-label">Planning Commission votes to DENY Tenaska gas plant</div></div>
+      <div class="stat"><span class="stat-val loss">4–1</span><div class="stat-label">Board of Supervisors OVERRIDES Planning Commission — approves Tenaska at midnight</div></div>
+      <div class="stat"><span class="stat-val win">Unanimous</span><div class="stat-label">Board formally opposes Valley Link transmission line</div></div>
+      <div class="stat"><span class="stat-val loss">29.49%</span><div class="stat-label">Aqua Virginia rate increase request — Lake Monticello community fighting it</div></div>
+      <div class="stat"><span class="stat-val yellow">NDA</span><div class="stat-label">Supervisors signed non-disclosure agreements — legally prevented from telling constituents what deals were made</div></div>
+    </div>
+
+    <div class="alert-yellow alert">
+      <strong>The Core Injustice, Stated Simply:</strong> Rural Fluvanna County is being asked to host the largest gas generation site in Virginia, a high-voltage transmission superhighway, secret data center deals, and an Amazon warehouse — all to power and serve Northern Virginia's tech industry. The pollution, the noise, the water withdrawals, and the rate hikes stay in Fluvanna. The economic benefit flows north.
+    </div>
+    <div class="quote">"They get to enjoy the power up in Northern Virginia, and I guess we get to enjoy the pollution that comes along with generating that power."</div>
+    <div class="source">— Josephus Allmond, staff attorney, Southern Environmental Law Center and Fluvanna resident. Quoted at community meeting, September 22, 2025. Source: Fluvanna Review, October 1, 2025.</div>
+  </div>
+
+  <!-- DATA CENTERS -->
+  <div class="section" id="datacenters">
+    <div class="sec-title">🖥️ Fight #1 — Data Centers</div>
+    <h3>How Fluvanna Became One of the Few Counties to Actually Win This Round</h3>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">September 17, 2025</div>
+        <div class="tl-text">Board of Supervisors approves an <span class="win">immediate moratorium</span> on all new data center applications. Effective immediately, expires January 31, 2026. <span class="source-tag">Fluvanna County BOS meeting record; Fluvanna County official website</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">November 19, 2025</div>
+        <div class="tl-text">Planning Commission votes <span class="win">5–0</span> to strip data centers of by-right status in ALL I-1 and I-2 industrial zones. Any future project now requires a Special Use Permit and full public review. Residents packed the room and overwhelmingly supported the change. <span class="source-tag">Fluvanna Review, November 26, 2025</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">January 2026</div>
+        <div class="tl-text">Board of Supervisors formally adopts the change — eliminating by-right data center zoning <span class="win">countywide</span>. This is a permanent policy shift, not a moratorium. <span class="source-tag">Fluvanna Review, January 1, 2026 year-in-review</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">January 31, 2026</div>
+        <div class="tl-text">Moratorium expires — but the permanent Special Use Permit requirement remains. New applications can be filed, but now face full public scrutiny. <span class="source-tag">Fluvanna County moratorium documents</span></div>
+      </div>
+    </div>
+
+    <div class="alert-green alert">
+      <strong>What This Means:</strong> Before this change, a developer could build a data center in any industrial zone in Fluvanna without a public hearing. Now every data center proposal triggers a formal public review process with community input. This is the same protection that Prince William, Loudoun, and Fluvanna fought for — and Fluvanna actually got it.
+    </div>
+
+    <h4>What Residents Said at the November 2025 Hearing</h4>
+    <p>Speakers at the public hearing cited the following concerns — on the record:</p>
+    <ul>
+      <li>Noise from large-scale cooling systems</li>
+      <li>Water consumption competing with residential needs</li>
+      <li>Electric grid strain driving up utility rates for residents</li>
+      <li>Minimal actual job creation relative to industrial footprint</li>
+      <li>Threat to the county's rural character and property values</li>
+    </ul>
+    <div class="source">Source: Fluvanna Review, November 26, 2025 — direct coverage of the public hearing.</div>
+
+    <div class="alert-yellow alert" style="margin-top:14px;">
+      <strong>⚠️ The NDA Complication:</strong> According to the Fluvanna Review's 2025 year-in-review (January 1, 2026), supervisors signed <strong>restrictive non-disclosure agreements</strong> that legally prevented them from discussing certain development projects — including the Amazon Rt. 15 deal — with their own constituents. The Virginia Mercury documented this practice statewide: "Data centers, non-disclosure agreements and democracy" (April 30, 2025). Residents interpreted supervisor silence as betrayal. For some, it was legally enforced silence.
+    </div>
+    <div class="source">Sources: Fluvanna Review year-in-review, January 1, 2026; Virginia Mercury, April 30, 2025.</div>
+  </div>
+
+  <!-- TENASKA -->
+  <div class="section" id="tenaska">
+    <div class="sec-title">🔥 Fight #2 — The Tenaska Gas Plant</div>
+    <h3>The Biggest Loss — A Midnight Vote That Overrode the Community</h3>
+
+    <p>Nebraska-based Tenaska has operated a 940-megawatt methane gas plant in Fluvanna since 2004 — built despite strong community opposition at the time. In August 2025, they announced plans for a <strong>second, even larger 1,540-megawatt plant</strong> on the same Branch Road site. The project would make Fluvanna home to the <strong>largest site of gas generation in all of Virginia.</strong></p>
+
+    <div class="stat-grid">
+      <div class="stat"><span class="stat-val loss">1,540 MW</span><div class="stat-label">Proposed new plant capacity — added to existing 940 MW</div></div>
+      <div class="stat"><span class="stat-val loss">2,480 MW</span><div class="stat-label">Combined output if both plants operating — largest gas generation site in Virginia</div></div>
+      <div class="stat"><span class="stat-val loss">$2 Billion</span><div class="stat-label">Tenaska's stated project cost</div></div>
+      <div class="stat"><span class="stat-val loss">7–8 MGD</span><div class="stat-label">Gallons of water/day withdrawn from the James River for cooling</div></div>
+      <div class="stat"><span class="stat-val loss">143 tons</span><div class="stat-label">Estimated annual PM2.5 particulate emissions — calculated by SELC attorney from public data after Tenaska refused to answer</div></div>
+      <div class="stat"><span class="stat-val loss">400+ acres</span><div class="stat-label">Total project footprint on Branch Road and Rock Lane</div></div>
+    </div>
+
+    <div class="timeline" style="margin-top:16px;">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">August 2025</div>
+        <div class="tl-text">Tenaska announces the new plant. Hosts a "community meeting" on August 14 at Fluvanna County High School — but only answers questions written on postcards, and ignores all questions about emissions. <span class="source-tag">Appalachian Voices, January 6, 2026</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">September 22, 2025</div>
+        <div class="tl-text">Fluvanna Horizons Alliance hosts independent community meeting at Cunningham Creek Winery. <span class="win">70+ residents attend.</span> SELC attorney Josephus Allmond presents emissions analysis. Community demands Tenaska answer questions about pollution and water withdrawal. <span class="source-tag">Fluvanna Review, October 1, 2025</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">February 24, 2026</div>
+        <div class="tl-text">Planning Commission votes <span class="win">5–0 to DENY</span> Tenaska's Special Use Permit and zoning applications. Commissioners cite health impacts, noise, community fit, and air quality. Chair Barry Bibb specifically cited research on chronic noise as a sustained health stressor — including potential links to hypertension, heart disease, and stroke risk. <span class="source-tag">Fluvanna Review, March 5, 2026</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">March 18, 2026 — MIDNIGHT</div>
+        <div class="tl-text">After an hours-long debate, the Board of Supervisors <span class="loss">votes 4–1 to override the Planning Commission</span> and approve Tenaska's conditional use permit. Board Chair John M. Sheridan: "Trust me, no decision is lightly made." The vote occurred at midnight. <span class="source-tag">WVIR 29News, March 19, 2026; Cville Tomorrow; News from the States</span></div>
+      </div>
+    </div>
+
+    <div class="alert-red alert" style="margin-top:14px;">
+      <strong>What the Community Lost — Documented:</strong><br>
+      The Planning Commission — the body that reviewed all evidence for months — unanimously rejected this project. The Board of Supervisors overrode that unanimous rejection in a midnight vote. This is the same pattern seen statewide: community bodies make evidence-based decisions, elected officials override them under economic pressure.
+    </div>
+
+    <div class="quote" style="margin-top:14px;">"This is a generational vote. It's not just going to affect us. It's going to affect our kids. It's going to affect our kids' kids."</div>
+    <div class="source">— Unnamed community member at the February 24, 2026 Planning Commission hearing. Quoted in Fluvanna Review, March 5, 2026.</div>
+
+    <div class="quote">"We did this. 2002, 2003, 2004. We had protests. We signed petitions. We stood on the side of the road with signs. We lost that battle. How do we not lose this one?"</div>
+    <div class="source">— Unnamed longtime resident at the September 22, 2025 community meeting, recalling the original Tenaska fight. Quoted in Fluvanna Review, October 1, 2025.</div>
+
+    <h4>Why Is This Plant Being Built? — The Data Center Connection</h4>
+    <p>Virginia's electricity demand is projected to triple over the next 15 years — driven almost entirely by data center growth, primarily in Northern Virginia. Tenaska's new plant is explicitly designed to feed that demand through the PJM regional grid. Fluvanna County bears the pollution, noise, and water withdrawal. Northern Virginia's data centers get the power.</p>
+    <div class="source">Source: JLARC (Virginia's General Assembly research arm) 2024 data center electricity demand analysis; Fluvanna Review; Appalachian Voices.</div>
+  </div>
+
+  <!-- AMAZON NDA -->
+  <div class="section" id="amazon">
+    <div class="sec-title">📦 Fight #3 — The Amazon Warehouse & The NDA Problem</div>
+    <h3>Secret Deals, Silenced Supervisors, and a Warehouse Nobody Voted For</h3>
+
+    <p>In late 2025, residents in the Zion Crossroads area of Fluvanna noticed trees being cleared along U.S. Route 15. The county had not publicly announced any development. Social media posts began circulating in community groups: <em>"It's NOT WAWA it's AMAZON."</em></p>
+
+    <p>When Palmyra Supervisor Tim Hodge held a town hall on December 4, 2025, residents pressed him for answers. He confirmed that <strong>Amazon is pursuing construction of a warehouse on Rt. 15</strong> — likely to operate as a local delivery hub. He described it as a delivery facility, not a full-scale distribution center.</p>
+
+    <div class="alert-red alert">
+      <strong>The NDA Problem — Documented Statewide:</strong><br>
+      The Fluvanna Review's January 1, 2026 year-in-review specifically documented that "citizens have also raised concerns about supervisors signing restrictive non-disclosure agreements that have often prevented them from speaking with constituents about projects such as Tenaska and a new Amazon distribution center on Rt. 15."<br><br>
+      The Virginia Mercury published a direct investigation into this practice on April 30, 2025: <em>"Data centers, non-disclosure agreements and democracy"</em> — documenting how Big Tech companies routinely require local officials to sign NDAs before deal negotiations, legally preventing elected representatives from informing the people who elected them.<br><br>
+      In Louisiana, officials signed NDAs as Amazon's $12 billion data center unfolded in secret. One Louisiana official called it "a muzzle on elected officials." (WWNO, March 2026.)
+    </div>
+
+    <h4>Resident Concerns at the December 2025 Town Hall</h4>
+    <ul>
+      <li>"What is that Amazon warehouse going to do to the land value residential around that warehouse?"</li>
+      <li>Concerns about truck traffic on residential roads near Rt. 15</li>
+      <li>Concerns that industrial growth in Zion Crossroads was outpacing the county's infrastructure capacity</li>
+      <li>A general "growing sense of distrust in county leadership" — documented by the Fluvanna Review</li>
+    </ul>
+    <div class="source">Sources: Fluvanna Review, December 10, 2025 (Hodge town hall coverage); Fluvanna Review, January 1, 2026 (year-in-review); Virginia Mercury, April 30, 2025; WWNO, March 27, 2026.</div>
+  </div>
+
+  <!-- VALLEY LINK -->
+  <div class="section" id="valleylink">
+    <div class="sec-title">⚡ Fight #4 — Valley Link Transmission Line</div>
+    <h3>A 765-kilovolt Superhighway Through Fluvanna's Fields</h3>
+
+    <p>Valley Link is proposing a <strong>115-mile, 765-kilovolt transmission line</strong> running from Campbell County to Culpeper County — cutting through nine Virginia localities including Fluvanna. It is one of the highest-capacity transmission systems in the United States.</p>
+
+    <div class="stat-grid">
+      <div class="stat"><span class="stat-val loss">115 miles</span><div class="stat-label">Total line length across Virginia</div></div>
+      <div class="stat"><span class="stat-val loss">765 kV</span><div class="stat-label">Voltage — among highest capacity in the US</div></div>
+      <div class="stat"><span class="stat-val loss">200 feet</span><div class="stat-label">Width of cleared right-of-way required</div></div>
+      <div class="stat"><span class="stat-val loss">160 feet</span><div class="stat-label">Tower height — taller than a 15-story building</div></div>
+      <div class="stat"><span class="stat-val loss">76–120</span><div class="stat-label">Parcels in Fluvanna alone potentially affected</div></div>
+      <div class="stat"><span class="stat-val loss">2029</span><div class="stat-label">Projected operational date if SCC approves</div></div>
+    </div>
+
+    <div class="timeline" style="margin-top:16px;">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">March 2026</div>
+        <div class="tl-text">Community members push back at public meeting. Residents cite property values, noise, visual impact, and potential health effects from proximity to high-voltage lines. <span class="source-tag">29News, March 11, 2026</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">April 1, 2026</div>
+        <div class="tl-text">Board of Supervisors votes <span class="win">unanimously</span> to formally oppose the Valley Link line. Resolution urges both Valley Link and the SCC to find alternatives that avoid what the Board calls "irreparable damage" to the county's natural beauty and quality of life. <span class="source-tag">Fluvanna Review, April 9, 2026</span></div>
+      </div>
+    </div>
+
+    <div class="alert-red alert">
+      <strong>The Critical Limitation — On the Record:</strong> Fluvanna Supervisor Mike Goad stated directly: <em>"I do wish we had more of a formal say in the matter."</em> Ultimate authority over the Valley Link project rests with the Virginia SCC — not with Fluvanna County. The county can oppose it. They cannot stop it alone. The SCC will make the final decision, likely in 2027. <span class="source-tag">Fluvanna Review, April 9, 2026</span>
+    </div>
+
+    <h4>Why Is This Line Being Built?</h4>
+    <p>Dominion Energy representatives told the Board that without additional transmission infrastructure, existing lines in central and northern Virginia "could face overload conditions as early as 2029." Electricity demand could double by 2035 — driven largely by data centers. The Valley Link line is designed to move power generated in the Ohio River Valley east to Northern Virginia's data center corridor. Rural counties like Fluvanna provide the right-of-way corridor. Northern Virginia gets the power.</p>
+
+    <div class="quote">"Something that was said earlier was that they're interested in maintaining the electric grid integrity. I'm interested in maintaining the integrity of Fluvanna County."</div>
+    <div class="source">— Amy Williams, Fluvanna resident, at the April 1, 2026 Board meeting. Quoted in Fluvanna Review, April 9, 2026.</div>
+  </div>
+
+  <!-- AQUA VIRGINIA -->
+  <div class="section" id="aqua">
+    <div class="sec-title">💧 Fight #5 — Aqua Virginia at Lake Monticello</div>
+    <h3>4,600 Households — Water Quality Problems & A 29% Rate Hike Request</h3>
+
+    <p>Aqua Virginia serves the <strong>Lake Monticello</strong> community in Fluvanna County — approximately <strong>4,600 households</strong>. In 2024, Aqua filed for a <strong>29.49% rate increase</strong> before the SCC (Case PUR-2023-00073). The Lake Monticello Owners Association (LMOA) formally intervened and produced a <strong>27-page rebuttal report</strong> — one of the most detailed community responses to a utility rate case in Virginia's recent history.</p>
+
+    <h4>What LMOA Found in Aqua's Own Data</h4>
+    <ul>
+      <li>580 community complaints filed with the SCC by Lake Monticello alone — covering <strong>odor, water quality, low pressure, and wastewater spills into the Lake</strong></li>
+      <li>Aqua's air quality study after years of odor complaints was conducted over just <strong>10 days around Thanksgiving</strong> — and excluded the wastewater treatment plant, which residents identified as the primary odor source</li>
+      <li>Aqua sent a letter claiming LMOA was in violation for "allowing boats to dump sewer tanks at the Marina" — a marina that <strong>has no toilets, no dumping site, and isn't even connected to Aqua's wastewater system</strong></li>
+      <li>Aqua cut service to a senior community pool and clubhouse "after discovering it had never installed a water meter" — the facility had been connected to Aqua's system for <strong>15 years</strong></li>
+      <li>Aqua chose an "inflation peak" test year (April 2022–March 2023) to justify rate increases, even as inflation has since declined</li>
+    </ul>
+
+    <div class="alert-red alert" style="margin-top:12px;">
+      <strong>The Cross-Subsidy Problem — Documented:</strong> LMOA's report found that Aqua Virginia owns <strong>191 water systems and 9 sewage treatment systems statewide</strong>. Most are too small to be financially self-sustaining. Aqua uses larger systems like Lake Monticello to fund operations at the smaller, underperforming ones — meaning Lake Monticello customers are paying <strong>rates higher than necessary</strong> to subsidize Aqua's failing infrastructure elsewhere. LMOA called this "unjustly discriminatory."
+    </div>
+
+    <div class="quote" style="margin-top:14px;">"If Aqua Virginia's requested increase is approved, Lake Monticello customers whose fixed income is limited to Social Security retirement benefits will need 65 percent of their increase for 2024 just to pay for the increase in their 3,000-gallon bill from Aqua Virginia."</div>
+    <div class="source">— LMOA Community Development Committee, 27-page formal SCC rebuttal report, February 2024. Reported by Fluvanna Review, February 8, 2024.</div>
+
+    <p style="margin-top:12px;">The current pending rate case — SCC Case <strong>PUR-2025-00071</strong> — involves a <strong>33.88% rate increase request</strong> covering Aqua's Virginia service area broadly, including Lake Monticello and Caroline County communities.</p>
+    <div class="source">Source: SCC public docket PUR-2025-00071; Fluvanna Review, October 2025.</div>
+  </div>
+
+  <!-- COMMUNITY RESPONSE -->
+  <div class="section" id="community">
+    <div class="sec-title">🤝 The Community Response</div>
+    <h3>Who Showed Up and What They Built</h3>
+
+    <h4>Fluvanna Horizons Alliance</h4>
+    <p>A new grassroots coalition formed in 2025, specifically to fight the Tenaska expansion. Members include Community Voices (founder: Sharon Harris), the Community Climate Collaborative, Appalachian Voices, and the Southern Environmental Law Center. The Alliance hosted community meetings, coordinated public comment campaigns, filed formal objections, and organized residents for Planning Commission and Board hearings.</p>
+
+    <h4>Lake Monticello Owners Association (LMOA)</h4>
+    <p>LMOA filed a formal 27-page rebuttal to Aqua Virginia's rate case — the kind of organized, evidence-based response that most communities never produce. Their Community Development Committee conducted independent analysis of 580 SCC complaints and filed formal comments with the SCC.</p>
+
+    <h4>Key Voices on the Record</h4>
+    <table>
+      <tr><th>Name</th><th>Role</th><th>What They Said</th></tr>
+      <tr><td>Josephus Allmond</td><td>SELC attorney, Fluvanna resident</td><td>"This will be the largest site of gas generation in Virginia. I want people to sit with that for a moment." Calculated 143 tons/year PM2.5 emissions after Tenaska refused to answer the question.</td></tr>
+      <tr><td>Sharon Harris</td><td>Community Voices founder</td><td>"Our community is entitled to clear, accountable answers on how Tenaska intends to protect our air and water."</td></tr>
+      <tr><td>Barry Bibb</td><td>Planning Commission Chair</td><td>Cited research on chronic noise as a sustained health stressor with links to hypertension and heart disease. Voted NO on Tenaska.</td></tr>
+      <tr><td>John M. Sheridan</td><td>Board of Supervisors Chair</td><td>"Trust me, no decision is lightly made." Voted YES on Tenaska at midnight — overriding the unanimous Planning Commission denial.</td></tr>
+      <tr><td>Mike Goad</td><td>Fork Union Supervisor</td><td>"I do wish we had more of a formal say in the matter." — on Valley Link transmission line.</td></tr>
+      <tr><td>Tim Hodge</td><td>Palmyra Supervisor</td><td>Confirmed the Amazon Rt. 15 warehouse at a December 2025 town hall. Was constrained by NDA from earlier disclosure.</td></tr>
+      <tr><td>Amy Williams</td><td>Fluvanna resident</td><td>"I'm interested in maintaining the integrity of Fluvanna County."</td></tr>
+    </table>
+  </div>
+
+  <!-- THE PATTERN -->
+  <div class="section" id="pattern">
+    <div class="sec-title">🔗 The Pattern — Why Fluvanna Matters Beyond Fluvanna</div>
+    <h3>What Fluvanna Reveals About How This Works Everywhere</h3>
+
+    <table>
+      <tr><th>The Play</th><th>What Happened in Fluvanna</th></tr>
+      <tr><td><strong>Secret negotiation, NDA cover</strong></td><td>Amazon Rt. 15 warehouse negotiated under NDA. Supervisors legally prevented from informing constituents.</td></tr>
+      <tr><td><strong>Community body says no</strong></td><td>Planning Commission voted 5–0 to deny Tenaska. Voted 5–0 to restrict data centers.</td></tr>
+      <tr><td><strong>Elected officials override at midnight</strong></td><td>Board of Supervisors voted 4–1 to approve Tenaska anyway — at midnight, after an hours-long hearing.</td></tr>
+      <tr><td><strong>State preempts local authority</strong></td><td>Valley Link SCC decision supersedes county opposition. County voted against it — can't stop it alone.</td></tr>
+      <tr><td><strong>Rate hike on top of service failure</strong></td><td>Aqua Virginia requests 29–33% rate increases while LMOA documents 580 unresolved service complaints.</td></tr>
+      <tr><td><strong>Rural county bears cost, urban corridor gets benefit</strong></td><td>Pollution, noise, water withdrawal, and rate hikes stay in Fluvanna. Power and data capacity flow to Northern Virginia.</td></tr>
+    </table>
+
+    <div class="alert-blue alert" style="margin-top:16px;">
+      <strong>The Connection to Caroline County:</strong> Fluvanna and Caroline County are facing variations of the exact same playbook — utility rate hikes on communities with documented service failures, industrial development negotiated in secret, and regulatory bodies that approve industry requests despite community opposition. The difference is geography. The mechanism is identical.
+    </div>
+  </div>
+
+  <!-- TAKE ACTION -->
+  <div class="section" id="action">
+    <div class="sec-title">⚡ Take Action</div>
+    <h3>What Fluvanna Residents Can Still Do</h3>
+
+    <ul>
+      <li><strong>SCC Merger Intervention:</strong> File to formally intervene in the Essential Utilities / American Water merger proceeding at the Virginia SCC. As an intervenor you become a party — you can submit evidence and compel discovery. This is the most powerful tool still available. File at: <strong>scc.virginia.gov</strong></li>
+      <li><strong>Aqua Rate Case Comments:</strong> SCC Case PUR-2025-00071 is still pending. File formal comments with documentation of service failures, appliance damage, and health impacts. Phone: 1-800-552-7945</li>
+      <li><strong>Valley Link SCC Proceeding:</strong> The formal SCC regulatory process for Valley Link begins later in 2026. File comments. Coordinate with the other eight affected counties — County Administrator Eric Dahl said multiple counties intend to act jointly.</li>
+      <li><strong>Tenaska Air Permit:</strong> The plant still requires state air quality permits from the Virginia DEQ and EPA. Those are separate from the local zoning approval. The fight is not over.</li>
+      <li><strong>HB 422 Reenactment:</strong> Contact your House and Senate delegates NOW and ask for a commitment to reenact HB 422 in 2027. Without reenactment, the ban on rapid consecutive rate increases expires.</li>
+    </ul>
+
+    <a href="scc_complaint_guide.html" class="link-btn">📋 SCC Complaint Guide</a>
+    <a href="aqua_fight.html" class="link-btn">💧 Aqua Virginia Full Brief</a>
+    <a href="safe_posting_guide.html" class="link-btn">🛡️ Safe Posting Guide</a>
+  </div>
+
+  <div class="related-links">
+    <a href="aqua_fight.html" class="rel-btn">
+      <span class="rel-btn-title">💧 Aqua Virginia — Full Intelligence Brief</span>
+      <span class="rel-btn-sub">Caroline County, Lake Land'Or, Lake Monticello, Heritage — the complete SCC case record</span>
+    </a>
+    <a href="corridor.html" class="rel-btn">
+      <span class="rel-btn-title">🖥️ I-95 Data Center Corridor</span>
+      <span class="rel-btn-sub">10.3 million GPD committed in secret contracts — the full water story</span>
+    </a>
+    <a href="ceo_pay_systemic.html" class="rel-btn">
+      <span class="rel-btn-title">💰 The System at Work</span>
+      <span class="rel-btn-sub">CEO pay, SCC appointments, PAC money — how the regulatory capture works</span>
+    </a>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div style="font-size:11px;font-weight:900;color:#6b7280;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;">Sources & Legal Notice</div>
+  <p>All facts on this page are sourced to named primary sources: Fluvanna Review (direct reporting), 29News WVIR, Appalachian Voices, Cville Tomorrow, News from the States, Virginia Mercury, WWNO, LMOA formal SCC filing, Virginia SCC public dockets, and official Fluvanna County government records. This page is for informational and community advocacy purposes only. It is not legal advice. All figures should be independently verified before use in any formal legal proceeding.</p>
+</div>
+
+</body>
+</html>
