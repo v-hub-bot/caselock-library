@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Is This Even Legal? | CaseLock Library</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0a0f1e;color:#e2e8f0;font-family:system-ui,sans-serif;line-height:1.7}
+  .hero{background:linear-gradient(135deg,#0a0f1e,#1a0a00 50%,#0a0f1e);padding:48px 20px 36px;text-align:center;border-bottom:2px solid #dc2626}
+  .badge{display:inline-block;background:#dc2626;color:#fff;font-size:10px;font-weight:900;letter-spacing:2px;padding:4px 14px;border-radius:20px;margin-bottom:14px;text-transform:uppercase}
+  .hero h1{font-size:clamp(26px,5vw,48px);font-weight:900;color:#fff;margin-bottom:8px}
+  .hero h2{font-size:clamp(13px,2vw,18px);color:#fca5a5;font-weight:700;margin-bottom:14px}
+  .hero p{font-size:13px;color:#94a3b8;max-width:740px;margin:0 auto}
+  .nav{background:#0f1929;border-bottom:1px solid #1e3a5f;padding:10px 20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:sticky;top:0;z-index:100}
+  .nav a{color:#60a5fa;font-size:11px;text-decoration:none;font-weight:700;padding:4px 8px;border-radius:4px}
+  .nav a:hover{background:#1e3a5f}
+  .container{max-width:900px;margin:0 auto;padding:30px 20px}
+  .section{background:#0f1929;border:1px solid #1e3a5f;border-radius:10px;padding:24px;margin-bottom:24px}
+  .sec-title{font-size:10px;font-weight:900;color:#f59e0b;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+  h3{font-size:18px;font-weight:800;color:#f1f5f9;margin-bottom:14px}
+  h4{font-size:14px;font-weight:800;color:#e2e8f0;margin:16px 0 8px}
+  p{font-size:13px;color:#cbd5e1;margin-bottom:10px;line-height:1.8}
+  .alert{border-radius:8px;padding:14px 16px;margin:12px 0;font-size:13px;line-height:1.8}
+  .alert-red{background:#1a0000;border:1px solid #dc2626}
+  .alert-yellow{background:#1a1000;border:1px solid #f59e0b}
+  .alert-green{background:#001a0a;border:1px solid #22c55e}
+  .alert-blue{background:#00101a;border:1px solid #3b82f6}
+  .source{font-size:11px;color:#4b5563;font-style:italic;margin-top:6px}
+  .source-tag{font-size:10px;color:#3b82f6;font-style:italic;background:#0a1628;border:1px solid #1e3a5f;border-radius:4px;padding:2px 6px;display:inline-block;margin-left:4px}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin:14px 0}
+  th{background:#1e293b;color:#94a3b8;padding:8px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:1px}
+  td{padding:9px 12px;border-bottom:1px solid #1e293b;vertical-align:top;line-height:1.6}
+  tr:last-child td{border-bottom:none}
+  .quote{border-left:3px solid #dc2626;padding-left:14px;margin:14px 0;font-style:italic;font-size:14px;color:#e2e8f0;line-height:1.9}
+  .timeline{border-left:3px solid #dc2626;padding-left:20px;margin:16px 0}
+  .tl-item{position:relative;margin-bottom:18px}
+  .tl-dot{position:absolute;left:-27px;top:5px;width:10px;height:10px;background:#dc2626;border-radius:50%}
+  .tl-date{font-size:10px;font-weight:900;color:#f87171;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
+  .tl-text{font-size:13px;color:#cbd5e1;line-height:1.7}
+  .big-answer{background:#1a0000;border:2px solid #dc2626;border-radius:12px;padding:24px;margin:20px 0;text-align:center}
+  .big-answer p{font-size:16px;color:#fca5a5;font-weight:700;line-height:1.9;margin:0}
+  ul{padding-left:18px}
+  ul li{margin-bottom:8px;font-size:13px;color:#cbd5e1;line-height:1.7}
+  .chain-box{background:#0a0f1e;border:1px solid #374151;border-radius:8px;padding:16px;margin:14px 0}
+  .chain-step{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #1e293b;font-size:13px;color:#cbd5e1}
+  .chain-step:last-child{border-bottom:none}
+  .chain-num{background:#dc2626;color:white;font-weight:900;font-size:12px;width:26px;height:26px;border-radius:50%;text-align:center;line-height:26px;flex-shrink:0;margin-top:1px}
+  .related-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .rel-btn{flex:1;min-width:200px;background:#0a1628;border:2px solid #1e3a5f;border-radius:10px;padding:14px;text-decoration:none;text-align:center}
+  .rel-btn:hover{border-color:#dc2626}
+  .rel-btn-title{font-size:13px;font-weight:800;color:#f1f5f9;display:block;margin-bottom:4px}
+  .rel-btn-sub{font-size:11px;color:#64748b}
+  .footer{background:#0a0a0a;border-top:2px solid #374151;margin-top:40px;padding:24px 20px;text-align:center;font-size:11px;color:#4b5563;line-height:1.9}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">🔴 The Question Everyone Asks</div>
+  <h1>"How Is This Even Legal?"</h1>
+  <h2>The documented legal history of how utility companies got the right to fund the people who regulate them — and why fixing it is harder than it sounds</h2>
+  <p>The short answer: it's legal because they wrote the laws. The long answer is a 90-year history of a protection that existed, got repealed in 2005, and has never been replaced. Every fact below is sourced to a named primary record.</p>
+</div>
+
+<nav class="nav">
+  <a href="#direct-answer">Direct Answer</a>
+  <a href="#puhca">The 1935 Law</a>
+  <a href="#2005-repeal">The 2005 Repeal</a>
+  <a href="#what-happened">What Happened Next</a>
+  <a href="#stock">Stock Ownership</a>
+  <a href="#ohio">Ohio — When It Went Criminal</a>
+  <a href="#fix">What Would Fix It</a>
+</nav>
+
+<div class="container">
+
+  <!-- DIRECT ANSWER -->
+  <div class="section" id="direct-answer">
+    <div class="sec-title">🎯 The Direct Answer</div>
+
+    <div class="big-answer">
+      <p>It is legal because the law that banned it was repealed in 2005.<br>
+      Before 2005, utilities were federally prohibited from donating to state and local politicians.<br>
+      Congress repealed that protection. No state has replaced it with an equivalent law.<br>
+      The utilities started donating immediately. The rates started rising faster.<br>
+      That is the whole story — documented.</p>
+    </div>
+
+    <p>This is not a gray area. This is not a loophole someone accidentally left open. It is a deliberate rollback of a 70-year-old consumer protection, passed by a Congress that was itself heavily funded by the industries that benefited from the rollback. The research proving the damage has since been published by peer-reviewed economists. The political donations increased. The approved rates of return increased with them. The ratepayers paid the difference.</p>
+    <div class="source">Source: Mark Van Orden, Center for Growth and Opportunity, Utah State University / UC Irvine, published in Utility Dive, December 19, 2023. Peer-reviewed working paper analyzing the effect of PUHCA's 2005 repeal on authorized utility rates of return.</div>
+  </div>
+
+  <!-- PUHCA 1935 -->
+  <div class="section" id="puhca">
+    <div class="sec-title">📜 The Law That Protected You — 1935 to 2005</div>
+    <h3>The Public Utility Holding Company Act of 1935 — What It Did and Why It Existed</h3>
+
+    <p>After the Great Depression — caused in part by the collapse of massive, unregulated utility holding company pyramids — Congress passed the <strong>Public Utility Holding Company Act of 1935 (PUHCA)</strong>. It was a New Deal consumer protection law.</p>
+
+    <p>PUHCA had many provisions. Most people know it as a law that broke up utility monopolies. But it had a second provision almost nobody talks about today — and it was the most powerful consumer protection in the law:</p>
+
+    <div class="alert-red alert" style="font-size:15px;text-align:center;">
+      <strong>PUHCA Section — Political Contribution Ban:</strong><br><br>
+      From 1935 to 2005, <strong>PUHCA-regulated utilities were prohibited by federal law from using corporate treasury funds to contribute to local, state, and federal political parties and candidates.</strong><br><br>
+      For 70 years, the power company literally could not write a check to the politician who sets the rules the power company has to follow.<br><br>
+      That protection existed for 70 years. It was repealed. You were never told.
+    </div>
+
+    <div class="source">Source: Utility Dive, December 19, 2023, citing Utility Dive contributor Mark Van Orden (CGO/Utah State University / UC Irvine). Original law: Public Utility Holding Company Act of 1935, P.L. 74-333.</div>
+
+    <h4>Why This Protection Existed in the First Place</h4>
+    <p>Congress in 1935 understood something specific: <strong>utilities are monopolies.</strong> You cannot choose a different power company. You cannot choose a different water utility. Because consumers have no competitive alternative, the only real protection they have is that the regulator is genuinely independent. If the utility can buy the politician who appoints or elects the regulator, that independence is gone — and the consumer has no recourse at all. That is why the Founders of the regulatory state specifically banned utility political donations. They understood the problem 90 years ago.</p>
+  </div>
+
+  <!-- 2005 REPEAL -->
+  <div class="section" id="2005-repeal">
+    <div class="sec-title">💥 The 2005 Repeal — How the Protection Was Erased</div>
+    <h3>The Energy Policy Act of 2005 — The Bill That Changed Everything</h3>
+
+    <p>In 2005, Congress passed the <strong>Energy Policy Act of 2005</strong>. Buried inside it was the <strong>full repeal of PUHCA</strong>.</p>
+
+    <p>When PUHCA was repealed, the political contribution ban disappeared with it. Jurisdiction over utility political donations returned to the states. At that moment:</p>
+
+    <ul>
+      <li><strong>20 states</strong> already had laws prohibiting corporations from making political donations — so the repeal changed nothing for them.</li>
+      <li><strong>30 states</strong> — including South Carolina and Virginia — allowed corporate contributions. When PUHCA was repealed, utility companies in those states were immediately free to donate to the politicians who control their regulatory environment.</li>
+    </ul>
+
+    <div class="alert-red alert">
+      <strong>What Utilities Did Immediately After the Repeal:</strong><br>
+      Peer-reviewed economic research found that utilities in the 30 newly-free states nearly <strong>doubled their political donations</strong> after 2005. They did not spread donations evenly — they concentrated them in the years when rate cases were being decided. The donations were largest when a Public Utility Commission was authorizing a new rate of return. That is not coincidence. That is investment. <span class="source-tag">Van Orden, CGO/Utah State University, published Utility Dive, December 19, 2023</span>
+    </div>
+
+    <h4>The Return on Investment — Quantified</h4>
+    <p>The same research quantified what utilities got back for their donations:</p>
+    <ul>
+      <li>Utilities that could donate received authorized Rates of Return (ROE) that were <strong>0.4 percentage points higher</strong> than utilities in states that still prohibited donations.</li>
+      <li>For the average utility, that 0.4% ROE increase translates to approximately <strong>$4 million in additional annual revenue.</strong></li>
+      <li>Donate hundreds of thousands of dollars. Get millions back in approved profit margin. Every year. Forever.</li>
+    </ul>
+    <div class="source">Source: Van Orden, "Power Play: Political Contributions and Regulatory Capture in Electric Utility Rate Cases," Center for Growth and Opportunity, Utah State University. Published Utility Dive, December 19, 2023.</div>
+  </div>
+
+  <!-- WHAT HAPPENED NEXT -->
+  <div class="section" id="what-happened">
+    <div class="sec-title">📈 What Happened After 2005 — The Timeline</div>
+    <h3>From Prohibition to Domination — 20 Years of Documented Consequences</h3>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">1935</div>
+        <div class="tl-text">PUHCA passed. Utility political donations to state and local politicians banned by federal law. Protection holds for 70 years.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2005</div>
+        <div class="tl-text">Energy Policy Act of 2005 repeals PUHCA. The political contribution ban disappears. 30 states — including Virginia and South Carolina — are now open for business. Utilities begin donating almost immediately.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2007–2017</div>
+        <div class="tl-text">South Carolina: SCANA Corporation donates to legislators across both parties — including the very legislators who would later investigate them for nuclear fraud. V.C. Summer project charges customers $9 billion for reactors never completed. PSC approves the rates the whole time.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2017</div>
+        <div class="tl-text">V.C. Summer project abandoned. SC Attorney General opens criminal probe. Post and Courier publishes: "SCANA has given money to nearly all South Carolina lawmakers probing the failed nuclear project." The investigators were funded by the investigated.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2019</div>
+        <div class="tl-text">Ohio: FirstEnergy bribes state politicians to install a friendly lobbyist as head of the Ohio Public Utilities Commission. $60 million bribery scheme. Not subtle — criminal. <span class="source-tag">Utility Dive, August 3, 2023</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2023</div>
+        <div class="tl-text">SCANA executives sentenced to federal prison. SC customers still paying $2.3 billion in debt for reactors never built — fee not shown on monthly bills. Clean Virginia documents 9 VA legislators owning Dominion stock while voting on Dominion's profit margin. None recuse.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2025</div>
+        <div class="tl-text">South Carolina: Dominion spends $600,000 at SC State House lobbying and donating to pass the Energy Security Act — a law that makes it easier to raise your rates with less regulatory review. SC General Assembly passes it. Dominion files for a $322 million rate increase the same year.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">May 2026</div>
+        <div class="tl-text">You are reading this page. The ban that protected you for 70 years is still gone. Neither Virginia nor South Carolina has replaced it.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STOCK OWNERSHIP -->
+  <div class="section" id="stock">
+    <div class="sec-title">📈 The Stock Ownership Question</div>
+    <h3>Why Can They Own Stock in Companies They Vote to Make More Profitable?</h3>
+
+    <p>The federal STOCK Act (2012) addresses congressional stock trading — Members of Congress cannot trade on nonpublic information. But it does not ban them from owning stock in regulated industries, and it does not apply to state legislators at all.</p>
+
+    <p>At the state level, the answer is almost everywhere the same: <strong>disclosure, not prohibition.</strong> You have to tell the public you own the stock. You do not have to sell it. You do not have to recuse yourself from votes that increase its value, unless the vote uniquely benefits you in a way it does not benefit other shareholders — which is nearly impossible to prove when a vote increases the value of a publicly traded company for all shareholders equally.</p>
+
+    <div class="chain-box">
+      <div class="chain-step">
+        <div class="chain-num">1</div>
+        <div>Virginia legislator owns $50,000 in Dominion stock. Vote comes up to increase Dominion's authorized profit margin from 9.3% to 9.7%. Every Dominion shareholder in the world benefits. The legislator's benefit is not unique to them. Under Virginia law — no recusal required. Under Clean Virginia's analysis, 9 Virginia legislators voted exactly this way. <span class="source-tag">Clean Virginia, April 28, 2022</span></div>
+      </div>
+      <div class="chain-step">
+        <div class="chain-num">2</div>
+        <div>South Carolina legislator owns $80,000 in Duke Energy stock. Duke Energy's market cap is $80 billion. $80,000 is 0.0001% of outstanding shares — far below the 5%-of-class disclosure threshold in SC Code §8-13-700. Under SC law: no disclosure required. No recusal required. No one even knows. <span class="source-tag">SC Code §8-13-700; SC School Board Association ethics handout</span></div>
+      </div>
+      <div class="chain-step">
+        <div class="chain-num">3</div>
+        <div>Both legislators vote to elect the PSC/SCC commissioner who then approves the rate increase that boosts the stock. Perfectly legal in both states. Not even technically a conflict of interest under current law because the benefit is diffuse — shared with all shareholders — not unique. <span class="source-tag">National Conference of State Legislatures voting recusal provisions survey</span></div>
+      </div>
+      <div class="chain-step">
+        <div class="chain-num">4</div>
+        <div>Congress has tried — and failed — to pass stock trading bans multiple times. In 2026, legislation was introduced to ban Congressional members, spouses, and dependent children from purchasing publicly traded stocks. It has not passed. <span class="source-tag">House Administration Committee, January 2026</span></div>
+      </div>
+    </div>
+
+    <div class="alert-yellow alert" style="margin-top:12px;">
+      <strong>The Core Legal Theory That Enables This:</strong><br>
+      For a conflict of interest to require recusal, the law generally requires that the official's financial interest be <em>personal and unique</em> — different from the interest of the general public. When a vote benefits a publicly traded company and thereby benefits all shareholders equally, courts and ethics commissions in most states have held that no individual shareholder has a "unique" interest requiring recusal. The more shareholders there are, the less any one person's conflict is "unique." The utility industry specifically chose to be publicly traded partly because this legal structure protects their political allies from recusal requirements.
+    </div>
+  </div>
+
+  <!-- OHIO CRIMINAL CASE -->
+  <div class="section" id="ohio">
+    <div class="sec-title">🚨 Ohio — When "Legal" Became Criminal</div>
+    <h3>FirstEnergy — What Happens When Donations Become Bribes</h3>
+
+    <p>Ohio's FirstEnergy case shows exactly where the legal version ends and the criminal version begins — and how thin that line actually is.</p>
+
+    <ul>
+      <li>FirstEnergy spent years making legal political donations to Ohio legislators and regulators — the same thing Virginia and South Carolina utilities do.</li>
+      <li>Then they crossed the line: they <strong>criminally bribed state officials</strong> to install a specific industry-friendly lobbyist as the head of the Ohio Public Utilities Commission — the regulator overseeing their rates.</li>
+      <li>The bribery scheme totaled <strong>$60 million.</strong></li>
+      <li>Separately, they funded a $1 billion nuclear plant bailout bill — which passed — adding costs to Ohio ratepayers.</li>
+      <li>FirstEnergy was criminally charged. Multiple officials were convicted.</li>
+    </ul>
+
+    <div class="alert-red alert">
+      <strong>The Uncomfortable Truth Ohio Revealed:</strong><br>
+      The legal version — donating to legislators, funding caucuses, hiring former governors as lobbyists — produces the <em>same result</em> as the criminal version, just more slowly and with plausible deniability. You do not have to bribe someone if you can donate to their campaign legally, fund their party's caucus, and hire their predecessor as your lobbyist. The outcome — a regulator who is friendly to your rate increases — is identical. The mechanism is the only difference. One gets you prosecuted. The other gets you a $322 million rate increase approved by the PSC your money helped populate.
+    </div>
+    <div class="source">Source: Utility Dive, August 3, 2023 (FirstEnergy criminal charges). Van Orden, Utility Dive December 2023 (legal vs. illegal mechanisms producing same regulatory outcomes).</div>
+  </div>
+
+  <!-- WHAT WOULD FIX IT -->
+  <div class="section" id="fix">
+    <div class="sec-title">✅ What Would Actually Fix This</div>
+    <h3>The Solutions — Why They Keep Not Passing</h3>
+
+    <p>The peer-reviewed economic research is clear on what works. Here is the ranked list — from most to least effective — with the documented political fate of each:</p>
+
+    <table>
+      <tr><th>Solution</th><th>Why It Works</th><th>Current Status</th></tr>
+      <tr>
+        <td><strong>1. Ban utility political contributions entirely</strong></td>
+        <td>This is what PUHCA did. Research shows it directly lowered authorized rates of return — meaning lower bills. The Tillman Act of 1907 and 36 states once had this. It worked for 70 years.</td>
+        <td style="color:#f87171;">Virginia: bipartisan ban bill proposed 2023, 2025 — both failed. South Carolina: not seriously proposed. Federal: not introduced.</td>
+      </tr>
+      <tr>
+        <td><strong>2. Let voters elect utility commissioners directly</strong></td>
+        <td>Research shows elected commissioners authorize lower rates than appointed/legislature-elected commissioners. Voters are consumers — they respond to lower bills. Legislators respond to donors.</td>
+        <td style="color:#fbbf24;">20 states elect commissioners by popular vote. Virginia and South Carolina both use legislature election — the two worst-performing models for consumers.</td>
+      </tr>
+      <tr>
+        <td><strong>3. Cap corporate political contributions</strong></td>
+        <td>Research shows utilities in states with unlimited contributions receive higher authorized ROEs than in states with caps. A cap reduces the influence without eliminating it.</td>
+        <td style="color:#fbbf24;">16 of the 30 states permitting corporate contributions have no caps. Neither Virginia nor South Carolina has a utility-specific cap.</td>
+      </tr>
+      <tr>
+        <td><strong>4. Ban legislators from owning stock in regulated utilities</strong></td>
+        <td>Removes the financial incentive legislators have to vote for utility-friendly policies. Congress has tried and failed. No state has passed this for utility stock specifically.</td>
+        <td style="color:#f87171;">Federal bill introduced 2026 — not passed. Virginia: not introduced. South Carolina: not introduced.</td>
+      </tr>
+      <tr>
+        <td><strong>5. Require real-time public stock disclosure</strong></td>
+        <td>At minimum, voters should know when their legislators have financial interests in the companies whose rates they're setting. Current state laws have the loopholes documented in the SC/VA comparison page.</td>
+        <td style="color:#fbbf24;">Partial. VA requires disclosure at $5K dividends. SC's 5%-of-class threshold is functionally useless for large utilities.</td>
+      </tr>
+    </table>
+
+    <div class="quote" style="margin-top:16px;">"In states that relied on PUHCA to govern utilities' political donations, it is time to reevaluate whether their current laws protect the integrity and independence of their PUCs or leave room for undue influence in regulated industries."</div>
+    <div class="source">— Mark Van Orden, Center for Growth and Opportunity, Utah State University, Utility Dive, December 19, 2023.</div>
+
+    <div class="alert-green alert" style="margin-top:16px;">
+      <strong>The One Thing Individuals Can Do Right Now:</strong><br>
+      Both Virginia and South Carolina have pending utility rate cases before their regulators. You have the right to file formal public comments. You have the right to petition to intervene as a party. The tools exist — the system is designed so that almost nobody uses them, because the process is opaque and the utilities have hundreds of lawyers. But the window is open. Every formal comment on the record makes the case harder to quietly approve. Every intervenor costs the utility time and money. It is not nothing.<br><br>
+      <strong>Virginia SCC:</strong> scc.virginia.gov/casecomments<br>
+      <strong>South Carolina PSC:</strong> 101 Executive Center Drive, Suite 100, Columbia, SC 29210 — 803-896-5100<br>
+      <strong>South Carolina ORS (consumer advocate):</strong> ors.sc.gov — 803-737-5100
+    </div>
+  </div>
+
+  <div class="related-links">
+    <a href="sc_va_conflict.html" class="rel-btn">
+      <span class="rel-btn-title">🔎 VA vs. SC — The Money Chain</span>
+      <span class="rel-btn-sub">Stock ownership, donation laws, the full side-by-side comparison</span>
+    </a>
+    <a href="gaffney.html" class="rel-btn">
+      <span class="rel-btn-title">🔎 Gaffney & Cherokee County, SC</span>
+      <span class="rel-btn-sub">The local fight — what this system means for your water bill</span>
+    </a>
+    <a href="aqua_fight.html" class="rel-btn">
+      <span class="rel-btn-title">💧 Aqua Virginia — Full Brief</span>
+      <span class="rel-btn-sub">The Virginia version — Caroline County, Lake Land'Or</span>
+    </a>
+    <a href="ceo_pay_systemic.html" class="rel-btn">
+      <span class="rel-btn-title">💰 CEO Pay — The National Picture</span>
+      <span class="rel-btn-sub">$626M to 51 utility CEOs while rates climb</span>
+    </a>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div style="font-size:11px;font-weight:900;color:#6b7280;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;">Sources & Legal Notice</div>
+  <p>Primary sources: Mark Van Orden, "Power Play: Political Contributions and Regulatory Capture in Electric Utility Rate Cases," Center for Growth and Opportunity, Utah State University (published Utility Dive, December 19, 2023); Public Utility Holding Company Act of 1935 (P.L. 74-333); Energy Policy Act of 2005 (P.L. 109-58); Utility Dive, August 3, 2023 (FirstEnergy Ohio criminal charges); Clean Virginia, April 28, 2022 (VA legislators/Dominion stock); Post and Courier, September 2017 (SCANA donations to SC investigators); The State / SC Investigates, May 4, 2026 (Dominion $600K SC State House); National Conference of State Legislatures voting recusal provisions survey; SC Code §8-13-700; Virginia Conflict of Interests Act §30-111; Floodlight News utility regulator campaign donation analysis; Grist (Floodlight reprint). This page is for informational and community advocacy purposes only. It is not legal advice.</p>
+</div>
+
+</body>
+</html>
