@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deep Dive: Who Owns What — SCC Conflicts, Corporate Ownership, Verified Facts | CaseLock Library</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0f1e;color:#e2e8f0;font-family:system-ui,sans-serif;line-height:1.7}
+.hero{background:linear-gradient(135deg,#0a0000,#0a0f1e 50%,#000814);padding:48px 20px 36px;text-align:center;border-bottom:3px solid #dc2626}
+.badge{display:inline-block;background:#dc2626;color:#fff;font-size:10px;font-weight:900;letter-spacing:2px;padding:4px 14px;border-radius:20px;margin-bottom:14px;text-transform:uppercase}
+.hero h1{font-size:clamp(18px,3.5vw,34px);font-weight:900;color:#fff;margin-bottom:8px;line-height:1.2}
+.hero p{font-size:13px;color:#94a3b8;max-width:780px;margin:8px auto 0;line-height:1.8}
+.nav{background:#0f1929;border-bottom:1px solid #1e3a5f;padding:10px 20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:sticky;top:0;z-index:100}
+.nav a{color:#60a5fa;font-size:11px;text-decoration:none;font-weight:700;padding:4px 8px;border-radius:4px}
+.nav a:hover{background:#1e3a5f}
+.container{max-width:980px;margin:0 auto;padding:30px 20px}
+.section{background:#0f1929;border:1px solid #1e3a5f;border-radius:10px;padding:24px;margin-bottom:24px}
+.section.red{border-color:#dc2626;background:#0d0000}
+.section.amber{border-color:#d97706;background:#0d0900}
+.section.green{border-color:#16a34a;background:#001a0a}
+.section.blue{border-color:#3b82f6;background:#00101a}
+.section.purple{border-color:#7c3aed;background:#0a0014}
+.section.teal{border-color:#0d9488;background:#001a14}
+.sec-title{font-size:10px;font-weight:900;color:#f59e0b;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+h3{font-size:18px;font-weight:800;color:#f1f5f9;margin-bottom:14px}
+h4{font-size:14px;font-weight:800;color:#e2e8f0;margin:16px 0 8px}
+p{font-size:13px;color:#cbd5e1;margin-bottom:10px;line-height:1.8}
+.alert{border-radius:8px;padding:14px 16px;margin:12px 0;font-size:13px;line-height:1.8}
+.alert-red{background:#1a0000;border:1px solid #dc2626}
+.alert-amber{background:#1a1000;border:1px solid #f59e0b}
+.alert-green{background:#001a0a;border:1px solid #22c55e}
+.alert-blue{background:#00101a;border:1px solid #3b82f6}
+.source{font-size:11px;color:#4b5563;font-style:italic;margin-top:6px;line-height:1.7;border-top:1px solid #1e293b;padding-top:6px}
+table{width:100%;border-collapse:collapse;font-size:12px;margin:12px 0}
+th{background:#1e293b;color:#94a3b8;padding:8px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:1px}
+td{padding:9px 12px;border-bottom:1px solid #1e293b;vertical-align:top;line-height:1.6}
+tr:last-child td{border-bottom:none}
+.verified{color:#4ade80;font-weight:900;font-size:10px}
+.unverified{color:#fbbf24;font-weight:900;font-size:10px}
+.partial{color:#60a5fa;font-weight:900;font-size:10px}
+ul{padding-left:18px}
+ul li{margin-bottom:8px;font-size:13px;color:#cbd5e1;line-height:1.7}
+.person-card{background:#0a0f1e;border:1px solid #374151;border-radius:10px;padding:18px;margin-bottom:14px}
+.person-name{font-size:16px;font-weight:900;color:#f1f5f9;margin-bottom:2px}
+.person-title{font-size:11px;color:#64748b;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.person-fact{font-size:12px;color:#cbd5e1;line-height:1.7;margin-bottom:6px;padding-left:12px;border-left:2px solid #374151}
+.conflict-flag{display:inline-block;padding:3px 10px;border-radius:10px;font-size:10px;font-weight:900;text-transform:uppercase;margin-bottom:10px}
+.flag-red{background:#1a0000;color:#f87171;border:1px solid #dc2626}
+.flag-amber{background:#1a1000;color:#fbbf24;border:1px solid #d97706}
+.flag-green{background:#001a0a;color:#4ade80;border:1px solid #16a34a}
+.flag-blue{background:#00101a;color:#60a5fa;border:1px solid #3b82f6}
+.owner-row{display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px;padding:10px 0;border-bottom:1px solid #1e293b;align-items:center}
+.owner-row:last-child{border-bottom:none}
+.what-to-do{background:#001a0a;border:2px solid #16a34a;border-radius:8px;padding:16px;margin:12px 0}
+.footer{background:#0a0a0a;border-top:2px solid #374151;margin-top:40px;padding:24px 20px;text-align:center;font-size:11px;color:#4b5563;line-height:1.9}
+.related-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.rel-btn{flex:1;min-width:180px;background:#0a1628;border:2px solid #1e3a5f;border-radius:10px;padding:14px;text-decoration:none;text-align:center}
+.rel-btn:hover{border-color:#3b82f6}
+.rel-btn-title{font-size:13px;font-weight:800;color:#f1f5f9;display:block;margin-bottom:4px}
+.rel-btn-sub{font-size:11px;color:#64748b}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">🔍 Deep Dive Research — May 23, 2026</div>
+  <h1>Who Owns What — And Who Regulates Whom<br><span style="color:#f87171;">SCC Commissioner Conflicts · Corporate Ownership · Verified Facts</span></h1>
+  <p>Full sourced research on: Virginia SCC commissioners' prior employment and conflict of interest obligations; who owns every named data center project in Spotsylvania and Caroline County; who owns Essential Utilities/Aqua; the Digital Realty claim verified against public record; and where the financial disclosure filings are and how to get them.</p>
+</div>
+
+<nav class="nav">
+  <a href="#verdict">Fact Verdict</a>
+  <a href="#scc">SCC Commissioners</a>
+  <a href="#bagot">Bagot/NextEra</a>
+  <a href="#disclosure">Disclosure Law</a>
+  <a href="#owners">Who Owns What</a>
+  <a href="#aqua-owners">Aqua Ownership</a>
+  <a href="#digital-realty">Digital Realty</a>
+  <a href="#foia">How to Get Records</a>
+</nav>
+
+<div class="container">
+
+  <!-- FACT VERDICT TABLE -->
+  <div class="section red" id="verdict">
+    <div class="sec-title">⚖️ Fact Verdict — Every Claim From The Community Posts, Verified</div>
+    <h3>What Is True, What Is Partially True, What Is Unverified</h3>
+    <table>
+      <tr>
+        <th>Claim</th>
+        <th>Status</th>
+        <th>What The Record Shows</th>
+      </tr>
+      <tr>
+        <td>"15+ data center projects along I-95 between Fredericksburg and Caroline"</td>
+        <td><span class="verified">✅ VERIFIED</span></td>
+        <td>Official Spotsylvania County Planning Department map confirms 17 project sites. FXBG Advance (Jan 15, 2026) confirmed 17 sites, 3,696 total acres. Amazon alone has committed $35 billion in Spotsylvania County.</td>
+      </tr>
+      <tr>
+        <td>"Amazon's Mattameade campus crosses county lines into Caroline"</td>
+        <td><span class="verified">✅ VERIFIED — DOCUMENTED</span></td>
+        <td>Multiple official sources confirm: Army Corps of Engineers permit (NAO-2024-01108), Fredericksburg Free Press (Nov 15, 2024), FXBG Advance, DHCD Virginia report (Dec 2, 2024). The 11-building campus sits on the Spotsylvania/Caroline border. Spotsylvania provides water via a signed Wastewater Services Agreement dated Oct 22, 2024. Caroline gets 57.5% of revenue; Spotsylvania gets 42.5%.</td>
+      </tr>
+      <tr>
+        <td>"Three of 7 projects are in Culpeper"</td>
+        <td><span class="partial">🟡 PARTIALLY VERIFIED</span></td>
+        <td>Richard Kuser's personal account. Culpeper County data center expansion is separately documented (Culpeper Star-Exponent, 2025) but the "3 of 7" figure is from Kuser's post — not independently counted in official documents found. Consistent with known expansion direction.</td>
+      </tr>
+      <tr>
+        <td>"Digital Realty said they specifically target rural, impoverished communities"</td>
+        <td><span class="unverified">🟡 UNVERIFIED — COMMUNITY ACCOUNT</span></td>
+        <td>Richard Kuser's personal account from an AI summit he attended. Digital Realty (NYSE: DLR) is a real company — $54B market cap, confirmed Virginia presence. Their public investor materials describe targeting "secondary markets" and "emerging markets" — language that is consistent with but not identical to "rural impoverished communities." No recording or transcript of the specific summit statement has been found. Kuser's account is plausible given industry behavior but cannot be independently confirmed without additional witnesses or a transcript.</td>
+      </tr>
+      <tr>
+        <td>"A data center employs only 3 people"</td>
+        <td><span class="partial">🟡 MOSTLY ACCURATE — CONTEXT NEEDED</span></td>
+        <td>Hyperscale data centers (500,000+ sq ft) typically employ 30–50 permanent staff on-site. Construction jobs are temporary. The Spotsylvania county planner confirmed data centers are large buildings with small permanent workforces. The "3 people" is rhetorical — the accurate figure is 30–50 permanent employees for a facility generating hundreds of millions in revenue.</td>
+      </tr>
+      <tr>
+        <td>"They will pipe water from the Potomac when local sources run dry"</td>
+        <td><span class="partial">🟡 CONSISTENT WITH DOCUMENTED PLANNING</span></td>
+        <td>Tony Maccini's community prediction. Eastern Virginia Groundwater Management Area is officially projected to face depletion stress by 2055 (9VAC25-600-20, VDEQ). Long-distance water transfer planning is documented in other jurisdictions facing similar stress. Not yet confirmed as a specific Spotsylvania/Stafford plan, but consistent with water authority practices nationwide.</td>
+      </tr>
+      <tr>
+        <td>SCC Commissioner Kelsey Bagot was previously a NextEra Energy attorney</td>
+        <td><span class="verified">✅ VERIFIED — CONFIRMED BY SCC ITSELF</span></td>
+        <td>SCC's own press release states: "Prior to being elected to the Commission, Bagot was a Senior Attorney at NextEra Energy, Inc." Confirmed by Loudoun Now, Ballotpedia, Blue Ridge Leader, and her own LinkedIn profile.</td>
+      </tr>
+      <tr>
+        <td>NextEra is now acquiring Dominion Energy — Bagot must recuse from that case</td>
+        <td><span class="verified">✅ VERIFIED — CONFIRMED AND ACTIVE</span></td>
+        <td>$66.8 billion NextEra-Dominion merger announced May 18, 2026. Requires SCC approval. Bagot promised to recuse from all NextEra cases when appointed (confirmed by Loudoun Now, Loudoun Times-Mirror). That means the most consequential energy merger in Virginia history will be decided by only TWO commissioners — Hudson and Towell — because Bagot must sit out.</td>
+      </tr>
+      <tr>
+        <td>SCC commissioners are required to file public financial disclosures</td>
+        <td><span class="verified">✅ VERIFIED — CONFIRMED BY STATE LAW</span></td>
+        <td>Virginia Code § 2.2-3114(A) explicitly names "members of the State Corporation Commission" as required to file annual financial disclosure statements. Forms are public records, maintained for 5 years, made public no later than 6 weeks after the February 1 filing deadline. Filed with the Virginia Conflict of Interests and Ethics Advisory Council.</td>
+      </tr>
+      <tr>
+        <td>Vanguard and BlackRock own both Essential Utilities (Aqua) and Digital Realty</td>
+        <td><span class="verified">✅ VERIFIED — SEC FILINGS</span></td>
+        <td>Essential Utilities (WTRG): Vanguard 10.91% (30.9M shares), BlackRock 10.90% (30.9M shares) — investing.com citing Dec 2025 SEC filings. Digital Realty (DLR): Vanguard 15.44% (54.3M shares, Dec 2025), BlackRock 11.04% (38.8M shares, Dec 2025) — investing.com citing SEC filings. State Street is #3 in both companies. The same three institutional investors are top shareholders of the company raising your water rates AND the company building data centers that drain your watershed.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- SCC COMMISSIONERS — FULL PROFILES -->
+  <div class="section amber" id="scc">
+    <div class="sec-title">🏛️ The Three SCC Commissioners — Full Verified Profiles</div>
+    <h3>Who They Are, Where They Came From, What They Regulate</h3>
+    <p>These three people approve or reject every utility rate increase, every merger, every infrastructure project subject to SCC jurisdiction in Virginia — including Aqua's 33.88% rate increase request and the $66.8 billion NextEra-Dominion merger.</p>
+
+    <div class="person-card" id="bagot">
+      <div class="person-name">Kelsey A. Bagot</div>
+      <div class="person-title">Commissioner / Former Chair — Elected April 1, 2024. Term ends January 31, 2030.</div>
+      <span class="conflict-flag flag-red">⚠️ ACTIVE RECUSAL OBLIGATION — NEXTERA/DOMINION MERGER</span>
+
+      <div class="person-fact"><strong>Prior employer:</strong> NextEra Energy, Inc. — Senior Attorney. NextEra is the largest power company in the world by market cap (~$150 billion). She resigned from NextEra to join the SCC.</div>
+      <div class="person-fact"><strong>Before NextEra:</strong> Legal Advisor to Commissioner Mark Christie at the SCC itself (she advised the SCC before working for the company the SCC regulates, then was appointed back to the SCC).</div>
+      <div class="person-fact"><strong>Education:</strong> Harvard University (2014). Loudoun County resident.</div>
+      <div class="person-fact"><strong>Recusal commitment:</strong> At appointment, Bagot publicly promised to recuse herself from all NextEra cases. Confirmed by Loudoun Now and Loudoun Times-Mirror. She specifically mentioned recusal from the MidAtlantic Resiliency Link transmission line case, which involves NextEra's transmission infrastructure.</div>
+      <div class="person-fact"><strong>The critical problem — May 2026:</strong> NextEra announced a $66.8 billion acquisition of Dominion Energy on May 18, 2026. This merger requires SCC approval. Bagot MUST recuse. That means the most consequential utility merger in Virginia history — affecting every Dominion customer in the state — will be decided by only two commissioners. A split vote means no approval. One person — Samuel Towell — could functionally block or approve a $66.8 billion deal.</div>
+      <div class="person-fact"><strong>The revolving door question:</strong> Bagot was a NextEra attorney → became SCC commissioner → must now sit out NextEra's biggest deal. Community members and Clean Virginia are asking whether this constitutes a structural conflict beyond just the formal recusal. Energy and Policy Institute documented that Dominion-funded legislators voted to elect Bagot and Towell to the SCC in January 2024.</div>
+      <div class="person-fact"><strong>Financial disclosure:</strong> Required annually by Feb 1 under Va. Code § 2.2-3114. Filed with Virginia Conflict of Interests and Ethics Advisory Council. Public record. See FOIA section below for how to access.</div>
+      <div class="source">Sources: SCC press release April 1, 2024 (scc.virginia.gov); Loudoun Now January 2024; Blue Ridge Leader January 2024; Loudoun Times-Mirror January 2024; Energy and Policy Institute January 23, 2024; Ballotpedia; Clean Virginia May 2026; Reddit r/nova May 2026 thread.</div>
+    </div>
+
+    <div class="person-card">
+      <div class="person-name">Samuel T. Towell</div>
+      <div class="person-title">Commissioner / Current Chair (2026) — Elected March 20, 2024. Term ends January 31, 2028.</div>
+      <span class="conflict-flag flag-amber">🟡 MONITOR — SMITHFIELD FOODS / FOOD INDUSTRY BACKGROUND</span>
+
+      <div class="person-fact"><strong>Prior employer:</strong> Smithfield Foods, Inc. — Associate General Counsel. Smithfield is one of the world's largest pork producers, owned by Hong Kong-based WH Group. Not a utility company — but a large regulated corporation with significant energy and water usage.</div>
+      <div class="person-fact"><strong>Before Smithfield:</strong> Wall Street financial roles (pre-law). Then served as Special Assistant in Virginia's Secretary of Finance office — direct government financial policy experience.</div>
+      <div class="person-fact"><strong>Education:</strong> MIT (B.S.), University of Virginia School of Law (J.D.). Background described as "law, finance, and engineering."</div>
+      <div class="person-fact"><strong>Role in NextEra/Dominion merger:</strong> Because Bagot must recuse, Towell becomes one of only two deciding votes on the $66.8B merger. His vote, combined with Hudson's, will determine the outcome.</div>
+      <div class="person-fact"><strong>Elected by whom:</strong> Virginia General Assembly in January 2024 — the same session that elected Bagot. Energy and Policy Institute documented that Dominion Energy had donated to many of the legislators who voted for Towell's appointment.</div>
+      <div class="person-fact"><strong>Financial disclosure:</strong> Required annually by Feb 1 under Va. Code § 2.2-3114. Filed with Virginia Conflict of Interests and Ethics Advisory Council. Public record.</div>
+      <div class="source">Sources: SCC press release March 20, 2024; UVA Law interview ("Joy Taking Career Detours" — published by UVA Law); Ballotpedia; Energy and Policy Institute January 23, 2024; ZoomInfo; LinkedIn.</div>
+    </div>
+
+    <div class="person-card">
+      <div class="person-name">Jehmal T. Hudson</div>
+      <div class="person-title">Commissioner — Appointed 2020 by Governor Northam. Elected by General Assembly to continuing term.</div>
+      <span class="conflict-flag flag-green">🟢 NO IDENTIFIED UTILITY INDUSTRY CONFLICTS</span>
+
+      <div class="person-fact"><strong>Prior employer:</strong> Vice President of Government Affairs at an unnamed organization before the SCC (his SCC biography). Previously in environmental law and taxation. First African American SCC commissioner.</div>
+      <div class="person-fact"><strong>Education:</strong> Adelphi University (B.A., Environmental Studies), Vermont Law School (J.D.), Georgetown University Law Center (LL.M., Taxation).</div>
+      <div class="person-fact"><strong>Background note:</strong> Hudson was appointed by Governor Northam in 2020 — not elected by the General Assembly in the same 2024 cycle as Bagot and Towell. His appointment pathway was different and did not involve the same documented utility-funded legislative votes.</div>
+      <div class="person-fact"><strong>Current role:</strong> NARUC (National Association of Regulatory Utility Commissioners) — Hudson was appointed First Vice President. Active in federal-state utility regulatory coordination.</div>
+      <div class="person-fact"><strong>Financial disclosure:</strong> Required annually by Feb 1 under Va. Code § 2.2-3114. Filed with Virginia Conflict of Interests and Ethics Advisory Council. Public record.</div>
+      <div class="source">Sources: SCC biography (scc.virginia.gov/about-the-scc/about-the-commissioners/); Virginia Conservation Network (vcnva.org) — Northam appointment; NARUC press release; Fortnightly Magazine June 2021 interview; S&P Global Market Intelligence.</div>
+    </div>
+
+    <div class="alert-red alert" id="disclosure">
+      <strong>🔑 THE DISCLOSURE LAW — And Why It Matters</strong><br><br>
+      <strong>Virginia Code § 2.2-3114(A)</strong> explicitly names <em>"members of the State Corporation Commission"</em> as required to file annual financial disclosure statements — same category as the Governor, Supreme Court Justices, and circuit court judges.<br><br>
+      <strong>What they must disclose:</strong> All personal financial interests including stock holdings, business interests, real estate, outside income, and positions in private entities.<br><br>
+      <strong>Where the forms go:</strong> Filed with the <strong>Virginia Conflict of Interests and Ethics Advisory Council</strong> (ethics.dls.virginia.gov) by February 1 each year.<br><br>
+      <strong>Public access:</strong> "All forms shall be maintained as public records for five years... Such forms shall be made public no later than six weeks after the filing deadline." — Va. Code § 2.2-3114(C).<br><br>
+      <strong>What this means:</strong> Bagot's, Hudson's, and Towell's financial disclosure statements — listing every stock they own, every financial interest, every outside income source — are public records available right now. If any of them owns stock in Essential Utilities (WTRG), NextEra Energy (NEE), American Water Works (AWK), Digital Realty (DLR), Vanguard, BlackRock, or any regulated utility, it will be in those forms.<br><br>
+      <strong>How to get them: See the FOIA section at the bottom of this page.</strong>
+    </div>
+  </div>
+
+  <!-- WHO OWNS EACH DATA CENTER PROJECT -->
+  <div class="section blue" id="owners">
+    <div class="sec-title">🏗️ Who Owns Each Data Center Project — Verified From Official Records</div>
+    <h3>Spotsylvania and Caroline County — Named Owners Behind the Campus Names</h3>
+
+    <table>
+      <tr><th>Campus Name</th><th>Verified Owner / Developer</th><th>Status</th><th>Key Facts</th><th>Source</th></tr>
+      <tr>
+        <td><strong>Cosner Tech Campus</strong></td>
+        <td>Amazon Data Services, Inc. (subsidiary of Amazon Web Services / Amazon.com, Inc.)</td>
+        <td><span class="verified">UNDER CONSTRUCTION</span></td>
+        <td>329 acres at 4049 Massaponax Church Road. 1.9M sq ft approved Oct 10, 2023. First two buildings = 512,564 sq ft. Certificates of Occupancy possible 2026. Public liaison: Turner Construction. Helpline: 1.888.204.8411.</td>
+        <td>Spotsylvania County BOS Oct 2023; Spotsylvania.va.us public liaison page; FXBG Advance Jan 2026; Baxtel.</td>
+      </tr>
+      <tr>
+        <td><strong>Carter's Store Tech Campus</strong></td>
+        <td>Amazon Data Services, Inc.</td>
+        <td><span class="verified">BOS APPROVED</span></td>
+        <td>One of the four Amazon sites in active development per FXBG Advance Jan 2026.</td>
+        <td>FXBG Advance Jan 2026; Spotsylvania County planning dept.</td>
+      </tr>
+      <tr>
+        <td><strong>Summit Crossing Tech Campus</strong></td>
+        <td>Amazon Data Services, Inc.</td>
+        <td><span class="verified">BOS APPROVED</span></td>
+        <td>Expected operational 2035 (Cleanview.co). Amazon signed performance agreement with Spotsylvania Dec 12, 2023. Listed on Amazon's permit applications.</td>
+        <td>Fredericksburg Free Press Nov 2024; Cleanview.co; Spotsylvania planning dept.</td>
+      </tr>
+      <tr>
+        <td><strong>Mattameade Tech Campus (Caroline + Spotsylvania)</strong></td>
+        <td>Amazon Data Services, Inc.</td>
+        <td><span class="verified">PERMITS FILED — ARMY CORPS</span></td>
+        <td>11 two-story buildings. Located on Orrock Lane and Stonewall Jackson Road on the county border. Spotsylvania provides potable water, recycled water, and sewer via Wastewater Services Agreement signed Oct 22, 2024. Caroline gets 57.5% of revenue, Spotsylvania 42.5%. Performance agreements: Spotsylvania Dec 12, 2023; Caroline Jan 23, 2024. Expected to generate $371.1M for Spotsylvania over 40 years. White Turner serves as public liaison for Mattameade. Helpline: 1.804.215-6653.</td>
+        <td>Army Corps of Engineers Public Notice NAO-2024-01108; Fredericksburg Free Press Nov 15, 2024; Spotsylvania public liaison page; DHCD Virginia report Dec 2, 2024.</td>
+      </tr>
+      <tr>
+        <td><strong>PowerHouse 95 Campus</strong></td>
+        <td>PowerHouse Data Centers — owned by American Real Estate Partners (AREP). Joint venture with Harrison Street (institutional real estate investor).</td>
+        <td><span class="verified">UNDER CONSTRUCTION</span></td>
+        <td>145 acres purchased Spotsylvania. 800MW total capacity across 3 substations. 1.75M sq ft across 7 buildings. First 300MW substation due Oct 2025. Located along I-95 — "PowerHouse 95."</td>
+        <td>PowerHouse Data Centers press releases Jan 2024, Feb 2024; PR Newswire; American Real Estate Partners (americanrepartners.com).</td>
+      </tr>
+      <tr>
+        <td><strong>Crossroads Technology Campus</strong></td>
+        <td>RCK Digital Crossroads LLC — McLean, Virginia-based. KETTLER (real estate development company) has involvement — Kyle Crosby, head of land investments at KETTLER, named as developer representative in Fredericksburg Free Press Feb 2026.</td>
+        <td><span class="verified">SUP IN PROCESS — SUP26-0003</span></td>
+        <td>633 acres in Lee Hill District. Massive proposed footprint. Active case as of 2026. McLean-based entity.</td>
+        <td>Spotsylvania County case SUP26-0003; X/Twitter @NewsInTheBurg; Fredericksburg Free Press Feb 6, 2026; Instagram post by local officials.</td>
+      </tr>
+      <tr>
+        <td><strong>Massaponax Tech Campus</strong></td>
+        <td>Owner/applicant not yet publicly identified in sources found — Amazon Web Services filed a separate 322-acre addition permit for Massaponax area (Army Corps NAO-2023-01952), suggesting potential Amazon involvement but this has not been confirmed as the same project as the Massaponax Tech Campus rezoning case R25-0004.</td>
+        <td><span class="partial">REZONING IN PROCESS — R25-0004</span></td>
+        <td>Active rezoning. West of Massaponax Church Road. 322.05 acres per Army Corps notice. Nearest waterway: Massaponax Creek.</td>
+        <td>Army Corps of Engineers NAO-2023-01952; Spotsylvania County case R25-0004. Owner not confirmed from available records.</td>
+      </tr>
+      <tr>
+        <td><strong>SpotsyTechno Campus</strong></td>
+        <td>"SpotsyTechnoCampus, LLC" — specific ownership behind the LLC not yet publicly identified. Data Center Dynamics (2024) reported the campus involves rezoning from A-2 to I-1.</td>
+        <td><span class="partial">SUP IN PROCESS</span></td>
+        <td>Baxtel lists total investment at $366.5 million. Construction anticipated Q2 2023 originally.</td>
+        <td>Data Center Dynamics; Baxtel. LLC owner behind SpotsyTechnoCampus, LLC not confirmed in public records found.</td>
+      </tr>
+      <tr>
+        <td><strong>Thornburg Industrial / Thornburg Industrial 2 / Thornburg Business Park</strong></td>
+        <td>Thornburg Business Park — FXBG Advance (Oct 2025) reports "a data center campus with about 2 million square feet of buildings." Applicant for R25-0013 Thornburg Business Park filed an economic impact statement (Exhibit C, "Spotsylvania Data Center Campus," June 16, 2025). Specific developer not yet publicly named in available sources.</td>
+        <td><span class="partial">MULTIPLE STAGES — Active cases R25-0011, R25-0013</span></td>
+        <td>Three separate Thornburg-area projects near the Spotsylvania/Caroline border. Located near Broaddus.</td>
+        <td>Fredericksburg Free Press Oct 1, 2025; Spotsylvania County cases R25-0011, R25-0013; Spotsylvania County impact statement.</td>
+      </tr>
+      <tr>
+        <td><strong>Pairmont Data Center Campus</strong></td>
+        <td>Applicant not yet publicly identified — active case R25-0014 at Spotsylvania County planning dept.</td>
+        <td><span class="partial">SITE PLAN IN PROCESS — R25-0014</span></td>
+        <td>Active case. Case planner: Jennifer Little.</td>
+        <td>Spotsylvania County case R25-0014.</td>
+      </tr>
+      <tr>
+        <td><strong>Belvedere Tech Campus</strong></td>
+        <td>Owner/developer not yet publicly identified in available sources. No active SUP application found — listed as "Special Use Permit Required But Not Yet Applied."</td>
+        <td><span class="partial">NOT YET APPLIED</span></td>
+        <td>Appears on official planning map. No application yet filed as of map date.</td>
+        <td>Spotsylvania County Planning Dept. map.</td>
+      </tr>
+    </table>
+    <div class="source">All ownership data sourced from: Army Corps of Engineers public notices (nao.usace.army.mil); Spotsylvania County official case files (spotsylvania.va.us); Fredericksburg Free Press; FXBG Advance; Data Center Dynamics; Baxtel; Cleanview.co; PowerHouse Data Centers press releases. Where owner is listed as "not confirmed," this reflects gaps in publicly available records — not CaseLock's conclusion that the identity is hidden.</div>
+
+    <div class="alert-amber alert">
+      <strong>The "Unknown LLC" Pattern:</strong> Multiple projects are held by single-purpose LLCs (SpotsyTechnoCampus LLC, RCK Digital Crossroads LLC, etc.) whose parent ownership is not disclosed in local planning records. Virginia LLC filings are public through the Virginia State Corporation Commission's Clerk's Office (scc.virginia.gov/clk). You can look up the registered agent and organizer of any Virginia LLC — which often reveals the true corporate parent behind the campus name.
+    </div>
+  </div>
+
+  <!-- WHO OWNS AQUA/ESSENTIAL UTILITIES -->
+  <div class="section teal" id="aqua-owners">
+    <div class="sec-title">💧 Who Owns Essential Utilities (Aqua) — WTRG</div>
+    <h3>The Same Institutional Investors Own Your Water Company AND the Data Centers Draining Your Watershed</h3>
+
+    <table>
+      <tr><th>Shareholder</th><th>Essential Utilities (WTRG) Stake</th><th>Digital Realty (DLR) Stake</th><th>Source / Date</th></tr>
+      <tr>
+        <td><strong>The Vanguard Group</strong></td>
+        <td>10.91% — 30.9M shares</td>
+        <td>15.44% — 54.3M shares (~$8.4B)</td>
+        <td>investing.com citing SEC filings Dec 2025</td>
+      </tr>
+      <tr>
+        <td><strong>BlackRock, Inc.</strong></td>
+        <td>10.90% — 30.9M shares</td>
+        <td>11.04% — 38.8M shares (~$6.0B)</td>
+        <td>investing.com citing SEC filings Dec 2025 / Mar 2026</td>
+      </tr>
+      <tr>
+        <td><strong>State Street Corporation</strong></td>
+        <td>5.64% — 14.8M shares</td>
+        <td>Significant position (exact % varies by filing)</td>
+        <td>secform4.com 13G filings; businessmodelcanvastemplate.com</td>
+      </tr>
+      <tr>
+        <td><strong>Cohen & Steers</strong></td>
+        <td>Significant position</td>
+        <td>Named significant shareholder</td>
+        <td>portersfiveforce.com; matrixbcg.com</td>
+      </tr>
+    </table>
+
+    <div class="alert-red alert">
+      <strong>What This Means in Plain English:</strong> Vanguard and BlackRock together own roughly 22% of Essential Utilities — the company charging Caroline County residents $160-$200/month for water VDH confirmed has elevated iron and manganese. Those same two firms own roughly 26% of Digital Realty — one of the data center companies expanding into the rural I-95 corridor. State Street is in both. These are not villains — they are passive index fund managers. But the structural reality is that the same financial institutions profit when Aqua raises your rates AND when data centers expand into your watershed. There is no financial pressure on either side to protect your water.
+    </div>
+
+    <h4>The American Water / Essential Utilities Merger — $40 Billion — Q1 2027</h4>
+    <p>In October 2025, Essential Utilities announced a merger with American Water Works (NYSE: AWK). Upon completion, former Essential shareholders will own approximately <strong>31% of the combined company</strong> (per SEC filing 424B3). The merger requires SCC approval in Virginia — among other state regulators. This is the intervention window: file to intervene in the SCC merger proceeding before it closes.</p>
+    <div class="source">Sources: investing.com SEC filing data; secform4.com 13G filings; SEC Form 424B3 (merger prospectus); wallstreetzen.com; portersfiveforce.com; businessmodelcanvastemplate.com.</div>
+  </div>
+
+  <!-- DIGITAL REALTY — VERIFIED FACTS -->
+  <div class="section purple" id="digital-realty">
+    <div class="sec-title">🖥️ Digital Realty — Who They Are and What's Verified</div>
+    <h3>The Company Richard Kuser Named — What Public Records Show</h3>
+
+    <table>
+      <tr><th>Fact</th><th>Status</th><th>Evidence</th></tr>
+      <tr>
+        <td>Digital Realty Trust, Inc. (NYSE: DLR) is a real company</td>
+        <td><span class="verified">✅ VERIFIED</span></td>
+        <td>NYSE-listed REIT. Market cap ~$54B. One of world's largest data center operators — 300+ locations globally. Confirmed by SEC filings, Yahoo Finance, all major financial databases.</td>
+      </tr>
+      <tr>
+        <td>Digital Realty has Virginia presence</td>
+        <td><span class="verified">✅ VERIFIED</span></td>
+        <td>Confirmed Virginia data center locations on digitalrealty.com/data-centers/americas. Northern Virginia (Ashburn/Sterling area) is a primary market.</td>
+      </tr>
+      <tr>
+        <td>Digital Realty uses language about "secondary markets" in public materials</td>
+        <td><span class="verified">✅ VERIFIED</span></td>
+        <td>Digital Realty investor materials and press releases consistently reference expansion into "secondary markets," "emerging markets," and markets "beyond primary hubs." This is the industry euphemism for what Kuser described as rural/impoverished targeting.</td>
+      </tr>
+      <tr>
+        <td>Digital Realty specifically said "rural impoverished communities" at an AI summit</td>
+        <td><span class="unverified">🟡 UNVERIFIED — COMMUNITY ACCOUNT</span></td>
+        <td>Richard Kuser's personal account. No transcript, recording, or second witness found. The behavior is consistent with documented industry patterns, but the specific statement in those exact words has not been independently verified. Documented here as community testimony.</td>
+      </tr>
+      <tr>
+        <td>Vanguard and BlackRock are top shareholders of Digital Realty</td>
+        <td><span class="verified">✅ VERIFIED — SEC FILINGS</span></td>
+        <td>Vanguard 15.44% (54.3M shares, Dec 2025), BlackRock 11.04% (38.8M shares, Dec 2025). Yahoo Finance lists Blackrock at 39.5M shares (Mar 2026). All from SEC 13F filings.</td>
+      </tr>
+      <tr>
+        <td>Digital Realty has a joint venture with Blackstone</td>
+        <td><span class="verified">✅ VERIFIED</span></td>
+        <td>Blackstone and Digital Realty announced a $7 billion hyperscale data center joint venture. Blackstone press release confirmed. This connects Digital Realty to the world's largest alternative investment firm.</td>
+      </tr>
+    </table>
+
+    <div class="alert-amber alert">
+      <strong>How to Verify the Summit Account:</strong> If the AI summit Richard Kuser attended was a named, public event (e.g., a NAIOPVA event, a Virginia economic development summit, a Digital Realty investor day), a journalist could request comment from Digital Realty's media relations team: media@digitalrealty.com. If other attendees heard the same statement, their corroboration upgrades this from "community account" to "documented admission." The Brookings Institution published a July 2025 article on "local implications of data centers for rural communities" — researchers tracking this trend may have documentation of industry statements.
+    </div>
+    <div class="source">Sources: Digital Realty Trust 2025 DEF 14A (SEC); Yahoo Finance DLR holders; investing.com DLR ownership; Blackstone-Digital Realty JV press release; Brookings Institution July 2025 (brookings.edu/articles/local-implications-data-centers-rural-communities-us/).</div>
+  </div>
+
+  <!-- HOW TO GET THE FINANCIAL DISCLOSURES -->
+  <div class="section green" id="foia">
+    <div class="sec-title">📋 How to Get the Financial Disclosures — Step by Step</div>
+    <h3>The SCC Commissioners' Stock Holdings Are Public Record. Here's How to Get Them.</h3>
+
+    <div class="what-to-do">
+      <h4 style="color:#4ade80;margin-top:0">Step 1 — Virginia Ethics Council (Fastest Route)</h4>
+      <p>The financial disclosure forms are filed with and maintained by the <strong>Virginia Conflict of Interests and Ethics Advisory Council</strong>. They are required to be made public no later than 6 weeks after February 1 — meaning they should be available by mid-March every year.</p>
+      <p><strong>Contact:</strong> ethics.dls.virginia.gov | Phone: (804) 225-3138 | Email: ethics@dls.virginia.gov<br>
+      Address: General Assembly Building, 201 N. 9th Street, Richmond, VA 23219</p>
+      <p><strong>Ask for:</strong> "The annual financial disclosure statements filed by members of the Virginia State Corporation Commission — specifically Commissioners Kelsey Bagot, Samuel Towell, and Jehmal Hudson — for calendar years 2024 and 2025, pursuant to Virginia Code § 2.2-3114."</p>
+    </div>
+
+    <div class="what-to-do">
+      <h4 style="color:#4ade80;margin-top:0">Step 2 — FOIA Request if Not Provided Voluntarily</h4>
+      <p>If the Ethics Council does not provide the documents readily, file a formal FOIA request under Virginia Code § 2.2-3704. The forms are explicitly "maintained as public records" and "shall be made public" — there is no FOIA exemption for these specific filings.</p>
+      <p><strong>FOIA request text:</strong> "Pursuant to the Virginia Freedom of Information Act, Va. Code § 2.2-3700 et seq., I request copies of all financial disclosure statements filed pursuant to Va. Code § 2.2-3114 by members of the Virginia State Corporation Commission, including Kelsey A. Bagot, Samuel T. Towell, and Jehmal T. Hudson, for the years 2024 and 2025."</p>
+    </div>
+
+    <div class="what-to-do">
+      <h4 style="color:#4ade80;margin-top:0">Step 3 — Virginia SCC Clerk's Office: LLC Ownership Lookup</h4>
+      <p>To find who is really behind "SpotsyTechnoCampus LLC," "RCK Digital Crossroads LLC," and other named entities, search the SCC's Clerk's Information System (CIS):</p>
+      <p><strong>URL:</strong> scc.virginia.gov/clk<br>
+      <strong>Search for:</strong> Each LLC name. The filing shows the registered agent and organizer — which often reveals the parent company. Free public search, no FOIA required.</p>
+    </div>
+
+    <div class="what-to-do">
+      <h4 style="color:#4ade80;margin-top:0">Step 4 — Army Corps of Engineers Permit Files</h4>
+      <p>All Army Corps public notices for data center permits in the region are publicly available:</p>
+      <p><strong>URL:</strong> nao.usace.army.mil/Media/Public-Notices/<br>
+      <strong>Already confirmed:</strong> NAO-2024-01108 (Mattameade, Caroline County — Amazon); NAO-2023-01952 (Amazon Tech Park, Spotsylvania). These files name the applicant, attorney, engineer, acreage, and environmental impact data.</p>
+    </div>
+
+    <div class="what-to-do">
+      <h4 style="color:#4ade80;margin-top:0">Step 5 — SCC Docket Search: Active Proceedings</h4>
+      <p><strong>URL:</strong> scc.virginia.gov/docketsearch<br>
+      Search "Aqua Virginia" — find PUR-2025-00071 (rate case) and monitor for the merger docket when filed.<br>
+      Search "Essential Utilities" or "American Water" — the merger approval proceeding will be filed here.<br>
+      Search "NextEra" or "Dominion" — the $66.8B merger docket will be filed here. Watch for it. File to intervene.</p>
+    </div>
+  </div>
+
+  <div class="related-links">
+    <a href="i95_corridor_map.html" class="rel-btn">
+      <span class="rel-btn-title">🗺️ I-95 Corridor Map</span>
+      <span class="rel-btn-sub">All 18 projects documented</span>
+    </a>
+    <a href="aqua_fight.html" class="rel-btn">
+      <span class="rel-btn-title">💧 Aqua Virginia Full Brief</span>
+      <span class="rel-btn-sub">Caroline County water crisis</span>
+    </a>
+    <a href="how_is_it_legal.html" class="rel-btn">
+      <span class="rel-btn-title">⚖️ How Is This Legal?</span>
+      <span class="rel-btn-sub">The full money chain explained</span>
+    </a>
+    <a href="ceo_pay_systemic.html" class="rel-btn">
+      <span class="rel-btn-title">💰 Executive Pay Report</span>
+      <span class="rel-btn-sub">$9.2M CEO vs. your water bill</span>
+    </a>
+    <a href="fight_back.html" class="rel-btn">
+      <span class="rel-btn-title">⚔️ 10 Legal Weapons</span>
+      <span class="rel-btn-sub">What actually stops this</span>
+    </a>
+  </div>
+</div>
+
+<div class="footer">
+  This page is for informational and community advocacy purposes only. It is not legal advice and does not create an attorney-client relationship. CaseLock is not a law firm. All facts are sourced and cited. Community testimony is attributed to named sources and labeled as unverified where independent verification was not possible. All commissioner background information is sourced from official SCC press releases, Ballotpedia, and published news coverage. Financial ownership data sourced from SEC 13F filings via investing.com, Yahoo Finance, and secform4.com. Virginia law citations are to official Code of Virginia text at law.lis.virginia.gov. No statement on this page asserts that any commissioner holds conflicting stock interests — that determination requires review of their actual disclosure filings, which are public records described in the FOIA section above. For legal action, consult a licensed Virginia attorney.
+</div>
+</body>
+</html>
