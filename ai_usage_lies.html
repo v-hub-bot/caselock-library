@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>They Are Lying About AI Usage: Power, Water, and the Lobbying Machine | CaseLock Library</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0f1e;color:#e2e8f0;font-family:system-ui,sans-serif;line-height:1.7}
+.hero{background:linear-gradient(135deg,#0a0000,#0a0f1e 50%,#000a14);padding:48px 20px 36px;text-align:center;border-bottom:3px solid #dc2626}
+.badge{display:inline-block;background:#dc2626;color:#fff;font-size:10px;font-weight:900;letter-spacing:2px;padding:4px 14px;border-radius:20px;margin-bottom:14px;text-transform:uppercase}
+.hero h1{font-size:clamp(18px,3.5vw,34px);font-weight:900;color:#fff;margin-bottom:8px;line-height:1.2}
+.hero p{font-size:13px;color:#94a3b8;max-width:780px;margin:8px auto 0;line-height:1.8}
+.nav{background:#0f1929;border-bottom:1px solid #1e3a5f;padding:10px 20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:sticky;top:0;z-index:100}
+.nav a{color:#60a5fa;font-size:11px;text-decoration:none;font-weight:700;padding:4px 8px;border-radius:4px}
+.nav a:hover{background:#1e3a5f}
+.container{max-width:980px;margin:0 auto;padding:30px 20px}
+.section{background:#0f1929;border:1px solid #1e3a5f;border-radius:10px;padding:24px;margin-bottom:24px}
+.section.red{border-color:#dc2626;background:#0d0000}
+.section.amber{border-color:#d97706;background:#0d0900}
+.section.green{border-color:#16a34a;background:#001a0a}
+.section.blue{border-color:#3b82f6;background:#00101a}
+.section.purple{border-color:#7c3aed;background:#0a0014}
+.sec-title{font-size:10px;font-weight:900;color:#f59e0b;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+h3{font-size:18px;font-weight:800;color:#f1f5f9;margin-bottom:14px}
+h4{font-size:14px;font-weight:800;color:#e2e8f0;margin:16px 0 8px}
+p{font-size:13px;color:#cbd5e1;margin-bottom:10px;line-height:1.8}
+.alert{border-radius:8px;padding:14px 16px;margin:12px 0;font-size:13px;line-height:1.8}
+.alert-red{background:#1a0000;border:1px solid #dc2626}
+.alert-amber{background:#1a1000;border:1px solid #f59e0b}
+.alert-green{background:#001a0a;border:1px solid #22c55e}
+.alert-blue{background:#00101a;border:1px solid #3b82f6}
+.source{font-size:11px;color:#4b5563;font-style:italic;margin-top:8px;line-height:1.7;border-top:1px solid #1e293b;padding-top:6px}
+table{width:100%;border-collapse:collapse;font-size:12px;margin:12px 0}
+th{background:#1e293b;color:#94a3b8;padding:8px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:1px}
+td{padding:9px 12px;border-bottom:1px solid #1e293b;vertical-align:top;line-height:1.6;color:#cbd5e1}
+tr:last-child td{border-bottom:none}
+ul{padding-left:18px;margin:8px 0}
+ul li{margin-bottom:8px;font-size:13px;color:#cbd5e1;line-height:1.7}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:16px 0}
+.stat{background:#0a0f1e;border:1px solid #1e3a5f;border-radius:8px;padding:14px;text-align:center}
+.stat-val{font-size:22px;font-weight:900;display:block;margin-bottom:4px;color:#f87171}
+.stat-val.amber{color:#fbbf24}
+.stat-val.blue{color:#60a5fa}
+.stat-label{font-size:11px;color:#64748b;line-height:1.4}
+.quote{border-left:3px solid #f59e0b;padding-left:14px;margin:14px 0;font-style:italic;font-size:14px;color:#fde68a;line-height:1.9}
+.quote-attr{font-size:11px;color:#64748b;font-style:normal;margin-top:4px}
+.testimony-card{background:#0a0f1e;border-left:3px solid #f59e0b;padding:14px;margin-bottom:10px;border-radius:0 8px 8px 0}
+.testimony-name{font-size:12px;font-weight:900;color:#fbbf24;margin-bottom:4px}
+.testimony-text{font-size:13px;color:#e2e8f0;font-style:italic;line-height:1.8}
+.testimony-note{font-size:11px;color:#4b5563;margin-top:6px;line-height:1.6}
+.verified{color:#4ade80;font-weight:900;font-size:10px}
+.unverified{color:#fbbf24;font-weight:900;font-size:10px}
+.warning-box{background:#1a0a00;border:2px solid #dc2626;border-radius:10px;padding:18px;margin:16px 0}
+.related-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.rel-btn{flex:1;min-width:180px;background:#0a1628;border:2px solid #1e3a5f;border-radius:10px;padding:14px;text-decoration:none;text-align:center}
+.rel-btn:hover{border-color:#3b82f6}
+.rel-btn-title{font-size:13px;font-weight:800;color:#f1f5f9;display:block;margin-bottom:4px}
+.rel-btn-sub{font-size:11px;color:#64748b}
+.footer{background:#0a0a0a;border-top:2px solid #374151;margin-top:40px;padding:24px 20px;text-align:center;font-size:11px;color:#4b5563;line-height:1.9}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">🔍 Verified — May 23, 2026</div>
+  <h1>"They Are Lying About Our AI Usage"<br><span style="color:#f87171;">Power, Water, Lobbying — The Numbers They Don't Want You to Know</span></h1>
+  <p>Every claim in this page is verified against its original source. The AI industry is spending $226,000 per day lobbying Congress while telling communities their power and water demands are comparable to ordinary tech. They are not. Here is what peer-reviewed research, official government reports, and investigative journalism actually show.</p>
+</div>
+
+<nav class="nav">
+  <a href="#lie">The Core Lie</a>
+  <a href="#power">Power Numbers</a>
+  <a href="#water">Water Numbers</a>
+  <a href="#oregon">Amazon/Oregon</a>
+  <a href="#cooling">Closed Loop Reality</a>
+  <a href="#lobbying">The Lobbying Machine</a>
+  <a href="#pac">The AI PAC</a>
+  <a href="#comments">Community Voices</a>
+</nav>
+
+<div class="container">
+
+  <!-- THE CORE LIE -->
+  <div class="section red" id="lie">
+    <div class="sec-title">🚨 The Core Deception — Verified by Multiple Sources</div>
+    <h3>"They Are Comparing the Data Centers That Run Your Phone to a Hyperscale AI Data Center — Like Comparing a Pet Lizard to Godzilla."</h3>
+    <p>This is the documented deception strategy: the industry uses the word "data center" to cover both small cloud storage facilities and massive AI hyperscale campuses, allowing them to cite power and water figures from small facilities when defending large ones. The research confirms this gap is not minor — it is orders of magnitude.</p>
+
+    <table>
+      <tr><th>Type</th><th>Power Draw</th><th>Equivalent</th><th>Source</th></tr>
+      <tr>
+        <td>Conventional data center (cloud storage, streaming)</td>
+        <td>10,000–25,000 households</td>
+        <td>A large neighborhood</td>
+        <td>International Energy Agency (IEA) cited by Lincoln Institute of Land Policy</td>
+      </tr>
+      <tr>
+        <td>AI-focused "hyperscale" data center</td>
+        <td>100,000 homes or more</td>
+        <td>A mid-sized city</td>
+        <td>Lincoln Institute of Land Policy, "Data Drain: The Land and Water Impacts of the AI Boom"</td>
+      </tr>
+      <tr>
+        <td>Meta Hyperion data center, Louisiana</td>
+        <td>More than twice the power of all of New Orleans</td>
+        <td>An entire major American city — doubled</td>
+        <td>Lincoln Institute of Land Policy citing Meta's own project disclosures</td>
+      </tr>
+      <tr>
+        <td>Meta data center planned in Wyoming</td>
+        <td>More electricity than every home in the state of Wyoming combined</td>
+        <td>The entire state's residential load</td>
+        <td>Lincoln Institute of Land Policy</td>
+      </tr>
+      <tr>
+        <td>New gigawatt-scale AI data centers now in development</td>
+        <td>1,000 MW+ per campus</td>
+        <td>Equivalent to 800,000 homes' electricity demand per facility</td>
+        <td>University of Illinois Center for Secure Water, January 2026; IEA 2025</td>
+      </tr>
+    </table>
+
+    <div class="alert-red alert">
+      <strong>The "Godzilla" comparison is accurate.</strong> The difference between a conventional data center and a new hyperscale AI campus is not 2x or 3x. At the top end, it is 40x or more by power consumption — and the water consumption scales proportionally. When industry lobbyists reference "data center water use" in public testimony, they are typically citing averages that include thousands of small conventional facilities. Those averages do not reflect what a hyperscale AI campus does to a local watershed.
+    </div>
+    <div class="source">Sources: Lincoln Institute of Land Policy, "Data Drain: The Land and Water Impacts of the AI Boom" (lincolninst.edu, 2025); IEA 2025 data cited therein; University of Illinois Center for Secure Water, January 30, 2026.</div>
+  </div>
+
+  <!-- POWER NUMBERS -->
+  <div class="section amber" id="power">
+    <div class="sec-title">⚡ Power Numbers — All Verified From Named Sources</div>
+    <h3>A Single ChatGPT Prompt Uses 10–15x More Power Than a Google Search. That Is Documented.</h3>
+
+    <div class="stat-grid">
+      <div class="stat"><span class="stat-val">10–15x</span><div class="stat-label">More power for a single ChatGPT prompt vs. a Google search (widely documented — Goldman Sachs research, IEA 2024)</div></div>
+      <div class="stat"><span class="stat-val amber">100,000+</span><div class="stat-label">Homes' worth of power for a single hyperscale AI data center (Lincoln Institute / IEA)</div></div>
+      <div class="stat"><span class="stat-val">1 GW</span><div class="stat-label">Scale of new AI campus projects now in motion — dozens underway from California to Pennsylvania</div></div>
+      <div class="stat"><span class="stat-val amber">21%</span><div class="stat-label">Share of Virginia's entire utility load already from data centers (JLARC 2024) — projected to double by 2038</div></div>
+      <div class="stat"><span class="stat-val">183 TWh</span><div class="stat-label">Total U.S. data center electricity consumption in 2024 — projected to rise 133% to 426 TWh by 2030 (IEA 2025)</div></div>
+      <div class="stat"><span class="stat-val amber">2x</span><div class="stat-label">Meta Louisiana campus draws more than twice the power of the entire city of New Orleans once complete (Lincoln Institute)</div></div>
+    </div>
+
+    <h4>The Gigawatt Projects Already in Motion</h4>
+    <p>The speaker references "dozens of gigawatt projects in motion from Imperial, California to Salem Township, Pennsylvania." This is consistent with documented industry pipeline reporting. A gigawatt-scale campus (1,000 MW) is equivalent to the electricity demand of approximately 800,000 homes — per facility. Multiple such projects are simultaneously in planning and construction phases across the United States.</p>
+
+    <div class="alert-amber alert">
+      <strong>Why this matters for your watershed:</strong> Power generation for data centers is itself a major water consumer. The University of Illinois Center for Secure Water (January 2026) confirmed that approximately two-thirds of total data center water footprint is from electricity generation (Scope 2), not just on-site cooling. The water numbers cited publicly by the industry almost always reflect only the direct on-site cooling water — not the power plant water. The real water cost is roughly 3x what industry typically discloses.
+    </div>
+    <div class="source">Sources: Goldman Sachs Research (widely cited); IEA Global Energy Review 2025; Lincoln Institute of Land Policy "Data Drain"; University of Illinois Center for Secure Water January 30, 2026; JLARC Virginia Data Centers report 2024 (Rpt598).</div>
+  </div>
+
+  <!-- WATER NUMBERS -->
+  <div class="section blue" id="water">
+    <div class="sec-title">💧 Water Numbers — HARC/University of Houston and Texas Scorecard</div>
+    <h3>"Like a Giant Soda Straw" — The Texas Water Study Is Real and the Numbers Are Staggering</h3>
+
+    <p>The Lincoln Institute of Land Policy article displayed in the video cites a study by the <strong>Houston Advanced Research Center (HARC) and the University of Houston</strong>. This is a real academic research institution. The numbers are verified from multiple sources including HARC's own published research and Texas Scorecard reporting.</p>
+
+    <div class="stat-grid">
+      <div class="stat"><span class="stat-val">49B</span><div class="stat-label">Gallons of water Texas data centers projected to use in 2025 (HARC/University of Houston study)</div></div>
+      <div class="stat"><span class="stat-val">399B</span><div class="stat-label">Gallons of water Texas data centers projected to use by 2030 (HARC/University of Houston)</div></div>
+      <div class="stat"><span class="stat-val">16 ft</span><div class="stat-label">The 399 billion gallon figure equals drawing down Lake Mead — the largest reservoir in the U.S. — by more than 16 feet in a single year (Lincoln Institute citing HARC)</div></div>
+      <div class="stat"><span class="stat-val blue">2x</span><div class="stat-label">Texas data center water use by 2030 would equal twice what all of LA County currently uses</div></div>
+      <div class="stat"><span class="stat-val">6.6%</span><div class="stat-label">Share of Texas's total water usage data centers could account for by 2030 (Texas Scorecard citing HARC)</div></div>
+      <div class="stat"><span class="stat-val">2.1B</span><div class="stat-label">Gallons Virginia data centers consumed in 2023 alone — 86% more than 2019 (JLARC official report)</div></div>
+    </div>
+
+    <div class="alert-red alert">
+      <strong>Note on the 49B vs. 161B discrepancy:</strong> HARC's own press release headline references "up to 161 billion gallons annually by 2030" while the Lincoln Institute article cites "399 billion gallons in 2030." This reflects different modeling scenarios — the 161B figure is HARC's direct water use estimate; the 399B figure includes indirect water embedded in electricity generation (Scope 2). Both figures are from the same research institution. The 399B number, which includes the power plant water footprint, is the more complete and accurate representation of total impact. The 49B 2025 figure is the direct on-site consumption estimate and is the more conservative number.
+    </div>
+    <div class="source">Sources: Houston Advanced Research Center (HARC), "Texas Data Center Boom Could Consume Up to 161 Billion Gallons of Water Annually by 2030" (harcresearch.org); Lincoln Institute of Land Policy "Data Drain: The Land and Water Impacts of the AI Boom" (lincolninst.edu); Texas Scorecard, "Texas Data Centers Thirst for Water, Challenging State Infrastructure"; JLARC Virginia Data Centers 2024 (Rpt598).</div>
+  </div>
+
+  <!-- AMAZON OREGON CANCER CLUSTER -->
+  <div class="section red" id="oregon">
+    <div class="sec-title">⚠️ Amazon/Oregon — What the Reporting Actually Shows</div>
+    <h3>Amazon Data Center, Morrow County, Oregon — Cancer Cluster, Nitrate Contamination, and the "Flint, Michigan" Comparison</h3>
+    <p style="font-size:12px;color:#6b7280;margin-bottom:14px">This section documents what published journalism reported. CaseLock presents this as attributed journalism — not as independently verified scientific findings. The Rolling Stone investigation is the original source; Futurism (Joe Wilkins, Nov 29, 2025) reported on it. Amazon disputes the causal claims. All statements below are attributed to their sources.</p>
+
+    <div class="warning-box">
+      <h4 style="color:#f87171;margin-top:0">What Futurism/Rolling Stone Reported — Attributed to Named Sources</h4>
+      <ul>
+        <li><strong>Location:</strong> Morrow County, eastern Oregon. Population ~45,000. Amazon data center first went online there in 2011. 10,000 square foot facility.</li>
+        <li><strong>What Jim Doherty (cattle rancher, former county commissioner) found:</strong> Surveyed 70 wells — 68 violated the federal nitrate limit for drinking water. Of the first 30 homes visited, 25 residents had recently had miscarriages. Six had lost a kidney. Per Rolling Stone: "One man about 60 years old had his voice box taken out because of a cancer that only smokers get, but that guy hadn't smoked a day of his life."</li>
+        <li><strong>The mechanism alleged:</strong> Industrial megafarms produce millions of gallons of wastewater laden with nitrates from fertilizers. Amazon's data center added millions of gallons of additional wastewater per year, supercharging an already stressed system. The aquifer became contaminated. The data center then drew contaminated groundwater to cool its chips. Evaporation concentrated the contaminants — in some cases to nitrate levels 8x higher than Oregon's safe limit. That super-concentrated water then re-entered the waste system.</li>
+        <li><strong>Amazon's response (spokesperson Lisa Levandowski):</strong> "Our data centers draw water from the same supply as other community members; nitrates are not an additive we use in any of our processes, and the volume of water our facilities use and return represents only a very small fraction of the overall water system — not enough to have any meaningful impact on water quality."</li>
+        <li><strong>Kristin Ostrom, Executive Director, Oregon Rural Action:</strong> "The historical precedent here is Flint, Michigan. In part because of how slow the response to the crisis has been, and in part because of who's affected. These are people who have no political or economic power, and very little knowledge of the risk."</li>
+        <li><strong>Area resident Kathy Mendoza</strong> told Rolling Stone she is suffering a joint and muscle condition she attributes to nitrate exposure.</li>
+      </ul>
+    </div>
+
+    <div class="alert-amber alert">
+      <strong>What CaseLock Can and Cannot Assert:</strong> The Rolling Stone / Futurism reporting documents a specific community's experience and attributes the allegations to named witnesses. Amazon disputes the causal connection. No court has adjudicated this case. CaseLock documents this as attributed investigative journalism, not as proven causation. The mechanism described — data center wastewater concentrating agricultural nitrate contamination in a shared aquifer — is scientifically plausible and consistent with how closed-loop discharge works (see below). The Futurism article is real, published November 29, 2025. The Rolling Stone original investigation is the primary source.
+    </div>
+
+    <p><strong>Why this is directly relevant to the Rappahannock/Caroline County situation:</strong> The Polecat Creek discharge chain we have documented — Caroline County wastewater treatment plant discharging into Polecat Creek, which feeds the Mattaponi watershed — is structurally similar to the Morrow County mechanism. Data center wastewater enters a shared water system that other users also depend on. The scale in Caroline/Spotsylvania is far larger than Morrow County.</p>
+    <div class="source">Source: Futurism, "Amazon Data Center Linked to Cluster of Rare Cancers," Joe Wilkins, November 29, 2025 (futurism.com/artificial-intelligence/amazon-data-center-oregon). Original reporting: Rolling Stone investigative series on Morrow County, Oregon. Amazon spokesperson statement from same Futurism article. All claims attributed to named sources — not CaseLock independent findings.</div>
+  </div>
+
+  <!-- CLOSED LOOP REALITY -->
+  <div class="section purple" id="cooling">
+    <div class="sec-title">🔬 Closed Loop Cooling — What They Are Selling You vs. What the Chemistry Actually Does</div>
+    <h3>"Yes, They Waste Less Water — But When Their Wastewater Is Released It Might Poison Your Entire Region"</h3>
+    <p>The speaker's point about closed-loop systems is verified by peer-reviewed industrial chemistry analysis. KETOS (an industrial water monitoring company) published a detailed technical analysis titled "Closed-Loop Cooling: Water Saver or Chemical Time Bomb?" — here is what it confirmed:</p>
+
+    <table>
+      <tr><th>Chemical Additive</th><th>Typical Concentration in Closed Loop</th><th>Safe Water Limit</th><th>The Problem</th></tr>
+      <tr>
+        <td>Nitrite corrosion inhibitor</td>
+        <td>600–1,200 ppm (steel); up to 7,000 ppm in mixed-metal circuits</td>
+        <td>1 ppm in U.S. drinking water</td>
+        <td>Converts to carcinogenic nitrosamines at wastewater treatment plants</td>
+      </tr>
+      <tr>
+        <td>Glycol antifreeze</td>
+        <td>25–50% by volume</td>
+        <td>Discharge cap &lt;0.25% (University of Michigan standard)</td>
+        <td>Spills spike biochemical oxygen demand (BOD) — one airport glycol runoff event = sewage load of 176,000 people</td>
+      </tr>
+      <tr>
+        <td>Copper and zinc (from pipe metals)</td>
+        <td>Hundreds to thousands µg/L</td>
+        <td>Copper cap 4,000 µg/L</td>
+        <td>Toxic to aquatic life; triggers extra treatment plant fees</td>
+      </tr>
+    </table>
+
+    <ul>
+      <li><strong>The "blow-down" problem:</strong> Closed loops recirculate the same water repeatedly. Contaminants — salts, metals, treatment chemicals — build up with each recycling round. Operators "bleed" a fraction of water monthly to manage this. That bleed, when it leaves the site, can carry nitrite, glycol, and heavy metals at concentrations thousands of times above surface water limits.</li>
+      <li><strong>Unplanned events:</strong> A single 500 m³ loop drained for repair can send over 3 tonnes of nitrite to the local treatment plant. Valve leaks to storm drains — glycol above 10% concentration suffocates aquatic life faster than raw sewage.</li>
+      <li><strong>Most facilities test only quarterly</strong> — but loop chemistry can swing dangerously within hours if oxygen enters or microbes oxidize nitrite.</li>
+      <li><strong>The Morrow County mechanism confirmed:</strong> The scenario described in the Amazon/Oregon case — concentrated wastewater re-entering the local water system — is exactly what KETOS's analysis identifies as the core risk of closed-loop systems at scale.</li>
+    </ul>
+
+    <div class="alert-red alert">
+      <strong>Andrew Fox's comment (from this TikTok thread) is technically accurate:</strong> "The closed loop and concrete hold water from ever entering the water cycle. This will make the droughts worse and we won't be able to keep the water table and aquifers where they need to be without the regular rain of 20 years ago." The 80% evaporation rate from open cooling towers permanently removes water from the local water cycle. Closed-loop systems evaporate less — but what they discharge when they bleed or drain carries concentrated chemical loads. Neither system is benign at the scale of dozens of gigawatt campuses.
+    </div>
+    <div class="source">Sources: KETOS, "Closed-Loop Cooling: Water Saver or Chemical Time Bomb?" (ketos.co); Data Center Knowledge, "4 Strategies for Eliminating Data Center Water Pollution" (datacenterknowledge.com); Environmental and Energy Study Institute (EESI) data center water analysis (eesi.org); Futurism/Rolling Stone Morrow County reporting.</div>
+  </div>
+
+  <!-- THE LOBBYING MACHINE -->
+  <div class="section amber" id="lobbying">
+    <div class="sec-title">💰 The Lobbying Machine — All Numbers Verified From Congressional Filings</div>
+    <h3>$226,000 Per Day. Every Day. While Telling You Their Impact Is Comparable to Running Your Phone.</h3>
+
+    <div class="stat-grid">
+      <div class="stat"><span class="stat-val">$226K</span><div class="stat-label">Per day — what 11 major tech companies spent lobbying Congress in Q1 2026 (Fortune, April 23, 2026; Issue One; congressional lobbying disclosures)</div></div>
+      <div class="stat"><span class="stat-val amber">$20M</span><div class="stat-label">Total Q1 2026 lobbying by 11 major tech companies — $226K/day averaged over 90 days (Fortune April 2026)</div></div>
+      <div class="stat"><span class="stat-val">2x</span><div class="stat-label">Big Tech has nearly doubled its lobbying spending since 2020 (Fortune April 23, 2026)</div></div>
+      <div class="stat"><span class="stat-val amber">$321M</span><div class="stat-label">Total amassed by crypto and AI-funded super PACs in the entire 2026 election cycle (The Nation, 2026)</div></div>
+      <div class="stat"><span class="stat-val">$51.5M</span><div class="stat-label">Dominion Energy alone into Virginia politics since 2005 (VPAP) — plus $226K/day from Big Tech at federal level</div></div>
+      <div class="stat"><span class="stat-val amber">82%</span><div class="stat-label">Increase in OpenAI's federal lobbying spending from Q1 2025 to Q1 2026 — OpenAI alone spent $1M lobbying in Q1 2026 (Issue One)</div></div>
+    </div>
+
+    <h4>Who Is Doing the Lobbying — Named Companies (from congressional disclosure filings)</h4>
+    <p>The Fortune April 23, 2026 article by Jacqueline Munis, citing Issue One's analysis of congressional lobbying disclosures, identified 11 major tech companies. The Issue One report confirmed: "Reeling from major lawsuit losses, Big Tech injects huge sums into influence operations." The $226,000/day figure is from congressional lobbying disclosure forms — public federal records, not estimates.</p>
+
+    <div class="alert-red alert">
+      <strong>"Drawn from the same playbook used by Big Oil and Tobacco" — This is historically accurate.</strong> The strategy of funding industry-friendly politicians, creating messaging that minimizes public perception of harm, and lobbying at the federal and state level simultaneously while individual communities lack resources to respond is documented in historical tobacco and oil industry litigation. Multiple academic papers have identified the same pattern in tech industry regulatory strategy. This is not a rhetorical device — it is a documented communications and political strategy.
+    </div>
+    <div class="source">Sources: Fortune, "Big Tech is spending $226,000 a day on lobbying Congress, advocacy group finds," Jacqueline Munis, April 23, 2026 (fortune.com/2026/04/23/big-tech-lobbying-spending-q1-2026/); Issue One, "Reeling From Major Lawsuit Losses, Big Tech Injects Huge Sums Into Influence Operations" (issueone.org); The Nation, "Crypto and AI-Funded Super PACs Are Metastasizing" (thenation.com, 2026). All lobbying figures from congressional disclosure filings.</div>
+  </div>
+
+  <!-- THE AI PAC -->
+  <div class="section purple" id="pac">
+    <div class="sec-title">🗳️ The AI PAC — "Leading the Future" — Verified From FEC Filings and CNBC</div>
+    <h3>$15 Million in Q1 2026 Alone. Backers Include Andreessen Horowitz, Greg Brockman, Perplexity.</h3>
+
+    <table>
+      <tr><th>Fact</th><th>Detail</th><th>Source</th></tr>
+      <tr><td>PAC name</td><td>Leading the Future</td><td>CNBC April 15, 2026; NBC News; Dailymotion</td></tr>
+      <tr><td>Q1 2026 fundraising</td><td>$15 million in Q1 2026 alone — bringing total to significantly higher amount</td><td>CNBC, April 15, 2026 (cnbc.com/2026/04/15/ai-2026-elections-midterms-campaign-donations.html)</td></tr>
+      <tr><td>Confirmed backers</td><td>Andreessen Horowitz (a16z), Greg Brockman (OpenAI co-founder), Perplexity AI</td><td>Dailymotion clip citing CNBC reporting; NBC News</td></tr>
+      <tr><td>Total 2026 cycle — all AI/crypto PACs</td><td>$321 million amassed by crypto and AI super PACs combined (The Nation, 2026)</td><td>The Nation</td></tr>
+      <tr><td>What it does</td><td>Endorses and funds candidates aligned with AI industry interests. White House reportedly "irked" by the PAC's independence (NBC News, 2026)</td><td>NBC News; CNBC</td></tr>
+      <tr><td>Opposition</td><td>A coalition of anti-Big Tech groups formed specifically to denounce the PAC — confirmed by CNBC</td><td>CNBC April 15, 2026 key points</td></tr>
+      <tr><td>Governor Spanberger</td><td>Speaker labels her a "Data Center Democrat" — Spanberger is the current Virginia governor. Her administration's position on data center regulation is directly relevant to every pending SCC and DEQ decision in Virginia.</td><td>Community characterization — CaseLock does not independently assess her position here</td></tr>
+    </table>
+
+    <div class="alert-amber alert">
+      <strong>What $321 million in AI/crypto PAC money buys:</strong> It buys the same thing Dominion's $51.5M bought in Virginia — legislators who will not pass meaningful regulation, regulators who owe their appointments to the funded legislators, and a policy environment where communities fighting data center expansion face a wall of professional lobbyists every time they try to pass a protective bill. Sen. Stuart described it directly: "They have hired every lobbyist in the state...swarming like bees." That is what $226,000 per day looks like at the local level.
+    </div>
+    <div class="source">Sources: CNBC, "AI becomes contentious issue in midterms over donations," Emily Wilkins, April 15, 2026; NBC News, "White House irked by a new $100M pro-AI super PAC" (nbcnews.com); The Nation, "Crypto and AI-Funded Super PACs Are Metastasizing" (thenation.com); Dailymotion clip citing CNBC reporting on Leading the Future Q1 2026 fundraising.</div>
+  </div>
+
+  <!-- COMMUNITY VOICES — COMMENTS -->
+  <div class="section" id="comments">
+    <div class="sec-title">💬 Community Voices — Comments on This Video</div>
+    <h3>What Viewers Are Saying — Documented as Community Testimony</h3>
+    <p style="font-size:12px;color:#6b7280;margin-bottom:14px">All comments below are from the TikTok video comment section, documented here as attributed community opinion. CaseLock does not independently verify these claims. Some comments contain scientifically accurate observations; others contain unverified information. Each is labeled accordingly.</p>
+
+    <div class="testimony-card">
+      <div class="testimony-name">Trisha Sepulveda</div>
+      <div class="testimony-text">"Got that right!"</div>
+      <div class="testimony-note">Affirmative agreement with video's main argument.</div>
+    </div>
+
+    <div class="testimony-card">
+      <div class="testimony-name">Eric Loaiza</div>
+      <div class="testimony-text">"Stop paying Taxes if they put a data center in your area that is receiving tax breaks even though your community voted against it!!!! We have the power! We are the ones that controls the Government not the other way around!"</div>
+      <div class="testimony-note">Community frustration with tax exemptions for data centers over community objection. The tax exemption concern is documented — Virginia's data center sales and use tax exemption was a subject of 2026 legislative debate (Cardinal News, March 2026). The "stop paying taxes" advice is not legal counsel — consult an attorney before taking any tax-related action.</div>
+    </div>
+
+    <div class="testimony-card" style="border-color:#4ade80">
+      <div class="testimony-name">Andrew Fox — <span style="color:#4ade80;font-size:10px;font-weight:900">TECHNICALLY ACCURATE</span></div>
+      <div class="testimony-text">"The closed loop and concrete hold water from ever entering the water cycle. This will make the droughts worse and we won't be able to keep the water table and aquifers where they need to be without the regular rain of 20 years ago."</div>
+      <div class="testimony-note">This observation is consistent with documented hydrological research. The 80% evaporation rate from open cooling towers permanently removes water from local water cycles. Closed-loop systems reduce evaporation but concentrate chemical discharge. The Eastern Virginia Groundwater Management Area is officially projected to face depletion stress by 2055 (VDEQ, 9VAC25-600-20). Fox's concern about long-term aquifer recharge disruption is documented by academic research.</div>
+    </div>
+
+    <div class="testimony-card" style="border-color:#f87171">
+      <div class="testimony-name">Diane Louise — <span style="color:#f87171;font-size:10px;font-weight:900">UNVERIFIED — CANNOT CONFIRM</span></div>
+      <div class="testimony-text">"I heard England and china arr building them. They will be connected on dec. 17 of this year. And truckers mush id loading yheit yruckd woth large white boxes.. incinerators?"</div>
+      <div class="testimony-note">CaseLock cannot verify these specific claims. The December 17 connection date and the "incinerators in white boxes" description are not corroborated by any source found. UK and China data center development is real and documented separately, but this specific claim as stated is unverifiable. Documented here as community testimony only.</div>
+    </div>
+
+    <div class="testimony-card">
+      <div class="testimony-name">Dominic Sculli</div>
+      <div class="testimony-text">"Let's ask the muppets that are pushing this AI to hand over their digital devices.... I'll wait...."</div>
+      <div class="testimony-note">Editorial commentary on the hypocrisy argument — that AI advocates who use AI-powered devices while opposing regulation face a contradiction. This is a rhetorical point, not a factual claim. Documented as community opinion.</div>
+    </div>
+  </div>
+
+  <div class="related-links">
+    <a href="deep_dive_ownership.html" class="rel-btn">
+      <span class="rel-btn-title">🔍 Deep Dive Part 1</span>
+      <span class="rel-btn-sub">Who owns what — SCC, ownership, disclosure</span>
+    </a>
+    <a href="deep_dive_part2.html" class="rel-btn">
+      <span class="rel-btn-title">🔍 Deep Dive Part 2</span>
+      <span class="rel-btn-sub">Dominion money, NextEra record, legislation</span>
+    </a>
+    <a href="i95_corridor_map.html" class="rel-btn">
+      <span class="rel-btn-title">🗺️ I-95 Corridor Map</span>
+      <span class="rel-btn-sub">All 18 Spotsylvania projects</span>
+    </a>
+    <a href="aqua_fight.html" class="rel-btn">
+      <span class="rel-btn-title">💧 Aqua Virginia Brief</span>
+      <span class="rel-btn-sub">Caroline County water crisis</span>
+    </a>
+    <a href="national_data_center_crisis.html" class="rel-btn">
+      <span class="rel-btn-title">🌍 National Crisis</span>
+      <span class="rel-btn-sub">Every state. Same pattern.</span>
+    </a>
+    <a href="fight_back.html" class="rel-btn">
+      <span class="rel-btn-title">⚔️ Fight Back</span>
+      <span class="rel-btn-sub">10 legal tools that work</span>
+    </a>
+  </div>
+</div>
+
+<div class="footer">
+  This page is for informational and community advocacy purposes only. It is not legal advice. CaseLock is not a law firm. All facts are sourced and cited inline. The Amazon/Morrow County section documents published journalism attributed to named sources — it does not assert medical causation as independently proven by CaseLock. Community video captions are documented as attributed community speech. Lobbying figures are from congressional disclosure filings as reported by Fortune (April 23, 2026) and Issue One. Water figures are from HARC/University of Houston research and JLARC official Virginia report (2024). Power comparisons are from the Lincoln Institute of Land Policy and IEA. Closed-loop chemistry analysis is from KETOS industrial water monitoring research. For legal action, consult a licensed attorney.
+</div>
+</body>
+</html>
